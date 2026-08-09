@@ -502,7 +502,27 @@ section[id] { scroll-margin-top: 88px; }
   letter-spacing: .14em;
   text-transform: uppercase;
   color: var(--ink-soft);
+  flex: none;
 }
+
+.terms {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .75rem 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+.terms__text {
+  font-family: var(--serif);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 62ch;
+  flex: 1 1 24rem;
+}
+.terms__text strong { color: var(--ink); font-weight: 500; }
 
 /* ============================ FINAL CTA ============================ */
 .cta { padding-block: var(--section); }
