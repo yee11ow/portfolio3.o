@@ -32,9 +32,11 @@
     })();
   </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <!-- Fonts are served from this domain. Nothing here calls out to a third
+       party, so no visitor IP is disclosed to anyone just by opening the page. -->
+  <link rel="preload" href="assets/fonts/spectral-400-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="assets/fonts/fonts.css" />
 
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -434,7 +436,14 @@
         <li><a href="https://www.linkedin.com/in/matvii" target="_blank" rel="noopener">LinkedIn</a></li>
         <!-- TODO: replace with your real domain email -->
         <li><a href="mailto:hej@matviiakkuratov.com">Email</a></li>
+        <li><a href="legal.html"><span lang="en">Legal &amp; privacy</span><span lang="sv">Juridik &amp; integritet</span></a></li>
       </ul>
+    </div>
+    <div class="wrap">
+      <p class="foot__fine">
+        <span lang="en">The concepts shown here were made on my own initiative. Företagarnas Revisionsbyrå i Uppsala AB and Nordström Advokater AB have not commissioned or approved them, and their names and texts remain their own. <a href="legal.html#koncept">More on this</a>.</span>
+        <span lang="sv">Koncepten som visas här är egeninitierade. Företagarnas Revisionsbyrå i Uppsala AB och Nordström Advokater AB har varken beställt eller godkänt dem, och deras namn och texter tillhör dem. <a href="legal.html#koncept">Mer om detta</a>.</span>
+      </p>
     </div>
   </footer>
 

@@ -27,11 +27,17 @@
     return SUPPORTED.indexOf(l) === -1 ? 'en' : l;
   }
 
-  /* ---------- Language toggle ---------- */
-  function setLang(lang) {
+  /* ---------- Language toggle ----------
+     `persist` is only true when the visitor actually picks a language. Writing
+     to storage on every page load would mean storing something on their device
+     without them asking, which is exactly what the ePrivacy rules are about.
+     Chosen preferences are fine; silent ones are not. */
+  function setLang(lang, persist) {
     if (SUPPORTED.indexOf(lang) === -1) lang = 'en';
     root.setAttribute('lang', lang);
-    try { localStorage.setItem('lang', lang); } catch (e) {}
+    if (persist) {
+      try { localStorage.setItem('lang', lang); } catch (e) {}
+    }
 
     langButtons.forEach(function (btn) {
       var active = btn.getAttribute('data-lang') === lang;
@@ -50,12 +56,12 @@
 
   langButtons.forEach(function (btn) {
     btn.addEventListener('click', function () {
-      setLang(btn.getAttribute('data-lang'));
+      setLang(btn.getAttribute('data-lang'), true);
     });
   });
 
-  // Sync with the language already set in <head>.
-  setLang(root.getAttribute('lang') || 'en');
+  // Sync with the language already set in <head>. Reads storage, never writes.
+  setLang(root.getAttribute('lang') || 'en', false);
 
   /* ---------- Sticky header background on scroll ---------- */
   function onScroll() {
