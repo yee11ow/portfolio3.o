@@ -5,7 +5,8 @@
   'use strict';
 
   var root = document.documentElement;
-  var SUPPORTED = ['en', 'sv'];
+  var SUPPORTED = ['sv', 'en'];
+  var DEFAULT_LANG = 'sv';
 
   var langButtons = Array.prototype.slice.call(document.querySelectorAll('.lang__btn'));
   var navEl = document.querySelector('.nav');
@@ -24,7 +25,7 @@
 
   function currentLang() {
     var l = root.getAttribute('lang');
-    return SUPPORTED.indexOf(l) === -1 ? 'en' : l;
+    return SUPPORTED.indexOf(l) === -1 ? DEFAULT_LANG : l;
   }
 
   /* ---------- Language toggle ----------
@@ -33,7 +34,7 @@
      without them asking, which is exactly what the ePrivacy rules are about.
      Chosen preferences are fine; silent ones are not. */
   function setLang(lang, persist) {
-    if (SUPPORTED.indexOf(lang) === -1) lang = 'en';
+    if (SUPPORTED.indexOf(lang) === -1) lang = DEFAULT_LANG;
     root.setAttribute('lang', lang);
     if (persist) {
       try { localStorage.setItem('lang', lang); } catch (e) {}
@@ -61,7 +62,7 @@
   });
 
   // Sync with the language already set in <head>. Reads storage, never writes.
-  setLang(root.getAttribute('lang') || 'en', false);
+  setLang(root.getAttribute('lang') || DEFAULT_LANG, false);
 
   /* ---------- Sticky header background on scroll ---------- */
   function onScroll() {
