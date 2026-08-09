@@ -16,7 +16,9 @@
   --accent-tint:#ece3d1;
   --ok:        #4f6b56;  /* availability dot */
 
-  --serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+  /* Spectral carries the page: classical transitional bones, drawn for screens.
+     Inter is kept for chrome only — nav, buttons, labels, badges. */
+  --serif: 'Spectral', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
   --sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 
   --r:     10px;
@@ -58,8 +60,33 @@ button { font: inherit; color: inherit; cursor: pointer; background: none; borde
 h1, h2, h3 {
   font-family: var(--serif);
   font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: -0.012em;
+  line-height: 1.14;
+  letter-spacing: -0.011em;
+}
+
+/* Running prose is set in the serif too; only the interface stays sans. */
+.hero__sub,
+.band__sub,
+.section-note,
+.flow__body,
+.step__t,
+.about__text p,
+.pstep__body,
+.cta__sub {
+  font-family: var(--serif);
+  line-height: 1.62;
+}
+
+/* visually hidden, still read aloud */
+.vh {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
 }
 
 section[id] { scroll-margin-top: 88px; }
@@ -524,6 +551,19 @@ section[id] { scroll-margin-top: 88px; }
   .mini-phone { display: none; }
   .hero__cta .btn { flex: 1 1 auto; }
   .browser__bar em { display: none; }
+}
+
+/* ============================ PRINT ============================ */
+@media print {
+  .site, .nav__menu, .nav__toggle, .skip-link, .hero__cta, .hero__visual, .mini-phone { display: none !important; }
+  html, body { background: #fff; color: #000; }
+  .band, .about, .cta__box { background: #fff !important; color: #000 !important; }
+  .cta__title, .cta__sub, .cta__alt, .cta__alt a { color: #000 !important; }
+  .browser { box-shadow: none; border-color: #bbb; }
+  .hero, .band, .work, .about, .process, .cta { padding-block: 1.25rem; }
+  .case, .pstep, .flow__item, .chip { break-inside: avoid; }
+  a { text-decoration: underline; }
+  .reveal { opacity: 1 !important; transform: none !important; }
 }
 
 /* ============================ MOTION PREFERENCE ============================ */
