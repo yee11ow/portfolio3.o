@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 470" role="img" aria-label="FB Revision concept — audit and accounting firm website">
+  <rect width="720" height="470" fill="#f7f6f3"/>
+
+  <!-- nav -->
+  <text x="32" y="31" font-family="Georgia, 'Times New Roman', serif" font-size="15" letter-spacing="1.6" fill="#18191b">FB REVISION</text>
+  <g font-family="Helvetica, Arial, sans-serif" font-size="9.5" fill="#5e6062">
+    <text x="540" y="30">Tjänster</text>
+    <text x="600" y="30">Om oss</text>
+    <text x="656" y="30">Kontakt</text>
+  </g>
+  <rect x="0" y="46" width="720" height="1" fill="#dcd9d2"/>
+
+  <!-- hero text -->
+  <text x="32" y="104" font-family="Helvetica, Arial, sans-serif" font-size="9" letter-spacing="2.4" fill="#8a6a35">REVISION &amp; REDOVISNING · STOCKHOLM</text>
+  <text x="30" y="158" font-family="Georgia, 'Times New Roman', serif" font-size="42" fill="#18191b">Ordning på</text>
+  <text x="30" y="204" font-family="Georgia, 'Times New Roman', serif" font-size="42" fill="#18191b">siffrorna.</text>
+  <text x="32" y="236" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#5e6062">För ägarledda bolag som vill ha en revisor som svarar.</text>
+  <rect x="32" y="256" width="140" height="34" rx="17" fill="#18191b"/>
+  <text x="102" y="278" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#f7f6f3">Boka ett möte</text>
+
+  <!-- ledger block: precision shown through structure, not stock photos -->
+  <rect x="410" y="76" width="278" height="214" rx="10" fill="#eeece7"/>
+  <text x="432" y="104" font-family="Helvetica, Arial, sans-serif" font-size="9" letter-spacing="1.6" fill="#8a6a35">ÅRSREDOVISNING</text>
+  <g>
+    <rect x="432" y="120" width="234" height="1" fill="#dcd9d2"/>
+    <rect x="432" y="132" width="96" height="6" rx="3" fill="#c8c4bb"/>
+    <rect x="596" y="132" width="70" height="6" rx="3" fill="#18191b"/>
+    <rect x="432" y="154" width="112" height="6" rx="3" fill="#c8c4bb"/>
+    <rect x="606" y="154" width="60" height="6" rx="3" fill="#18191b"/>
+    <rect x="432" y="176" width="84" height="6" rx="3" fill="#c8c4bb"/>
+    <rect x="612" y="176" width="54" height="6" rx="3" fill="#18191b"/>
+    <rect x="432" y="198" width="104" height="6" rx="3" fill="#c8c4bb"/>
+    <rect x="590" y="198" width="76" height="6" rx="3" fill="#18191b"/>
+    <rect x="432" y="220" width="234" height="1" fill="#dcd9d2"/>
+    <rect x="432" y="234" width="70" height="7" rx="3.5" fill="#8a6a35"/>
+    <rect x="580" y="234" width="86" height="7" rx="3.5" fill="#8a6a35"/>
+  </g>
+
+  <!-- services, in plain language -->
+  <g>
+    <rect x="32" y="326" width="208" height="112" rx="10" fill="#ffffff" stroke="#dcd9d2"/>
+    <text x="52" y="356" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#8a6a35">01</text>
+    <text x="52" y="380" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#18191b">Revision</text>
+    <rect x="52" y="394" width="158" height="6" rx="3" fill="#d8d4cc"/>
+    <rect x="52" y="408" width="118" height="6" rx="3" fill="#d8d4cc"/>
+  </g>
+  <g>
+    <rect x="256" y="326" width="208" height="112" rx="10" fill="#ffffff" stroke="#dcd9d2"/>
+    <text x="276" y="356" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#8a6a35">02</text>
+    <text x="276" y="380" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#18191b">Redovisning</text>
+    <rect x="276" y="394" width="158" height="6" rx="3" fill="#d8d4cc"/>
+    <rect x="276" y="408" width="136" height="6" rx="3" fill="#d8d4cc"/>
+  </g>
+  <g>
+    <rect x="480" y="326" width="208" height="112" rx="10" fill="#ffffff" stroke="#dcd9d2"/>
+    <text x="500" y="356" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#8a6a35">03</text>
+    <text x="500" y="380" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#18191b">Rådgivning</text>
+    <rect x="500" y="394" width="158" height="6" rx="3" fill="#d8d4cc"/>
+    <rect x="500" y="408" width="104" height="6" rx="3" fill="#d8d4cc"/>
+  </g>
+</svg>

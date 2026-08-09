@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Matvii — Booking-ready websites for beauty & wellness studios</title>
-  <meta name="description" content="Stockholm-based web design for boutique beauty & wellness studios — lash, brow & nail artists, cosmetology, pilates and yoga. Sites built to turn visitors into bookings. EN / RU / UA." />
-  <meta name="theme-color" content="#faf6f1" />
+  <title>Matvii — Websites for law firms, audit firms &amp; consultancies</title>
+  <meta name="description" content="Stockholm-based web design for professional services — advokatbyråer, revisionsbyråer and consultancies. Calm, credible websites that turn visitors into qualified enquiries. EN / SV." />
+  <meta name="theme-color" content="#f7f6f3" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Matvii — Booking-ready websites for beauty & wellness studios" />
-  <meta property="og:description" content="Editorial, mobile-first websites for boutique beauty & wellness studios. Built to turn visitors into bookings — not just a pretty page." />
-  <!-- TODO: export a 1200x630 PNG and replace this before sharing on social -->
-  <meta property="og:image" content="assets/mockup-hero.svg" />
+  <meta property="og:title" content="Matvii — Websites for law firms, audit firms &amp; consultancies" />
+  <meta property="og:description" content="Calm, credible websites for Swedish professional services firms. Your website is the first client meeting." />
+  <!-- TODO: export a 1200x630 PNG and point this at it — most platforms will not render an SVG preview -->
+  <meta property="og:image" content="assets/case-nordstrom.svg" />
 
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
 
-  <!-- Set language before paint to avoid a flash -->
+  <!-- Set language before paint to avoid a flash of the wrong version -->
   <script>
     (function () {
       try {
         var stored = localStorage.getItem('lang');
-        var lang = stored || ((navigator.language || '').toLowerCase().indexOf('ru') === 0 ? 'ru' : 'en');
+        var lang = stored || ((navigator.language || '').toLowerCase().indexOf('sv') === 0 ? 'sv' : 'en');
         document.documentElement.setAttribute('lang', lang);
       } catch (e) {}
     })();
@@ -29,12 +29,12 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <a class="skip-link" href="#work"><span lang="en">Skip to content</span><span lang="ru">К содержанию</span></a>
+  <a class="skip-link" href="#main"><span lang="en">Skip to content</span><span lang="sv">Hoppa till innehåll</span></a>
 
   <!-- ============================ HEADER ============================ -->
   <header class="site" id="top">
@@ -47,99 +47,135 @@
 
       <div class="nav__menu" id="nav-menu">
         <ul class="nav__links">
-          <li><a class="nav__link" href="#work"><span lang="en">Work</span><span lang="ru">Работы</span></a></li>
-          <li><a class="nav__link" href="#about"><span lang="en">About</span><span lang="ru">Обо мне</span></a></li>
-          <li><a class="nav__link" href="#process"><span lang="en">Process</span><span lang="ru">Процесс</span></a></li>
-          <li><a class="nav__link" href="#contact"><span lang="en">Contact</span><span lang="ru">Контакт</span></a></li>
+          <li><a class="nav__link" href="#work"><span lang="en">Work</span><span lang="sv">Arbeten</span></a></li>
+          <li><a class="nav__link" href="#about"><span lang="en">About</span><span lang="sv">Om mig</span></a></li>
+          <li><a class="nav__link" href="#process"><span lang="en">Process</span><span lang="sv">Arbetssätt</span></a></li>
+          <li><a class="nav__link" href="#contact"><span lang="en">Contact</span><span lang="sv">Kontakt</span></a></li>
         </ul>
 
         <div class="nav__right">
-          <span class="avail" title="Available for projects">
+          <span class="avail">
             <span class="dot" aria-hidden="true"></span>
-            <span lang="en">Available</span><span lang="ru">Свободен</span>
+            <span lang="en">Available</span><span lang="sv">Tillgänglig</span>
           </span>
 
           <div class="lang" role="group" aria-label="Language">
             <button class="lang__btn" data-lang="en" type="button">EN</button>
             <span class="lang__sep" aria-hidden="true">/</span>
-            <button class="lang__btn" data-lang="ru" type="button">RU</button>
+            <button class="lang__btn" data-lang="sv" type="button">SV</button>
           </div>
 
           <!-- TODO: replace with your real cal.com link -->
           <a class="btn btn--primary nav__cta" href="https://cal.com/matvii/15min" target="_blank" rel="noopener">
-            <span lang="en">Book a call</span><span lang="ru">Записаться</span>
+            <span lang="en">Book a call</span><span lang="sv">Boka samtal</span>
           </a>
         </div>
       </div>
     </nav>
   </header>
 
-  <main>
+  <main id="main">
     <!-- ============================ HERO ============================ -->
     <section class="hero">
       <div class="wrap hero__grid">
         <div class="hero__col reveal">
-          <p class="eyebrow"><span lang="en">Boutique beauty &amp; wellness · Stockholm</span><span lang="ru">Бутиковый beauty &amp; wellness · Стокгольм</span></p>
+          <p class="eyebrow">
+            <span lang="en">Web design for professional services · Stockholm</span>
+            <span lang="sv">Webbdesign för professionella tjänster · Stockholm</span>
+          </p>
 
           <h1 class="hero__title">
-            <span lang="en">Booking-ready websites for boutique beauty &amp; wellness studios.</span>
-            <span lang="ru">Сайты для бьюти-мастеров и студий — чтобы клиенты записывались, а не терялись в инстаграме.</span>
+            <span lang="en">Your website is the first client meeting.</span>
+            <span lang="sv">Er webbplats är det första klientmötet.</span>
           </h1>
 
           <p class="hero__sub">
-            <span lang="en">For lash, brow &amp; nail artists, skin &amp; cosmetology studios, pilates and yoga spaces. Built to turn visitors into bookings — not just a pretty page.</span>
-            <span lang="ru">Для мастеров по ресницам, бровям и ногтям, косметологов, студий пилатеса и йоги. Делаю так, чтобы посетитель записывался, а не просто любовался картинкой.</span>
+            <span lang="en">I design calm, credible websites for Swedish law firms, audit firms and consultancies — so the first impression matches the standard of your advice.</span>
+            <span lang="sv">Jag formger lugna och trovärdiga webbplatser för svenska advokatbyråer, revisionsbyråer och konsultbolag – så att första intrycket håller samma nivå som er rådgivning.</span>
           </p>
 
           <div class="hero__cta">
             <!-- TODO: replace with your real cal.com link -->
             <a class="btn btn--primary" href="https://cal.com/matvii/15min" target="_blank" rel="noopener">
-              <span lang="en">Book a 15-min call →</span><span lang="ru">Звонок на 15 минут →</span>
+              <span lang="en">Book a 15-min call →</span><span lang="sv">Boka ett samtal på 15 min →</span>
             </a>
             <a class="btn btn--ghost" href="#work">
-              <span lang="en">See the work ↓</span><span lang="ru">Смотреть работы ↓</span>
+              <span lang="en">See the work ↓</span><span lang="sv">Se arbeten ↓</span>
             </a>
           </div>
 
           <p class="trust">
-            <span lang="en">Available for projects · Replies in 24h · EN / RU / UA</span>
-            <span lang="ru">Беру проекты · Отвечаю за 24 часа · EN / RU / UA</span>
+            <span lang="en">Available for new projects · Replies within 24h · EN / SV</span>
+            <span lang="sv">Tillgänglig för nya uppdrag · Svarar inom 24 timmar · EN / SV</span>
           </p>
         </div>
 
         <div class="hero__visual reveal">
-          <div class="phone" aria-hidden="true">
-            <span class="phone__notch"></span>
-            <span class="phone__side"></span>
-            <div class="phone__screen">
-              <img src="assets/mockup-hero.svg" alt="" loading="eager" width="320" height="690" />
+          <div class="stack" aria-hidden="true">
+            <div class="browser browser--hero">
+              <span class="browser__bar"><i></i><i></i><i></i><em></em></span>
+              <img src="assets/hero-desktop.svg" alt="" width="720" height="470" />
+            </div>
+            <div class="mini-phone">
+              <img src="assets/hero-mobile.svg" alt="" width="180" height="360" />
             </div>
           </div>
-          <p class="phone__caption">
-            <span lang="en">A booking-ready studio site — designed by me</span>
-            <span lang="ru">Сайт студии, готовый к записи — мой дизайн</span>
+          <p class="visual__caption">
+            <span lang="en">Built for the screen your client actually opens</span>
+            <span lang="sv">Byggd för skärmen er klient faktiskt öppnar</span>
           </p>
         </div>
       </div>
     </section>
 
-    <!-- ====================== BOOKING FLOW BAND ====================== -->
+    <!-- ====================== ENQUIRY FLOW BAND ====================== -->
     <section class="band">
       <div class="wrap band__inner reveal">
         <div class="band__text">
-          <p class="eyebrow"><span lang="en">Booking, not just browsing</span><span lang="ru">Запись, а не просто просмотр</span></p>
+          <p class="eyebrow">
+            <span lang="en">Why firms lose enquiries</span><span lang="sv">Därför tappar byråer förfrågningar</span>
+          </p>
           <h2 class="band__title">
-            <span lang="en">From “nice page” to a client in your calendar.</span>
-            <span lang="ru">От «красивой страницы» к клиенту в вашем календаре.</span>
+            <span lang="en">From visitor to qualified enquiry.</span>
+            <span lang="sv">Från besökare till kvalificerad förfrågan.</span>
           </h2>
           <p class="muted band__sub">
-            <span lang="en">Every site I design leads to one obvious action — book. Browse, pick a time, done, on the phone where your clients actually are.</span>
-            <span lang="ru">Каждый сайт ведёт к одному очевидному действию — записаться. Выбрал, нажал, готово — на телефоне, где ваши клиенты и находятся.</span>
+            <span lang="en">A prospective client checks your site before they ever call. In under a minute they need to understand what you do, believe you are the right firm, and find an easy way to reach you. Most firm websites fail at least one of the three.</span>
+            <span lang="sv">Potentiella klienter besöker er webbplats innan de ringer. På mindre än en minut behöver de förstå vad ni gör, känna förtroende för att ni är rätt byrå och hitta ett enkelt sätt att höra av sig. De flesta byråwebbplatser missar minst ett av de tre.</span>
           </p>
         </div>
-        <figure class="band__media">
-          <img src="assets/booking-flow.svg" alt="" loading="lazy" width="640" height="360" />
-        </figure>
+        <ol class="flow">
+          <li class="flow__item">
+            <span class="flow__num">01</span>
+            <div class="flow__copy">
+              <h3 class="flow__title"><span lang="en">Understand</span><span lang="sv">Förstå</span></h3>
+              <p class="flow__body">
+                <span lang="en">What the firm does, who it is for and in which areas — visible without scrolling.</span>
+                <span lang="sv">Vad byrån gör, för vem och inom vilka områden – synligt utan att behöva skrolla.</span>
+              </p>
+            </div>
+          </li>
+          <li class="flow__item">
+            <span class="flow__num">02</span>
+            <div class="flow__copy">
+              <h3 class="flow__title"><span lang="en">Trust</span><span lang="sv">Förtroende</span></h3>
+              <p class="flow__body">
+                <span lang="en">The people, the credentials and the kind of clients you take on. Proof, not adjectives.</span>
+                <span lang="sv">Människorna, meriterna och vilka klienter ni tar er an. Bevis, inte adjektiv.</span>
+              </p>
+            </div>
+          </li>
+          <li class="flow__item">
+            <span class="flow__num">03</span>
+            <div class="flow__copy">
+              <h3 class="flow__title"><span lang="en">Contact</span><span lang="sv">Kontakt</span></h3>
+              <p class="flow__body">
+                <span lang="en">One obvious way to get in touch, repeated where the decision is actually made.</span>
+                <span lang="sv">Ett självklart sätt att höra av sig, upprepat där beslutet faktiskt fattas.</span>
+              </p>
+            </div>
+          </li>
+        </ol>
       </div>
     </section>
 
@@ -147,114 +183,102 @@
     <section class="work" id="work">
       <div class="wrap">
         <div class="section-head reveal">
-          <p class="eyebrow"><span lang="en">Selected work</span><span lang="ru">Избранные работы</span></p>
+          <p class="eyebrow"><span lang="en">Selected work</span><span lang="sv">Utvalda arbeten</span></p>
           <h2 class="section-title">
-            <span lang="en">Concept redesigns for studios I’d love to work with.</span>
-            <span lang="ru">Концепт-редизайны для студий, с которыми хочу работать.</span>
+            <span lang="en">Two live concepts for Swedish firms.</span>
+            <span lang="sv">Två live-koncept för svenska byråer.</span>
           </h2>
           <p class="section-note muted">
-            <span lang="en">Real studios, real problems — these are redesign studies, not paid clients yet. No invented case studies, no stock pretending to be work.</span>
-            <span lang="ru">Реальные студии, реальные проблемы — это концепт-исследования, пока не клиенты. Никаких выдуманных кейсов и стоковых картинок вместо работы.</span>
+            <span lang="en">Self-initiated concept redesigns, built as working websites you can open and click through. Not paid client work — and not invented case studies either.</span>
+            <span lang="sv">Egeninitierade koncept, byggda som fungerande webbplatser som går att öppna och klicka runt i. Inte betalda kunduppdrag – men inte heller påhittade case.</span>
           </p>
         </div>
 
-        <!-- Case 1 -->
+        <!-- Case 1 — FB Revision -->
         <article class="case reveal">
-          <div class="case__head">
-            <div class="badges">
-              <span class="badge badge--accent">Pilates studio</span>
-              <span class="badge">Concept · 2026</span>
-            </div>
-            <h3 class="case__title">
-              <span lang="en">Pilates Flow — putting class booking on the first screen</span>
-              <span lang="ru">Pilates Flow — запись на класс на первом экране</span>
-            </h3>
+          <div class="case__media">
+            <!-- TODO: replace the SVG with a real screenshot of the live concept -->
+            <a class="browser browser--case" href="https://fbrevision.matviiakkuratov.com" target="_blank" rel="noopener">
+              <span class="browser__bar"><i></i><i></i><i></i><em>fbrevision.matviiakkuratov.com</em></span>
+              <img src="assets/case-fbrevision.svg" alt="FB Revision — concept redesign for an audit and accounting firm" loading="lazy" width="720" height="470" />
+            </a>
           </div>
 
-          <div class="case__body">
+          <div class="case__text">
+            <div class="badges">
+              <span class="badge badge--accent"><span lang="en">Audit &amp; accounting</span><span lang="sv">Revision &amp; redovisning</span></span>
+              <span class="badge"><span lang="en">Live concept · 2026</span><span lang="sv">Live-koncept · 2026</span></span>
+            </div>
+
+            <h3 class="case__title">
+              <span lang="en">FB Revision — making an audit firm easy to choose</span>
+              <span lang="sv">FB Revision – att göra en revisionsbyrå lätt att välja</span>
+            </h3>
+
             <ol class="steps">
               <li class="step">
-                <span class="step__k"><span lang="en">The problem</span><span lang="ru">Проблема</span></span>
+                <span class="step__k"><span lang="en">The problem</span><span lang="sv">Problemet</span></span>
                 <p class="step__t">
-                  <span lang="en">The booking offer was buried under a corporate “about us” wall. On a phone you scrolled for eight seconds before you could even see how to sign up.</span>
-                  <span lang="ru">Запись была спрятана под корпоративной «о нас» стеной текста. На телефоне нужно было скроллить восемь секунд, прежде чем понять, как вообще записаться.</span>
+                  <span lang="en">Audit and accounting firms look interchangeable online: stock handshakes, a service list written in accountant’s language, and no signal of who they actually work with. A business owner comparing three firms has nothing to choose on.</span>
+                  <span lang="sv">Revisions- och redovisningsbyråer ser utbytbara ut på nätet: stockbilder på handslag, en tjänstelista på revisorssvenska och ingen antydan om vilka de faktiskt arbetar med. En företagare som jämför tre byråer har inget att välja på.</span>
                 </p>
               </li>
               <li class="step">
-                <span class="step__k"><span lang="en">The approach</span><span lang="ru">Подход</span></span>
+                <span class="step__k"><span lang="en">The approach</span><span lang="sv">Angreppssättet</span></span>
                 <p class="step__t">
-                  <span lang="en">I moved “Book a class” to the first screen, cut the copy in half, and led with the room and the schedule — so a new client decides in seconds, not minutes.</span>
-                  <span lang="ru">Вынес «Записаться на класс» на первый экран, сократил текст вдвое и показал зал и расписание первыми — чтобы новый клиент решал за секунды, а не за минуты.</span>
+                  <span lang="en">I led with who the firm serves and what each service actually means in plain language, and let the precision of the work show in typography and structure instead of stock photography. One clear way to get in touch, on every screen.</span>
+                  <span lang="sv">Jag lyfte fram vilka byrån arbetar med och vad varje tjänst faktiskt innebär, på begriplig svenska, och lät precisionen i arbetet synas i typografi och struktur i stället för genom stockbilder. Ett tydligt sätt att ta kontakt, på varje skärm.</span>
                 </p>
               </li>
             </ol>
 
-            <div class="ba">
-              <figure class="ba__item">
-                <span class="ba__tag"><span lang="en">Before</span><span lang="ru">Было</span></span>
-                <div class="frame">
-                  <span class="frame__bar"><i></i><i></i><i></i></span>
-                  <img src="assets/case-pilates-before.svg" alt="Pilates Flow — current site, before redesign" loading="lazy" width="560" height="380" />
-                </div>
-              </figure>
-              <figure class="ba__item">
-                <span class="ba__tag ba__tag--after"><span lang="en">After</span><span lang="ru">Стало</span></span>
-                <div class="frame">
-                  <span class="frame__bar"><i></i><i></i><i></i></span>
-                  <img src="assets/case-pilates-after.svg" alt="Pilates Flow — concept redesign, after" loading="lazy" width="560" height="380" />
-                </div>
-              </figure>
-            </div>
+            <a class="link-out" href="https://fbrevision.matviiakkuratov.com" target="_blank" rel="noopener">
+              <span lang="en">View live concept →</span><span lang="sv">Se live-konceptet →</span>
+            </a>
           </div>
         </article>
 
-        <!-- Case 2 -->
-        <article class="case reveal">
-          <div class="case__head">
-            <div class="badges">
-              <span class="badge badge--accent">Yoga studio</span>
-              <span class="badge">Concept · 2026</span>
-            </div>
-            <h3 class="case__title">
-              <span lang="en">Unfold Your Mat — from a wall of text to a calm first impression</span>
-              <span lang="ru">Unfold Your Mat — от стены текста к спокойному первому впечатлению</span>
-            </h3>
+        <!-- Case 2 — Nordström Advokater -->
+        <article class="case case--flip reveal">
+          <div class="case__media">
+            <!-- TODO: replace the SVG with a real screenshot of the live concept -->
+            <a class="browser browser--case" href="https://nordstromadvokater.matviiakkuratov.com" target="_blank" rel="noopener">
+              <span class="browser__bar"><i></i><i></i><i></i><em>nordstromadvokater.matviiakkuratov.com</em></span>
+              <img src="assets/case-nordstrom.svg" alt="Nordström Advokater — concept redesign for a law firm" loading="lazy" width="720" height="470" />
+            </a>
           </div>
 
-          <div class="case__body">
+          <div class="case__text">
+            <div class="badges">
+              <span class="badge badge--accent"><span lang="en">Law firm</span><span lang="sv">Advokatbyrå</span></span>
+              <span class="badge"><span lang="en">Live concept · 2026</span><span lang="sv">Live-koncept · 2026</span></span>
+            </div>
+
+            <h3 class="case__title">
+              <span lang="en">Nordström Advokater — practice areas a client can navigate</span>
+              <span lang="sv">Nordström Advokater – rättsområden som klienten hittar i</span>
+            </h3>
+
             <ol class="steps">
               <li class="step">
-                <span class="step__k"><span lang="en">The problem</span><span lang="ru">Проблема</span></span>
+                <span class="step__k"><span lang="en">The problem</span><span lang="sv">Problemet</span></span>
                 <p class="step__t">
-                  <span lang="en">A beautiful studio hidden behind paragraphs of philosophy, with no clear next step. The “pretty” site simply wasn’t bringing in trial classes.</span>
-                  <span lang="ru">Красивая студия, спрятанная за абзацами философии, без ясного следующего шага. «Красивый» сайт просто не приводил на пробные занятия.</span>
+                  <span lang="en">Law firm sites bury their practice areas under dense paragraphs. Someone with an urgent problem cannot tell in ten seconds whether this firm handles their kind of case — so they leave and call the next one.</span>
+                  <span lang="sv">Advokatbyråers webbplatser gömmer rättsområdena under täta textstycken. Den som har ett akut problem kan inte på tio sekunder avgöra om byrån hanterar just den typen av ärende – och går vidare till nästa byrå.</span>
                 </p>
               </li>
               <li class="step">
-                <span class="step__k"><span lang="en">The approach</span><span lang="ru">Подход</span></span>
+                <span class="step__k"><span lang="en">The approach</span><span lang="sv">Angreppssättet</span></span>
                 <p class="step__t">
-                  <span lang="en">I kept the soul but gave it air: one calm hero, a single “Try a class” button, and the schedule one tap away. Editorial, not corporate.</span>
-                  <span lang="ru">Сохранил душу, но дал воздуха: один спокойный первый экран, одна кнопка «Пробное занятие» и расписание в один тап. Editorial, а не корпоратив.</span>
+                  <span lang="en">Practice areas moved to the front, each summed up in one sentence a non-lawyer understands. The people made visible, because legal work is bought from people. And a single, unmissable way to make contact.</span>
+                  <span lang="sv">Rättsområdena flyttades fram, vart och ett sammanfattat i en mening som en icke-jurist förstår. Människorna gjordes synliga, eftersom juridiska tjänster köps av människor. Och ett enda kontaktsätt som är omöjligt att missa.</span>
                 </p>
               </li>
             </ol>
 
-            <div class="ba">
-              <figure class="ba__item">
-                <span class="ba__tag"><span lang="en">Before</span><span lang="ru">Было</span></span>
-                <div class="frame">
-                  <span class="frame__bar"><i></i><i></i><i></i></span>
-                  <img src="assets/case-unfold-before.svg" alt="Unfold Your Mat — current site, before redesign" loading="lazy" width="560" height="380" />
-                </div>
-              </figure>
-              <figure class="ba__item">
-                <span class="ba__tag ba__tag--after"><span lang="en">After</span><span lang="ru">Стало</span></span>
-                <div class="frame">
-                  <span class="frame__bar"><i></i><i></i><i></i></span>
-                  <img src="assets/case-unfold-after.svg" alt="Unfold Your Mat — concept redesign, after" loading="lazy" width="560" height="380" />
-                </div>
-              </figure>
-            </div>
+            <a class="link-out" href="https://nordstromadvokater.matviiakkuratov.com" target="_blank" rel="noopener">
+              <span lang="en">View live concept →</span><span lang="sv">Se live-konceptet →</span>
+            </a>
           </div>
         </article>
       </div>
@@ -264,32 +288,35 @@
     <section class="about" id="about">
       <div class="wrap about__grid">
         <figure class="about__photo reveal">
+          <!-- TODO: replace with a real photo of you (4:5) -->
           <img src="assets/portrait.svg" alt="" loading="lazy" width="480" height="600" />
         </figure>
         <div class="about__text reveal">
-          <p class="eyebrow"><span lang="en">About</span><span lang="ru">Обо мне</span></p>
+          <p class="eyebrow"><span lang="en">About</span><span lang="sv">Om mig</span></p>
           <h2 class="section-title">
-            <span lang="en">A Stockholm designer who speaks your language — literally.</span>
-            <span lang="ru">Стокгольмский дизайнер, который говорит на твоём языке — буквально.</span>
+            <span lang="en">A Stockholm designer who takes professional services seriously.</span>
+            <span lang="sv">En Stockholmsbaserad formgivare som tar professionella tjänster på allvar.</span>
           </h2>
 
           <p>
-            <span lang="en">I’m Matvii, a designer based in Stockholm with an eye trained on fashion and photography. I build calm, editorial websites for beauty and wellness studios.</span>
-            <span lang="ru">Я Matvii, дизайнер из Стокгольма с насмотренностью в фэшн и фото. Делаю спокойные editorial-сайты для бьюти- и wellness-студий.</span>
+            <span lang="en">I’m Matvii, a designer based in Stockholm. I work with firms whose product is judgement — law, audit, accounting, consulting — where the website has to carry credibility before anyone has met you.</span>
+            <span lang="sv">Jag heter Matvii och är formgivare i Stockholm. Jag arbetar med byråer vars viktigaste tillgång är omdöme – juridik, revision, redovisning och rådgivning – där webbplatsen måste bära trovärdigheten innan någon har träffat er.</span>
           </p>
           <p>
-            <span lang="en">That mix is the whole point: a Stockholm-level look that reads as premium, plus Russian, Ukrainian and English — so studios across the diaspora and in Norrland get a designer who understands both their aesthetic and their clients.</span>
-            <span lang="ru">Именно это сочетание — суть: стокгольмский уровень, который считывается как премиум, плюс русский, украинский и английский — чтобы студии в диаспоре и в Норрланде получили дизайнера, который понимает и их эстетику, и их клиентов.</span>
+            <span lang="en">My background is in fashion and photography, and that’s where the eye for restraint comes from. Applied to professional services it means fewer elements, better typography, and nothing on the page that isn’t doing work.</span>
+            <span lang="sv">Jag har en bakgrund inom mode och fotografi, och därifrån kommer blicken för återhållsamhet. Överfört till professionella tjänster betyder det färre element, bättre typografi och inget på sidan som inte gör nytta.</span>
           </p>
           <p>
-            <span lang="en">I work in Figma and build fast, mobile-first sites that load quickly and make booking obvious.</span>
-            <span lang="ru">Работаю в Figma, собираю быстрые mobile-first сайты, которые быстро грузятся и делают запись очевидной.</span>
+            <span lang="en">I design in Figma and build fast, accessible sites that load quickly and hold up on a phone between meetings.</span>
+            <span lang="sv">Jag formger i Figma och bygger snabba, tillgängliga webbplatser som laddar direkt och fungerar på en mobil mellan möten.</span>
           </p>
 
           <ul class="chips">
-            <li class="chip"><span lang="en">Stockholm-based</span><span lang="ru">Стокгольм</span></li>
-            <li class="chip">EN / RU / UA</li>
-            <li class="chip"><span lang="en">Beauty &amp; wellness focus</span><span lang="ru">Фокус на beauty &amp; wellness</span></li>
+            <li class="chip">Stockholm</li>
+            <li class="chip">EN / SV</li>
+            <li class="chip">
+              <span lang="en">Law · Audit · Consulting</span><span lang="sv">Juridik · Revision · Rådgivning</span>
+            </li>
           </ul>
         </div>
       </div>
@@ -299,39 +326,53 @@
     <section class="process" id="process">
       <div class="wrap">
         <div class="section-head reveal">
-          <p class="eyebrow"><span lang="en">How I work</span><span lang="ru">Как я работаю</span></p>
+          <p class="eyebrow"><span lang="en">How I work</span><span lang="sv">Så arbetar jag</span></p>
           <h2 class="section-title">
-            <span lang="en">Simple — and made for people who’ve never ordered a website.</span>
-            <span lang="ru">Просто — и для тех, кто никогда не заказывал сайт.</span>
+            <span lang="en">Simple, and built around how firms actually decide.</span>
+            <span lang="sv">Enkelt, och anpassat efter hur byråer faktiskt fattar beslut.</span>
           </h2>
         </div>
 
         <ol class="psteps">
           <li class="pstep reveal">
             <span class="pstep__num">01</span>
-            <h3 class="pstep__title"><span lang="en">Discovery call</span><span lang="ru">Discovery-звонок</span></h3>
+            <h3 class="pstep__title"><span lang="en">Intro call</span><span lang="sv">Introsamtal</span></h3>
             <p class="pstep__body">
-              <span lang="en">A free 15-minute call about your studio, your clients and what isn’t working today. No pressure, no pitch.</span>
-              <span lang="ru">Бесплатный звонок на 15 минут — о студии, клиентах и о том, что сейчас не работает. Без давления и продажи.</span>
+              <span lang="en">A free 15-minute call about the firm, your clients, and where the current site is letting you down. No pitch.</span>
+              <span lang="sv">Ett kostnadsfritt samtal på 15 minuter om byrån, era klienter och var nuvarande webbplats brister. Ingen säljpresentation.</span>
             </p>
           </li>
           <li class="pstep reveal">
             <span class="pstep__num">02</span>
-            <h3 class="pstep__title"><span lang="en">Concept</span><span lang="ru">Концепт</span></h3>
+            <h3 class="pstep__title"><span lang="en">Concept</span><span lang="sv">Koncept</span></h3>
             <p class="pstep__body">
-              <span lang="en">In a few days you get a clickable concept of your homepage. If the direction isn’t right, you don’t pay.</span>
-              <span lang="ru">Через несколько дней — кликабельный концепт главной. Если направление не то, вы не платите.</span>
+              <span lang="en">Within a week you get a clickable concept of your start page. If the direction isn’t right, you don’t pay.</span>
+              <span lang="sv">Inom en vecka får ni ett klickbart koncept av startsidan. Om riktningen inte känns rätt betalar ni ingenting.</span>
             </p>
           </li>
           <li class="pstep reveal">
             <span class="pstep__num">03</span>
-            <h3 class="pstep__title"><span lang="en">Build &amp; launch</span><span lang="ru">Сборка и запуск</span></h3>
+            <h3 class="pstep__title"><span lang="en">Build and launch</span><span lang="sv">Bygge och lansering</span></h3>
             <p class="pstep__body">
-              <span lang="en">I design and build the full site, launch it on your domain, and show you how to update it. Plus two weeks of free fixes.</span>
-              <span lang="ru">Собираю весь сайт, запускаю на вашем домене и показываю, как обновлять. Плюс две недели бесплатных правок.</span>
+              <span lang="en">I design and build the full site, launch it on your domain, and hand over a short guide for updates. Two weeks of fixes included.</span>
+              <span lang="sv">Jag formger och bygger hela webbplatsen, lanserar den på er domän och lämnar över en kort guide för uppdateringar. Två veckors justeringar ingår.</span>
             </p>
           </li>
         </ol>
+
+        <div class="included reveal">
+          <span class="included__label">
+            <span lang="en">Included</span><span lang="sv">Ingår</span>
+          </span>
+          <ul class="chips">
+            <li class="chip"><span lang="en">Design in Figma</span><span lang="sv">Design i Figma</span></li>
+            <li class="chip"><span lang="en">Responsive build</span><span lang="sv">Responsiv webb</span></li>
+            <li class="chip"><span lang="en">Copy structure</span><span lang="sv">Textstruktur</span></li>
+            <li class="chip"><span lang="en">SEO basics</span><span lang="sv">SEO-grunder</span></li>
+            <li class="chip"><span lang="en">Launch on your domain</span><span lang="sv">Lansering på er domän</span></li>
+            <li class="chip"><span lang="en">2 weeks of fixes</span><span lang="sv">2 veckors justeringar</span></li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -339,21 +380,21 @@
     <section class="cta" id="contact">
       <div class="wrap cta__box reveal">
         <h2 class="cta__title">
-          <span lang="en">Want to see what your studio’s site could look like?</span>
-          <span lang="ru">Хотите увидеть, как мог бы выглядеть сайт вашей студии?</span>
+          <span lang="en">Want a second opinion on your firm’s website?</span>
+          <span lang="sv">Vill ni ha en second opinion på byråns webbplats?</span>
         </h2>
         <p class="cta__sub">
-          <span lang="en">Book a free 15-minute call. I’ll walk through your current site and the two or three things I’d change first — even if you never work with me.</span>
-          <span lang="ru">Запишитесь на бесплатный звонок 15 минут. Пройдусь по вашему текущему сайту и назову две-три вещи, которые изменил бы первыми — даже если вы никогда не будете со мной работать.</span>
+          <span lang="en">Book a free 15-minute call. I’ll go through your current site and name the two or three things I’d change first — whether or not we end up working together.</span>
+          <span lang="sv">Boka ett kostnadsfritt samtal på 15 minuter. Jag går igenom er nuvarande webbplats och pekar ut de två eller tre saker jag skulle ändra först – oavsett om vi sedan arbetar ihop eller inte.</span>
         </p>
         <!-- TODO: replace with your real cal.com link -->
         <a class="btn btn--primary btn--lg" href="https://cal.com/matvii/15min" target="_blank" rel="noopener">
-          <span lang="en">Book a call →</span><span lang="ru">Записаться на звонок →</span>
+          <span lang="en">Book a call →</span><span lang="sv">Boka ett samtal →</span>
         </a>
-        <p class="cta__alt muted">
-          <span lang="en">or email </span><span lang="ru">или напишите на </span>
+        <p class="cta__alt">
+          <span lang="en">or email </span><span lang="sv">eller mejla </span>
           <!-- TODO: replace with your real domain email -->
-          <a href="mailto:hello@matvii.se">hello@matvii.se</a>
+          <a href="mailto:hej@matviiakkuratov.com">hej@matviiakkuratov.com</a>
         </p>
       </div>
     </section>
@@ -363,16 +404,14 @@
   <footer class="site-footer">
     <div class="wrap foot__row">
       <p class="foot__brand">
-        <span lang="en">Matvii · Web design for beauty &amp; wellness · Stockholm 2026</span>
-        <span lang="ru">Matvii · Веб-дизайн для beauty &amp; wellness · Стокгольм 2026</span>
+        <span lang="en">Matvii · Web design for professional services · Stockholm 2026</span>
+        <span lang="sv">Matvii · Webbdesign för professionella tjänster · Stockholm 2026</span>
       </p>
       <ul class="foot__links">
         <!-- TODO: replace with your real LinkedIn URL -->
         <li><a href="https://www.linkedin.com/in/matvii" target="_blank" rel="noopener">LinkedIn</a></li>
-        <!-- TODO: replace with your real Instagram URL -->
-        <li><a href="https://www.instagram.com/matvii.design" target="_blank" rel="noopener">Instagram</a></li>
         <!-- TODO: replace with your real domain email -->
-        <li><a href="mailto:hello@matvii.se">Email</a></li>
+        <li><a href="mailto:hej@matviiakkuratov.com">Email</a></li>
       </ul>
     </div>
   </footer>

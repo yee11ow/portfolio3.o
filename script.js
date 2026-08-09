@@ -5,12 +5,13 @@
   'use strict';
 
   var root = document.documentElement;
+  var SUPPORTED = ['en', 'sv'];
 
   /* ---------- Language toggle ---------- */
   var langButtons = Array.prototype.slice.call(document.querySelectorAll('.lang__btn'));
 
   function setLang(lang) {
-    if (lang !== 'en' && lang !== 'ru') lang = 'en';
+    if (SUPPORTED.indexOf(lang) === -1) lang = 'en';
     root.setAttribute('lang', lang);
     try { localStorage.setItem('lang', lang); } catch (e) {}
     langButtons.forEach(function (btn) {
@@ -53,18 +54,22 @@
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
 
-    // Close after navigating to an anchor.
+    // Close after following an in-page link.
     menu.querySelectorAll('a[href^="#"]').forEach(function (link) {
       link.addEventListener('click', closeMenu);
     });
 
-    // Reset when crossing back to desktop layout.
-    var mq = window.matchMedia('(min-width: 880px)');
-    (mq.addEventListener ? mq.addEventListener.bind(mq, 'change') : mq.addListener.bind(mq))(function () {
-      if (mq.matches) closeMenu();
-    });
+    // Reset when crossing back to the desktop layout.
+    var desktop = window.matchMedia('(min-width: 880px)');
+    function onBreakpoint() {
+      if (desktop.matches) closeMenu();
+    }
+    if (desktop.addEventListener) {
+      desktop.addEventListener('change', onBreakpoint);
+    } else if (desktop.addListener) {
+      desktop.addListener(onBreakpoint); // Safari < 14
+    }
 
-    // Close on Escape.
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') closeMenu();
     });
