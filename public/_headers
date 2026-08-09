@@ -6,8 +6,15 @@
 # by default and only same-origin assets are allowed back in — which is also
 # why the language script lives in assets/boot.js instead of inline.
 
+#
+# HSTS is set with includeSubDomains, which covers the concept subdomains too —
+# they are already HTTPS-only on Pages, so nothing breaks. `preload` is
+# deliberately left off: getting onto the browser preload list is easy and
+# getting off it takes months, and it is not worth that for a portfolio.
+
 /*
   Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
