@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 470" role="img" aria-label="Concept of a professional services firm website">
+  <rect width="720" height="470" fill="#f7f6f3"/>
+
+  <!-- nav -->
+  <text x="32" y="31" font-family="Georgia, 'Times New Roman', serif" font-size="15" letter-spacing="2" fill="#18191b">BYRÅN</text>
+  <g font-family="Helvetica, Arial, sans-serif" font-size="9.5" fill="#5e6062">
+    <text x="548" y="30">Tjänster</text>
+    <text x="608" y="30">Om oss</text>
+    <text x="660" y="30">Kontakt</text>
+  </g>
+
+  <!-- dark hero panel -->
+  <rect x="0" y="46" width="720" height="254" fill="#18191b"/>
+  <text x="48" y="102" font-family="Helvetica, Arial, sans-serif" font-size="9" letter-spacing="2.5" fill="#c2a06a">AFFÄRSJURIDIK · STOCKHOLM</text>
+  <text x="46" y="152" font-family="Georgia, 'Times New Roman', serif" font-size="40" fill="#f7f6f3">Rådgivning</text>
+  <text x="46" y="196" font-family="Georgia, 'Times New Roman', serif" font-size="40" fill="#f7f6f3">att lita på.</text>
+  <text x="48" y="226" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#9b9c9b">Affärsjuridik och skatterådgivning för svenska bolag.</text>
+  <rect x="48" y="244" width="138" height="34" rx="17" fill="#f7f6f3"/>
+  <text x="117" y="266" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#18191b">Kontakta oss</text>
+
+  <!-- abstract panel inside hero -->
+  <rect x="470" y="86" width="202" height="174" rx="8" fill="#232529"/>
+  <circle cx="571" cy="150" r="34" fill="#31343a"/>
+  <rect x="510" y="204" width="122" height="7" rx="3.5" fill="#31343a"/>
+  <rect x="530" y="220" width="82" height="7" rx="3.5" fill="#2a2d32"/>
+
+  <!-- three service cards -->
+  <g>
+    <rect x="32" y="330" width="208" height="100" rx="10" fill="#ffffff" stroke="#dcd9d2"/>
+    <text x="52" y="362" font-family="Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#18191b">Affärsjuridik</text>
+    <rect x="52" y="378" width="150" height="6" rx="3" fill="#d8d4cc"/>
+    <rect x="52" y="392" width="120" height="6" rx="3" fill="#d8d4cc"/>
+  </g>
+  <g>
+    <rect x="256" y="330" width="208" height="100" rx="10" fill="#ffffff" stroke="#dcd9d2"/>
+    <text x="276" y="362" font-family="Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#18191b">Skatterådgivning</text>
+    <rect x="276" y="378" width="150" height="6" rx="3" fill="#d8d4cc"/>
+    <rect x="276" y="392" width="104" height="6" rx="3" fill="#d8d4cc"/>
+  </g>
+  <g>
+    <rect x="480" y="330" width="208" height="100" rx="10" fill="#ffffff" stroke="#dcd9d2"/>
+    <text x="500" y="362" font-family="Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#18191b">Tvistelösning</text>
+    <rect x="500" y="378" width="150" height="6" rx="3" fill="#d8d4cc"/>
+    <rect x="500" y="392" width="132" height="6" rx="3" fill="#d8d4cc"/>
+  </g>
+</svg>

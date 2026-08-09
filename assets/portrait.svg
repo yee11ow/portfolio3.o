@@ -1,13 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 600" role="img" aria-label="Portrait placeholder">
-  <defs>
-    <linearGradient id="pg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#efd9cb"/>
-      <stop offset="1" stop-color="#d9b59c"/>
-    </linearGradient>
-  </defs>
-  <rect width="480" height="600" fill="url(#pg)"/>
-  <!-- soft silhouette -->
-  <circle cx="240" cy="232" r="92" fill="#c79c80" opacity="0.75"/>
-  <path d="M80 600 C100 430 180 360 240 360 C300 360 380 430 400 600 Z" fill="#c79c80" opacity="0.75"/>
-  <circle cx="392" cy="96" r="44" fill="#f6e7db" opacity="0.5"/>
+  <rect width="480" height="600" fill="#e6e3dc"/>
+  <circle cx="392" cy="104" r="52" fill="#efece5"/>
+  <circle cx="240" cy="236" r="94" fill="#b8b3a9"/>
+  <path d="M74 600 C96 424 176 352 240 352 C304 352 384 424 406 600 Z" fill="#b8b3a9"/>
+  <rect x="0" y="576" width="480" height="24" fill="#dcd9d2"/>
 </svg>
