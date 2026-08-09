@@ -21,16 +21,8 @@
 
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
 
-  <!-- Set language before paint to avoid a flash of the wrong version -->
-  <script>
-    (function () {
-      try {
-        var stored = localStorage.getItem('lang');
-        var lang = stored || ((navigator.language || '').toLowerCase().indexOf('sv') === 0 ? 'sv' : 'en');
-        document.documentElement.setAttribute('lang', lang);
-      } catch (e) {}
-    })();
-  </script>
+  <!-- Sets the language before paint, so the page never flashes the wrong one -->
+  <script src="assets/boot.js"></script>
 
   <!-- Fonts are served from this domain. Nothing here calls out to a third
        party, so no visitor IP is disclosed to anyone just by opening the page. -->
