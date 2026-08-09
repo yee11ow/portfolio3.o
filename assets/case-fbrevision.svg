@@ -1,61 +1,65 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 470" role="img" aria-label="FB Revision concept — audit and accounting firm website">
-  <rect width="720" height="470" fill="#f7f6f3"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 470" role="img" aria-label="FB Revision concept — services accordion and credentials ledger">
+  <rect width="720" height="470" fill="#F4F3F7"/>
 
-  <!-- nav -->
-  <text x="32" y="31" font-family="Georgia, 'Times New Roman', serif" font-size="15" letter-spacing="1.6" fill="#18191b">FB REVISION</text>
-  <g font-family="Helvetica, Arial, sans-serif" font-size="9.5" fill="#5e6062">
-    <text x="540" y="30">Tjänster</text>
-    <text x="600" y="30">Om oss</text>
-    <text x="656" y="30">Kontakt</text>
-  </g>
-  <rect x="0" y="46" width="720" height="1" fill="#dcd9d2"/>
+  <!-- concept banner -->
+  <rect x="0" y="0" width="720" height="18" fill="#0C1120"/>
+  <text x="360" y="12.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="7" fill="#9D9AB4">
+    <tspan fill="#AB8449" font-weight="bold">Designkoncept</tspan> — inte FB Revisions officiella webbplats
+  </text>
 
-  <!-- hero text -->
-  <text x="32" y="104" font-family="Helvetica, Arial, sans-serif" font-size="9" letter-spacing="2.4" fill="#8a6a35">REVISION &amp; REDOVISNING · STOCKHOLM</text>
-  <text x="30" y="158" font-family="Georgia, 'Times New Roman', serif" font-size="42" fill="#18191b">Ordning på</text>
-  <text x="30" y="204" font-family="Georgia, 'Times New Roman', serif" font-size="42" fill="#18191b">siffrorna.</text>
-  <text x="32" y="236" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#5e6062">För ägarledda bolag som vill ha en revisor som svarar.</text>
-  <rect x="32" y="256" width="140" height="34" rx="17" fill="#18191b"/>
-  <text x="102" y="278" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#f7f6f3">Boka ett möte</text>
+  <!-- header -->
+  <rect x="0" y="57" width="720" height="1" fill="#D8D5E0"/>
+  <rect x="30" y="26" width="22" height="22" rx="1.5" fill="none" stroke="#AB8449" stroke-width="1.2"/>
+  <path d="M35.5 43.5V31h5.6M35.5 37.5h4.4" fill="none" stroke="#AB8449" stroke-width="1.6"/>
+  <text x="60" y="36" font-family="Georgia, 'Times New Roman', serif" font-size="11.5" font-weight="bold" fill="#131A2E">FB Revision</text>
+  <text x="60" y="46" font-family="Helvetica, Arial, sans-serif" font-size="6" letter-spacing="1.2" fill="#4A4860">UPPSALA SEDAN 1975</text>
+  <g font-family="Helvetica, Arial, sans-serif" font-size="8.5" fill="#131A2E" opacity="0.78">
+    <text x="430" y="41">Tjänster</text>
+    <text x="476" y="41">Om oss</text>
+    <text x="518" y="41">Medarbetare</text>
+    <text x="582" y="41">Kontakt</text>
+  </g>
+  <rect x="632" y="28" width="60" height="20" rx="1.5" fill="#AB8449"/>
+  <text x="662" y="41.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="7.5" font-weight="bold" fill="#14100A">Kontakt</text>
 
-  <!-- ledger block: precision shown through structure, not stock photos -->
-  <rect x="410" y="76" width="278" height="214" rx="10" fill="#eeece7"/>
-  <text x="432" y="104" font-family="Helvetica, Arial, sans-serif" font-size="9" letter-spacing="1.6" fill="#8a6a35">ÅRSREDOVISNING</text>
-  <g>
-    <rect x="432" y="120" width="234" height="1" fill="#dcd9d2"/>
-    <rect x="432" y="132" width="96" height="6" rx="3" fill="#c8c4bb"/>
-    <rect x="596" y="132" width="70" height="6" rx="3" fill="#18191b"/>
-    <rect x="432" y="154" width="112" height="6" rx="3" fill="#c8c4bb"/>
-    <rect x="606" y="154" width="60" height="6" rx="3" fill="#18191b"/>
-    <rect x="432" y="176" width="84" height="6" rx="3" fill="#c8c4bb"/>
-    <rect x="612" y="176" width="54" height="6" rx="3" fill="#18191b"/>
-    <rect x="432" y="198" width="104" height="6" rx="3" fill="#c8c4bb"/>
-    <rect x="590" y="198" width="76" height="6" rx="3" fill="#18191b"/>
-    <rect x="432" y="220" width="234" height="1" fill="#dcd9d2"/>
-    <rect x="432" y="234" width="70" height="7" rx="3.5" fill="#8a6a35"/>
-    <rect x="580" y="234" width="86" height="7" rx="3.5" fill="#8a6a35"/>
+  <!-- compressed dark hero -->
+  <rect x="0" y="58" width="720" height="146" fill="#0C1120"/>
+  <text x="560" y="106" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="9" letter-spacing="3.6" fill="#B8945A" opacity="0.9">SEDAN</text>
+  <text x="560" y="166" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="64" font-weight="bold" fill="none" stroke="#AB8449" stroke-opacity="0.32" stroke-width="1.2">1975</text>
+  <text x="34" y="94" font-family="Helvetica, Arial, sans-serif" font-size="7.5" letter-spacing="2.2" fill="#AB8449">REVISIONSBYRÅ I UPPSALA</text>
+  <text x="32" y="130" font-family="Georgia, 'Times New Roman', serif" font-size="25" font-weight="bold" fill="#E8E6F0">Över femtio år som</text>
+  <text x="32" y="160" font-family="Georgia, 'Times New Roman', serif" font-size="25" font-weight="bold" fill="#AB8449">bollplank<tspan fill="#E8E6F0"> åt Upplands</tspan></text>
+  <g font-family="Helvetica, Arial, sans-serif" font-size="7.5" fill="#9D9AB4">
+    <rect x="32" y="180" width="3.5" height="3.5" fill="#AB8449"/><text x="42" y="185">3 auktoriserade revisorer</text>
+    <rect x="170" y="180" width="3.5" height="3.5" fill="#AB8449"/><text x="180" y="185">14 medarbetare</text>
+    <rect x="266" y="180" width="3.5" height="3.5" fill="#AB8449"/><text x="276" y="185">SRF konsulterna</text>
   </g>
 
-  <!-- services, in plain language -->
-  <g>
-    <rect x="32" y="326" width="208" height="112" rx="10" fill="#ffffff" stroke="#dcd9d2"/>
-    <text x="52" y="356" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#8a6a35">01</text>
-    <text x="52" y="380" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#18191b">Revision</text>
-    <rect x="52" y="394" width="158" height="6" rx="3" fill="#d8d4cc"/>
-    <rect x="52" y="408" width="118" height="6" rx="3" fill="#d8d4cc"/>
-  </g>
-  <g>
-    <rect x="256" y="326" width="208" height="112" rx="10" fill="#ffffff" stroke="#dcd9d2"/>
-    <text x="276" y="356" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#8a6a35">02</text>
-    <text x="276" y="380" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#18191b">Redovisning</text>
-    <rect x="276" y="394" width="158" height="6" rx="3" fill="#d8d4cc"/>
-    <rect x="276" y="408" width="136" height="6" rx="3" fill="#d8d4cc"/>
-  </g>
-  <g>
-    <rect x="480" y="326" width="208" height="112" rx="10" fill="#ffffff" stroke="#dcd9d2"/>
-    <text x="500" y="356" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#8a6a35">03</text>
-    <text x="500" y="380" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#18191b">Rådgivning</text>
-    <rect x="500" y="394" width="158" height="6" rx="3" fill="#d8d4cc"/>
-    <rect x="500" y="408" width="104" height="6" rx="3" fill="#d8d4cc"/>
+  <!-- services accordion, on the ledger-rail grid -->
+  <text x="32" y="240" font-family="Helvetica, Arial, sans-serif" font-size="7.5" letter-spacing="1.6" fill="#5A5870">TJÄNSTER</text>
+  <text x="170" y="244" font-family="Georgia, 'Times New Roman', serif" font-size="20" font-weight="bold" fill="#131A2E">Vi erbjuder följande tjänster</text>
+  <text x="170" y="264" font-family="Helvetica, Arial, sans-serif" font-size="9" fill="#5A5870">Fem områden, samma kontaktperson. Klicka för att se vad som ingår.</text>
+
+  <g font-family="Georgia, 'Times New Roman', serif" font-size="15" font-weight="bold" fill="#131A2E">
+    <rect x="170" y="284" width="518" height="1" fill="#D8D5E0"/>
+    <text x="170" y="311" font-family="Helvetica, Arial, sans-serif" font-size="7.5" font-weight="bold" letter-spacing="1" fill="#7C5A2E">01</text>
+    <text x="200" y="312">Revision</text>
+    <rect x="672" y="300" width="14" height="1.3" fill="#AB8449"/><rect x="678.4" y="293.6" width="1.3" height="14" fill="#AB8449"/>
+
+    <rect x="170" y="326" width="518" height="1" fill="#D8D5E0"/>
+    <text x="170" y="353" font-family="Helvetica, Arial, sans-serif" font-size="7.5" font-weight="bold" letter-spacing="1" fill="#7C5A2E">02</text>
+    <text x="200" y="354">Redovisning</text>
+    <rect x="672" y="342" width="14" height="1.3" fill="#AB8449"/><rect x="678.4" y="335.6" width="1.3" height="14" fill="#AB8449"/>
+
+    <rect x="170" y="368" width="518" height="1" fill="#D8D5E0"/>
+    <text x="170" y="395" font-family="Helvetica, Arial, sans-serif" font-size="7.5" font-weight="bold" letter-spacing="1" fill="#7C5A2E">03</text>
+    <text x="200" y="396">Skattefrågor</text>
+    <rect x="672" y="384" width="14" height="1.3" fill="#AB8449"/><rect x="678.4" y="377.6" width="1.3" height="14" fill="#AB8449"/>
+
+    <rect x="170" y="410" width="518" height="1" fill="#D8D5E0"/>
+    <text x="170" y="437" font-family="Helvetica, Arial, sans-serif" font-size="7.5" font-weight="bold" letter-spacing="1" fill="#7C5A2E">04</text>
+    <text x="200" y="438">Ekonomisk rådgivning</text>
+    <rect x="672" y="426" width="14" height="1.3" fill="#AB8449"/><rect x="678.4" y="419.6" width="1.3" height="14" fill="#AB8449"/>
+    <rect x="170" y="452" width="518" height="1" fill="#D8D5E0"/>
   </g>
 </svg>

@@ -1,50 +1,78 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 470" role="img" aria-label="Nordström Advokater concept — law firm website">
-  <rect width="720" height="470" fill="#f7f6f3"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 470" role="img" aria-label="Nordström Advokater concept — homepage with the bankruptcy portal">
+  <rect width="720" height="470" fill="#F6F4F0"/>
 
-  <!-- nav -->
-  <text x="32" y="31" font-family="Georgia, 'Times New Roman', serif" font-size="14" letter-spacing="1.6" fill="#18191b">NORDSTRÖM ADVOKATER</text>
-  <g font-family="Helvetica, Arial, sans-serif" font-size="9.5" fill="#5e6062">
-    <text x="512" y="30">Rättsområden</text>
-    <text x="592" y="30">Medarbetare</text>
-    <text x="668" y="30">Kontakt</text>
+  <!-- concept banner -->
+  <rect x="0" y="0" width="720" height="22" fill="#072A29"/>
+  <text x="360" y="15" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="7.5" fill="#A9BDB8">
+    <tspan fill="#C2A56E" font-weight="bold">Koncept</tspan> — inget som skickas här når byrån
+  </text>
+
+  <!-- header -->
+  <rect x="0" y="63" width="720" height="1" fill="#DDD8D0"/>
+  <rect x="30" y="30" width="26" height="26" rx="1.5" fill="#0B3B39"/>
+  <text x="43" y="49" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="15" fill="#C2A56E">N</text>
+  <text x="64" y="41" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#14211F">Nordström</text>
+  <text x="64" y="52" font-family="Helvetica, Arial, sans-serif" font-size="6.2" letter-spacing="1.6" fill="#5F6B68">ADVOKATER</text>
+  <g font-family="Helvetica, Arial, sans-serif" font-size="8" fill="#5F6B68">
+    <text x="330" y="46">Verksamhetsområden</text>
+    <text x="432" y="46">Konkurser</text>
+    <text x="486" y="46">Medarbetare</text>
+    <text x="552" y="46">Kontakt</text>
+  </g>
+  <text x="628" y="41" font-family="Helvetica, Arial, sans-serif" font-size="6" letter-spacing="1.2" fill="#5F6B68">VÄXEL</text>
+  <text x="628" y="52" font-family="Helvetica, Arial, sans-serif" font-size="9" font-weight="bold" fill="#14211F">018-15 76 80</text>
+
+  <!-- hero -->
+  <text x="32" y="96" font-family="Helvetica, Arial, sans-serif" font-size="7.5" letter-spacing="2.2" fill="#8A6A35">ADVOKATBYRÅ I UPPSALA SEDAN 1986</text>
+  <text x="30" y="132" font-family="Georgia, 'Times New Roman', serif" font-size="24" fill="#14211F">Juridisk rådgivning för</text>
+  <text x="30" y="162" font-family="Georgia, 'Times New Roman', serif" font-size="24" fill="#14211F">företag och privatpersoner</text>
+  <text x="30" y="192" font-family="Georgia, 'Times New Roman', serif" font-size="24" fill="#14211F">i Uppsala och Sala.</text>
+  <text x="32" y="218" font-family="Helvetica, Arial, sans-serif" font-size="9" fill="#5F6B68">Vi har sedan 1986 erbjudit företag, organisationer och privatpersoner</text>
+  <text x="32" y="232" font-family="Helvetica, Arial, sans-serif" font-size="9" fill="#5F6B68">kvalificerat juridiskt biträde i rättsliga angelägenheter.</text>
+
+  <!-- registry aside: verifiable facts, not adjectives -->
+  <rect x="470" y="82" width="218" height="158" rx="2" fill="#EDEAE3"/>
+  <text x="486" y="102" font-family="Helvetica, Arial, sans-serif" font-size="7" letter-spacing="1.5" fill="#5F6B68">BYRÅN I SAMMANDRAG</text>
+  <g font-family="Helvetica, Arial, sans-serif" font-size="8">
+    <rect x="486" y="110" width="186" height="1" fill="#DDD8D0"/>
+    <text x="486" y="126" fill="#5F6B68">Grundad</text><text x="672" y="126" text-anchor="end" font-weight="bold" fill="#14211F">1986</text>
+    <rect x="486" y="134" width="186" height="1" fill="#DDD8D0"/>
+    <text x="486" y="150" fill="#5F6B68">Jurister</text><text x="672" y="150" text-anchor="end" font-weight="bold" fill="#14211F">8</text>
+    <rect x="486" y="158" width="186" height="1" fill="#DDD8D0"/>
+    <rect x="478" y="162" width="202" height="24" fill="#E2DCCB"/>
+    <text x="486" y="178" fill="#7C5A2E" font-weight="bold">Konkursförvaltare</text><text x="672" y="178" text-anchor="end" font-weight="bold" fill="#7C5A2E">6</text>
+    <rect x="486" y="190" width="186" height="1" fill="#DDD8D0"/>
+    <text x="486" y="206" fill="#5F6B68">Verksamhetsområden</text><text x="672" y="206" text-anchor="end" font-weight="bold" fill="#14211F">13</text>
+    <rect x="486" y="214" width="186" height="1" fill="#DDD8D0"/>
+    <text x="486" y="230" fill="#5F6B68">Kontor</text><text x="672" y="230" text-anchor="end" font-weight="bold" fill="#14211F">Uppsala, Sala</text>
   </g>
 
-  <!-- dark hero -->
-  <rect x="0" y="46" width="720" height="196" fill="#18191b"/>
-  <text x="48" y="94" font-family="Helvetica, Arial, sans-serif" font-size="9" letter-spacing="2.4" fill="#c2a06a">ADVOKATBYRÅ · STOCKHOLM</text>
-  <text x="46" y="142" font-family="Georgia, 'Times New Roman', serif" font-size="34" fill="#f7f6f3">Juridisk rådgivning</text>
-  <text x="46" y="180" font-family="Georgia, 'Times New Roman', serif" font-size="34" fill="#f7f6f3">när det gäller.</text>
-  <rect x="510" y="150" width="162" height="36" rx="18" fill="#f7f6f3"/>
-  <text x="591" y="173" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#18191b">Kontakta oss</text>
+  <!-- two doors: route by situation, not by org chart -->
+  <rect x="30" y="256" width="322" height="58" rx="2" fill="#FFFFFF" stroke="#DDD8D0"/>
+  <text x="48" y="282" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#14211F">Jag behöver juridisk hjälp</text>
+  <text x="332" y="282" text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#8A6A35">→</text>
+  <text x="48" y="299" font-family="Helvetica, Arial, sans-serif" font-size="7.5" fill="#5F6B68">Tretton verksamhetsområden — från avtal till arvsrätt.</text>
 
-  <!-- practice areas: front and centre, one line each -->
-  <text x="32" y="270" font-family="Helvetica, Arial, sans-serif" font-size="9" letter-spacing="2.2" fill="#8a6a35">RÄTTSOMRÅDEN</text>
-  <g>
-    <rect x="32" y="282" width="320" height="62" rx="8" fill="#ffffff" stroke="#dcd9d2"/>
-    <text x="52" y="306" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#18191b">Affärsjuridik</text>
-    <rect x="52" y="318" width="252" height="6" rx="3" fill="#d8d4cc"/>
-  </g>
-  <g>
-    <rect x="368" y="282" width="320" height="62" rx="8" fill="#ffffff" stroke="#dcd9d2"/>
-    <text x="388" y="306" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#18191b">Arbetsrätt</text>
-    <rect x="388" y="318" width="216" height="6" rx="3" fill="#d8d4cc"/>
-  </g>
-  <g>
-    <rect x="32" y="354" width="320" height="62" rx="8" fill="#ffffff" stroke="#dcd9d2"/>
-    <text x="52" y="378" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#18191b">Fastighetsrätt</text>
-    <rect x="52" y="390" width="230" height="6" rx="3" fill="#d8d4cc"/>
-  </g>
-  <g>
-    <rect x="368" y="354" width="320" height="62" rx="8" fill="#ffffff" stroke="#dcd9d2"/>
-    <text x="388" y="378" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#18191b">Tvistelösning</text>
-    <rect x="388" y="390" width="264" height="6" rx="3" fill="#d8d4cc"/>
-  </g>
+  <rect x="366" y="256" width="322" height="58" rx="2" fill="#FFFFFF" stroke="#DDD8D0"/>
+  <text x="384" y="282" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#14211F">Jag berörs av en konkurs</text>
+  <text x="668" y="282" text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#8A6A35">→</text>
+  <text x="384" y="299" font-family="Helvetica, Arial, sans-serif" font-size="7.5" fill="#5F6B68">Anmäl direkt till rätt förvaltare.</text>
 
-  <!-- the people, because legal work is bought from people -->
+  <!-- the bankruptcy portal -->
+  <rect x="0" y="334" width="720" height="136" fill="#0B3B39"/>
+  <text x="32" y="362" font-family="Helvetica, Arial, sans-serif" font-size="7.5" letter-spacing="2.2" fill="#C2A56E">KONKURSPORTALEN</text>
+  <text x="30" y="390" font-family="Georgia, 'Times New Roman', serif" font-size="20" fill="#F0EEE8">Berörs du av en konkurs?</text>
   <g>
-    <circle cx="46" cy="444" r="13" fill="#cfcbc3"/>
-    <circle cx="72" cy="444" r="13" fill="#c4bfb6"/>
-    <circle cx="98" cy="444" r="13" fill="#b9b4aa"/>
-    <text x="124" y="448" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#5e6062">Möt våra advokater</text>
+    <rect x="32" y="406" width="206" height="46" rx="2" fill="#0E4A47"/>
+    <text x="46" y="426" font-family="Helvetica, Arial, sans-serif" font-size="8.5" font-weight="bold" fill="#F0EEE8">Jag har en fordran</text>
+    <text x="46" y="440" font-family="Helvetica, Arial, sans-serif" font-size="7" fill="#A9BDB8">Obetalda fakturor, returer</text>
+
+    <rect x="250" y="406" width="206" height="46" rx="2" fill="#0E4A47"/>
+    <text x="264" y="426" font-family="Helvetica, Arial, sans-serif" font-size="8.5" font-weight="bold" fill="#F0EEE8">Jag var anställd</text>
+    <text x="264" y="440" font-family="Helvetica, Arial, sans-serif" font-size="7" fill="#A9BDB8">Statlig lönegaranti</text>
+
+    <rect x="468" y="406" width="220" height="46" rx="2" fill="#0E4A47"/>
+    <text x="482" y="426" font-family="Helvetica, Arial, sans-serif" font-size="8.5" font-weight="bold" fill="#F0EEE8">Jag är hyresvärd</text>
+    <text x="482" y="440" font-family="Helvetica, Arial, sans-serif" font-size="7" fill="#A9BDB8">Lokal, inventarier, anbud</text>
   </g>
 </svg>
