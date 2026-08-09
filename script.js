@@ -7,18 +7,45 @@
   var root = document.documentElement;
   var SUPPORTED = ['en', 'sv'];
 
-  /* ---------- Language toggle ---------- */
   var langButtons = Array.prototype.slice.call(document.querySelectorAll('.lang__btn'));
+  var navEl = document.querySelector('.nav');
+  var langGroup = document.querySelector('.lang');
+  var toggle = document.querySelector('.nav__toggle');
+  var menu = document.querySelector('.nav__menu');
+  var header = document.querySelector('.site');
 
+  /* aria-labels are invisible, so the CSS that hides the inactive language
+     can't swap them. They have to be set here, or a Swedish visitor gets an
+     English-sounding page read out to them. */
+  var ARIA = {
+    en: { nav: 'Primary', menu: 'Menu', close: 'Close menu', lang: 'Language' },
+    sv: { nav: 'Huvudmeny', menu: 'Meny', close: 'Stäng menyn', lang: 'Språk' }
+  };
+
+  function currentLang() {
+    var l = root.getAttribute('lang');
+    return SUPPORTED.indexOf(l) === -1 ? 'en' : l;
+  }
+
+  /* ---------- Language toggle ---------- */
   function setLang(lang) {
     if (SUPPORTED.indexOf(lang) === -1) lang = 'en';
     root.setAttribute('lang', lang);
     try { localStorage.setItem('lang', lang); } catch (e) {}
+
     langButtons.forEach(function (btn) {
       var active = btn.getAttribute('data-lang') === lang;
       btn.classList.toggle('is-active', active);
       btn.setAttribute('aria-pressed', active ? 'true' : 'false');
     });
+
+    var t = ARIA[lang];
+    if (navEl) navEl.setAttribute('aria-label', t.nav);
+    if (langGroup) langGroup.setAttribute('aria-label', t.lang);
+    if (toggle) {
+      toggle.setAttribute('aria-label',
+        toggle.getAttribute('aria-expanded') === 'true' ? t.close : t.menu);
+    }
   }
 
   langButtons.forEach(function (btn) {
@@ -27,11 +54,10 @@
     });
   });
 
-  // Sync button state with the language already set in <head>.
+  // Sync with the language already set in <head>.
   setLang(root.getAttribute('lang') || 'en');
 
   /* ---------- Sticky header background on scroll ---------- */
-  var header = document.querySelector('.site');
   function onScroll() {
     if (header) header.classList.toggle('scrolled', window.scrollY > 8);
   }
@@ -39,30 +65,27 @@
   window.addEventListener('scroll', onScroll, { passive: true });
 
   /* ---------- Mobile menu ---------- */
-  var toggle = document.querySelector('.nav__toggle');
-  var menu = document.querySelector('.nav__menu');
-
-  function closeMenu() {
+  function setMenu(open) {
     if (!menu || !toggle) return;
-    menu.classList.remove('is-open');
-    toggle.setAttribute('aria-expanded', 'false');
+    menu.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', ARIA[currentLang()][open ? 'close' : 'menu']);
   }
 
   if (toggle && menu) {
     toggle.addEventListener('click', function () {
-      var open = menu.classList.toggle('is-open');
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      setMenu(!menu.classList.contains('is-open'));
     });
 
     // Close after following an in-page link.
     menu.querySelectorAll('a[href^="#"]').forEach(function (link) {
-      link.addEventListener('click', closeMenu);
+      link.addEventListener('click', function () { setMenu(false); });
     });
 
     // Reset when crossing back to the desktop layout.
     var desktop = window.matchMedia('(min-width: 880px)');
     function onBreakpoint() {
-      if (desktop.matches) closeMenu();
+      if (desktop.matches) setMenu(false);
     }
     if (desktop.addEventListener) {
       desktop.addEventListener('change', onBreakpoint);
@@ -71,7 +94,10 @@
     }
 
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') closeMenu();
+      if (e.key === 'Escape' && menu.classList.contains('is-open')) {
+        setMenu(false);
+        toggle.focus();
+      }
     });
   }
 
