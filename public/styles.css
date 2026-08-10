@@ -543,6 +543,36 @@ section[id] { scroll-margin-top: 88px; }
 .cta__alt { margin-top: 1.25rem; font-size: .9rem; color: color-mix(in srgb, var(--bg) 68%, transparent); }
 .cta__alt a { color: var(--bg); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--accent); }
 
+/* ============================ AI ASSISTANT ============================ */
+.assistant { background: var(--bg-2); padding-block: var(--section); }
+.assistant__box { max-width: 44rem; }
+.assistant__title { font-size: clamp(1.6rem, 3vw, 2.3rem); margin-top: .6rem; }
+.assistant__lead {
+  font-family: var(--serif);
+  line-height: 1.62;
+  color: var(--ink-soft);
+  margin-top: 1rem;
+  max-width: 56ch;
+}
+.assistant__notice {
+  margin-top: 1.75rem;
+  padding: 1.1rem 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 2px solid var(--accent);
+  border-radius: var(--r);
+}
+.assistant__notice p { font-size: .92rem; line-height: 1.6; color: var(--ink-soft); }
+.assistant__notice strong { color: var(--ink); font-weight: 600; }
+.assistant__notice .link-out { margin-top: .75rem; font-size: .88rem; }
+.assistant .btn { margin-top: 1.5rem; }
+.assistant__status {
+  margin-top: .9rem;
+  font-size: .88rem;
+  color: var(--ink-soft);
+  min-height: 1.2em;
+}
+
 /* ============================ FOOTER ============================ */
 .site-footer { border-top: 1px solid var(--line); padding-block: 2.5rem; }
 .foot__row { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; align-items: center; }

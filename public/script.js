@@ -108,6 +108,54 @@
     });
   }
 
+  /* ---------- AI assistant, loaded only on request ----------
+     The whole site otherwise makes zero third-party requests, and the privacy
+     page says so. So the ElevenLabs widget is not on the page: pressing the
+     button is what fetches it, and that press is the consent. Nothing is
+     contacted before it. */
+  var ASSIST = {
+    sv: {
+      loading: 'Laddar assistenten…',
+      ready: 'Assistenten är igång. Den öppnas nere till höger.',
+      error: 'Assistenten gick inte att ladda. Mejla gärna hello@matviiakkuratov.com i stället.'
+    },
+    en: {
+      loading: 'Loading the assistant…',
+      ready: 'The assistant is running. It opens at the bottom right.',
+      error: 'The assistant could not load. Email hello@matviiakkuratov.com instead.'
+    }
+  };
+
+  var startBtn = document.getElementById('assistant-start');
+  var statusEl = document.getElementById('assistant-status');
+
+  if (startBtn && statusEl) {
+    startBtn.addEventListener('click', function () {
+      var t = ASSIST[currentLang()];
+      startBtn.disabled = true;
+      statusEl.textContent = t.loading;
+
+      var s = document.createElement('script');
+      s.src = 'https://unpkg.com/@elevenlabs/convai-widget-embed';
+      s.async = true;
+
+      s.onload = function () {
+        var el = document.createElement('elevenlabs-convai');
+        el.setAttribute('agent-id', startBtn.getAttribute('data-agent-id'));
+        (document.getElementById('assistant-mount') || document.body).appendChild(el);
+        statusEl.textContent = ASSIST[currentLang()].ready;
+        startBtn.hidden = true;
+      };
+
+      s.onerror = function () {
+        statusEl.textContent = ASSIST[currentLang()].error;
+        startBtn.disabled = false;
+      };
+
+      document.head.appendChild(s);
+    });
+  }
+
   /* ---------- Reveal on scroll ---------- */
   var revealEls = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

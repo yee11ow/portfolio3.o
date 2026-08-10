@@ -422,6 +422,41 @@
         </p>
       </div>
     </section>
+
+    <!-- ============================ AI ASSISTANT ============================
+         Nothing here contacts ElevenLabs until the visitor presses the button.
+         That press is the consent, which is why the disclosure sits above it
+         rather than in a banner nobody reads. -->
+    <section class="assistant" id="assistent">
+      <div class="wrap assistant__box reveal">
+        <p class="eyebrow"><span lang="sv">AI-assistent</span><span lang="en">AI assistant</span></p>
+        <h2 class="assistant__title">
+          <span lang="sv">Eller fråga Alex direkt.</span>
+          <span lang="en">Or ask Alex right away.</span>
+        </h2>
+        <p class="assistant__lead">
+          <span lang="sv">Alex svarar på vad jag gör, ungefär vad det kostar och hur ett upplägg brukar se ut, och kan notera en tid för ett samtal med mig. Du kan prata eller skriva, på svenska eller engelska.</span>
+          <span lang="en">Alex answers what I do, roughly what it costs and how a project usually runs, and can note a time for a call with me. You can talk or type, in Swedish or English.</span>
+        </p>
+
+        <div class="assistant__notice">
+          <p>
+            <span lang="sv"><strong>Alex är en AI, inte en människa.</strong> Samtalet spelas in och behandlas av ElevenLabs i USA, och sparas i tolv månader. Ingenting av det laddas eller skickas förrän du trycker på knappen. Vill du hellre slippa AI helt, mejla mig i stället, det går precis lika bra.</span>
+            <span lang="en"><strong>Alex is an AI, not a person.</strong> The conversation is recorded, processed by ElevenLabs in the US, and kept for twelve months. None of it loads or is sent until you press the button. If you would rather not use an AI at all, email me instead, that works just as well.</span>
+          </p>
+          <a class="link-out" href="legal.html#assistent">
+            <span lang="sv">Så hanteras uppgifterna →</span><span lang="en">How the data is handled →</span>
+          </a>
+        </div>
+
+        <button class="btn btn--primary" id="assistant-start" type="button"
+                data-agent-id="agent_8601kznz8bpmf1rv2sw0ngz89rj2">
+          <span lang="sv">Starta assistenten</span><span lang="en">Start the assistant</span>
+        </button>
+        <p class="assistant__status" id="assistant-status" role="status" aria-live="polite"></p>
+        <div id="assistant-mount"></div>
+      </div>
+    </section>
   </main>
 
   <!-- ============================ FOOTER ============================ -->
