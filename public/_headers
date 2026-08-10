@@ -3,29 +3,35 @@
 # The Content-Security-Policy is the point of it: the legal page promises that
 # opening this site contacts nobody but this domain, and this is what makes the
 # browser enforce that rather than take our word for it. Everything is denied
-# by default and only same-origin assets are allowed back in — which is also
-# why the language script lives in assets/boot.js instead of inline.
-
+# by default and only same-origin assets are allowed back in, which is also why
+# the language script lives in assets/boot.js instead of inline.
 #
-# HSTS is set with includeSubDomains, which covers the concept subdomains too —
-# they are already HTTPS-only on Pages, so nothing breaks. `preload` is
-# deliberately left off: getting onto the browser preload list is easy and
-# getting off it takes months, and it is not worth that for a portfolio.
+# The ElevenLabs entries are the one exception. They are permitted, not loaded:
+# nothing reaches unpkg or elevenlabs until the visitor presses "Starta
+# assistenten". CSP cannot be applied per-moment, only per-response, so the
+# policy has to allow what that button will later need.
+#
+# If the widget fails to appear, the browser console names the exact blocked
+# host or directive. Add it here; that is the whole fix.
+#
+# HSTS covers the concept subdomains too. They are already HTTPS-only on Pages,
+# so nothing breaks. `preload` is deliberately left off: joining that list is
+# quick and leaving it takes months, and it is not worth that for a portfolio.
 
 /*
-  Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'
+  Content-Security-Policy: default-src 'none'; script-src 'self' https://unpkg.com; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob:; media-src 'self' blob: data:; connect-src 'self' https://unpkg.com https://api.elevenlabs.io wss://api.elevenlabs.io https://api.us.elevenlabs.io wss://api.us.elevenlabs.io; worker-src 'self' blob:; child-src 'self' blob:; base-uri 'none'; form-action 'none'; frame-ancestors 'none'
   Strict-Transport-Security: max-age=31536000; includeSubDomains
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
-  Permissions-Policy: geolocation=(), camera=(), microphone=(), payment=(), usb=()
+  Permissions-Policy: geolocation=(), camera=(), payment=(), usb=(), microphone=(self)
   Cross-Origin-Opener-Policy: same-origin
 
 # Font filenames are stable and their contents never change in place.
 /assets/fonts/*
   Cache-Control: public, max-age=31536000, immutable
 
-# Shorter, because these are placeholders due to be swapped for real
-# screenshots and a real photograph.
+# Shorter, because this one is still a placeholder due to be swapped for a real
+# screenshot of the second concept.
 /assets/*.svg
   Cache-Control: public, max-age=604800
