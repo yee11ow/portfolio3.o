@@ -15,9 +15,8 @@
   var menu = document.querySelector('.nav__menu');
   var header = document.querySelector('.site');
 
-  /* aria-labels are invisible, so the CSS that hides the inactive language
-     can't swap them. They have to be set here, or a Swedish visitor gets an
-     English-sounding page read out to them. */
+  /* aria-labels are invisible, so the language CSS can't swap them.
+     Set here instead. */
   var ARIA = {
     en: { nav: 'Primary', menu: 'Menu', close: 'Close menu', lang: 'Language' },
     sv: { nav: 'Huvudmeny', menu: 'Meny', close: 'Stäng menyn', lang: 'Språk' }
@@ -29,10 +28,8 @@
   }
 
   /* ---------- Language toggle ----------
-     `persist` is only true when the visitor actually picks a language. Writing
-     to storage on every page load would mean storing something on their device
-     without them asking, which is exactly what the ePrivacy rules are about.
-     Chosen preferences are fine; silent ones are not. */
+     `persist` only on an actual click. Writing on page load would store
+     something without the visitor asking (ePrivacy). */
   function setLang(lang, persist) {
     if (SUPPORTED.indexOf(lang) === -1) lang = DEFAULT_LANG;
     root.setAttribute('lang', lang);
@@ -108,11 +105,9 @@
     });
   }
 
-  /* ---------- AI assistant, loaded only on request ----------
-     The whole site otherwise makes zero third-party requests, and the privacy
-     page says so. So the ElevenLabs widget is not on the page: pressing the
-     button is what fetches it, and that press is the consent. Nothing is
-     contacted before it. */
+  /* ---------- AI assistant, loaded on request ----------
+     The widget is not on the page. The click fetches it, and is the consent.
+     Nothing third-party is contacted before that. */
   var ASSIST = {
     sv: {
       loading: 'Laddar assistenten…',

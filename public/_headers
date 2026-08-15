@@ -1,22 +1,11 @@
-# Cloudflare Pages reads this file and applies the headers below.
+# Headers for Cloudflare Pages.
 #
-# The Content-Security-Policy is the point of it: the legal page promises that
-# opening this site contacts nobody but this domain, and this is what makes the
-# browser enforce that rather than take our word for it. Everything is denied
-# by default and only same-origin assets are allowed back in, which is also why
-# the language script lives in assets/boot.js instead of inline.
+# CSP: deny by default, allow same-origin only. Inline scripts are blocked,
+# hence assets/boot.js. The unpkg + elevenlabs entries are for the assistant
+# widget, which only loads after the visitor clicks. If it fails to appear,
+# the console names the blocked host: add it here.
 #
-# The ElevenLabs entries are the one exception. They are permitted, not loaded:
-# nothing reaches unpkg or elevenlabs until the visitor presses "Starta
-# assistenten". CSP cannot be applied per-moment, only per-response, so the
-# policy has to allow what that button will later need.
-#
-# If the widget fails to appear, the browser console names the exact blocked
-# host or directive. Add it here; that is the whole fix.
-#
-# HSTS covers the concept subdomains too. They are already HTTPS-only on Pages,
-# so nothing breaks. `preload` is deliberately left off: joining that list is
-# quick and leaving it takes months, and it is not worth that for a portfolio.
+# HSTS without preload (preload is hard to undo).
 
 /*
   Content-Security-Policy: default-src 'none'; script-src 'self' https://unpkg.com; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob:; media-src 'self' blob: data:; connect-src 'self' https://unpkg.com https://api.elevenlabs.io wss://api.elevenlabs.io https://api.us.elevenlabs.io wss://api.us.elevenlabs.io; worker-src 'self' blob:; child-src 'self' blob:; base-uri 'none'; form-action 'none'; frame-ancestors 'none'

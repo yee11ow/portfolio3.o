@@ -1,12 +1,8 @@
-/* Self-hosted: no visitor IP is sent to any third party when the page loads.
-   Spectral and Inter are both under the SIL Open Font License 1.1 — the
-   licence texts sit beside these files as required by the OFL.
-
-   Built from the Google Fonts CSS API, latin + latin-ext only. Inter ships
-   as one variable file per subset, so it is declared once over a weight
-   range rather than three times over the same bytes. Thanks to
-   unicode-range the -ext files are only fetched if the page actually uses
-   a character that needs them. */
+/* Self-hosted, so no visitor IP goes to a font CDN.
+   Spectral and Inter are SIL OFL 1.1; licence texts sit beside these files.
+   latin + latin-ext only. Inter is one variable file per subset, declared
+   once over a weight range. unicode-range keeps -ext unfetched unless a
+   character needs it. */
 
 /* Inter 400–600 (variable) — latin */
 @font-face {

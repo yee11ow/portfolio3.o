@@ -16,8 +16,7 @@
   --accent-tint:#ece3d1;
   --ok:        #4f6b56;  /* availability dot */
 
-  /* Spectral carries the page: classical transitional bones, drawn for screens.
-     Inter is kept for chrome only — nav, buttons, labels, badges. */
+  /* Spectral for headings and prose, Inter for interface only. */
   --serif: 'Spectral', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
   --sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 
@@ -64,7 +63,7 @@ h1, h2, h3 {
   letter-spacing: -0.011em;
 }
 
-/* Running prose is set in the serif too; only the interface stays sans. */
+/* Prose in the serif; interface stays sans. */
 .hero__sub,
 .band__sub,
 .section-note,
@@ -671,6 +670,7 @@ section[id] { scroll-margin-top: 88px; }
 }
 
 /* ============================ PRINT ============================ */
+/* Drop the interactive furniture, keep the contact details. */
 @media print {
   .site, .nav__menu, .nav__toggle, .skip-link, .hero__cta, .hero__visual, .mini-phone { display: none !important; }
   html, body { background: #fff; color: #000; }
