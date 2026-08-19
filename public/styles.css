@@ -31,10 +31,6 @@
   --section: clamp(4rem, 9vw, 8rem);
 }
 
-/* ---------- i18n: show one language at a time ---------- */
-html[lang="en"] [lang="sv"],
-html[lang="sv"] [lang="en"] { display: none; }
-
 /* ---------- Reset / base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 * { margin: 0; }
@@ -235,7 +231,7 @@ section[id] { scroll-margin-top: 88px; }
 }
 
 .lang { display: inline-flex; align-items: center; gap: .25rem; font-size: .85rem; }
-.lang__btn { padding: .2rem .35rem; color: var(--ink-soft); font-weight: 500; border-radius: 6px; transition: color .15s ease; }
+.lang__btn { padding: .2rem .35rem; color: var(--ink-soft); font-weight: 500; border-radius: 6px; text-decoration: none; transition: color .15s ease; }
 .lang__btn:hover { color: var(--ink); }
 .lang__btn.is-active {
   color: var(--ink);
@@ -646,6 +642,52 @@ section[id] { scroll-margin-top: 88px; }
   border-radius: 3px;
 }
 .legal__todo { display: block; padding: .7rem .9rem; margin-top: 1.1rem; }
+
+
+/* ---------- current page in the nav ---------- */
+.nav__link.is-current { color: var(--ink); }
+.nav__link.is-current::after { width: 100%; }
+
+/* ---------- inner pages start below the header ---------- */
+.page-top { padding-top: clamp(2.5rem, 6vw, 4.5rem); }
+
+/* ---------- home: links onward ---------- */
+.further { padding-block: 0 var(--section); }
+.teasers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+  margin-top: 1.5rem;
+}
+.teaser__link {
+  display: block;
+  height: 100%;
+  padding: 1.6rem 1.5rem 1.4rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  text-decoration: none;
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.teaser__link:hover {
+  transform: translateY(-3px);
+  border-color: var(--ink);
+  box-shadow: var(--shadow-sm);
+}
+.teaser__title { font-size: 1.35rem; }
+.teaser__body {
+  font-family: var(--serif);
+  font-size: .97rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin-top: .5rem;
+}
+.teaser__arrow { display: inline-block; margin-top: 1rem; color: var(--accent); }
+@media (max-width: 780px) { .teasers { grid-template-columns: 1fr; } }
+
+/* eyebrow sitting on the dark contact panel */
+.eyebrow--on-dark { color: var(--accent-tint); }
+.cta__box .eyebrow--on-dark { margin-bottom: .5rem; }
 
 /* ============================ REVEAL ============================ */
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }

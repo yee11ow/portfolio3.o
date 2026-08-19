@@ -1,7 +1,7 @@
 # Headers for Cloudflare Pages.
 #
-# CSP: deny by default, allow same-origin only. Inline scripts are blocked,
-# hence assets/boot.js. The unpkg + elevenlabs entries are for the assistant
+# CSP: deny by default, allow same-origin only. Inline scripts are blocked.
+# The unpkg + elevenlabs entries are for the assistant
 # widget, which only loads after the visitor clicks. If it fails to appear,
 # the console names the blocked host: add it here.
 #

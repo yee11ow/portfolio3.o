@@ -3,46 +3,50 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Matvii · Webbdesign för advokatbyråer och revisionsbyråer</title>
+  <title>Matvii · Webbdesign för byråer som lever på förtroende</title>
   <meta name="description" content="Jag gör lugna, trovärdiga webbplatser för advokatbyråer, revisionsbyråer och konsultbolag i Sverige. Er webbplats är det första klientmötet." />
   <meta name="theme-color" content="#f7f6f3" />
 
   <link rel="canonical" href="https://matviiakkuratov.com/" />
+  <link rel="alternate" hreflang="sv" href="https://matviiakkuratov.com/" />
+  <link rel="alternate" hreflang="en" href="https://matviiakkuratov.com/en/" />
+  <link rel="alternate" hreflang="x-default" href="https://matviiakkuratov.com/" />
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Matvii" />
   <meta property="og:url" content="https://matviiakkuratov.com/" />
   <meta property="og:locale" content="sv_SE" />
-  <meta property="og:locale:alternate" content="en_GB" />
-  <meta property="og:title" content="Matvii · Webbdesign för advokatbyråer och revisionsbyråer" />
-  <meta property="og:description" content="Lugna, trovärdiga webbplatser för professionella tjänster i Sverige. Er webbplats är det första klientmötet." />
+  <meta property="og:title" content="Matvii · Webbdesign för byråer som lever på förtroende" />
+  <meta property="og:description" content="Jag gör lugna, trovärdiga webbplatser för advokatbyråer, revisionsbyråer och konsultbolag i Sverige. Er webbplats är det första klientmötet." />
   <meta property="og:image" content="https://matviiakkuratov.com/assets/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Matvii. Er webbplats är det första klientmötet. Webbdesign för professionella tjänster, Sverige." />
   <meta name="twitter:card" content="summary_large_image" />
 
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-
-  <!-- Sets the language before paint, so the page never flashes the wrong one -->
-  <script src="assets/boot.js"></script>
-
-  <!-- Fonts are served from this domain. Nothing here calls out to a third
-       party, so no visitor IP is disclosed to anyone just by opening the page. -->
   <link rel="preload" href="assets/fonts/spectral-400-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="assets/fonts/fonts.css" />
-
   <link rel="stylesheet" href="styles.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"ProfessionalService",
+   "name":"Matvii Akkuratov","url":"https://matviiakkuratov.com/",
+   "image":"https://matviiakkuratov.com/assets/portrait.jpg",
+   "description":"Webbdesign för advokatbyråer, revisionsbyråer och konsultbolag i Sverige.",
+   "email":"hello@matviiakkuratov.com",
+   "address":{"@type":"PostalAddress","streetAddress":"Logdansvägen 36","postalCode":"174 42","addressLocality":"Sundbyberg","addressCountry":"SE"},
+   "areaServed":{"@type":"Country","name":"Sweden"},
+   "knowsLanguage":["sv","en"],
+   "sameAs":["https://www.linkedin.com/in/matvii-akkuratov-20a91b283"],
+   "founder":{"@type":"Person","name":"Matvii Akkuratov"}}
+  </script>
 </head>
 <body>
-  <a class="skip-link" href="#main"><span lang="sv">Hoppa till innehåll</span><span lang="en">Skip to content</span></a>
+  <a class="skip-link" href="#main">Hoppa till innehåll</a>
 
-  <!-- ============================ HEADER ============================ -->
   <header class="site" id="top">
     <nav class="nav wrap" aria-label="Huvudmeny">
-      <a class="nav__brand" href="#top">Matvii<span class="nav__brand-dot">.</span></a>
+      <a class="nav__brand" href="/">Matvii<span class="nav__brand-dot">.</span></a>
 
       <button class="nav__toggle" aria-label="Meny" aria-expanded="false" aria-controls="nav-menu">
         <span></span><span></span><span></span>
@@ -50,67 +54,40 @@
 
       <div class="nav__menu" id="nav-menu">
         <ul class="nav__links">
-          <li><a class="nav__link" href="#work"><span lang="sv">Arbeten</span><span lang="en">Work</span></a></li>
-          <li><a class="nav__link" href="#about"><span lang="sv">Om mig</span><span lang="en">About</span></a></li>
-          <li><a class="nav__link" href="#process"><span lang="sv">Arbetssätt</span><span lang="en">Process</span></a></li>
-          <li><a class="nav__link" href="#contact"><span lang="sv">Kontakt</span><span lang="en">Contact</span></a></li>
+          <li><a class="nav__link" href="/arbeten/">Arbeten</a></li>
+          <li><a class="nav__link" href="/om-mig/">Om mig</a></li>
+          <li><a class="nav__link" href="/arbetssatt/">Arbetssätt</a></li>
+          <li><a class="nav__link" href="/kontakt/">Kontakt</a></li>
         </ul>
 
         <div class="nav__right">
-          <span class="avail">
-            <span class="dot" aria-hidden="true"></span>
-            <span lang="sv">Tillgänglig</span><span lang="en">Available</span>
-          </span>
+          <span class="avail"><span class="dot" aria-hidden="true"></span>Tillgänglig</span>
 
-          <div class="lang" role="group" aria-label="Språk">
-            <button class="lang__btn" data-lang="sv" type="button">SV</button>
+          <div class="lang" aria-label="Språk">
+            <a class="lang__btn is-active" href="/" hreflang="sv" lang="sv">SV</a>
             <span class="lang__sep" aria-hidden="true">/</span>
-            <button class="lang__btn" data-lang="en" type="button">EN</button>
+            <a class="lang__btn" href="/en/" hreflang="en" lang="en">EN</a>
           </div>
 
-          <a class="btn btn--primary nav__cta" href="https://cal.com/matviiakkuratov/quick-intro" target="_blank" rel="noopener">
-            <span lang="sv">Boka samtal</span><span lang="en">Book a call</span>
-          </a>
+          <a class="btn btn--primary nav__cta" href="https://cal.com/matviiakkuratov/quick-intro" target="_blank" rel="noopener">Boka samtal</a>
         </div>
       </div>
     </nav>
   </header>
 
   <main id="main">
-    <!-- ============================ HERO ============================ -->
     <section class="hero">
       <div class="wrap hero__grid">
         <div class="hero__col reveal">
-          <p class="eyebrow">
-            <span lang="sv">Webbdesign för professionella tjänster · Sverige</span>
-            <span lang="en">Web design for professional services · Sweden</span>
-          </p>
-
-          <h1 class="hero__title">
-            <span lang="sv">Er webbplats är det första klientmötet.</span>
-            <span lang="en">Your website is the first client meeting.</span>
-          </h1>
-
-          <p class="hero__sub">
-            <span lang="sv">Jag gör lugna, trovärdiga webbplatser för advokatbyråer, revisionsbyråer och konsultbolag i Sverige. Målet är enkelt: första intrycket ska hålla samma nivå som er rådgivning.</span>
-            <span lang="en">I make calm, credible websites for law firms, audit firms and consultancies in Sweden. The goal is simple: the first impression should match the standard of your advice.</span>
-          </p>
-
+          <p class="eyebrow">Webbdesign för professionella tjänster · Sverige</p>
+          <h1 class="hero__title">Er webbplats är det första klientmötet.</h1>
+          <p class="hero__sub">Jag gör lugna, trovärdiga webbplatser för advokatbyråer, revisionsbyråer och konsultbolag i Sverige. Målet är enkelt: första intrycket ska hålla samma nivå som er rådgivning.</p>
           <div class="hero__cta">
-            <a class="btn btn--primary" href="https://cal.com/matviiakkuratov/quick-intro" target="_blank" rel="noopener">
-              <span lang="sv">Boka 15 minuter →</span><span lang="en">Book 15 minutes →</span>
-            </a>
-            <a class="btn btn--ghost" href="#work">
-              <span lang="sv">Se arbeten ↓</span><span lang="en">See the work ↓</span>
-            </a>
+            <a class="btn btn--primary" href="https://cal.com/matviiakkuratov/quick-intro" target="_blank" rel="noopener">Boka 15 minuter →</a>
+            <a class="btn btn--ghost" href="/arbeten/">Se arbeten ↓</a>
           </div>
-
-          <p class="trust">
-            <span lang="sv">Tillgänglig för nya uppdrag · Svarar inom 24 timmar · SV / EN</span>
-            <span lang="en">Available for new projects · Replies within 24h · SV / EN</span>
-          </p>
+          <p class="trust">Tillgänglig för nya uppdrag · Svarar inom 24 timmar · SV / EN</p>
         </div>
-
         <div class="hero__visual reveal">
           <div class="stack" aria-hidden="true">
             <div class="browser browser--hero">
@@ -121,362 +98,85 @@
               <img src="assets/fbrevision-mobile.png" alt="" width="390" height="780" />
             </div>
           </div>
-          <p class="visual__caption">
-            <span lang="sv">FB Revision, ett av koncepten längre ner</span>
-            <span lang="en">FB Revision, one of the concepts further down</span>
-          </p>
+          <p class="visual__caption">FB Revision, ett av koncepten</p>
         </div>
       </div>
     </section>
 
-    <!-- ====================== ENQUIRY FLOW BAND ====================== -->
     <section class="band">
       <div class="wrap band__inner reveal">
         <div class="band__text">
-          <p class="eyebrow">
-            <span lang="sv">Därför tappar byråer förfrågningar</span><span lang="en">Why firms lose enquiries</span>
-          </p>
-          <h2 class="band__title">
-            <span lang="sv">Från besökare till kvalificerad förfrågan.</span>
-            <span lang="en">From visitor to qualified enquiry.</span>
-          </h2>
-          <p class="muted band__sub">
-            <span lang="sv">Potentiella klienter tittar på er webbplats innan de ringer. På under en minut behöver de förstå vad ni gör, känna att ni är rätt byrå och hitta ett enkelt sätt att höra av sig. De flesta byråwebbplatser missar minst ett av de tre.</span>
-            <span lang="en">Prospective clients look at your website before they call. In under a minute they need to understand what you do, feel that you are the right firm, and find an easy way to get in touch. Most firm websites miss at least one of the three.</span>
-          </p>
+          <p class="eyebrow">Därför tappar byråer förfrågningar</p>
+          <h2 class="band__title">Från besökare till kvalificerad förfrågan.</h2>
+          <p class="muted band__sub">Potentiella klienter tittar på er webbplats innan de ringer. På under en minut behöver de förstå vad ni gör, känna att ni är rätt byrå och hitta ett enkelt sätt att höra av sig. De flesta byråwebbplatser missar minst ett av de tre.</p>
         </div>
         <ol class="flow">
           <li class="flow__item">
             <span class="flow__num">01</span>
             <div class="flow__copy">
-              <h3 class="flow__title"><span lang="sv">Förstå</span><span lang="en">Understand</span></h3>
-              <p class="flow__body">
-                <span lang="sv">Vad byrån gör, för vem och inom vilka områden. Synligt utan att behöva skrolla.</span>
-                <span lang="en">What the firm does, who it is for and in which areas. Visible without scrolling.</span>
-              </p>
+              <h3 class="flow__title">Förstå</h3>
+              <p class="flow__body">Vad byrån gör, för vem och inom vilka områden. Synligt utan att behöva skrolla.</p>
             </div>
           </li>
           <li class="flow__item">
             <span class="flow__num">02</span>
             <div class="flow__copy">
-              <h3 class="flow__title"><span lang="sv">Förtroende</span><span lang="en">Trust</span></h3>
-              <p class="flow__body">
-                <span lang="sv">Människorna, meriterna och vilka klienter ni tar er an. Bevis, inte adjektiv.</span>
-                <span lang="en">The people, the credentials and the kind of clients you take on. Proof, not adjectives.</span>
-              </p>
+              <h3 class="flow__title">Förtroende</h3>
+              <p class="flow__body">Människorna, meriterna och vilka klienter ni tar er an. Bevis, inte adjektiv.</p>
             </div>
           </li>
           <li class="flow__item">
             <span class="flow__num">03</span>
             <div class="flow__copy">
-              <h3 class="flow__title"><span lang="sv">Kontakt</span><span lang="en">Contact</span></h3>
-              <p class="flow__body">
-                <span lang="sv">Ett självklart sätt att höra av sig, upprepat där beslutet faktiskt fattas.</span>
-                <span lang="en">One obvious way to get in touch, repeated where the decision is actually made.</span>
-              </p>
+              <h3 class="flow__title">Kontakt</h3>
+              <p class="flow__body">Ett självklart sätt att höra av sig, upprepat där beslutet faktiskt fattas.</p>
             </div>
           </li>
         </ol>
       </div>
     </section>
 
-    <!-- ============================ WORK ============================ -->
-    <section class="work" id="work">
+    <section class="further">
       <div class="wrap">
-        <div class="section-head reveal">
-          <p class="eyebrow"><span lang="sv">Utvalda arbeten</span><span lang="en">Selected work</span></p>
-          <h2 class="section-title">
-            <span lang="sv">Två live-koncept för svenska byråer.</span>
-            <span lang="en">Two live concepts for Swedish firms.</span>
-          </h2>
-          <p class="section-note muted">
-            <span lang="sv">Två koncept jag gjort på eget initiativ, byggda som riktiga webbplatser du kan öppna och klicka runt i. Ingen av byråerna har beställt eller godkänt dem. Det står tydligt på koncepten själva.</span>
-            <span lang="en">Two concepts I made on my own initiative, built as working websites you can open and click through. Neither firm commissioned or approved them. That is stated plainly on the concepts themselves.</span>
-          </p>
-        </div>
-
-        <!-- Case 1: FB Revision -->
-        <article class="case reveal">
-          <div class="case__media">
-            <a class="browser browser--case" href="https://fbrevision.matviiakkuratov.com" target="_blank" rel="noopener">
-              <span class="browser__bar"><i></i><i></i><i></i><em>fbrevision.matviiakkuratov.com</em></span>
-              <img src="assets/fbrevision-services.png" alt="FB Revision, tjänstesektionen där varje område fälls ut och visar vad det omfattar" loading="lazy" width="1440" height="940" />
-              <span class="vh"><span lang="sv">Öppnar live-konceptet i en ny flik</span><span lang="en">Opens the live concept in a new tab</span></span>
+        <p class="eyebrow reveal">Vidare</p>
+        <ul class="teasers">
+          <li class="teaser reveal">
+            <a class="teaser__link" href="/arbeten/">
+              <h3 class="teaser__title">Arbeten</h3>
+              <p class="teaser__body">Två live-koncept för svenska byråer, byggda på eget initiativ och fria att klicka runt i.</p>
+              <span class="teaser__arrow" aria-hidden="true">→</span>
             </a>
-          </div>
-
-          <div class="case__text">
-            <div class="badges">
-              <span class="badge badge--accent"><span lang="sv">Revision &amp; redovisning</span><span lang="en">Audit &amp; accounting</span></span>
-              <span class="badge"><span lang="sv">Uppsala · Live-koncept</span><span lang="en">Uppsala · Live concept</span></span>
-            </div>
-
-            <h3 class="case__title">
-              <span lang="sv">FB Revision: femtio års meriter bakom en sajt från 2014</span>
-              <span lang="en">FB Revision: fifty years of credentials behind a 2014 website</span>
-            </h3>
-
-            <ol class="steps">
-              <li class="step">
-                <span class="step__k"><span lang="sv">Problemet</span><span lang="en">The problem</span></span>
-                <p class="step__t">
-                  <span lang="sv">Fjorton medarbetare, tre auktoriserade revisorer och rötter i 1950-talet. Ingenting av det syntes. Startsidan saknade H1 helt, varje sida var märkt <code>lang="en-US"</code> trots svenskt innehåll, telefonnumret gick inte att trycka på i mobilen, och startsidan firade femtio år medan tjänstesidan skrev drygt trettio.</span>
-                  <span lang="en">Fourteen staff, three authorised auditors and roots back to the 1950s. None of it was visible. The homepage had no H1 at all, every page was tagged <code>lang="en-US"</code> despite Swedish content, the phone number could not be tapped on a mobile, and the start page celebrated fifty years while the services page said thirty.</span>
-                </p>
-              </li>
-              <li class="step">
-                <span class="step__k"><span lang="sv">Vad jag gjorde</span><span lang="en">What I did</span></span>
-                <p class="step__t">
-                  <span lang="sv">Innehållet var bra. Det var skalet runt omkring som var från 2014. Jag behöll substansen och byggde om ramen: en enda tidslinje som löser motsägelsen, behörigheterna direkt under rubriken, ett telefonnummer som ringer vid ett tryck och mobilen först rakt igenom. Plus ett utskriftsformat, för revisorer skriver faktiskt ut.</span>
-                  <span lang="en">The content was good. It was the shell around it that was from 2014. I kept the substance and rebuilt the frame: one timeline that settles the contradiction, the authorisations moved directly under the headline, a phone number that dials on one tap, and mobile first throughout. Plus a print stylesheet, because accountants really do print things.</span>
-                </p>
-              </li>
-              <li class="step">
-                <span class="step__k"><span lang="sv">Detaljen</span><span lang="en">The detail</span></span>
-                <p class="step__t">
-                  <span lang="sv">Konceptet bär sin egen granskning: nio iakttagelser från den skarpa sajten, var och en med sin åtgärd. Allt från de fyra gif-bilderna på startsidan till WordPress-stämpeln ”admin 2018-11-29” på medarbetarsidan.</span>
-                  <span lang="en">The concept carries its own audit: nine findings from the live site, each paired with its fix. Everything from the four GIFs on the homepage to the WordPress edit stamp reading “admin 2018-11-29” on the staff page.</span>
-                </p>
-              </li>
-            </ol>
-
-            <a class="link-out" href="https://fbrevision.matviiakkuratov.com" target="_blank" rel="noopener">
-              <span lang="sv">Se live-konceptet →</span><span lang="en">View live concept →</span>
-            </a>
-          </div>
-        </article>
-
-        <!-- Case 2: Nordström Advokater -->
-        <article class="case case--flip reveal">
-          <div class="case__media">
-            <!-- TODO: replace the SVG with a real screenshot of the live concept -->
-            <a class="browser browser--case" href="https://nordstromadvokater.matviiakkuratov.com" target="_blank" rel="noopener">
-              <span class="browser__bar"><i></i><i></i><i></i><em>nordstromadvokater.matviiakkuratov.com</em></span>
-              <img src="assets/case-nordstrom.svg" alt="Nordström Advokater, startsidan med konkursportalen" loading="lazy" width="720" height="470" />
-              <span class="vh"><span lang="sv">Öppnar live-konceptet i en ny flik</span><span lang="en">Opens the live concept in a new tab</span></span>
-            </a>
-          </div>
-
-          <div class="case__text">
-            <div class="badges">
-              <span class="badge badge--accent"><span lang="sv">Advokatbyrå</span><span lang="en">Law firm</span></span>
-              <span class="badge"><span lang="sv">Uppsala &amp; Sala · Live-koncept</span><span lang="en">Uppsala &amp; Sala · Live concept</span></span>
-            </div>
-
-            <h3 class="case__title">
-              <span lang="sv">Nordström Advokater: en konkursportal för dem som drabbas</span>
-              <span lang="en">Nordström Advokater: a bankruptcy portal for the people it hits</span>
-            </h3>
-
-            <ol class="steps">
-              <li class="step">
-                <span class="step__k"><span lang="sv">Problemet</span><span lang="en">The problem</span></span>
-                <p class="step__t">
-                  <span lang="sv">Sex av byråns åtta jurister förordnas som konkursförvaltare av Uppsala tingsrätt. Varje konkurs lämnar leverantörer, uppsagda anställda och hyresvärdar som letar efter rätt person. Sajten erbjöd dem ett enda allmänt kontaktformulär. Den skickade dessutom <code>user-scalable=0</code>, så besökaren kunde inte nypa för att förstora texten.</span>
-                  <span lang="en">Six of the firm’s eight lawyers are appointed bankruptcy trustees by Uppsala District Court. Every bankruptcy leaves suppliers, dismissed employees and landlords hunting for the right person. The site offered them one general contact form. It also shipped <code>user-scalable=0</code>, so a visitor could not pinch to enlarge the text.</span>
-                </p>
-              </li>
-              <li class="step">
-                <span class="step__k"><span lang="sv">Vad jag gjorde</span><span lang="en">What I did</span></span>
-                <p class="step__t">
-                  <span lang="sv">Jag gjorde byråns starkaste tillgång till en egen portal. Besökaren väljer sin situation, till exempel en fordran, innestående lön eller ett hyresavtal, och hamnar direkt hos den förvaltare som har ärendet, med målnummer och var det står. Zoomspärren tog jag bort. En rad kod, och ändå den viktigaste ändringen i hela konceptet.</span>
-                  <span lang="en">I turned the firm’s strongest asset into a portal of its own. The visitor picks their situation, say a claim, unpaid wages or a lease, and lands straight with the trustee who holds the case, with the case number and where it stands. The zoom lock I removed. One line of code, and still the most important change in the whole concept.</span>
-                </p>
-              </li>
-              <li class="step">
-                <span class="step__k"><span lang="sv">Omsorgen</span><span lang="en">The care</span></span>
-                <p class="step__t">
-                  <span lang="sv">Hela konceptet är <code>noindex</code>. Den som söker på ett bolags konkurs ska aldrig hamna i en designstudie och lämna ett verkligt anspråk i ett formulär som inte går någonstans.</span>
-                  <span lang="en">The whole concept is <code>noindex</code>. Someone searching a company’s bankruptcy must never land in a design study and file a real claim into a form that goes nowhere.</span>
-                </p>
-              </li>
-            </ol>
-
-            <a class="link-out" href="https://nordstromadvokater.matviiakkuratov.com" target="_blank" rel="noopener">
-              <span lang="sv">Se live-konceptet →</span><span lang="en">View live concept →</span>
-            </a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ============================ ABOUT ============================ -->
-    <section class="about" id="about">
-      <div class="wrap about__grid">
-        <figure class="about__photo reveal">
-          <img src="assets/portrait.jpg" alt="Matvii Akkuratov" loading="lazy" width="800" height="1000" />
-        </figure>
-        <div class="about__text reveal">
-          <p class="eyebrow"><span lang="sv">Om mig</span><span lang="en">About</span></p>
-          <h2 class="section-title">
-            <span lang="sv">Jag jobbar med byråer vars viktigaste tillgång är omdöme.</span>
-            <span lang="en">I work with firms whose most valuable asset is judgement.</span>
-          </h2>
-
-          <p>
-            <span lang="sv">Jag heter Matvii och jobbar med byråer i hela Sverige, inom juridik, revision, redovisning och rådgivning. Det är branscher där webbplatsen måste bära trovärdigheten innan någon hunnit träffa er.</span>
-            <span lang="en">I’m Matvii, and I work with firms across Sweden in law, audit, accounting and consulting. In those fields the website has to carry your credibility before anyone has met you.</span>
-          </p>
-          <p>
-            <span lang="sv">Min bakgrund finns i mode och fotografi. Därifrån kommer blicken för återhållsamhet: färre element, bättre typografi och ingenting på sidan som inte gör nytta.</span>
-            <span lang="en">My background is in fashion and photography. That is where the eye for restraint comes from: fewer elements, better typography, and nothing on the page that is not doing work.</span>
-          </p>
-          <p>
-            <span lang="sv">Jag ritar i Figma och bygger sidor som laddar snabbt, fungerar för alla och håller på en mobil mellan två möten.</span>
-            <span lang="en">I design in Figma and build sites that load fast, work for everyone, and hold up on a phone between two meetings.</span>
-          </p>
-
-          <ul class="chips">
-            <li class="chip"><span lang="sv">Sverige</span><span lang="en">Sweden</span></li>
-            <li class="chip">SV / EN</li>
-            <li class="chip">
-              <span lang="sv">Juridik · Revision · Rådgivning</span><span lang="en">Law · Audit · Consulting</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================ PROCESS ============================ -->
-    <section class="process" id="process">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <p class="eyebrow"><span lang="sv">Så arbetar jag</span><span lang="en">How I work</span></p>
-          <h2 class="section-title">
-            <span lang="sv">Så går det till, steg för steg.</span>
-            <span lang="en">How it works, step by step.</span>
-          </h2>
-        </div>
-
-        <ol class="psteps">
-          <li class="pstep reveal">
-            <span class="pstep__num">01</span>
-            <h3 class="pstep__title"><span lang="sv">Introsamtal</span><span lang="en">Intro call</span></h3>
-            <p class="pstep__body">
-              <span lang="sv">Femton kostnadsfria minuter om byrån, era klienter och vad som inte fungerar idag. Ingen säljpresentation.</span>
-              <span lang="en">Fifteen free minutes about the firm, your clients and what is not working today. No sales pitch.</span>
-            </p>
           </li>
-          <li class="pstep reveal">
-            <span class="pstep__num">02</span>
-            <h3 class="pstep__title"><span lang="sv">Koncept</span><span lang="en">Concept</span></h3>
-            <p class="pstep__body">
-              <span lang="sv">Inom en vecka får ni ett klickbart koncept av startsidan. Känns riktningen fel betalar ni ingenting.</span>
-              <span lang="en">Within a week you get a clickable concept of your start page. If the direction feels wrong, you pay nothing.</span>
-            </p>
+          <li class="teaser reveal">
+            <a class="teaser__link" href="/om-mig/">
+              <h3 class="teaser__title">Om mig</h3>
+              <p class="teaser__body">Vem jag är, vad jag kommer ifrån och varför just den här sortens byråer.</p>
+              <span class="teaser__arrow" aria-hidden="true">→</span>
+            </a>
           </li>
-          <li class="pstep reveal">
-            <span class="pstep__num">03</span>
-            <h3 class="pstep__title"><span lang="sv">Bygge och lansering</span><span lang="en">Build and launch</span></h3>
-            <p class="pstep__body">
-              <span lang="sv">Jag bygger hela webbplatsen, lanserar den på er domän och lämnar över en kort guide för uppdateringar. Två veckors justeringar ingår.</span>
-              <span lang="en">I build the whole site, launch it on your domain and hand over a short guide for updates. Two weeks of adjustments are included.</span>
-            </p>
+          <li class="teaser reveal">
+            <a class="teaser__link" href="/arbetssatt/">
+              <h3 class="teaser__title">Arbetssätt</h3>
+              <p class="teaser__body">Tre steg, vad som ingår och villkoren. Inga överraskningar på fakturan.</p>
+              <span class="teaser__arrow" aria-hidden="true">→</span>
+            </a>
           </li>
-        </ol>
-
-        <div class="included reveal">
-          <span class="included__label">
-            <span lang="sv">Ingår</span><span lang="en">Included</span>
-          </span>
-          <ul class="chips">
-            <li class="chip"><span lang="sv">Design i Figma</span><span lang="en">Design in Figma</span></li>
-            <li class="chip"><span lang="sv">Responsiv webb</span><span lang="en">Responsive build</span></li>
-            <li class="chip"><span lang="sv">Textstruktur</span><span lang="en">Copy structure</span></li>
-            <li class="chip"><span lang="sv">SEO-grunder</span><span lang="en">SEO basics</span></li>
-            <li class="chip"><span lang="sv">Tillgänglighet (WCAG)</span><span lang="en">Accessibility (WCAG)</span></li>
-            <li class="chip"><span lang="sv">Lansering på er domän</span><span lang="en">Launch on your domain</span></li>
-            <li class="chip"><span lang="sv">2 veckors justeringar</span><span lang="en">2 weeks of adjustments</span></li>
-          </ul>
-        </div>
-
-        <div class="terms reveal">
-          <span class="included__label">
-            <span lang="sv">Villkor</span><span lang="en">Terms</span>
-          </span>
-          <p class="terms__text">
-            <span lang="sv">50 % vid start, resten vid leverans. Fakturering sker via <strong>Frilans Finans</strong> (egenanställning), så ni får en vanlig faktura med moms från ett svenskt bolag. Er ekonomiavdelning slipper reda ut frågan om F-skatt.</span>
-            <span lang="en">50% on start, the balance on delivery. Invoicing runs through <strong>Frilans Finans</strong> (egenanställning), so you get an ordinary invoice with VAT from a Swedish company. Your finance department has no F-tax question to resolve.</span>
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================ FINAL CTA ============================ -->
-    <section class="cta" id="contact">
-      <div class="wrap cta__box reveal">
-        <h2 class="cta__title">
-          <span lang="sv">Vill ni ha en second opinion på byråns webbplats?</span>
-          <span lang="en">Want a second opinion on your firm’s website?</span>
-        </h2>
-        <p class="cta__sub">
-          <span lang="sv">Boka femton kostnadsfria minuter. Jag går igenom er nuvarande webbplats och säger vilka två eller tre saker jag skulle ändra först. Det gäller oavsett om vi sedan jobbar ihop eller inte.</span>
-          <span lang="en">Book fifteen free minutes. I will go through your current site and tell you the two or three things I would change first. That holds whether or not we end up working together.</span>
-        </p>
-        <a class="btn btn--primary btn--lg" href="https://cal.com/matviiakkuratov/quick-intro" target="_blank" rel="noopener">
-          <span lang="sv">Boka ett samtal →</span><span lang="en">Book a call →</span>
-        </a>
-        <p class="cta__alt">
-          <span lang="sv">eller mejla </span><span lang="en">or email </span>
-          <a href="mailto:hello@matviiakkuratov.com">hello@matviiakkuratov.com</a>
-        </p>
-      </div>
-    </section>
-
-    <!-- ============================ AI ASSISTANT ============================
-         Nothing here contacts ElevenLabs until the visitor presses the button.
-         That press is the consent, which is why the disclosure sits above it
-         rather than in a banner nobody reads. -->
-    <section class="assistant" id="assistent">
-      <div class="wrap assistant__box reveal">
-        <p class="eyebrow"><span lang="sv">AI-assistent</span><span lang="en">AI assistant</span></p>
-        <h2 class="assistant__title">
-          <span lang="sv">Eller fråga Alex direkt.</span>
-          <span lang="en">Or ask Alex right away.</span>
-        </h2>
-        <p class="assistant__lead">
-          <span lang="sv">Alex svarar på vad jag gör, ungefär vad det kostar och hur ett upplägg brukar se ut, och kan notera en tid för ett samtal med mig. Du kan prata eller skriva, på svenska eller engelska.</span>
-          <span lang="en">Alex answers what I do, roughly what it costs and how a project usually runs, and can note a time for a call with me. You can talk or type, in Swedish or English.</span>
-        </p>
-
-        <div class="assistant__notice">
-          <p>
-            <span lang="sv"><strong>Alex är en AI, inte en människa.</strong> Samtalet spelas in och behandlas av ElevenLabs i USA, och sparas i tolv månader. Ingenting av det laddas eller skickas förrän du trycker på knappen. Vill du hellre slippa AI helt, mejla mig i stället, det går precis lika bra.</span>
-            <span lang="en"><strong>Alex is an AI, not a person.</strong> The conversation is recorded, processed by ElevenLabs in the US, and kept for twelve months. None of it loads or is sent until you press the button. If you would rather not use an AI at all, email me instead, that works just as well.</span>
-          </p>
-          <a class="link-out" href="legal.html#assistent">
-            <span lang="sv">Så hanteras uppgifterna →</span><span lang="en">How the data is handled →</span>
-          </a>
-        </div>
-
-        <button class="btn btn--primary" id="assistant-start" type="button"
-                data-agent-id="agent_8601kznz8bpmf1rv2sw0ngz89rj2">
-          <span lang="sv">Starta assistenten</span><span lang="en">Start the assistant</span>
-        </button>
-        <p class="assistant__status" id="assistant-status" role="status" aria-live="polite"></p>
-        <div id="assistant-mount"></div>
+        </ul>
       </div>
     </section>
   </main>
 
-  <!-- ============================ FOOTER ============================ -->
   <footer class="site-footer">
     <div class="wrap foot__row">
-      <p class="foot__brand">
-        <span lang="sv">Matvii · Webbdesign för professionella tjänster · Sverige 2026</span>
-        <span lang="en">Matvii · Web design for professional services · Sweden 2026</span>
-      </p>
+      <p class="foot__brand">Matvii · Webbdesign för professionella tjänster · Sverige 2026</p>
       <ul class="foot__links">
         <li><a href="https://www.linkedin.com/in/matvii-akkuratov-20a91b283" target="_blank" rel="noopener">LinkedIn</a></li>
         <li><a href="mailto:hello@matviiakkuratov.com">E-post</a></li>
-        <li><a href="legal.html"><span lang="sv">Juridik &amp; integritet</span><span lang="en">Legal &amp; privacy</span></a></li>
+        <li><a href="/legal.html">Juridik &amp; integritet</a></li>
       </ul>
     </div>
     <div class="wrap">
-      <p class="foot__fine">
-        <span lang="sv">Koncepten här är egeninitierade. Företagarnas Revisionsbyrå i Uppsala AB och Nordström Advokater AB har varken beställt eller godkänt dem, och deras namn och texter tillhör dem. <a href="legal.html#koncept">Mer om detta</a>.</span>
-        <span lang="en">The concepts here were made on my own initiative. Företagarnas Revisionsbyrå i Uppsala AB and Nordström Advokater AB have neither commissioned nor approved them, and their names and texts remain their own. <a href="legal.html#koncept">More on this</a>.</span>
-      </p>
+      <p class="foot__fine">Koncepten här är egeninitierade. Företagarnas Revisionsbyrå i Uppsala AB och Nordström Advokater AB har varken beställt eller godkänt dem, och deras namn och texter tillhör dem. <a href="/legal.html#koncept">Mer om detta</a>.</p>
     </div>
   </footer>
 
