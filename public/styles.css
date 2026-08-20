@@ -655,7 +655,7 @@ section[id] { scroll-margin-top: 88px; }
 .further { padding-block: 0 var(--section); }
 .teasers {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: clamp(1rem, 2.5vw, 1.75rem);
   margin-top: 1.5rem;
 }
@@ -674,7 +674,7 @@ section[id] { scroll-margin-top: 88px; }
   border-color: var(--ink);
   box-shadow: var(--shadow-sm);
 }
-.teaser__title { font-size: 1.35rem; }
+.teaser__title { font-size: 1.25rem; }
 .teaser__body {
   font-family: var(--serif);
   font-size: .97rem;
@@ -683,11 +683,54 @@ section[id] { scroll-margin-top: 88px; }
   margin-top: .5rem;
 }
 .teaser__arrow { display: inline-block; margin-top: 1rem; color: var(--accent); }
-@media (max-width: 780px) { .teasers { grid-template-columns: 1fr; } }
+@media (max-width: 1040px) { .teasers { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .teasers { grid-template-columns: 1fr; } }
 
 /* eyebrow sitting on the dark contact panel */
 .eyebrow--on-dark { color: var(--accent-tint); }
 .cta__box .eyebrow--on-dark { margin-bottom: .5rem; }
+
+
+/* ============================ FAQ ============================ */
+.qas {
+  display: grid;
+  gap: 0;
+  max-width: 46rem;
+  border-top: 1px solid var(--line);
+}
+.qa { padding: clamp(1.5rem, 3vw, 2rem) 0; border-bottom: 1px solid var(--line); }
+.qa__q { font-size: clamp(1.15rem, 2.2vw, 1.45rem); max-width: 34ch; }
+.qa__a {
+  font-family: var(--serif);
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  margin-top: .7rem;
+  max-width: 62ch;
+}
+/* Wide screens: the heading stays put on the left while the answers scroll. */
+@media (min-width: 1040px) {
+  .faq__grid {
+    display: grid;
+    grid-template-columns: 19rem 1fr;
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: start;
+  }
+  .faq__grid .section-head {
+    position: sticky;
+    top: calc(68px + 2rem);
+    margin-bottom: 0;
+  }
+  .faq__grid .section-note { max-width: none; }
+}
+.faq-end { max-width: 46rem; margin-top: clamp(2rem, 4vw, 3rem); }
+.faq-end__text {
+  font-family: var(--serif);
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  line-height: 1.55;
+  max-width: 40ch;
+}
+.faq-end__cta { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; }
 
 /* ============================ REVEAL ============================ */
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
