@@ -509,6 +509,8 @@ section[id] { scroll-margin-top: 88px; }
   padding-top: 1.5rem;
   border-top: 1px solid var(--line);
 }
+/* Labels differ in length, so pin the column and the paragraphs line up. */
+.terms .included__label { width: 9.5rem; }
 .terms__text {
   font-family: var(--serif);
   font-size: 1rem;
@@ -517,6 +519,7 @@ section[id] { scroll-margin-top: 88px; }
   max-width: 62ch;
   flex: 1 1 24rem;
 }
+@media (max-width: 620px) { .terms .included__label { width: auto; } }
 .terms__text strong { color: var(--ink); font-weight: 500; }
 
 /* ============================ FINAL CTA ============================ */
