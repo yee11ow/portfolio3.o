@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case study · Law firm website with an insolvency portal | Matvii</title>
+  <meta name="description" content="The site should work like a front desk, not a shop window. A dedicated entry point for the people a bankruptcy affects. A self-initiated concept study." />
+  <meta name="theme-color" content="#f7f6f3" />
+
+  <link rel="canonical" href="https://matviiakkuratov.com/en/work/law-firm/" />
+  <link rel="alternate" hreflang="sv" href="https://matviiakkuratov.com/arbeten/advokatbyra/" />
+  <link rel="alternate" hreflang="en" href="https://matviiakkuratov.com/en/work/law-firm/" />
+  <link rel="alternate" hreflang="x-default" href="https://matviiakkuratov.com/en/work/law-firm/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Matvii" />
+  <meta property="og:url" content="https://matviiakkuratov.com/en/work/law-firm/" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:title" content="Case study · Law firm website with an insolvency portal | Matvii" />
+  <meta property="og:description" content="The site should work like a front desk, not a shop window. A dedicated entry point for the people a bankruptcy affects. A self-initiated concept study." />
+  <meta property="og:image" content="https://matviiakkuratov.com/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preload" href="../../../assets/fonts/spectral-400-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="../../../assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="../../../assets/fonts/fonts.css" />
+  <link rel="stylesheet" href="../../../styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site" id="top">
+    <nav class="nav wrap" aria-label="Primary">
+      <a class="nav__brand" href="/en/">Matvii<span class="nav__brand-dot">.</span></a>
+
+      <button class="nav__toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__links">
+          <li><a class="nav__link" href="/en/work/">Work</a></li>
+          <li><a class="nav__link" href="/en/about/">About</a></li>
+          <li><a class="nav__link" href="/en/process/">Process</a></li>
+          <li><a class="nav__link" href="/en/faq/">FAQ</a></li>
+          <li><a class="nav__link" href="/en/contact/">Contact</a></li>
+        </ul>
+
+        <div class="nav__right">
+          <span class="avail"><span class="dot" aria-hidden="true"></span>Available</span>
+
+          <div class="lang" aria-label="Language">
+            <a class="lang__btn" href="/arbeten/advokatbyra/" hreflang="sv" lang="sv">SV</a>
+            <span class="lang__sep" aria-hidden="true">/</span>
+            <a class="lang__btn is-active" href="/en/work/law-firm/" hreflang="en" lang="en">EN</a>
+          </div>
+
+          <a class="btn btn--primary nav__cta" href="https://cal.com/matviiakkuratov/quick-intro" target="_blank" rel="noopener">Book a call</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="cs page-top">
+      <div class="wrap cs__wrap">
+        <a class="cs__back" href="/en/work/">← All work</a>
+        <p class="eyebrow">Concept study, self-initiated</p>
+        <h1 class="cs__title">A website that should work like a front desk</h1>
+        <p class="cs__profile">Law firm in Uppsala and Sala. Two offices, established 1986.</p>
+        <a class="link-out cs__live" href="https://nordstromadvokater.matviiakkuratov.com" target="_blank" rel="noopener">Open the live concept →</a>
+        <h2 class="cs__h">The starting point</h2>
+        <p class="cs__p">Most of the firm’s lawyers are regularly appointed by the district court as bankruptcy administrators. It is the firm’s clearest centre of gravity. On the website, insolvency sat as one of thirteen practice areas in a bullet list, weighted no more heavily than anything else.</p>
+        <p class="cs__p">The particular thing about that kind of work is that it cannot be won through marketing. The administrator is appointed by the court, not chosen by a client. But every bankruptcy generates a wave of inbound contact: suppliers filing claims, former employees asking about wage guarantees, landlords, buyers of assets. All of it landed in the same general inbox.</p>
+        <p class="cs__p">That was where the real problem sat. The site was not primarily a shop window. It should have been a front desk, and it was not working as one.</p>
+        <h2 class="cs__h">Four observations</h2>
+        <ul class="cs__list">
+          <li><strong>The practice area section was a dead end.</strong> Thirteen links in a row, one introductory sentence, no descriptions and no indication of who each area is for.</li>
+          <li><strong>The contact page was missing most of what a contact page needs.</strong> No form, no map, no opening hours, no dedicated section for the second office and no invitation to get in touch.</li>
+          <li><strong>The news section held seven posts across seven years.</strong> No routine for updating content, and older posts referenced conditions that had since changed.</li>
+          <li><strong>Zoom was switched off.</strong> The page sent <code>user-scalable=0</code>, so a visitor could not pinch to enlarge the text. For an audience often past fifty that is a real barrier, not a detail.</li>
+        </ul>
+        <h2 class="cs__h">What I changed, and why</h2>
+        <ol class="cs__moves">
+          <li class="cs__move">
+            <span class="cs__num" aria-hidden="true">01</span>
+            <div><p class="cs__lead">Built a dedicated entry point for the people a bankruptcy affects.</p><p class="cs__why">Each ongoing case gets its own page. The reason is simple: these people are not looking for a law firm, they are looking for an answer, and they will phone if they cannot find it.</p></div>
+          </li>
+          <li class="cs__move">
+            <span class="cs__num" aria-hidden="true">02</span>
+            <div><p class="cs__lead">A status line per case, in plain language.</p><p class="cs__why">Where the proceeding currently stands. That alone removes a large share of the calls that are only asking what happens next.</p></div>
+          </li>
+          <li class="cs__move">
+            <span class="cs__num" aria-hidden="true">03</span>
+            <div><p class="cs__lead">Three separate routes in: supplier, former employee, landlord.</p><p class="cs__why">Each sees only what applies to them, written in their language. Legal terminology makes an anxious person call instead of read.</p></div>
+          </li>
+          <li class="cs__move">
+            <span class="cs__num" aria-hidden="true">04</span>
+            <div><p class="cs__lead">Structured forms instead of a general inbox.</p><p class="cs__why">Questions are tailored per group, so the case reaches the right administrator with the necessary details already attached. One field fewer is one more case that actually gets sent.</p></div>
+          </li>
+          <li class="cs__move">
+            <span class="cs__num" aria-hidden="true">05</span>
+            <div><p class="cs__lead">An FAQ drawn from the firm’s own material.</p><p class="cs__why">The text already existed, it was simply scattered. Writing new copy would have been worse: the existing text had been legally checked.</p></div>
+          </li>
+          <li class="cs__move">
+            <span class="cs__num" aria-hidden="true">06</span>
+            <div><p class="cs__lead">Practice areas rewritten with a clear addressee.</p><p class="cs__why">From thirteen bare links to thirteen short descriptions: who this is for and when to get in touch.</p></div>
+          </li>
+          <li class="cs__move">
+            <span class="cs__num" aria-hidden="true">07</span>
+            <div><p class="cs__lead">A home page with two doors.</p><p class="cs__why">One for companies seeking advice, one for anyone affected by a bankruptcy. Two very different visitors with two very different errands, and neither should have to search.</p></div>
+          </li>
+          <li class="cs__move">
+            <span class="cs__num" aria-hidden="true">08</span>
+            <div><p class="cs__lead">The whole concept is noindex.</p><p class="cs__why">Someone searching for a company’s bankruptcy should never land in a design study and file a real claim through a form that goes nowhere.</p></div>
+          </li>
+        </ol>
+        <div class="cs__shots">
+          <figure class="cs__shot">
+            <img src="../../../assets/case-nordstrom.svg" alt="Sketch of the home page with its two entrances: advisory work and insolvency matters." loading="lazy" width="720" height="470" />
+            <figcaption>Home page, sketch</figcaption>
+          </figure>
+        </div>
+        <h2 class="cs__h">Why this is worth something to the firm</h2>
+        <p class="cs__p">This is not a question of the site looking dated. It is a question of time. Every routine call answered by a page instead of by a lawyer is billable time returned. And a supplier treated well during an insolvency is also a company that may need commercial legal advice later.</p>
+        <h2 class="cs__h">How it would be measured</h2>
+        <p class="cs__p">This is a concept study and was never launched. In production I would track: cases arriving through a structured form rather than by phone, the share reaching the correct administrator without being redirected, and call volume to the switchboard during the first weeks of a new case.</p>
+        <div class="cs__facts">
+          <div><span class="cs__k">Scope</span><p>Concept and design system, home page and portal, in two phases.</p></div>
+          <div><span class="cs__k">Price</span><p>Prices for comparable work are written out in the FAQ. <a href="/en/faq/">See the prices →</a></p></div>
+        </div>
+        <div class="cs__close">
+          <h2 class="cs__closeh">Recognise your own site?</h2>
+          <p class="cs__p">If any of this sounds like your website, I will take twenty minutes and go through it. You get two or three concrete points whether or not we work together afterwards.</p>
+          <div class="cs__cta">
+            <a class="btn btn--primary" href="https://cal.com/matviiakkuratov/quick-intro" target="_blank" rel="noopener">Book 20 minutes →</a>
+            <a class="btn btn--ghost" href="/en/work/">← All work</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap foot__row">
+      <p class="foot__brand">Matvii · Web design for professional services · Sweden 2026</p>
+      <ul class="foot__links">
+        <li><a href="https://www.linkedin.com/in/matvii-akkuratov-20a91b283" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="mailto:hello@matviiakkuratov.com">Email</a></li>
+        <li><a href="/en/legal.html">Legal &amp; privacy</a></li>
+      </ul>
+    </div>
+    <div class="wrap">
+      <p class="foot__fine">The concepts here were made on my own initiative. Företagarnas Revisionsbyrå i Uppsala AB and Nordström Advokater AB have neither commissioned nor approved them, and their names and texts remain their own. <a href="/en/legal.html#koncept">More on this</a>.</p>
+    </div>
+  </footer>
+
+  <aside class="pill" id="pill" hidden tabindex="0" role="group"
+         aria-label="Time spent on this page" data-label="Time spent on this page">
+    <span class="pill__grab" aria-hidden="true">
+      <span class="pill__dial"></span>
+      <span class="pill__time">0:00</span>
+    </span>
+    <button class="pill__toggle" type="button" aria-expanded="false"
+            aria-controls="pill-panel" aria-label="Open the question panel">
+      <span class="pill__note" aria-hidden="true">on this page</span>
+      <span class="pill__chev" aria-hidden="true">&rsaquo;</span>
+    </button>
+    <button class="pill__close" type="button" aria-label="Hide">&times;</button>
+    <div class="pill__panel" id="pill-panel" hidden></div>
+  </aside>
+
+  <script src="../../../script.js"></script>
+</body>
+</html>
