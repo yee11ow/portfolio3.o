@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "include": [
+    "/",
+    "/arbeten/",
+    "/om-mig/",
+    "/arbetssatt/",
+    "/vanliga-fragor/",
+    "/kontakt/",
+    "/legal.html"
+  ],
+  "exclude": []
+}

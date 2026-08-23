@@ -606,6 +606,16 @@ section[id] { scroll-margin-top: 88px; }
   border-bottom: 1px solid var(--line);
   margin-bottom: 1.1rem;
 }
+/* Only the longest section is subdivided, so this stays quiet next to the h2. */
+.legal__sec h3 {
+  font-family: var(--sans);
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-top: 2rem;
+}
 .legal__sec p {
   font-family: var(--serif);
   line-height: 1.62;
@@ -613,6 +623,7 @@ section[id] { scroll-margin-top: 88px; }
   margin-top: .9rem;
 }
 .legal__sec p:first-of-type { margin-top: 0; }
+.legal__sec h3 + p { margin-top: .8rem; }
 .legal__sec strong { color: var(--ink); font-weight: 500; }
 .legal__sec a { color: var(--accent-deep); text-decoration: underline; text-underline-offset: 3px; }
 .legal__sec code {
