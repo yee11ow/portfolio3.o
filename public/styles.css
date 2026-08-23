@@ -676,7 +676,7 @@ section[id] { scroll-margin-top: 88px; }
    room of its own. Sections that follow a plain one need nothing: the
    previous bottom padding already separates them. */
 .band + .further,
-.about + .ask-wrap { padding-top: clamp(3rem, 6vw, 5rem); }
+.about + .ask-wrap { padding-top: var(--section); }
 
 /* ---------- home: links onward ---------- */
 .further { padding-block: 0 var(--section); }
@@ -684,7 +684,7 @@ section[id] { scroll-margin-top: 88px; }
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: clamp(1rem, 2.5vw, 1.75rem);
-  margin-top: 1.5rem;
+  margin-top: clamp(2rem, 4vw, 3rem);
 }
 .teaser__link {
   display: flex;
