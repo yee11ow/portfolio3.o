@@ -110,6 +110,22 @@
         </div>
       </div>
     </section>
+
+    <section class="ask-wrap">
+      <div class="wrap">
+        <div class="ask reveal" data-ask>
+          <p class="ask__q">Do the terms sound reasonable?</p>
+          <ul class="ask__opts">
+            <li><button class="ask__opt" type="button" data-reply="0">Yes</button></li>
+            <li><button class="ask__opt" type="button" data-reply="1">I have more questions</button></li>
+          </ul>
+          <div aria-live="polite">
+          <p class="ask__reply" data-reply="0" hidden>Good. Fifteen minutes costs nothing and commits you to nothing.<br><a href="/en/contact/">Book fifteen minutes →</a></p>
+          <p class="ask__reply" data-reply="1" hidden>Most are answered already, prices and ownership included.<br><a href="/en/faq/">See the FAQ →</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -122,6 +138,14 @@
       </ul>
     </div>
   </footer>
+
+  <aside class="pill" id="pill" hidden tabindex="0" role="group"
+         aria-label="Time spent on this page" data-label="Time spent on this page">
+    <span class="pill__dial" aria-hidden="true"></span>
+    <span class="pill__time" aria-hidden="true">0:00</span>
+    <span class="pill__note" aria-hidden="true">on this page</span>
+    <button class="pill__close" type="button" aria-label="Hide">&times;</button>
+  </aside>
 
   <script src="../../script.js"></script>
 </body>

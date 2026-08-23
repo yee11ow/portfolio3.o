@@ -116,7 +116,7 @@
       <section class="legal__sec">
         <h2>3. Cookies and browser storage</h2>
         <p><strong>This site sets no cookies.</strong></p>
-        <p><strong>The site stores nothing in your browser either.</strong> The language is decided by the address: Swedish lives at <code>/</code> and English at <code>/en/</code>. There is no preference to remember and no identifier to set.</p>
+        <p><strong>The site stores nothing in your browser either.</strong> The language is decided by the address: Swedish lives at <code>/</code> and English at <code>/en/</code>. There is no preference to remember and no identifier to set.</p><p>The small panel in the corner counts how long you have been on that one page. The number lives in the page’s memory and is gone the moment you move on or close the tab. Nothing is saved, nothing is sent anywhere, and it measures the open tab rather than you. The same goes for the question at the foot of the pages: the answer you click reveals a line of text and stops there.</p>
         
         <p>The one exception is the AI assistant: if you start it, ElevenLabs may store values of its own. That is described in section 4.</p>
       </section>
@@ -181,6 +181,14 @@
       </ul>
     </div>
   </footer>
+
+  <aside class="pill" id="pill" hidden tabindex="0" role="group"
+         aria-label="Time spent on this page" data-label="Time spent on this page">
+    <span class="pill__dial" aria-hidden="true"></span>
+    <span class="pill__time" aria-hidden="true">0:00</span>
+    <span class="pill__note" aria-hidden="true">on this page</span>
+    <button class="pill__close" type="button" aria-label="Hide">&times;</button>
+  </aside>
 
   <script src="../script.js"></script>
 </body>

@@ -115,7 +115,7 @@
       <section class="legal__sec">
         <h2>3. Kakor och lagring i webbläsaren</h2>
         <p><strong>Den här webbplatsen sätter inga kakor.</strong></p>
-        <p><strong>Webbplatsen sparar heller ingenting i webbläsarens lagring.</strong> Språket avgörs av adressen: svenska ligger på <code>/</code> och engelska på <code>/en/</code>. Det finns alltså ingen inställning att komma ihåg och ingen identifierare att sätta.</p>
+        <p><strong>Webbplatsen sparar heller ingenting i webbläsarens lagring.</strong> Språket avgörs av adressen: svenska ligger på <code>/</code> och engelska på <code>/en/</code>. Det finns alltså ingen inställning att komma ihåg och ingen identifierare att sätta.</p><p>Den lilla rutan nere i hörnet räknar hur länge du varit på just den sidan. Siffran lever i sidans minne och försvinner när du byter sida eller stänger fliken. Ingenting sparas, ingenting skickas vidare, och den mäter inte dig utan bara den öppna fliken. Detsamma gäller frågan längst ned på sidorna: svaret du klickar på visar en text och stannar där.</p>
         
         <p>Det enda undantaget är AI-assistenten: startar du den kan ElevenLabs lagra egna värden. Det beskrivs i avsnitt 4.</p>
       </section>
@@ -180,6 +180,14 @@
       </ul>
     </div>
   </footer>
+
+  <aside class="pill" id="pill" hidden tabindex="0" role="group"
+         aria-label="Lästid på den här sidan" data-label="Lästid på den här sidan">
+    <span class="pill__dial" aria-hidden="true"></span>
+    <span class="pill__time" aria-hidden="true">0:00</span>
+    <span class="pill__note" aria-hidden="true">på den här sidan</span>
+    <button class="pill__close" type="button" aria-label="Dölj">&times;</button>
+  </aside>
 
   <script src="script.js"></script>
 </body>

@@ -110,6 +110,22 @@
         </div>
       </div>
     </section>
+
+    <section class="ask-wrap">
+      <div class="wrap">
+        <div class="ask reveal" data-ask>
+          <p class="ask__q">Låter villkoren rimliga?</p>
+          <ul class="ask__opts">
+            <li><button class="ask__opt" type="button" data-reply="0">Ja</button></li>
+            <li><button class="ask__opt" type="button" data-reply="1">Jag har fler frågor</button></li>
+          </ul>
+          <div aria-live="polite">
+          <p class="ask__reply" data-reply="0" hidden>Bra. Femton minuter kostar ingenting och binder er inte vid något.<br><a href="/kontakt/">Boka femton minuter →</a></p>
+          <p class="ask__reply" data-reply="1" hidden>De flesta står redan besvarade, priser och ägande inräknat.<br><a href="/vanliga-fragor/">Se vanliga frågor →</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -122,6 +138,14 @@
       </ul>
     </div>
   </footer>
+
+  <aside class="pill" id="pill" hidden tabindex="0" role="group"
+         aria-label="Lästid på den här sidan" data-label="Lästid på den här sidan">
+    <span class="pill__dial" aria-hidden="true"></span>
+    <span class="pill__time" aria-hidden="true">0:00</span>
+    <span class="pill__note" aria-hidden="true">på den här sidan</span>
+    <button class="pill__close" type="button" aria-label="Dölj">&times;</button>
+  </aside>
 
   <script src="../script.js"></script>
 </body>

@@ -92,6 +92,131 @@
     });
   }
 
+  /* ---------- Reading pill ----------
+     Time spent here and how far down the page you are. Nothing is written to
+     the browser, which is the whole point of the privacy page, so the count is
+     per page and the position resets when you move on. The note changes as the
+     minutes add up. */
+  var NOTES = {
+    sv: [[0, 'på den här sidan'], [120, 'du läser fortfarande'],
+         [300, 'noggrann läsare'], [600, 'nu är jag smickrad']],
+    en: [[0, 'on this page'], [120, 'still reading'],
+         [300, 'thorough reader'], [600, 'now I am flattered']]
+  };
+
+  var pill = document.getElementById('pill');
+
+  if (pill && window.PointerEvent) {
+    var pillTime = pill.querySelector('.pill__time');
+    var pillNote = pill.querySelector('.pill__note');
+    var pillDial = pill.querySelector('.pill__dial');
+    var notes = NOTES[document.documentElement.lang] || NOTES.sv;
+    var started = Date.now();
+    var noteAt = -1;
+
+    function twoDigits(n) { return (n < 10 ? '0' : '') + n; }
+
+    function tick() {
+      var secs = Math.floor((Date.now() - started) / 1000);
+      pillTime.textContent = Math.floor(secs / 60) + ':' + twoDigits(secs % 60);
+
+      for (var i = notes.length - 1; i >= 0; i--) {
+        if (secs >= notes[i][0]) {
+          if (i !== noteAt) { pillNote.textContent = notes[i][1]; noteAt = i; }
+          break;
+        }
+      }
+    }
+
+    function trackScroll() {
+      var room = document.documentElement.scrollHeight - window.innerHeight;
+      var pct = room > 0 ? Math.min(100, Math.round((window.scrollY / room) * 100)) : 100;
+      pillDial.style.setProperty('--p', pct);
+      pill.setAttribute('aria-label', pill.getAttribute('data-label') + ' ' + pct + '%');
+    }
+
+    tick();
+    trackScroll();
+    setInterval(tick, 1000);
+    window.addEventListener('scroll', trackScroll, { passive: true });
+    window.addEventListener('resize', trackScroll, { passive: true });
+    pill.hidden = false;
+
+    /* Drag with a pointer, or nudge with the arrow keys once focused, because
+       a drag on its own would leave keyboard users without a way to move it. */
+    var dragging = false, grabX = 0, grabY = 0;
+
+    function placeAt(x, y) {
+      var box = pill.getBoundingClientRect();
+      var maxX = window.innerWidth - box.width - 8;
+      var maxY = window.innerHeight - box.height - 8;
+      pill.style.left = Math.max(8, Math.min(x, maxX)) + 'px';
+      pill.style.top = Math.max(8, Math.min(y, maxY)) + 'px';
+      pill.style.right = 'auto';
+      pill.style.bottom = 'auto';
+    }
+
+    pill.addEventListener('pointerdown', function (e) {
+      if (e.target.closest('.pill__close')) return;
+      var box = pill.getBoundingClientRect();
+      grabX = e.clientX - box.left;
+      grabY = e.clientY - box.top;
+      dragging = true;
+      pill.setPointerCapture(e.pointerId);
+      pill.classList.add('is-dragging');
+    });
+
+    pill.addEventListener('pointermove', function (e) {
+      if (dragging) placeAt(e.clientX - grabX, e.clientY - grabY);
+    });
+
+    function endDrag() {
+      dragging = false;
+      pill.classList.remove('is-dragging');
+    }
+    pill.addEventListener('pointerup', endDrag);
+    pill.addEventListener('pointercancel', endDrag);
+
+    pill.addEventListener('keydown', function (e) {
+      var step = e.shiftKey ? 48 : 16;
+      var box = pill.getBoundingClientRect();
+      var moves = { ArrowLeft: [-step, 0], ArrowRight: [step, 0], ArrowUp: [0, -step], ArrowDown: [0, step] };
+      if (moves[e.key]) {
+        e.preventDefault();
+        placeAt(box.left + moves[e.key][0], box.top + moves[e.key][1]);
+      } else if (e.key === 'Escape') {
+        pill.hidden = true;
+      }
+    });
+
+    var pillClose = pill.querySelector('.pill__close');
+    if (pillClose) {
+      pillClose.addEventListener('click', function () { pill.hidden = true; });
+    }
+
+    window.addEventListener('resize', function () {
+      if (pill.style.left) placeAt(pill.getBoundingClientRect().left, pill.getBoundingClientRect().top);
+    }, { passive: true });
+  }
+
+  /* ---------- One question at the end of the page ----------
+     Answering swaps the buttons for a line and a link onward. */
+  var ask = document.querySelector('[data-ask]');
+
+  if (ask) {
+    var opts = ask.querySelector('.ask__opts');
+
+    ask.addEventListener('click', function (e) {
+      var btn = e.target.closest('.ask__opt');
+      if (!btn) return;
+      var reply = ask.querySelector('.ask__reply[data-reply="' + btn.getAttribute('data-reply') + '"]');
+      if (!reply) return;
+      opts.hidden = true;
+      reply.hidden = false;
+      ask.classList.add('is-answered');
+    });
+  }
+
   /* ---------- Reveal on scroll ---------- */
   var revealEls = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

@@ -138,6 +138,24 @@
         </article>
       </div>
     </section>
+
+    <section class="ask-wrap">
+      <div class="wrap">
+        <div class="ask reveal" data-ask>
+          <p class="ask__q">Vad tänkte ni om koncepten?</p>
+          <ul class="ask__opts">
+            <li><button class="ask__opt" type="button" data-reply="0">Snygga</button></li>
+            <li><button class="ask__opt" type="button" data-reply="1">Vår ser sämre ut</button></li>
+            <li><button class="ask__opt" type="button" data-reply="2">Vem är du?</button></li>
+          </ul>
+          <div aria-live="polite">
+          <p class="ask__reply" data-reply="0" hidden>Tack. Fast snyggt är inte poängen, poängen är att någon hör av sig. Så här går det till.<br><a href="/arbetssatt/">Se arbetssättet →</a></p>
+          <p class="ask__reply" data-reply="1" hidden>Då vet ni redan vad femton minuter skulle ge er.<br><a href="/kontakt/">Boka femton minuter →</a></p>
+          <p class="ask__reply" data-reply="2" hidden>Rimlig fråga innan man släpper in någon i sin webbplats.<br><a href="/om-mig/">Läs om mig →</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -153,6 +171,14 @@
       <p class="foot__fine">Koncepten här är egeninitierade. Företagarnas Revisionsbyrå i Uppsala AB och Nordström Advokater AB har varken beställt eller godkänt dem, och deras namn och texter tillhör dem. <a href="/legal.html#koncept">Mer om detta</a>.</p>
     </div>
   </footer>
+
+  <aside class="pill" id="pill" hidden tabindex="0" role="group"
+         aria-label="Lästid på den här sidan" data-label="Lästid på den här sidan">
+    <span class="pill__dial" aria-hidden="true"></span>
+    <span class="pill__time" aria-hidden="true">0:00</span>
+    <span class="pill__note" aria-hidden="true">på den här sidan</span>
+    <button class="pill__close" type="button" aria-label="Dölj">&times;</button>
+  </aside>
 
   <script src="../script.js"></script>
 </body>

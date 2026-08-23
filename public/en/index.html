@@ -172,6 +172,24 @@
         </ul>
       </div>
     </section>
+
+    <section class="ask-wrap">
+      <div class="wrap">
+        <div class="ask reveal" data-ask>
+          <p class="ask__q">How is it going so far?</p>
+          <ul class="ask__opts">
+            <li><button class="ask__opt" type="button" data-reply="0">Curious</button></li>
+            <li><button class="ask__opt" type="button" data-reply="1">Sceptical</button></li>
+            <li><button class="ask__opt" type="button" data-reply="2">I only want prices</button></li>
+          </ul>
+          <div aria-live="polite">
+          <p class="ask__reply" data-reply="0" hidden>Good. Work is the next stop, that is where you can tell whether I can do this.<br><a href="/en/work/">See the work →</a></p>
+          <p class="ask__reply" data-reply="1" hidden>Fair, you have heard it before. The concepts are live and clickable, judge me on those instead.<br><a href="/en/work/">See the concepts →</a></p>
+          <p class="ask__reply" data-reply="2" hidden>Then you can stop looking. The numbers are written out, no quote form first.<br><a href="/en/faq/">See the prices →</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -187,6 +205,14 @@
       <p class="foot__fine">The concepts here were made on my own initiative. Företagarnas Revisionsbyrå i Uppsala AB and Nordström Advokater AB have neither commissioned nor approved them, and their names and texts remain their own. <a href="/en/legal.html#koncept">More on this</a>.</p>
     </div>
   </footer>
+
+  <aside class="pill" id="pill" hidden tabindex="0" role="group"
+         aria-label="Time spent on this page" data-label="Time spent on this page">
+    <span class="pill__dial" aria-hidden="true"></span>
+    <span class="pill__time" aria-hidden="true">0:00</span>
+    <span class="pill__note" aria-hidden="true">on this page</span>
+    <button class="pill__close" type="button" aria-label="Hide">&times;</button>
+  </aside>
 
   <script src="../script.js"></script>
 </body>

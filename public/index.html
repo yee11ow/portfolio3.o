@@ -172,6 +172,24 @@
         </ul>
       </div>
     </section>
+
+    <section class="ask-wrap">
+      <div class="wrap">
+        <div class="ask reveal" data-ask>
+          <p class="ask__q">Hur går det så här långt?</p>
+          <ul class="ask__opts">
+            <li><button class="ask__opt" type="button" data-reply="0">Nyfiken</button></li>
+            <li><button class="ask__opt" type="button" data-reply="1">Skeptisk</button></li>
+            <li><button class="ask__opt" type="button" data-reply="2">Jag letar bara pris</button></li>
+          </ul>
+          <div aria-live="polite">
+          <p class="ask__reply" data-reply="0" hidden>Bra. Då är arbeten nästa hållplats, det är där det syns om jag kan det här.<br><a href="/arbeten/">Se arbeten →</a></p>
+          <p class="ask__reply" data-reply="1" hidden>Rimligt, ni har hört det förut. Koncepten ligger live och går att klicka runt i, döm efter dem i stället.<br><a href="/arbeten/">Se koncepten →</a></p>
+          <p class="ask__reply" data-reply="2" hidden>Då slipper ni leta. Siffrorna står utskrivna, inget offertformulär först.<br><a href="/vanliga-fragor/">Se priserna →</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -187,6 +205,14 @@
       <p class="foot__fine">Koncepten här är egeninitierade. Företagarnas Revisionsbyrå i Uppsala AB och Nordström Advokater AB har varken beställt eller godkänt dem, och deras namn och texter tillhör dem. <a href="/legal.html#koncept">Mer om detta</a>.</p>
     </div>
   </footer>
+
+  <aside class="pill" id="pill" hidden tabindex="0" role="group"
+         aria-label="Lästid på den här sidan" data-label="Lästid på den här sidan">
+    <span class="pill__dial" aria-hidden="true"></span>
+    <span class="pill__time" aria-hidden="true">0:00</span>
+    <span class="pill__note" aria-hidden="true">på den här sidan</span>
+    <button class="pill__close" type="button" aria-label="Dölj">&times;</button>
+  </aside>
 
   <script src="script.js"></script>
 </body>

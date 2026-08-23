@@ -84,6 +84,22 @@
         </div>
       </div>
     </section>
+
+    <section class="ask-wrap">
+      <div class="wrap">
+        <div class="ask reveal" data-ask>
+          <p class="ask__q">Räckte det som svar?</p>
+          <ul class="ask__opts">
+            <li><button class="ask__opt" type="button" data-reply="0">Ja</button></li>
+            <li><button class="ask__opt" type="button" data-reply="1">Vad kostar det?</button></li>
+          </ul>
+          <div aria-live="polite">
+          <p class="ask__reply" data-reply="0" hidden>Bra. Då återstår hur det går till rent praktiskt, steg för steg.<br><a href="/arbetssatt/">Se arbetssättet →</a></p>
+          <p class="ask__reply" data-reply="1" hidden>Priserna står utskrivna. Jag gömmer dem inte bakom ett formulär.<br><a href="/vanliga-fragor/">Se priserna →</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -99,6 +115,14 @@
       <p class="foot__fine">Koncepten här är egeninitierade. Företagarnas Revisionsbyrå i Uppsala AB och Nordström Advokater AB har varken beställt eller godkänt dem, och deras namn och texter tillhör dem. <a href="/legal.html#koncept">Mer om detta</a>.</p>
     </div>
   </footer>
+
+  <aside class="pill" id="pill" hidden tabindex="0" role="group"
+         aria-label="Lästid på den här sidan" data-label="Lästid på den här sidan">
+    <span class="pill__dial" aria-hidden="true"></span>
+    <span class="pill__time" aria-hidden="true">0:00</span>
+    <span class="pill__note" aria-hidden="true">på den här sidan</span>
+    <button class="pill__close" type="button" aria-label="Dölj">&times;</button>
+  </aside>
 
   <script src="../script.js"></script>
 </body>

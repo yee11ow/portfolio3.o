@@ -47,6 +47,9 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* A display rule outranks the UA stylesheet, so [hidden] needs to win back. */
+[hidden] { display: none !important; }
+
 img { max-width: 100%; display: block; height: auto; }
 a { color: inherit; }
 ul, ol { list-style: none; padding: 0; }
@@ -734,6 +737,121 @@ section[id] { scroll-margin-top: 88px; }
   max-width: 40ch;
 }
 .faq-end__cta { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; }
+
+/* ============================ ASK ============================ */
+.ask-wrap { padding-block: 0 var(--section); }
+.ask {
+  max-width: 46rem;
+  padding: clamp(1.4rem, 3vw, 1.9rem) clamp(1.4rem, 3vw, 2rem);
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+}
+.ask__q {
+  font-family: var(--serif);
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  line-height: 1.4;
+  max-width: 32ch;
+}
+.ask__opts { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: 1.1rem; }
+.ask__opt {
+  padding: .45rem 1rem;
+  font-size: .9rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--pill);
+  transition: border-color .18s ease, color .18s ease, transform .18s ease;
+}
+.ask__opt:hover { border-color: var(--ink); transform: translateY(-1px); }
+.ask__opt:active { transform: none; }
+.ask__reply {
+  font-family: var(--serif);
+  color: var(--ink-soft);
+  margin-top: 1.1rem;
+  max-width: 54ch;
+  animation: ask-in .45s ease both;
+}
+.ask__reply a {
+  display: inline-block;
+  margin-top: .5rem;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-tint);
+  padding-bottom: 2px;
+  transition: border-color .18s ease;
+}
+.ask__reply a:hover { border-color: var(--accent); }
+@keyframes ask-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+/* ============================ READING PILL ============================ */
+.pill {
+  position: fixed;
+  left: var(--pad);
+  bottom: var(--pad);
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  padding: .42rem .5rem .42rem .55rem;
+  font-size: .78rem;
+  line-height: 1;
+  color: var(--ink-soft);
+  background: color-mix(in srgb, var(--surface) 90%, transparent);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--line);
+  border-radius: var(--pill);
+  box-shadow: var(--shadow-sm);
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.pill.is-dragging { cursor: grabbing; box-shadow: var(--shadow); }
+.pill:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* One element: a brass arc over a stone ring, with the middle masked out. */
+.pill__dial {
+  --p: 0;
+  width: 15px;
+  height: 15px;
+  flex: none;
+  border-radius: 50%;
+  background: conic-gradient(var(--accent) calc(var(--p) * 1%), var(--line) 0);
+  -webkit-mask: radial-gradient(circle, transparent 52%, #000 54%);
+  mask: radial-gradient(circle, transparent 52%, #000 54%);
+}
+.pill__time {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+  color: var(--ink);
+}
+.pill__note { white-space: nowrap; }
+.pill__close {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  font-size: 1rem;
+  line-height: 1;
+  color: var(--ink-soft);
+  border-radius: 50%;
+  transition: background-color .18s ease, color .18s ease;
+}
+.pill__close:hover { background: var(--bg-2); color: var(--ink); }
+.pill__close:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+/* Below the fold of a phone it would sit on top of the footer links. */
+@media (max-width: 560px) {
+  .pill { left: .75rem; bottom: .75rem; font-size: .72rem; }
+  .pill__note { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pill__dial { transition: none; }
+  .ask__reply { animation: none; }
+}
+@media print { .pill { display: none; } }
 
 /* ============================ REVEAL ============================ */
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }

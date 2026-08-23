@@ -84,6 +84,22 @@
         </div>
       </div>
     </section>
+
+    <section class="ask-wrap">
+      <div class="wrap">
+        <div class="ask reveal" data-ask>
+          <p class="ask__q">Did that answer it?</p>
+          <ul class="ask__opts">
+            <li><button class="ask__opt" type="button" data-reply="0">Yes</button></li>
+            <li><button class="ask__opt" type="button" data-reply="1">What does it cost?</button></li>
+          </ul>
+          <div aria-live="polite">
+          <p class="ask__reply" data-reply="0" hidden>Good. That leaves how it works in practice, step by step.<br><a href="/en/process/">See the process →</a></p>
+          <p class="ask__reply" data-reply="1" hidden>The prices are written out. I do not hide them behind a form.<br><a href="/en/faq/">See the prices →</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -99,6 +115,14 @@
       <p class="foot__fine">The concepts here were made on my own initiative. Företagarnas Revisionsbyrå i Uppsala AB and Nordström Advokater AB have neither commissioned nor approved them, and their names and texts remain their own. <a href="/en/legal.html#koncept">More on this</a>.</p>
     </div>
   </footer>
+
+  <aside class="pill" id="pill" hidden tabindex="0" role="group"
+         aria-label="Time spent on this page" data-label="Time spent on this page">
+    <span class="pill__dial" aria-hidden="true"></span>
+    <span class="pill__time" aria-hidden="true">0:00</span>
+    <span class="pill__note" aria-hidden="true">on this page</span>
+    <button class="pill__close" type="button" aria-label="Hide">&times;</button>
+  </aside>
 
   <script src="../../script.js"></script>
 </body>
