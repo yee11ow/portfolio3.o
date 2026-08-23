@@ -261,7 +261,10 @@ section[id] { scroll-margin-top: 88px; }
 .nav__toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
 .nav__toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-@media (max-width: 879px) {
+/* Six nav items plus the availability badge, the language switch and the CTA
+   stop fitting on one row below this, so the burger takes over earlier than
+   the usual tablet breakpoint. */
+@media (max-width: 1023px) {
   .nav__toggle { display: flex; }
   .nav__menu {
     position: absolute;
@@ -910,6 +913,31 @@ section[id] { scroll-margin-top: 88px; }
 .cs__closeh { font-size: 1.5rem; }
 .cs__close .cs__p { margin-top: .8rem; }
 .cs__cta { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; }
+
+/* Self-audit: each check carries a how and a why, so both get a small label
+   rather than running together as one grey paragraph. */
+.chk__lead { max-width: 60ch; }
+.chk__list { gap: 2rem; }
+.chk .cs__lead { font-size: 1.15rem; }
+.chk__how {
+  font-family: var(--serif);
+  font-size: .98rem;
+  line-height: 1.6;
+  color: var(--ink);
+  margin-top: .5rem;
+}
+.chk__k {
+  display: block;
+  font-family: var(--sans);
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: .25rem;
+}
+.chk .cs__why { margin-top: .8rem; }
+.chk .cs__why .chk__k { color: var(--ink-soft); }
 
 /* Two links per card on the hub now: the study and the live concept. */
 .case__links { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-top: 1.5rem; }

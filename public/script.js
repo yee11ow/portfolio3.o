@@ -27,7 +27,7 @@
       setMenu(!menu.classList.contains('is-open'));
     });
 
-    var desktop = window.matchMedia('(min-width: 880px)');
+    var desktop = window.matchMedia('(min-width: 1024px)');
     function onBreakpoint() {
       if (desktop.matches) setMenu(false);
     }
