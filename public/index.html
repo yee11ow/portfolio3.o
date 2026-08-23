@@ -143,6 +143,7 @@
         <ul class="teasers">
           <li class="teaser reveal">
             <a class="teaser__link" href="/arbeten/">
+              <span class="teaser__num" aria-hidden="true">01</span>
               <h3 class="teaser__title">Arbeten</h3>
               <p class="teaser__body">Två live-koncept för svenska byråer, byggda på eget initiativ och fria att klicka runt i.</p>
               <span class="teaser__arrow" aria-hidden="true">→</span>
@@ -150,6 +151,7 @@
           </li>
           <li class="teaser reveal">
             <a class="teaser__link" href="/om-mig/">
+              <span class="teaser__num" aria-hidden="true">02</span>
               <h3 class="teaser__title">Om mig</h3>
               <p class="teaser__body">Vem jag är, vad jag kommer ifrån och varför just den här sortens byråer.</p>
               <span class="teaser__arrow" aria-hidden="true">→</span>
@@ -157,6 +159,7 @@
           </li>
           <li class="teaser reveal">
             <a class="teaser__link" href="/arbetssatt/">
+              <span class="teaser__num" aria-hidden="true">03</span>
               <h3 class="teaser__title">Arbetssätt</h3>
               <p class="teaser__body">Tre steg, vad som ingår och villkoren. Inga överraskningar på fakturan.</p>
               <span class="teaser__arrow" aria-hidden="true">→</span>
@@ -164,6 +167,7 @@
           </li>
           <li class="teaser reveal">
             <a class="teaser__link" href="/vanliga-fragor/">
+              <span class="teaser__num" aria-hidden="true">04</span>
               <h3 class="teaser__title">Vanliga frågor</h3>
               <p class="teaser__body">Vad det kostar, hur lång tid det tar och vem som äger sajten. Svaren står utskrivna.</p>
               <span class="teaser__arrow" aria-hidden="true">→</span>
@@ -208,10 +212,17 @@
 
   <aside class="pill" id="pill" hidden tabindex="0" role="group"
          aria-label="Lästid på den här sidan" data-label="Lästid på den här sidan">
-    <span class="pill__dial" aria-hidden="true"></span>
-    <span class="pill__time" aria-hidden="true">0:00</span>
-    <span class="pill__note" aria-hidden="true">på den här sidan</span>
+    <span class="pill__grab" aria-hidden="true">
+      <span class="pill__dial"></span>
+      <span class="pill__time">0:00</span>
+    </span>
+    <button class="pill__toggle" type="button" aria-expanded="false"
+            aria-controls="pill-panel" aria-label="Öppna frågepanelen">
+      <span class="pill__note" aria-hidden="true">på den här sidan</span>
+      <span class="pill__chev" aria-hidden="true">&rsaquo;</span>
+    </button>
     <button class="pill__close" type="button" aria-label="Dölj">&times;</button>
+    <div class="pill__panel" id="pill-panel" hidden></div>
   </aside>
 
   <script src="script.js"></script>

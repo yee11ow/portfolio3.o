@@ -118,10 +118,17 @@
 
   <aside class="pill" id="pill" hidden tabindex="0" role="group"
          aria-label="Time spent on this page" data-label="Time spent on this page">
-    <span class="pill__dial" aria-hidden="true"></span>
-    <span class="pill__time" aria-hidden="true">0:00</span>
-    <span class="pill__note" aria-hidden="true">on this page</span>
+    <span class="pill__grab" aria-hidden="true">
+      <span class="pill__dial"></span>
+      <span class="pill__time">0:00</span>
+    </span>
+    <button class="pill__toggle" type="button" aria-expanded="false"
+            aria-controls="pill-panel" aria-label="Open the question panel">
+      <span class="pill__note" aria-hidden="true">on this page</span>
+      <span class="pill__chev" aria-hidden="true">&rsaquo;</span>
+    </button>
     <button class="pill__close" type="button" aria-label="Hide">&times;</button>
+    <div class="pill__panel" id="pill-panel" hidden></div>
   </aside>
 
   <script src="../../script.js"></script>

@@ -143,6 +143,7 @@
         <ul class="teasers">
           <li class="teaser reveal">
             <a class="teaser__link" href="/en/work/">
+              <span class="teaser__num" aria-hidden="true">01</span>
               <h3 class="teaser__title">Work</h3>
               <p class="teaser__body">Two live concepts for Swedish firms, made on my own initiative and clickable.</p>
               <span class="teaser__arrow" aria-hidden="true">→</span>
@@ -150,6 +151,7 @@
           </li>
           <li class="teaser reveal">
             <a class="teaser__link" href="/en/about/">
+              <span class="teaser__num" aria-hidden="true">02</span>
               <h3 class="teaser__title">About</h3>
               <p class="teaser__body">Who I am, where I come from, and why this particular kind of firm.</p>
               <span class="teaser__arrow" aria-hidden="true">→</span>
@@ -157,6 +159,7 @@
           </li>
           <li class="teaser reveal">
             <a class="teaser__link" href="/en/process/">
+              <span class="teaser__num" aria-hidden="true">03</span>
               <h3 class="teaser__title">Process</h3>
               <p class="teaser__body">Three steps, what is included and the terms. No surprises on the invoice.</p>
               <span class="teaser__arrow" aria-hidden="true">→</span>
@@ -164,6 +167,7 @@
           </li>
           <li class="teaser reveal">
             <a class="teaser__link" href="/en/faq/">
+              <span class="teaser__num" aria-hidden="true">04</span>
               <h3 class="teaser__title">FAQ</h3>
               <p class="teaser__body">What it costs, how long it takes and who owns the site. The answers are written out.</p>
               <span class="teaser__arrow" aria-hidden="true">→</span>
@@ -208,10 +212,17 @@
 
   <aside class="pill" id="pill" hidden tabindex="0" role="group"
          aria-label="Time spent on this page" data-label="Time spent on this page">
-    <span class="pill__dial" aria-hidden="true"></span>
-    <span class="pill__time" aria-hidden="true">0:00</span>
-    <span class="pill__note" aria-hidden="true">on this page</span>
+    <span class="pill__grab" aria-hidden="true">
+      <span class="pill__dial"></span>
+      <span class="pill__time">0:00</span>
+    </span>
+    <button class="pill__toggle" type="button" aria-expanded="false"
+            aria-controls="pill-panel" aria-label="Open the question panel">
+      <span class="pill__note" aria-hidden="true">on this page</span>
+      <span class="pill__chev" aria-hidden="true">&rsaquo;</span>
+    </button>
     <button class="pill__close" type="button" aria-label="Hide">&times;</button>
+    <div class="pill__panel" id="pill-panel" hidden></div>
   </aside>
 
   <script src="../script.js"></script>

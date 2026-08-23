@@ -104,10 +104,17 @@
 
   <aside class="pill" id="pill" hidden tabindex="0" role="group"
          aria-label="Lästid på den här sidan" data-label="Lästid på den här sidan">
-    <span class="pill__dial" aria-hidden="true"></span>
-    <span class="pill__time" aria-hidden="true">0:00</span>
-    <span class="pill__note" aria-hidden="true">på den här sidan</span>
+    <span class="pill__grab" aria-hidden="true">
+      <span class="pill__dial"></span>
+      <span class="pill__time">0:00</span>
+    </span>
+    <button class="pill__toggle" type="button" aria-expanded="false"
+            aria-controls="pill-panel" aria-label="Öppna frågepanelen">
+      <span class="pill__note" aria-hidden="true">på den här sidan</span>
+      <span class="pill__chev" aria-hidden="true">&rsaquo;</span>
+    </button>
     <button class="pill__close" type="button" aria-label="Dölj">&times;</button>
+    <div class="pill__panel" id="pill-panel" hidden></div>
   </aside>
 
   <script src="../script.js"></script>
