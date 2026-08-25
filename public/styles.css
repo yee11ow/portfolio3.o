@@ -10,7 +10,8 @@
   --surface:   #ffffff;
   --ink:       #18191b;  /* graphite near-black */
   --ink-soft:  #5e6062;  /* secondary text */
-  --line:      #dcd9d2;
+  --line:      #dcd9d2;  /* dividers, decorative */
+  --line-strong: #918771;  /* borders that identify a control, WCAG 1.4.11 */
   --accent:    #8a6a35;  /* muted brass — the single accent */
   --accent-deep:#6d5228;
   --accent-tint:#ece3d1;
@@ -148,7 +149,7 @@ section[id] { scroll-margin-top: 88px; }
 }
 .btn--primary { background: var(--ink); color: var(--bg); }
 .btn--primary:hover { background: var(--accent); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
-.btn--ghost { color: var(--ink); border: 1px solid var(--line); background: transparent; }
+.btn--ghost { color: var(--ink); border: 1px solid var(--line-strong); background: transparent; }
 .btn--ghost:hover { border-color: var(--ink); transform: translateY(-2px); }
 .btn--lg { padding: 1.05rem 2rem; font-size: 1.05rem; }
 
@@ -590,10 +591,30 @@ section[id] { scroll-margin-top: 88px; }
   color: var(--ink-soft);
   max-width: 70ch;
 }
-.foot__fine a { color: var(--ink-soft); text-decoration: underline; text-underline-offset: 2px; }
+.foot__fine a {
+  display: inline-block;
+  min-height: 24px;
+  padding-block: .25rem;
+  margin-block: -.25rem;
+  color: var(--ink-soft);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
 .foot__fine a:hover { color: var(--accent); }
-.foot__links { display: flex; gap: 1.5rem; }
-.foot__links a { font-size: .85rem; text-decoration: none; color: var(--ink-soft); transition: color .15s ease; }
+/* Inline links are only as tall as their line box, which measured 16px on a
+   phone. WCAG 2.2 asks for 24. Padding buys the height, the negative margin
+   gives the layout back so nothing shifts. */
+.foot__links { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; margin-block: -.3rem; }
+.foot__links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding-block: .3rem;
+  font-size: .85rem;
+  text-decoration: none;
+  color: var(--ink-soft);
+  transition: color .15s ease;
+}
 .foot__links a:hover { color: var(--accent); }
 
 /* ============================ LEGAL PAGE ============================ */
@@ -648,6 +669,14 @@ section[id] { scroll-margin-top: 88px; }
 }
 .legal__dl dt { font-size: .85rem; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-soft); }
 .legal__dl dd { margin: 0; }
+/* The email sits alone in its cell, so the inline exception does not cover it. */
+.legal__dl dd a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding-block: .2rem;
+  margin-block: -.2rem;
+}
 @media (max-width: 560px) { .legal__dl > div { grid-template-columns: 1fr; } }
 
 /* Placeholders that must not be forgotten before launch */
@@ -692,7 +721,7 @@ section[id] { scroll-margin-top: 88px; }
   height: 100%;
   padding: 1.5rem 1.5rem 1.35rem;
   background: var(--surface);
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-strong);
   border-radius: var(--r);
   text-decoration: none;
   transition: transform .25s ease, border-color .25s ease,
@@ -752,6 +781,12 @@ section[id] { scroll-margin-top: 88px; }
 @media (max-width: 1040px) { .teasers { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px) { .teasers { grid-template-columns: 1fr; } }
 
+/* Brass on the stone background measures 4.24:1, under the 4.5 small text
+   needs. The deeper brass clears it on every surface the site uses. */
+.band .eyebrow,
+.about .eyebrow,
+.assistant .eyebrow { color: var(--accent-deep); }
+
 /* eyebrow sitting on the dark contact panel */
 .eyebrow--on-dark { color: var(--accent-tint); }
 .cta__box .eyebrow--on-dark { margin-bottom: .5rem; }
@@ -803,7 +838,10 @@ section[id] { scroll-margin-top: 88px; }
 .cs { padding-bottom: var(--section); }
 .cs__wrap { max-width: 46rem; }
 .cs__back {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding-block: .25rem;
   font-size: .85rem;
   color: var(--ink-soft);
   text-decoration: none;
@@ -963,7 +1001,7 @@ section[id] { scroll-margin-top: 88px; }
   padding: .45rem 1rem;
   font-size: .9rem;
   background: var(--surface);
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-strong);
   border-radius: var(--pill);
   transition: border-color .18s ease, color .18s ease, transform .18s ease;
 }
@@ -1034,19 +1072,28 @@ section[id] { scroll-margin-top: 88px; }
 .pill__toggle {
   display: flex;
   align-items: center;
-  gap: .3rem;
-  padding: .2rem .1rem;
+  gap: .4rem;
+  padding: .2rem .1rem .2rem .2rem;
   font-size: inherit;
   color: var(--ink-soft);
   border-radius: var(--pill);
+  cursor: pointer;
 }
 .pill__toggle:hover { color: var(--ink); }
+.pill__toggle:hover .pill__chev { background: var(--accent); color: var(--surface); }
 .pill__toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .pill__chev {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  flex: none;
   color: var(--accent);
-  font-size: 1.1em;
+  font-size: 1em;
   line-height: 1;
-  transition: transform .25s ease;
+  border: 1px solid var(--accent-tint);
+  border-radius: 50%;
+  transition: transform .25s ease, background-color .18s ease, color .18s ease;
 }
 .pill.is-open .pill__chev { transform: rotate(90deg); }
 
@@ -1068,8 +1115,8 @@ section[id] { scroll-margin-top: 88px; }
 }
 .pill__note { white-space: nowrap; }
 .pill__close {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   flex: none;
   display: grid;
   place-items: center;
@@ -1105,7 +1152,7 @@ section[id] { scroll-margin-top: 88px; }
   padding: .45rem .7rem;
   font-size: .82rem;
   line-height: 1.3;
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-strong);
   border-radius: var(--r);
   transition: border-color .18s ease, background-color .18s ease;
 }
@@ -1124,7 +1171,7 @@ section[id] { scroll-margin-top: 88px; }
 }
 .pill__cta { background: var(--ink); color: var(--bg); }
 .pill__cta:hover { background: var(--accent); }
-.pill__alt { border: 1px solid var(--line); color: var(--ink-soft); }
+.pill__alt { border: 1px solid var(--line-strong); color: var(--ink-soft); }
 .pill__alt:hover { border-color: var(--ink); color: var(--ink); }
 .pill__cta:focus-visible, .pill__alt:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 

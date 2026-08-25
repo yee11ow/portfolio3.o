@@ -149,7 +149,11 @@
 
   var CAL = 'https://cal.com/matviiakkuratov/quick-intro';
   var MAIL = 'mailto:hello@matviiakkuratov.com';
-  var OPEN_AFTER = 60; // seconds on the page before it opens itself
+  // Sixty seconds on one page was never reached: the clock restarts on every
+  // navigation, so anyone clicking around the site never saw the panel at all.
+  // Scroll depth catches an engaged reader sooner than a timer can.
+  var OPEN_AFTER = 30;   // seconds on the page
+  var OPEN_AT = 60;      // or this much of the page read, whichever lands first
   var SEEN = 'matvii.panel';
 
   function stored(key) {
@@ -170,7 +174,7 @@
     var notes = NOTES[lang];
     var F = FUNNEL[lang];
     var panel = pill.querySelector('.pill__panel');
-    var toggle = pill.querySelector('.pill__toggle');
+    var pillToggle = pill.querySelector('.pill__toggle');
     var started = Date.now();
     var noteAt = -1;
     var seen = false;   // the panel has been opened at least once on this page
@@ -191,7 +195,7 @@
         }
       }
 
-      if (secs >= OPEN_AFTER && !seen && !stored(SEEN)) openPanel(true);
+      if (secs >= OPEN_AFTER) maybeOpen();
     }
 
     function trackScroll() {
@@ -199,6 +203,14 @@
       var pct = room > 0 ? Math.min(100, Math.round((window.scrollY / room) * 100)) : 100;
       pillDial.style.setProperty('--p', pct);
       pill.setAttribute('aria-label', pill.getAttribute('data-label') + ' ' + pct + '%');
+      // A page with nothing to scroll reports 100% straight away, and opening
+      // the panel a second after landing would read as a pop-up. There the
+      // timer is the only trigger.
+      if (room > 0 && pct >= OPEN_AT) maybeOpen();
+    }
+
+    function maybeOpen() {
+      if (!seen && !stored(SEEN) && !pill.hidden) openPanel(true);
     }
 
     /* --- building the funnel --- */
@@ -279,8 +291,8 @@
       store(SEEN, '1');
       panel.hidden = false;
       pill.classList.add('is-open');
-      toggle.setAttribute('aria-expanded', 'true');
-      toggle.setAttribute('aria-label', F.close);
+      pillToggle.setAttribute('aria-expanded', 'true');
+      pillToggle.setAttribute('aria-label', F.close);
       pillNote.textContent = F.invite;
       // Growing upward from the corner is free, but a dragged pill can grow
       // off-screen, so re-clamp whenever it has been moved.
@@ -294,12 +306,12 @@
     function closePanel() {
       panel.hidden = true;
       pill.classList.remove('is-open');
-      toggle.setAttribute('aria-expanded', 'false');
-      toggle.setAttribute('aria-label', F.open);
+      pillToggle.setAttribute('aria-expanded', 'false');
+      pillToggle.setAttribute('aria-label', F.open);
       pillNote.textContent = F.invite;
     }
 
-    toggle.addEventListener('click', function () {
+    pillToggle.addEventListener('click', function () {
       if (panel.hidden) openPanel(false); else closePanel();
     });
 
@@ -357,14 +369,14 @@
         e.preventDefault();
         placeAt(box.left + moves[e.key][0], box.top + moves[e.key][1]);
       } else if (e.key === 'Escape') {
-        if (panel.hidden) pill.hidden = true; else { closePanel(); toggle.focus(); }
+        if (panel.hidden) pill.hidden = true; else { closePanel(); pillToggle.focus(); }
       }
     });
 
     // The cross closes whatever is currently showing: the panel if it is open,
     // otherwise the pill itself.
     pill.querySelector('.pill__close').addEventListener('click', function () {
-      if (panel.hidden) pill.hidden = true; else { closePanel(); toggle.focus(); }
+      if (panel.hidden) pill.hidden = true; else { closePanel(); pillToggle.focus(); }
     });
 
     window.addEventListener('resize', function () {
