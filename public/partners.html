@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matvii · White-label web production for agencies</title>
+<meta name="description" content="White-label design and hand-coded builds for design & marketing agencies. Figma to launch on Cloudflare Pages. Stockholm evenings are US business hours.">
+<link rel="canonical" href="https://matviiakkuratov.com/partners">
+<meta property="og:title" content="Matvii · White-label web production for agencies">
+<meta property="og:description" content="You own the client relationship. I design in Figma and hand-code the build. Fast, accessible, no CMS lock-in.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://matviiakkuratov.com/partners">
+<meta name="theme-color" content="#f7f6f3">
+<style>
+  :root{
+    --paper:#f7f6f3;
+    --ink:#141412;
+    --muted:#6b6b66;
+    --hairline:#e3e1db;
+    --accent:#1d4ed8;
+    --track:#ecebe6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size:17px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--ink);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--accent);text-decoration-thickness:1.5px}
+  a:hover{color:var(--accent)}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+  .wrap{max-width:720px;margin:0 auto;padding:0 24px}
+
+  header{padding:28px 0}
+  .nav{display:flex;align-items:baseline;justify-content:space-between;gap:16px}
+  .brand{font-weight:700;font-size:19px;text-decoration:none}
+  .brand:hover{color:var(--ink)}
+  .nav-right{display:flex;align-items:baseline;gap:20px;font-size:14.5px}
+  .tag{color:var(--muted);letter-spacing:.14em;text-transform:uppercase;font-size:11.5px;font-weight:600}
+
+  .hero{padding:56px 0 40px}
+  .eyebrow{color:var(--muted);letter-spacing:.16em;text-transform:uppercase;font-size:12px;font-weight:700;margin-bottom:18px}
+  h1{font-size:clamp(30px,5.6vw,44px);line-height:1.12;letter-spacing:-.015em;font-weight:700;max-width:16ch}
+  .sub{margin-top:18px;font-size:19px;max-width:48ch}
+  .status{margin-top:22px;color:var(--muted);font-size:14.5px}
+  .cta-row{margin-top:26px;display:flex;flex-wrap:wrap;gap:14px 22px;align-items:center}
+  .btn{
+    display:inline-block;background:var(--ink);color:var(--paper);
+    padding:12px 20px;border-radius:999px;text-decoration:none;
+    font-weight:600;font-size:15.5px;
+  }
+  .btn:hover{background:var(--accent);color:#fff}
+  .cta-alt{font-size:15.5px}
+
+  section{border-top:1px solid var(--hairline);padding:40px 0}
+  h2.eyebrow{margin-bottom:22px}
+  ul.dash{list-style:none}
+  ul.dash li{padding-left:22px;position:relative;margin-bottom:12px}
+  ul.dash li::before{content:"–";position:absolute;left:0;color:var(--muted)}
+  ul.dash b{font-weight:700}
+
+  /* Scope box: the honest bit, deliberately foregrounded */
+  .scope{background:#efeee9;border-radius:10px;padding:22px 24px;margin-top:4px}
+  .scope p{max-width:56ch}
+  .scope p + p{margin-top:12px}
+  .scope b{font-weight:700}
+
+  /* Signature: the overlap diagram */
+  .tz{margin-top:6px}
+  .tz-row{display:grid;grid-template-columns:170px 1fr;gap:14px;align-items:center;margin-bottom:14px}
+  .tz-label{font-size:14px;color:var(--muted)}
+  .tz-label b{display:block;color:var(--ink);font-weight:700;font-size:15px}
+  .tz-track{position:relative;height:14px;background:var(--track);border-radius:7px}
+  .tz-fill{position:absolute;top:0;height:100%;border-radius:7px;background:var(--ink)}
+  .tz-fill.me{background:var(--accent)}
+  .tz-note{margin-top:16px;font-size:15.5px;max-width:52ch}
+  .tz-scale{display:grid;grid-template-columns:170px 1fr;gap:14px;margin-bottom:8px}
+  .tz-scale div{position:relative;height:16px;font-size:11px;color:var(--muted)}
+  .tz-scale span{position:absolute;transform:translateX(-50%)}
+
+  .work-item{margin-bottom:18px}
+  .work-item .k{font-weight:700}
+  .fineprint{margin-top:18px;font-size:14px;color:var(--muted);max-width:60ch}
+
+  .rates b{font-weight:700}
+  .rates p{margin-bottom:12px;max-width:56ch}
+
+  footer{border-top:1px solid var(--hairline);padding:34px 0 56px;font-size:14.5px;color:var(--muted)}
+  footer .links{display:flex;flex-wrap:wrap;gap:18px;margin-bottom:16px}
+  footer a{color:var(--ink)}
+  .sv{margin-top:10px}
+
+  @media (max-width:560px){
+    .tz-row,.tz-scale{grid-template-columns:1fr}
+    .tz-scale div{display:none}
+    .tz-label{margin-bottom:2px}
+    .nav-right .tag{display:none}
+    .scope{padding:18px}
+  }
+  @media print{
+    .btn{border:1px solid var(--ink);background:none;color:var(--ink)}
+  }
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <nav class="nav" aria-label="Main">
+    <a class="brand" href="https://matviiakkuratov.com">Matvii.</a>
+    <div class="nav-right">
+      <span class="tag">For agencies</span>
+      <a href="https://cal.com/matviiakkuratov/quick-intro">Book a call</a>
+    </div>
+  </nav>
+</header>
+
+<main class="wrap" id="main">
+
+  <div class="hero">
+    <p class="eyebrow">White-label · Figma · Hand-coded · Cloudflare</p>
+    <h1>White-label web production for agencies.</h1>
+    <p class="sub">You sell and own the client relationship. I design in Figma and hand-code the build. Fast, accessible, no CMS and no platform lock-in.</p>
+    <p class="status">Available for new projects · Replies within 24h · Stockholm, Sweden</p>
+    <div class="cta-row">
+      <a class="btn" href="https://cal.com/matviiakkuratov/quick-intro">Book 20 minutes</a>
+      <a class="cta-alt" href="mailto:hello@matviiakkuratov.com">hello@matviiakkuratov.com</a>
+    </div>
+  </div>
+
+  <section>
+    <h2 class="eyebrow">What I take off your plate</h2>
+    <ul class="dash">
+      <li><b>UI design in Figma.</b> Wireframes through to polished, dev-ready screens with components and variables.</li>
+      <li><b>Landing pages and marketing sites.</b> Designed and hand-coded, launched on Cloudflare Pages.</li>
+      <li><b>Accessibility audits and remediation.</b> WCAG 2.1 AA and EN 301 549, the standards the European Accessibility Act now enforces.</li>
+      <li><b>Overflow design capacity.</b> Reliable hands when your team is fully booked.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="scope-h">
+    <h2 class="eyebrow" id="scope-h">Where I fit, and where I don't</h2>
+    <div class="scope">
+      <p><b>I don't work in WordPress, Webflow or Shopify.</b> Rather than find that out on a call, here is the split.</p>
+      <p><b>If your build lives in a CMS:</b> take the design layer. You get a structured Figma file your developers build straight from: components, states, responsive behaviour, redlines where they matter.</p>
+      <p><b>If it's a standalone site:</b> I take the whole thing. Design, hand-coded front end, accessibility, launch on your client's domain. Static delivery means fast loads, no plugin surface and nothing to patch every month.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="tz-h">
+    <h2 class="eyebrow" id="tz-h">The timezone advantage</h2>
+    <div class="tz">
+      <div class="tz-scale" aria-hidden="true">
+        <div></div>
+        <div>
+          <span style="left:0%">00:00 UTC</span>
+          <span style="left:50%">12:00</span>
+          <span style="left:100%">24:00</span>
+        </div>
+      </div>
+      <div class="tz-row">
+        <p class="tz-label"><b>Stockholm, me</b>18:00–22:00, my production window</p>
+        <div class="tz-track"><span class="tz-fill me" style="left:66.7%;width:16.6%"></span></div>
+      </div>
+      <div class="tz-row">
+        <p class="tz-label"><b>New York, you</b>12:00–16:00, your afternoon</p>
+        <div class="tz-track"><span class="tz-fill" style="left:66.7%;width:16.6%"></span></div>
+      </div>
+      <div class="tz-row">
+        <p class="tz-label"><b>Los Angeles, you</b>09:00–13:00, your morning</p>
+        <div class="tz-track"><span class="tz-fill" style="left:66.7%;width:16.6%"></span></div>
+      </div>
+      <p class="tz-note">The bars line up because it is the same four hours. My evening is your business day: brief me during your morning, get same-day answers, and find the work on your desk by next morning.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="eyebrow">Why agencies work with me</h2>
+    <ul class="dash">
+      <li><b>Scandinavian design school.</b> Clean, typography-driven, conversion-aware layouts.</li>
+      <li><b>I speak business, not just design.</b> B2B sales background, having opened a new-market office at 20 and closed six enterprise deals in the first year. Clear scoping, deadlines held.</li>
+      <li><b>Zero contractor admin.</b> One ordinary invoice through a Swedish umbrella company (Frilans Finans). NDA-friendly, white-label by default.</li>
+      <li><b>Quality you can audit.</b> Semantic HTML, keyboard navigation, colour contrast, Core Web Vitals. Check the work yourself before it reaches your client.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="eyebrow">Work</h2>
+    <div class="work-item">
+      <p><span class="k">Portfolio and case studies.</span> <a href="https://matviiakkuratov.com/en/work/">matviiakkuratov.com</a>, itself designed, hand-coded and deployed on Cloudflare Pages, with a Cloudflare Function that serves each visitor the right language.</p>
+    </div>
+    <div class="work-item">
+      <p><span class="k">Two live concepts,</span> built as working sites you can click through: <a href="https://fbrevision.matviiakkuratov.com">FB Revision</a> (audit firm) and <a href="https://nordstromadvokater.matviiakkuratov.com">Nordström Advokater</a> (law firm). Each one starts from a documented weakness in the firm's existing site: a missing H1, a viewport zoom lock, an untappable phone number. Then fixes it.</p>
+    </div>
+    <p class="fineprint">The concepts are self-initiated design studies. Neither firm commissioned or approved them, and that is stated plainly on the concepts themselves.</p>
+  </section>
+
+  <section class="rates">
+    <h2 class="eyebrow">Engagement &amp; rates</h2>
+    <p><b>From $65/hour (≈600 kr/hour), or fixed project quotes.</b></p>
+    <p>Send a brief and you'll have a scoped quote within 24 hours. White-label by default: your brand, your client, my hands.</p>
+    <p>Invoicing runs through Frilans Finans, a Swedish umbrella company, so you receive one ordinary invoice. No contractor employment setup on your side.</p>
+    <div class="cta-row">
+      <a class="btn" href="https://cal.com/matviiakkuratov/quick-intro">Book 20 minutes</a>
+      <a class="cta-alt" href="mailto:hello@matviiakkuratov.com">Or send a brief by email</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="links">
+      <a href="https://matviiakkuratov.com">matviiakkuratov.com</a>
+      <a href="https://www.linkedin.com/in/matvii-akkuratov-20a91b283">LinkedIn</a>
+      <a href="mailto:hello@matviiakkuratov.com">hello@matviiakkuratov.com</a>
+    </div>
+    <p>Matvii · Web design &amp; front-end production · Stockholm, Sweden</p>
+    <p class="sv" lang="sv">Svensk byrå? Mejla gärna på svenska, jag svarar på svenska.</p>
+  </div>
+</footer>
+
+</body>
+</html>
