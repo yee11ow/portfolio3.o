@@ -149,20 +149,6 @@
 
   var CAL = 'https://cal.com/matviiakkuratov/quick-intro';
   var MAIL = 'mailto:hello@matviiakkuratov.com';
-  // Sixty seconds on one page was never reached: the clock restarts on every
-  // navigation, so anyone clicking around the site never saw the panel at all.
-  // Scroll depth catches an engaged reader sooner than a timer can.
-  var OPEN_AFTER = 30;   // seconds on the page
-  var OPEN_AT = 60;      // or this much of the page read, whichever lands first
-  var SEEN = 'matvii.panel';
-
-  function stored(key) {
-    // Private mode and locked-down browsers throw on the accessor itself.
-    try { return sessionStorage.getItem(key); } catch (e) { return null; }
-  }
-  function store(key, value) {
-    try { sessionStorage.setItem(key, value); } catch (e) { /* nothing to do */ }
-  }
 
   var pill = document.getElementById('pill');
 
@@ -194,8 +180,6 @@
           }
         }
       }
-
-      if (secs >= OPEN_AFTER) maybeOpen();
     }
 
     function trackScroll() {
@@ -203,14 +187,6 @@
       var pct = room > 0 ? Math.min(100, Math.round((window.scrollY / room) * 100)) : 100;
       pillDial.style.setProperty('--p', pct);
       pill.setAttribute('aria-label', pill.getAttribute('data-label') + ' ' + pct + '%');
-      // A page with nothing to scroll reports 100% straight away, and opening
-      // the panel a second after landing would read as a pop-up. There the
-      // timer is the only trigger.
-      if (room > 0 && pct >= OPEN_AT) maybeOpen();
-    }
-
-    function maybeOpen() {
-      if (!seen && !stored(SEEN) && !pill.hidden) openPanel(true);
     }
 
     /* --- building the funnel --- */
@@ -284,11 +260,10 @@
       panel.appendChild(back);
     }
 
-    function openPanel(auto) {
+    function openPanel() {
       if (!panel.hidden) return;
       if (!seen) { picked = []; drawStep(0); }
       seen = true;
-      store(SEEN, '1');
       panel.hidden = false;
       pill.classList.add('is-open');
       pillToggle.setAttribute('aria-expanded', 'true');
@@ -300,7 +275,7 @@
         var box = pill.getBoundingClientRect();
         placeAt(box.left, box.top);
       }
-      if (!auto) panel.querySelector('button, a').focus();
+      panel.querySelector('button, a').focus();
     }
 
     function closePanel() {
@@ -312,7 +287,7 @@
     }
 
     pillToggle.addEventListener('click', function () {
-      if (panel.hidden) openPanel(false); else closePanel();
+      if (panel.hidden) openPanel(); else closePanel();
     });
 
     tick();
