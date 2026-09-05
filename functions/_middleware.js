@@ -1,7 +1,7 @@
 /**
  * Sends visitors who do not read Swedish to the English page instead.
  *
- * Only the seven Swedish URLs are wired up here; `public/_routes.json` keeps
+ * Only the ten Swedish URLs are wired up here; `public/_routes.json` keeps
  * every other request (English pages, fonts, images, CSS) away from this
  * function entirely, so the CDN serves them untouched.
  *
@@ -25,6 +25,9 @@
 const SV_TO_EN = {
   '/': '/en/',
   '/arbeten/': '/en/work/',
+  '/arbeten/revisionsbyra/': '/en/work/audit-firm/',
+  '/arbeten/advokatbyra/': '/en/work/law-firm/',
+  '/granska-er-webbplats/': '/en/check-your-website/',
   '/om-mig/': '/en/about/',
   '/arbetssatt/': '/en/process/',
   '/vanliga-fragor/': '/en/faq/',

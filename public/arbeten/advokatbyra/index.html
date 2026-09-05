@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fallstudie · Advokatbyrå med konkursportal | Matvii</title>
-  <meta name="description" content="Sajten borde fungera som en reception, inte som ett skyltfönster. En egen ingång för dem en konkurs berör. Konceptstudie på eget initiativ." />
+  <title>UX-fallstudie för konkursportal: design utifrån uppgiften | Matvii</title>
+  <meta name="description" content="Egeninitierat advokatbyråkoncept med uppgiftsbaserade flöden, krav, retrospektiva wireframes, riktiga skärmbilder och en plan för användningstester." />
   <meta name="theme-color" content="#f7f6f3" />
 
   <link rel="canonical" href="https://matviiakkuratov.com/arbeten/advokatbyra/" />
   <link rel="alternate" hreflang="sv" href="https://matviiakkuratov.com/arbeten/advokatbyra/" />
   <link rel="alternate" hreflang="en" href="https://matviiakkuratov.com/en/work/law-firm/" />
-  <link rel="alternate" hreflang="x-default" href="https://matviiakkuratov.com/en/work/law-firm/" />
+  <link rel="alternate" hreflang="x-default" href="https://matviiakkuratov.com/arbeten/advokatbyra/" />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Matvii" />
   <meta property="og:url" content="https://matviiakkuratov.com/arbeten/advokatbyra/" />
   <meta property="og:locale" content="sv_SE" />
-  <meta property="og:title" content="Fallstudie · Advokatbyrå med konkursportal | Matvii" />
-  <meta property="og:description" content="Sajten borde fungera som en reception, inte som ett skyltfönster. En egen ingång för dem en konkurs berör. Konceptstudie på eget initiativ." />
+  <meta property="og:title" content="UX-fallstudie för konkursportal: design utifrån uppgiften | Matvii" />
+  <meta property="og:description" content="Egeninitierat advokatbyråkoncept med uppgiftsbaserade flöden, krav, retrospektiva wireframes, riktiga skärmbilder och en plan för användningstester." />
   <meta property="og:image" content="https://matviiakkuratov.com/assets/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -28,6 +28,7 @@
   <link rel="preload" href="../../assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="../../assets/fonts/fonts.css" />
   <link rel="stylesheet" href="../../styles.css" />
+  <link rel="stylesheet" href="/cases.css" />
 </head>
 <body>
   <a class="skip-link" href="#main">Hoppa till innehåll</a>
@@ -65,85 +66,172 @@
     </nav>
   </header>
 
-  <main id="main">
-    <section class="cs page-top">
-      <div class="wrap cs__wrap">
-        <a class="cs__back" href="/arbeten/">← Alla arbeten</a>
-        <p class="eyebrow">Konceptstudie, eget initiativ</p>
-        <h1 class="cs__title">Sajten som borde fungera som en reception</h1>
-        <p class="cs__profile">Advokatbyrå i Uppsala och Sala. Två kontor, verksam sedan 1986.</p>
-        <a class="link-out cs__live" href="https://nordstromadvokater.matviiakkuratov.com" target="_blank" rel="noopener">Öppna live-konceptet →</a>
-        <h2 class="cs__h">Utgångsläget</h2>
-        <p class="cs__p">Merparten av byråns jurister förordnas löpande av tingsrätten som konkursförvaltare. Det är byråns tydligaste tyngdpunkt. På webbplatsen låg konkursförvaltning som ett av tretton verksamhetsområden i en punktlista, utan mer vikt än något annat.</p>
-        <p class="cs__p">Det speciella med den typen av uppdrag är att de inte kan marknadsföras fram. Förvaltaren utses av rätten, inte av kunden. Men varje konkurs skapar en våg av inkommande kontakter: leverantörer som vill bevaka fordringar, uppsagda anställda med frågor om lönegaranti, hyresvärdar, köpare av tillgångar. Alla hamnade i samma allmänna inkorg.</p>
-        <p class="cs__p">Där låg problemet. Sajten var inte i första hand ett skyltfönster. Den borde vara en reception, och den fungerade inte som en.</p>
-        <h2 class="cs__h">Fyra iakttagelser</h2>
-        <ul class="cs__list">
-          <li><strong>Verksamhetsområdena var en återvändsgränd.</strong> Tretton länkar i rad, en inledande mening, inga beskrivningar och ingen antydan om vem varje område riktar sig till.</li>
-          <li><strong>Kontaktsidan saknade det mesta.</strong> Inget formulär, ingen karta, inga öppettider, inget eget stycke om det andra kontoret och ingen uppmaning att höra av sig.</li>
-          <li><strong>Nyhetsflödet hade sju inlägg på sju år.</strong> Ingen rutin för uppdatering, och äldre inlägg refererade till förhållanden som sedan dess ändrats.</li>
-          <li><strong>Zoomen var avstängd.</strong> Sidan skickade <code>user-scalable=0</code>, så besökaren kunde inte nypa för att förstora texten. För en målgrupp som ofta är över femtio är det ett verkligt hinder, inte en detalj.</li>
-        </ul>
-        <h2 class="cs__h">Vad jag gjorde och varför</h2>
-        <ol class="cs__moves">
-          <li class="cs__move">
-            <span class="cs__num" aria-hidden="true">01</span>
-            <div><p class="cs__lead">Byggde en egen ingång för dem en konkurs berör.</p><p class="cs__why">Varje pågående ärende får en egen sida. Anledningen är enkel: de här personerna söker inte en advokatbyrå, de söker ett svar, och de kommer att ringa om de inte hittar det.</p></div>
-          </li>
-          <li class="cs__move">
-            <span class="cs__num" aria-hidden="true">02</span>
-            <div><p class="cs__lead">Statusrad per ärende, i klarspråk.</p><p class="cs__why">Var i processen konkursen befinner sig. Det ensamt tar bort en stor del av samtalen som bara handlar om vad som händer härnäst.</p></div>
-          </li>
-          <li class="cs__move">
-            <span class="cs__num" aria-hidden="true">03</span>
-            <div><p class="cs__lead">Tre separata vägar in: leverantör, tidigare anställd, hyresvärd.</p><p class="cs__why">Var och en ser bara det som gäller dem, formulerat på deras språk. Juridiskt fackspråk får den som är orolig att ringa i stället för att läsa.</p></div>
-          </li>
-          <li class="cs__move">
-            <span class="cs__num" aria-hidden="true">04</span>
-            <div><p class="cs__lead">Strukturerade formulär i stället för en allmän inkorg.</p><p class="cs__why">Frågorna är anpassade per grupp, så ärendet når rätt förvaltare med de uppgifter som behövs redan från början. Ett fält mindre att fylla i är ett ärende till som faktiskt skickas.</p></div>
-          </li>
-          <li class="cs__move">
-            <span class="cs__num" aria-hidden="true">05</span>
-            <div><p class="cs__lead">Vanliga frågor hämtade ur byråns eget material.</p><p class="cs__why">Texterna fanns redan, de låg bara utspridda. Att skriva nytt hade varit sämre: det befintliga var juridiskt kontrollerat.</p></div>
-          </li>
-          <li class="cs__move">
-            <span class="cs__num" aria-hidden="true">06</span>
-            <div><p class="cs__lead">Verksamhetsområdena skrevs om med tydlig adressat.</p><p class="cs__why">Från tretton nakna länkar till tretton korta beskrivningar: vem det här är till för och när man hör av sig.</p></div>
-          </li>
-          <li class="cs__move">
-            <span class="cs__num" aria-hidden="true">07</span>
-            <div><p class="cs__lead">En startsida med två dörrar.</p><p class="cs__why">Den ena för företag som söker rådgivning, den andra för den som berörs av en konkurs. Två helt olika besökare med två helt olika ärenden, och ingen av dem ska behöva leta.</p></div>
-          </li>
-          <li class="cs__move">
-            <span class="cs__num" aria-hidden="true">08</span>
-            <div><p class="cs__lead">Hela konceptet ligger som noindex.</p><p class="cs__why">Den som söker på ett bolags konkurs ska aldrig hamna i en designstudie och lämna ett verkligt anspråk i ett formulär som inte går någonstans.</p></div>
-          </li>
-        </ol>
-        <div class="cs__shots">
-          <figure class="cs__shot">
-            <img src="../../assets/case-nordstrom.svg" alt="Skiss av startsidan med de två ingångarna: rådgivning respektive konkursärende." loading="lazy" width="720" height="470" />
-            <figcaption>Startsidan, skiss</figcaption>
-          </figure>
-        </div>
-        <h2 class="cs__h">Varför det är värt något för byrån</h2>
-        <p class="cs__p">Det här är inte en fråga om att sajten ser gammal ut. Det är en fråga om tid. Varje rutinsamtal som besvaras av en sida i stället för av en jurist är fakturerbar tid tillbaka. Och en leverantör som får ett bra bemötande i en konkurs är samtidigt ett företag som kan behöva affärsjuridisk hjälp senare.</p>
-        <h2 class="cs__h">Vad det skulle mätas på</h2>
-        <p class="cs__p">Konceptet är en studie och har inte lanserats. I produktion skulle jag följa: antal ärenden som kommer in via strukturerat formulär i stället för via telefon, andelen som når rätt förvaltare direkt utan omdirigering, och samtalsvolymen till växeln under de första veckorna av ett nytt ärende.</p>
-        <div class="cs__facts">
-          <div><span class="cs__k">Omfattning</span><p>Koncept och designsystem, startsida och portal, i två etapper.</p></div>
-          <div><span class="cs__k">Pris</span><p>Priser för motsvarande uppdrag står utskrivna i vanliga frågor. <a href="/vanliga-fragor/">Se priserna →</a></p></div>
-        </div>
-        <div class="cs__close">
-          <h2 class="cs__closeh">Känner ni igen er?</h2>
-          <p class="cs__p">Om något av det här låter som er egen sajt tar jag tjugo minuter och går igenom den. Ni får två eller tre konkreta punkter oavsett om vi jobbar ihop sedan eller inte.</p>
-          <div class="cs__cta">
-            <a class="btn btn--primary" href="https://cal.com/matviiakkuratov/quick-intro" target="_blank" rel="noopener">Boka 20 minuter →</a>
-            <a class="btn btn--ghost" href="/arbeten/">← Alla arbeten</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+  <main id="main"><article class="cs cs--ux page-top"><div class="wrap cs__wrap">
+<a class="cs__back" href="/arbeten/">← Alla arbeten</a>
+<p class="eyebrow">UI/UX-fallstudie · Egeninitierat koncept</p>
+<h1 class="cs__title">En tydligare väg genom en svår situation.</h1>
+<p class="cs__intro">Ett webb- och konkursportalkoncept för en advokatbyrå. Designen skiljer personer som söker rådgivning från borgenärer, tidigare anställda och hyresvärdar som behöver agera i ett befintligt ärende.</p>
+<dl class="cs__summary">
+<div><dt>Min roll</dt><dd>Webbgranskning · Användarflöden · UI · Frontend</dd></div>
+<div><dt>Leverans</dt><dd>Webbplats + prototyp för konkursportal</dd></div>
+<div><dt>Projektstatus</dt><dd>Eget initiativ · Ej beställt</dd></div>
+</dl>
+<p class="cs__notice">Det här är en självständig designstudie. Byrån har varken beställt eller godkänt den. Prototypen visar ett gränssnitt och är inte byråns riktiga tjänst.</p>
+<a class="link-out cs__live" href="https://nordstromadvokater.matviiakkuratov.com" target="_blank" rel="noopener">Utforska den fungerande prototypen ↗</a>
+<nav class="cs__toc" aria-label="Fallstudiens avsnitt">
+<a href="#evidence">Problem</a>
+<a href="#people">Användare &amp; krav</a>
+<a href="#flow">Användarflöden</a>
+<a href="#wireframes">Wireframes</a>
+<a href="#interface">UI-beslut</a>
+<a href="#validation">Utvärdering</a>
+</nav>
+<section id="evidence" class="cs__section">
+<p class="eyebrow">01 / Problem</p>
+<h2 class="cs__h">En webbplats, helt olika skäl att besöka den.</h2>
+<p class="cs__p">Projektanteckningarna pekade ut konkursförvaltning som en central del av Uppsalabyråns arbete. Det gav ett uppgiftsorienterat designmål: hjälpa berörda personer att hitta rätt information och väg vidare. Jag hade inte interna samtalsvolymer, inkorgsdata eller belägg för att webbplatsen tappade kunder.</p>
+<p class="cs__caption">Underlag: dokumenterade observationer från den ursprungliga webbgranskningen i projektanteckningarna. De beskriver granskningen då, inte en ny kontroll av byråns nuvarande webbplats. Slutsatserna för designen är mina tolkningar.</p>
+<div class="cs__evidence">
+<div class="cs__evidence-row"><h3>Begränsad zoom</h3><p>Den ursprungliga granskningen noterade user-scalable=0 i viewport-inställningen.</p><p><strong>Designkrav:</strong> Tillåt zoom och behåll en läsbar, användbar layout på smal skärm.</p></div>
+<div class="cs__evidence-row"><h3>Trasig interaktion</h3><p>Anteckningarna beskriver fem delningskontroller under nyheter som pekade på &#x27;#&#x27;.</p><p><strong>Designkrav:</strong> Använd fungerande handlingar med tydligt syfte och ta bort kontroller som inte gör något.</p></div>
+<div class="cs__evidence-row"><h3>Olika uppgifter</h3><p>Det offentliga materialet och prototypen skiljer mellan fordringar, anställningsfrågor och frågor om lokaler eller tillgångar.</p><p><strong>Designkrav:</strong> Erbjud ingångar efter situation och behåll ärendets sammanhang genom flödet.</p></div>
+</div>
+<p class="cs__question">Hur kan en person som berörs av en konkurs hitta rätt väg, förstå vad som behövs och veta vad nästa steg är?</p>
+</section>
+<section id="people" class="cs__section">
+<p class="eyebrow">02 / Användare &amp; krav</p>
+<h2 class="cs__h">Utgå från det besökaren behöver göra.</h2>
+<p class="cs__p">Det här är preliminära användarprofiler utifrån tjänsterna och det offentliga innehållet. De är arbetshypoteser, inte personas validerade genom intervjuer. Inga användarintervjuer eller modererade användningstester finns dokumenterade för konceptet.</p>
+<div class="cs__people">
+<div class="cs__person">
+<h3>Borgenär</h3>
+<p class="cs__task">Hitta rätt ärende för en obetald faktura.</p>
+<p>Ett identifierbart ärende, en väg för fordran och tydliga krav på underlag.</p>
+</div>
+<div class="cs__person">
+<h3>Tidigare anställd</h3>
+<p class="cs__task">Förstå vart en anställningsfråga hör hemma.</p>
+<p>Begriplig vägledning och en egen ingång utan irrelevanta fält för andra typer av krav.</p>
+</div>
+<div class="cs__person">
+<h3>Hyresvärd eller köpare</h3>
+<p class="cs__task">Nå ansvarig för en lokal- eller tillgångsfråga.</p>
+<p>Ärendets sammanhang och en annan väg än en allmän förfrågan om juridisk rådgivning.</p>
+</div>
+</div>
+<p class="cs__p">Informationsarkitekturen har två ingångar: juridisk rådgivning och konkursärenden. Portalen är en frontend-demonstration. Riktig mottagning, säker filhantering, ärendedirigering och juridisk granskning är genomförandekrav, inte färdiga backend-funktioner.</p>
+</section>
+<section id="flow" class="cs__section">
+<p class="eyebrow">03 / Användarflöden</p>
+<h2 class="cs__h">Välj väg efter personens situation.</h2>
+<p class="cs__p">Prototypen har tre ingångar från portalen. Flödet för fordringar visar demokvittensen som tänkt slutpunkt. Wireframen lägger till en granskning före inskick som föreslagen förbättring, separat från befintlig UI.</p>
+<div class="cs__flows">
+<details class="cs__flow" open><summary>Borgenär: anmäla en fordran</summary><ol class="cs__path">
+<li>Välja fordringsvägen</li>
+<li>Välja konkursärende</li>
+<li>Ange krav och underlag</li>
+<li>Se en demokvittens</li>
+</ol>
+<p class="cs__fallback">Om bolaget saknas ska det gå att identifiera det och be om hjälp. Prototypen tar inte emot någon verklig fordran.</p>
+</details>
+<details class="cs__flow"><summary>Tidigare anställd: hitta rätt vägledning</summary><ol class="cs__path">
+<li>Välja vägen för anställda</li>
+<li>Identifiera ärendet</li>
+<li>Läsa vad som behövs</li>
+<li>Använda ärendets kontaktväg</li>
+</ol>
+<p class="cs__fallback">Besökaren ska inte behöva tolka juridisk behörighet. Byrån måste godkänna vägledning och mottagningsprocess.</p>
+</details>
+<details class="cs__flow"><summary>Hyresvärd eller köpare: fråga om lokal eller tillgångar</summary><ol class="cs__path">
+<li>Välja hyresvärd / tillgångar</li>
+<li>Identifiera ärendet</li>
+<li>Beskriva frågan</li>
+<li>Nå relevant kontakt</li>
+</ol>
+<p class="cs__fallback">Om personen inte kan identifiera ett ärende ska en tydligt förklarad allmän kontaktväg finnas kvar.</p>
+</details>
+</div>
+</section>
+<section id="wireframes" class="cs__section">
+<p class="eyebrow">04 / Wireframes</p>
+<h2 class="cs__h">Struktur före visuella detaljer.</h2>
+<p class="cs__p">Retrospektiva wireframes, ritade för den här fallstudien för att förklara prototypens hierarki. De är kommenterade strukturskisser, inte ursprungligt forskningsmaterial eller skärmar från en Figma-fil.</p>
+<div class="cs__wires">
+<figure class="cs__wire">
+<div class="cs__wire-screen"><span class="cs__wire-top">Struktur / 01</span>
+<div class="cs__wire-block">Byråns identitet + navigation</div>
+<div class="cs__wire-block">Juridisk hjälp / Konkurs</div>
+<div class="cs__wire-block">Borgenär / Anställd / Hyresvärd</div>
+<div class="cs__wire-block cs__wire-block--action">Öppna relevant väg</div>
+</div>
+<figcaption><strong>01 / Välja uppgift</strong><span>Gruppera information efter besökets syfte, inte bara rättsområde.</span></figcaption>
+</figure>
+<figure class="cs__wire">
+<div class="cs__wire-screen"><span class="cs__wire-top">Struktur / 02</span>
+<div class="cs__wire-block">Ärendets namn och identifierare</div>
+<div class="cs__wire-block">Ärendeinformation</div>
+<div class="cs__wire-block">Det här behöver du förbereda</div>
+<div class="cs__wire-block cs__wire-block--action">Fortsätta med detta ärende</div>
+</div>
+<figcaption><strong>02 / Hitta sammanhang</strong><span>Gör ärendet synligt innan personuppgifter efterfrågas.</span></figcaption>
+</figure>
+<figure class="cs__wire">
+<div class="cs__wire-screen"><span class="cs__wire-top">Struktur / 03</span>
+<div class="cs__wire-block">Dina uppgifter + ärendet</div>
+<div class="cs__wire-block">Granska före inskick · förslag</div>
+<div class="cs__wire-block">Kvittens med tydligt nästa steg</div>
+<div class="cs__wire-block cs__wire-block--action">Tillbaka till ärendet</div>
+</div>
+<figcaption><strong>03 / Granska och bekräfta</strong><span>Ett granskningssteg är nästa iteration; en demokvittens bevisar inte leverans.</span></figcaption>
+</figure>
+</div>
+</section>
+<section id="interface" class="cs__section">
+<p class="eyebrow">05 / UI-beslut</p>
+<h2 class="cs__h">Gränssnittet och tanken bakom.</h2>
+<ol class="cs__moves">
+<li class="cs__move"><span class="cs__num" aria-hidden="true">01</span><div><h3 class="cs__lead">Skilj rådgivning från handläggning</h3><p class="cs__why">Två ingångar på startsidan ger potentiella klienter och personer med ett befintligt ärende olika startpunkter.</p></div></li>
+<li class="cs__move"><span class="cs__num" aria-hidden="true">02</span><div><h3 class="cs__lead">Strukturera stegvis</h3><p class="cs__why">Gränssnittet för fordringar grupperar ärendeval, kontaktuppgifter, krav och underlag. Målet är mindre oklarhet; slutförandegraden har inte mätts.</p></div></li>
+<li class="cs__move"><span class="cs__num" aria-hidden="true">03</span><div><h3 class="cs__lead">Behåll ärendets sammanhang</h3><p class="cs__why">Ärendekort, stegmarkeringar och en namngiven kontakt ger sammanhang. Dirigeringen demonstreras i gränssnittet; en riktig integration behöver byggas och testas.</p></div></li>
+<li class="cs__move"><span class="cs__num" aria-hidden="true">04</span><div><h3 class="cs__lead">Visa prototypens gräns</h3><p class="cs__why">Konceptet har en tydlig märkning och förklarar att formulären inte skickar till byrån. Juridisk text behöver fortfarande granskas; återbruk av offentlig text innebär inget juridiskt godkännande.</p></div></li>
+</ol>
+<div class="cs__screens">
+<figure class="cs__screen"><a href="/assets/law-concept-desktop.webp" target="_blank" rel="noopener" aria-label="Öppna skärmbilden i full storlek: Fungerande startsida: separata ingångar för juridisk rådgivning och konkursärenden."><img src="/assets/law-concept-desktop.webp" width="1348" height="926" alt="Fungerande startsida: separata ingångar för juridisk rådgivning och konkursärenden." loading="lazy" /></a><figcaption>Fungerande startsida: separata ingångar för juridisk rådgivning och konkursärenden.</figcaption></figure>
+<figure class="cs__screen"><a href="/assets/law-concept-portal.webp" target="_blank" rel="noopener" aria-label="Öppna skärmbilden i full storlek: Fungerande gränssnitt för fordran: ärendeval före personuppgifter och krav."><img src="/assets/law-concept-portal.webp" width="1348" height="926" alt="Fungerande gränssnitt för fordran: ärendeval före personuppgifter och krav." loading="lazy" /></a><figcaption>Fungerande gränssnitt för fordran: ärendeval före personuppgifter och krav.</figcaption></figure>
+</div>
+<p class="cs__caption">Riktiga skärmbilder från det fungerande konceptet. Öppna en bild för att granska den i full storlek.</p>
+</section>
+<section id="validation" class="cs__section">
+<p class="eyebrow">06 / Utvärdering</p>
+<h2 class="cs__h">Det som finns och det som behöver testas.</h2>
+<p class="cs__p">Resultatet är ett fungerande frontend-koncept. Det finns ingen kundlansering, inga användartestresultat och ingen uppmätt konverteringsökning att redovisa. Nedan är en plan för utvärdering, inte genomförda tester.</p>
+<div class="cs__validation">
+<div>
+<h3>Uppgiftsbaserade användningstester</h3>
+<p>Rekrytera fem deltagare över de tre preliminära profilerna. Använd fiktiva ärenden och uppgifter. Be deltagarna välja väg, hitta ärendet och förklara nästa steg. Notera felvägar, slutförande och tvekan.</p>
+</div>
+<div>
+<h3>Fel och återhämtning</h3>
+<p>Testa saknat ärende, ofullständiga fält, felaktig e-post, avvisad bilaga och nätverksfel före lansering. Bevara ifyllda uppgifter och skilj ett misslyckat inskick från en kvittens.</p>
+</div>
+<div>
+<h3>Verksamhetens utfall</h3>
+<p>Ta fram en baslinje med byrån för rätt dirigerade förfrågningar och tid för kompletteringar. Jämför efter lansering. Färre rutinsamtal är en hypotes, inte ett resultat av konceptet.</p>
+</div>
+</div>
+<h3 class="cs__subh">Lärdom för designen</h3>
+<p class="cs__p">Den kommersiella frågan förändrar designuppgiften. En advokatbyrås webbplats kan stödja pågående arbete och samtidigt skapa förfrågningar. Här gav uppgiften en mer användbar struktur än enbart en visuell uppdatering.</p>
+<h3 class="cs__subh">Före en riktig lansering</h3>
+<p class="cs__p">Validera profilerna med riktiga användare och personal, låt byrån granska juridisk text, minska onödiga fält, lägg till ett granskningssteg och bygg säker mottagning och ärendedirigering. Prototypen är inte en fungerande juridisk mottagningstjänst.</p>
+</section>
+<div class="cs__close">
+<h2 class="cs__closeh">En liknande utmaning på er webbplats?</h2>
+<p class="cs__p">Jag kan granska vägen från besökarens fråga till nästa användbara steg. Ett samtal på 20 minuter räcker för att identifiera de första prioriteringarna och diskutera omfattningen.</p>
+<div class="cs__cta">
+<a class="btn btn--primary" href="https://cal.com/matviiakkuratov/quick-intro" target="_blank" rel="noopener">Boka 20 minuter →</a>
+<a class="btn btn--ghost" href="/vanliga-fragor/">Omfattning &amp; pris</a>
+</div></div>
+</div></article></main>
 
   <footer class="site-footer">
     <div class="wrap foot__row">

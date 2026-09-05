@@ -1,0 +1,68 @@
+/* Case-study layout. Shared by the English and Swedish case pages. */
+.cs--ux .cs__wrap { max-width: 72rem; }
+.cs--ux .cs__title { font-size: clamp(2.25rem, 5.5vw, 4.4rem); max-width: 22ch; line-height: 1.1; letter-spacing: -.025em; }
+.cs__intro { max-width: 61ch; margin-top: 1.5rem; font-family: var(--serif); font-size: clamp(1.15rem, 2vw, 1.4rem); line-height: 1.6; color: var(--ink-soft); }
+.cs__summary { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; border-block: 1px solid var(--line); padding-block: 1.5rem; margin-top: 2.25rem; }
+.cs__summary dt, .cs__wire-top { font: 600 .7rem/1.5 var(--sans); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); }
+.cs__summary dd { margin-top: .6rem; font-size: .9rem; }
+.cs__notice { font-size: .85rem; color: var(--ink-soft); max-width: 85ch; margin-top: 1rem; }
+.cs__toc { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; border-bottom: 1px solid var(--line); padding-block: 1.25rem; margin-top: 1.5rem; }
+.cs__toc a { font-size: .8rem; color: var(--ink-soft); padding-block: .5rem; text-underline-offset: 5px; }
+.cs__toc a:hover { color: var(--accent-deep); }
+.cs__section { margin-top: clamp(3rem, 7vw, 5.5rem); scroll-margin-top: 7rem; }
+.cs--ux .cs__h { border: 0; font-size: clamp(1.6rem, 3vw, 2.15rem); line-height: 1.2; margin-top: .75rem; padding: 0; max-width: 32ch; }
+.cs--ux .cs__p { max-width: 70ch; font-size: 1.1rem; }
+.cs__caption { color: var(--ink-soft); font-size: .8rem; max-width: 90ch; margin-top: 1.25rem; }
+.cs__evidence { margin-top: 2rem; border-top: 1px solid var(--line); }
+.cs__evidence-row { display: grid; grid-template-columns: 1fr 1.6fr 1.6fr; gap: 1.5rem; border-bottom: 1px solid var(--line); padding-block: 1.4rem; align-items: start; }
+.cs__evidence-row h3, .cs__person h3, .cs__validation h3 { font-size: 1.1rem; line-height: 1.4; }
+.cs__evidence-row p, .cs__person p, .cs__validation p { font-size: .92rem; line-height: 1.65; color: var(--ink-soft); }
+.cs__evidence-row strong { color: var(--ink); font-weight: 500; }
+.cs__question { font: 400 clamp(1.2rem, 2.5vw, 1.65rem)/1.5 var(--serif); padding: clamp(1.5rem, 3vw, 2.4rem); margin-top: 2rem; background: var(--ink); color: var(--bg); border-radius: var(--r); }
+.cs__people { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 1.75rem; }
+.cs__person { padding: 1.5rem; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface); }
+.cs__person .cs__task { color: var(--ink); margin-block: 1rem .75rem; }
+.cs__flows { margin-top: 1.75rem; border-top: 1px solid var(--line); }
+.cs__flow { border-bottom: 1px solid var(--line); }
+.cs__flow summary { padding: 1.1rem .25rem; cursor: pointer; font-weight: 500; font-size: .95rem; }
+.cs__flow summary::marker { color: var(--accent-deep); }
+.cs__path { counter-reset: path; list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.5rem; padding: .75rem 0; }
+.cs__path li { counter-increment: path; position: relative; padding: 1.1rem; background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--r); font-size: .9rem; line-height: 1.5; }
+.cs__path li::before { content: '0' counter(path); display: block; color: var(--accent-deep); font-size: .7rem; margin-bottom: .75rem; }
+.cs__path li:not(:last-child)::after { content: '→'; position: absolute; right: -1.2rem; top: 45%; color: var(--ink-soft); }
+.cs__fallback { font-size: .85rem; color: var(--ink-soft); padding: .5rem 0 1.5rem; max-width: 82ch; }
+.cs__wires { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+.cs__wire-screen { padding: 1.15rem; border: 1px solid #979797; background: #f0f0f0; border-radius: 6px; color: #303030; }
+.cs__wire-top { display: block; padding-bottom: 1rem; border-bottom: 1px solid #b8b8b8; color: #555; }
+.cs__wire-block { background: #fafafa; border: 1px dashed #999; margin-top: .8rem; padding: .8rem; font-size: .85rem; min-height: 4rem; display: flex; align-items: center; }
+.cs__wire-block--action { background: #dedede; border-style: solid; min-height: 2.75rem; font-weight: 600; }
+.cs__wire figcaption { margin-top: 1rem; font-size: .85rem; line-height: 1.6; color: var(--ink-soft); }
+.cs__wire figcaption strong, .cs__wire figcaption span { display: block; }
+.cs__wire figcaption strong { color: var(--ink); font-weight: 500; margin-bottom: .3rem; }
+.cs--ux .cs__moves { max-width: 74ch; }
+.cs--ux .cs__lead { font-size: 1.2rem; }
+.cs__screens { display: grid; grid-template-columns: 1.7fr 1fr; gap: 1.5rem; align-items: start; margin-top: 2.5rem; }
+.cs__screen img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: var(--r); }
+.cs__screen a { display: block; }
+.cs__screen figcaption { font-size: .8rem; color: var(--ink-soft); margin-top: .75rem; }
+.cs__validation { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; margin-top: 1.75rem; }
+.cs__validation > div { border-top: 2px solid var(--accent); padding-top: 1rem; }
+.cs__validation p { margin-top: .7rem; }
+.cs__subh { font-size: 1.25rem; margin-top: 2rem; }
+@media (max-width: 720px) {
+  .cs__summary { grid-template-columns: 1fr; gap: 1rem; }
+  .cs__summary dd { margin-top: .25rem; }
+  .cs__evidence-row { grid-template-columns: 1fr; gap: .6rem; }
+  .cs__people, .cs__wires, .cs__validation { grid-template-columns: 1fr; }
+  .cs__path { grid-template-columns: 1fr; gap: 1.4rem; }
+  .cs__path li::before { display: inline; margin-right: .8rem; }
+  .cs__path li:not(:last-child)::after { content: '↓'; right: auto; top: auto; bottom: -1.35rem; left: 1.2rem; }
+  .cs__screens { grid-template-columns: 1fr; }
+  .cs__screen:has(img[src*='mobile']) { max-width: 24rem; }
+}
+@media print {
+  .cs__toc, .cs__live, .cs__close, .cs__back { display: none; }
+  .cs__section { margin-top: 2rem; }
+  .cs__person, .cs__wire, .cs__evidence-row, .cs__screen, .cs__validation > div { break-inside: avoid; }
+  .cs__question { background: #eee; color: #000; }
+}
