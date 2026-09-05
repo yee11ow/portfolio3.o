@@ -43,6 +43,8 @@
         toggle.focus();
       }
     });
+    // Collapse the mobile navigation only once its controls are ready.
+    header.classList.add('nav-ready');
   }
 
   /* ---------- AI assistant, loaded on request ----------
@@ -72,7 +74,9 @@
       statusEl.textContent = t.loading;
 
       var s = document.createElement('script');
-      s.src = 'https://unpkg.com/@elevenlabs/convai-widget-embed';
+      s.src = 'https://unpkg.com/@elevenlabs/convai-widget-embed@0.18.0/dist/index.js';
+      s.integrity = 'sha384-GUIW26rjZg44Fdm0UF5twcxZgzbVDu9ElCypQgJHAi3Nq0llg2J4K/huuoNjCDP3';
+      s.crossOrigin = 'anonymous';
       s.async = true;
 
       s.onload = function () {
@@ -377,7 +381,9 @@
     });
   }
 
-  /* ---------- Reveal on scroll ---------- */
+  /* ---------- Optional animation on scroll ----------
+     Content stays visible before JS, after an error, and with no observer.
+     Animate only an element that has already intersected the viewport. */
   var revealEls = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -387,7 +393,7 @@
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          entry.target.classList.add('in');
+          entry.target.classList.add('in', 'reveal-animate');
           io.unobserve(entry.target);
         }
       });

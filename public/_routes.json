@@ -3,6 +3,9 @@
   "include": [
     "/",
     "/arbeten/",
+    "/arbeten/revisionsbyra/",
+    "/arbeten/advokatbyra/",
+    "/granska-er-webbplats/",
     "/om-mig/",
     "/arbetssatt/",
     "/vanliga-fragor/",

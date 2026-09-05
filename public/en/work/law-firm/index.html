@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Case study · Law firm with an insolvency portal | Matvii</title>
-  <meta name="description" content="The site should work like a front desk, not a shop window. A dedicated entry point for the people a bankruptcy affects. A self-initiated concept study." />
+  <title>Bankruptcy portal UX case study: design around the task | Matvii</title>
+  <meta name="description" content="An independent law-firm concept with task-based user flows, requirements, retrospective wireframes, real interface screenshots and a usability-test plan." />
   <meta name="theme-color" content="#f7f6f3" />
 
   <link rel="canonical" href="https://matviiakkuratov.com/en/work/law-firm/" />
   <link rel="alternate" hreflang="sv" href="https://matviiakkuratov.com/arbeten/advokatbyra/" />
   <link rel="alternate" hreflang="en" href="https://matviiakkuratov.com/en/work/law-firm/" />
-  <link rel="alternate" hreflang="x-default" href="https://matviiakkuratov.com/en/work/law-firm/" />
+  <link rel="alternate" hreflang="x-default" href="https://matviiakkuratov.com/arbeten/advokatbyra/" />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Matvii" />
   <meta property="og:url" content="https://matviiakkuratov.com/en/work/law-firm/" />
   <meta property="og:locale" content="en_GB" />
-  <meta property="og:title" content="Case study · Law firm with an insolvency portal | Matvii" />
-  <meta property="og:description" content="The site should work like a front desk, not a shop window. A dedicated entry point for the people a bankruptcy affects. A self-initiated concept study." />
+  <meta property="og:title" content="Bankruptcy portal UX case study: design around the task | Matvii" />
+  <meta property="og:description" content="An independent law-firm concept with task-based user flows, requirements, retrospective wireframes, real interface screenshots and a usability-test plan." />
   <meta property="og:image" content="https://matviiakkuratov.com/assets/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -28,6 +28,7 @@
   <link rel="preload" href="../../../assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="../../../assets/fonts/fonts.css" />
   <link rel="stylesheet" href="../../../styles.css" />
+  <link rel="stylesheet" href="/cases.css" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -65,85 +66,172 @@
     </nav>
   </header>
 
-  <main id="main">
-    <section class="cs page-top">
-      <div class="wrap cs__wrap">
-        <a class="cs__back" href="/en/work/">← All work</a>
-        <p class="eyebrow">Concept study, self-initiated</p>
-        <h1 class="cs__title">A website that should work like a front desk</h1>
-        <p class="cs__profile">Law firm in Uppsala and Sala. Two offices, established 1986.</p>
-        <a class="link-out cs__live" href="https://nordstromadvokater.matviiakkuratov.com" target="_blank" rel="noopener">Open the live concept →</a>
-        <h2 class="cs__h">The starting point</h2>
-        <p class="cs__p">Most of the firm’s lawyers are regularly appointed by the district court as bankruptcy administrators. It is the firm’s clearest centre of gravity. On the website, insolvency sat as one of thirteen practice areas in a bullet list, weighted no more heavily than anything else.</p>
-        <p class="cs__p">The particular thing about that kind of work is that it cannot be won through marketing. The administrator is appointed by the court, not chosen by a client. But every bankruptcy generates a wave of inbound contact: suppliers filing claims, former employees asking about wage guarantees, landlords, buyers of assets. All of it landed in the same general inbox.</p>
-        <p class="cs__p">That was where the real problem sat. The site was not primarily a shop window. It should have been a front desk, and it was not working as one.</p>
-        <h2 class="cs__h">Four observations</h2>
-        <ul class="cs__list">
-          <li><strong>The practice area section was a dead end.</strong> Thirteen links in a row, one introductory sentence, no descriptions and no indication of who each area is for.</li>
-          <li><strong>The contact page was missing most of what a contact page needs.</strong> No form, no map, no opening hours, no dedicated section for the second office and no invitation to get in touch.</li>
-          <li><strong>The news section held seven posts across seven years.</strong> No routine for updating content, and older posts referenced conditions that had since changed.</li>
-          <li><strong>Zoom was switched off.</strong> The page sent <code>user-scalable=0</code>, so a visitor could not pinch to enlarge the text. For an audience often past fifty that is a real barrier, not a detail.</li>
-        </ul>
-        <h2 class="cs__h">What I changed, and why</h2>
-        <ol class="cs__moves">
-          <li class="cs__move">
-            <span class="cs__num" aria-hidden="true">01</span>
-            <div><p class="cs__lead">Built a dedicated entry point for the people a bankruptcy affects.</p><p class="cs__why">Each ongoing case gets its own page. The reason is simple: these people are not looking for a law firm, they are looking for an answer, and they will phone if they cannot find it.</p></div>
-          </li>
-          <li class="cs__move">
-            <span class="cs__num" aria-hidden="true">02</span>
-            <div><p class="cs__lead">A status line per case, in plain language.</p><p class="cs__why">Where the proceeding currently stands. That alone removes a large share of the calls that are only asking what happens next.</p></div>
-          </li>
-          <li class="cs__move">
-            <span class="cs__num" aria-hidden="true">03</span>
-            <div><p class="cs__lead">Three separate routes in: supplier, former employee, landlord.</p><p class="cs__why">Each sees only what applies to them, written in their language. Legal terminology makes an anxious person call instead of read.</p></div>
-          </li>
-          <li class="cs__move">
-            <span class="cs__num" aria-hidden="true">04</span>
-            <div><p class="cs__lead">Structured forms instead of a general inbox.</p><p class="cs__why">Questions are tailored per group, so the case reaches the right administrator with the necessary details already attached. One field fewer is one more case that actually gets sent.</p></div>
-          </li>
-          <li class="cs__move">
-            <span class="cs__num" aria-hidden="true">05</span>
-            <div><p class="cs__lead">An FAQ drawn from the firm’s own material.</p><p class="cs__why">The text already existed, it was simply scattered. Writing new copy would have been worse: the existing text had been legally checked.</p></div>
-          </li>
-          <li class="cs__move">
-            <span class="cs__num" aria-hidden="true">06</span>
-            <div><p class="cs__lead">Practice areas rewritten with a clear addressee.</p><p class="cs__why">From thirteen bare links to thirteen short descriptions: who this is for and when to get in touch.</p></div>
-          </li>
-          <li class="cs__move">
-            <span class="cs__num" aria-hidden="true">07</span>
-            <div><p class="cs__lead">A home page with two doors.</p><p class="cs__why">One for companies seeking advice, one for anyone affected by a bankruptcy. Two very different visitors with two very different errands, and neither should have to search.</p></div>
-          </li>
-          <li class="cs__move">
-            <span class="cs__num" aria-hidden="true">08</span>
-            <div><p class="cs__lead">The whole concept is noindex.</p><p class="cs__why">Someone searching for a company’s bankruptcy should never land in a design study and file a real claim through a form that goes nowhere.</p></div>
-          </li>
-        </ol>
-        <div class="cs__shots">
-          <figure class="cs__shot">
-            <img src="../../../assets/case-nordstrom.svg" alt="Sketch of the home page with its two entrances: advisory work and insolvency matters." loading="lazy" width="720" height="470" />
-            <figcaption>Home page, sketch</figcaption>
-          </figure>
-        </div>
-        <h2 class="cs__h">Why this is worth something to the firm</h2>
-        <p class="cs__p">This is not a question of the site looking dated. It is a question of time. Every routine call answered by a page instead of by a lawyer is billable time returned. And a supplier treated well during an insolvency is also a company that may need commercial legal advice later.</p>
-        <h2 class="cs__h">How it would be measured</h2>
-        <p class="cs__p">This is a concept study and was never launched. In production I would track: cases arriving through a structured form rather than by phone, the share reaching the correct administrator without being redirected, and call volume to the switchboard during the first weeks of a new case.</p>
-        <div class="cs__facts">
-          <div><span class="cs__k">Scope</span><p>Concept and design system, home page and portal, in two phases.</p></div>
-          <div><span class="cs__k">Price</span><p>Prices for comparable work are written out in the FAQ. <a href="/en/faq/">See the prices →</a></p></div>
-        </div>
-        <div class="cs__close">
-          <h2 class="cs__closeh">Recognise your own site?</h2>
-          <p class="cs__p">If any of this sounds like your website, I will take twenty minutes and go through it. You get two or three concrete points whether or not we work together afterwards.</p>
-          <div class="cs__cta">
-            <a class="btn btn--primary" href="https://cal.com/matviiakkuratov/quick-intro" target="_blank" rel="noopener">Book 20 minutes →</a>
-            <a class="btn btn--ghost" href="/en/work/">← All work</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+  <main id="main"><article class="cs cs--ux page-top"><div class="wrap cs__wrap">
+<a class="cs__back" href="/en/work/">← All work</a>
+<p class="eyebrow">UI/UX case study · Independent concept</p>
+<h1 class="cs__title">A clearer route through a difficult situation.</h1>
+<p class="cs__intro">A law-firm website and bankruptcy intake concept. The design separates people seeking advice from creditors, former employees and landlords who need to act on an existing case.</p>
+<dl class="cs__summary">
+<div><dt>My role</dt><dd>Website review · User flows · UI · Front-end</dd></div>
+<div><dt>Deliverable</dt><dd>Website + intake portal prototype</dd></div>
+<div><dt>Project status</dt><dd>Self-initiated · Not commissioned</dd></div>
+</dl>
+<p class="cs__notice">This is an independent design study. The firm has not commissioned or approved it. The prototype demonstrates an interface; it is not the firm&#x27;s live service.</p>
+<a class="link-out cs__live" href="https://nordstromadvokater.matviiakkuratov.com" target="_blank" rel="noopener">Explore the working prototype ↗</a>
+<nav class="cs__toc" aria-label="Case study sections">
+<a href="#evidence">Problem</a>
+<a href="#people">People &amp; requirements</a>
+<a href="#flow">User flows</a>
+<a href="#wireframes">Wireframes</a>
+<a href="#interface">UI decisions</a>
+<a href="#validation">Validation</a>
+</nav>
+<section id="evidence" class="cs__section">
+<p class="eyebrow">01 / Problem</p>
+<h2 class="cs__h">One website, very different reasons to visit.</h2>
+<p class="cs__p">The project notes identified bankruptcy administration as a central part of this Uppsala firm&#x27;s work. That suggested a task-focused design brief: help affected people find the right information and route. I did not have internal call volumes, inbox data or evidence that the site was losing clients.</p>
+<p class="cs__caption">Evidence: recorded observations from the original website review in the project notes. These describe that review, not a fresh audit of the firm&#x27;s current site. The design implications below are my interpretation.</p>
+<div class="cs__evidence">
+<div class="cs__evidence-row"><h3>Zoom restricted</h3><p>The original review recorded user-scalable=0 in the viewport configuration.</p><p><strong>Design requirement:</strong> Allow zoom and preserve a readable, usable layout on a narrow screen.</p></div>
+<div class="cs__evidence-row"><h3>Broken interaction</h3><p>The notes record five share controls on news posts pointing to &#x27;#&#x27;.</p><p><strong>Design requirement:</strong> Use working actions with a clear purpose; remove controls that do nothing.</p></div>
+<div class="cs__evidence-row"><h3>Different service tasks</h3><p>The public material and prototype distinguish claims, employment-related questions and landlord or asset enquiries.</p><p><strong>Design requirement:</strong> Offer situation-based entry points, with case context retained through the journey.</p></div>
+</div>
+<p class="cs__question">How might someone affected by a bankruptcy find the relevant route, understand what to prepare and know what happens next?</p>
+</section>
+<section id="people" class="cs__section">
+<p class="eyebrow">02 / People &amp; requirements</p>
+<h2 class="cs__h">Start with the task someone needs to finish.</h2>
+<p class="cs__p">These are provisional user profiles inferred from the services and public content. They are working hypotheses, not personas validated by interviews. No user interviews or moderated usability tests are documented for this concept.</p>
+<div class="cs__people">
+<div class="cs__person">
+<h3>Creditor</h3>
+<p class="cs__task">Find the right case for an unpaid invoice.</p>
+<p>A recognisable case, a claim route and clear requirements for supporting information.</p>
+</div>
+<div class="cs__person">
+<h3>Former employee</h3>
+<p class="cs__task">Understand where an employment-related question belongs.</p>
+<p>Plain-language guidance and a dedicated route without unrelated claim fields.</p>
+</div>
+<div class="cs__person">
+<h3>Landlord or asset buyer</h3>
+<p class="cs__task">Contact the person responsible for a property or asset question.</p>
+<p>Case context and a route separate from a general request for legal advice.</p>
+</div>
+</div>
+<p class="cs__p">The information architecture has two entrances: legal advice and bankruptcy matters. The portal is a front-end demonstration. Real receiving, secure file handling, case routing and legal review are implementation requirements, not completed backend features.</p>
+</section>
+<section id="flow" class="cs__section">
+<p class="eyebrow">03 / User flows</p>
+<h2 class="cs__h">Route by the person&#x27;s situation.</h2>
+<p class="cs__p">The prototype offers three routes from the portal. The claim flow below includes the demonstrated receipt as an intended endpoint. The wireframe adds a review step as a proposed improvement, so it is labelled separately from the existing UI.</p>
+<div class="cs__flows">
+<details class="cs__flow" open><summary>Creditor: submit a claim</summary><ol class="cs__path">
+<li>Choose the claim route</li>
+<li>Select the bankruptcy case</li>
+<li>Enter claim &amp; supporting details</li>
+<li>See a demo receipt</li>
+</ol>
+<p class="cs__fallback">If the company is missing from the list, provide a way to identify it and ask for help. No real claim is received by this prototype.</p>
+</details>
+<details class="cs__flow"><summary>Former employee: find the relevant guidance</summary><ol class="cs__path">
+<li>Choose the employee route</li>
+<li>Identify the case</li>
+<li>Read what to prepare</li>
+<li>Use the case contact route</li>
+</ol>
+<p class="cs__fallback">Avoid asking the visitor to interpret legal eligibility. The firm must approve all guidance and the receiving process.</p>
+</details>
+<details class="cs__flow"><summary>Landlord or buyer: ask about a property or asset</summary><ol class="cs__path">
+<li>Choose the landlord / assets route</li>
+<li>Identify the case</li>
+<li>Describe the matter</li>
+<li>Reach the relevant contact</li>
+</ol>
+<p class="cs__fallback">If the visitor cannot identify a case, keep a clearly explained general contact route available.</p>
+</details>
+</div>
+</section>
+<section id="wireframes" class="cs__section">
+<p class="eyebrow">04 / Wireframes</p>
+<h2 class="cs__h">Structure before visual detail.</h2>
+<p class="cs__p">Retrospective wireframes, redrawn for this case study to explain the prototype&#x27;s hierarchy. These are annotated structure diagrams, not original research artefacts or screens from a Figma file.</p>
+<div class="cs__wires">
+<figure class="cs__wire">
+<div class="cs__wire-screen"><span class="cs__wire-top">Structure / 01</span>
+<div class="cs__wire-block">Firm identity + navigation</div>
+<div class="cs__wire-block">Legal advice / Bankruptcy</div>
+<div class="cs__wire-block">Creditor / Employee / Landlord</div>
+<div class="cs__wire-block cs__wire-block--action">Open the relevant route</div>
+</div>
+<figcaption><strong>01 / Choose a task</strong><span>Group information by why someone is here, not only by practice area.</span></figcaption>
+</figure>
+<figure class="cs__wire">
+<div class="cs__wire-screen"><span class="cs__wire-top">Structure / 02</span>
+<div class="cs__wire-block">Case name and identifier</div>
+<div class="cs__wire-block">Case information</div>
+<div class="cs__wire-block">What you need to prepare</div>
+<div class="cs__wire-block cs__wire-block--action">Continue with this case</div>
+</div>
+<figcaption><strong>02 / Establish context</strong><span>Make the selected case visible before requesting personal information.</span></figcaption>
+</figure>
+<figure class="cs__wire">
+<div class="cs__wire-screen"><span class="cs__wire-top">Structure / 03</span>
+<div class="cs__wire-block">Your details + case</div>
+<div class="cs__wire-block">Review before sending · proposed</div>
+<div class="cs__wire-block">Receipt with a clear next step</div>
+<div class="cs__wire-block cs__wire-block--action">Return to case information</div>
+</div>
+<figcaption><strong>03 / Review and confirm</strong><span>A review step is a next iteration; a demo receipt is not proof of delivery.</span></figcaption>
+</figure>
+</div>
+</section>
+<section id="interface" class="cs__section">
+<p class="eyebrow">05 / UI decisions</p>
+<h2 class="cs__h">The interface, and the reason behind it.</h2>
+<ol class="cs__moves">
+<li class="cs__move"><span class="cs__num" aria-hidden="true">01</span><div><h3 class="cs__lead">Separate advice from administration</h3><p class="cs__why">Two homepage entrances give prospective clients and people with an existing matter different starting points.</p></div></li>
+<li class="cs__move"><span class="cs__num" aria-hidden="true">02</span><div><h3 class="cs__lead">Use progressive structure</h3><p class="cs__why">The claim interface groups case selection, contact details, claim information and supporting documents. The aim is to reduce ambiguity; completion rates have not been measured.</p></div></li>
+<li class="cs__move"><span class="cs__num" aria-hidden="true">03</span><div><h3 class="cs__lead">Carry case context</h3><p class="cs__why">Case cards, stage labels and a named contact give the journey context. Routing is demonstrated in the interface; a real integration still needs to be built and tested.</p></div></li>
+<li class="cs__move"><span class="cs__num" aria-hidden="true">04</span><div><h3 class="cs__lead">Preserve a clear prototype boundary</h3><p class="cs__why">The concept displays a disclaimer and explains that forms do not deliver to the firm. Legal copy remains subject to the firm&#x27;s review; reusing public text does not establish legal approval.</p></div></li>
+</ol>
+<div class="cs__screens">
+<figure class="cs__screen"><a href="/assets/law-concept-desktop.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot: Working homepage: separate entrances for legal advice and bankruptcy matters."><img src="/assets/law-concept-desktop.webp" width="1348" height="926" alt="Working homepage: separate entrances for legal advice and bankruptcy matters." loading="lazy" /></a><figcaption>Working homepage: separate entrances for legal advice and bankruptcy matters.</figcaption></figure>
+<figure class="cs__screen"><a href="/assets/law-concept-portal.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot: Working claim interface: case selection before personal and claim details."><img src="/assets/law-concept-portal.webp" width="1348" height="926" alt="Working claim interface: case selection before personal and claim details." loading="lazy" /></a><figcaption>Working claim interface: case selection before personal and claim details.</figcaption></figure>
+</div>
+<p class="cs__caption">Actual screenshots of the working concept. Open an image to inspect it at full size.</p>
+</section>
+<section id="validation" class="cs__section">
+<p class="eyebrow">06 / Validation</p>
+<h2 class="cs__h">What exists. What still needs testing.</h2>
+<p class="cs__p">The output is a working front-end concept. There is no client launch, user-test result or measured conversion uplift to report. The following is a validation plan, not a list of completed tests.</p>
+<div class="cs__validation">
+<div>
+<h3>Task-based usability sessions</h3>
+<p>Recruit five participants across the three provisional profiles. Use fictional cases and data. Ask them to choose a route, find a case and explain the next step. Record wrong paths, completion and hesitation.</p>
+</div>
+<div>
+<h3>Failure and recovery</h3>
+<p>Test a missing case, incomplete fields, invalid email, rejected attachment and network failure before launch. Preserve entered information and distinguish a failed submission from a receipt.</p>
+</div>
+<div>
+<h3>Operational outcomes</h3>
+<p>With the firm, establish a baseline for correctly routed enquiries and time spent clarifying missing details. Compare after launch. Fewer routine calls is a hypothesis, not a result of this concept.</p>
+</div>
+</div>
+<h3 class="cs__subh">Design takeaway</h3>
+<p class="cs__p">The commercial question changes the design brief. A law firm&#x27;s site may support ongoing work as well as attract enquiries. Here, identifying the task led to a more useful structure than a purely visual refresh.</p>
+<h3 class="cs__subh">Before a real launch</h3>
+<p class="cs__p">Validate the provisional profiles with real users and staff, have the firm review the legal content, reduce unnecessary fields, add a review step, and implement secure receiving and case routing. The prototype is not a functioning legal intake service.</p>
+</section>
+<div class="cs__close">
+<h2 class="cs__closeh">A similar challenge on your website?</h2>
+<p class="cs__p">I can review the route from a visitor&#x27;s question to the next useful step. A 20-minute conversation is enough to identify the first priorities and discuss scope.</p>
+<div class="cs__cta">
+<a class="btn btn--primary" href="https://cal.com/matviiakkuratov/quick-intro" target="_blank" rel="noopener">Book 20 minutes →</a>
+<a class="btn btn--ghost" href="/en/faq/">Scope &amp; pricing</a>
+</div></div>
+</div></article></main>
 
   <footer class="site-footer">
     <div class="wrap foot__row">

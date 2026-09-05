@@ -266,7 +266,7 @@ section[id] { scroll-margin-top: 88px; }
    stop fitting on one row below this, so the burger takes over earlier than
    the usual tablet breakpoint. */
 @media (max-width: 1023px) {
-  .nav__toggle { display: flex; }
+  .nav-ready .nav__toggle { display: flex; }
   .nav__menu {
     position: absolute;
     top: calc(100% + 1px);
@@ -284,6 +284,9 @@ section[id] { scroll-margin-top: 88px; }
     transition: opacity .22s ease, transform .22s ease, visibility .22s;
   }
   .nav__menu.is-open { opacity: 1; visibility: visible; transform: translateY(0); }
+  .site:not(.nav-ready) .nav__menu { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; }
+  .site:not(.nav-ready) .nav { flex-wrap: wrap; }
+  .site:not(.nav-ready) .nav__menu { width: 100%; }
   .nav__links { flex-direction: column; align-items: flex-start; gap: 1rem; width: 100%; }
   .nav__link { font-size: 1.1rem; }
   .nav__right { flex-direction: column; align-items: flex-start; gap: 1.1rem; width: 100%; }
@@ -1204,8 +1207,10 @@ section[id] { scroll-margin-top: 88px; }
 @media print { .pill { display: none; } }
 
 /* ============================ REVEAL ============================ */
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+.reveal { opacity: 1; transform: none; }
 .reveal.in { opacity: 1; transform: none; }
+.reveal-animate { animation: reveal-in .7s ease; }
+@keyframes reveal-in { from { opacity: .35; transform: translateY(12px); } to { opacity: 1; transform: none; } }
 
 /* ============================ RESPONSIVE ============================ */
 @media (max-width: 900px) {
@@ -1242,7 +1247,7 @@ section[id] { scroll-margin-top: 88px; }
 /* ============================ MOTION PREFERENCE ============================ */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .reveal { opacity: 1; transform: none; transition: none; }
+  .reveal { opacity: 1; transform: none; transition: none; animation: none; }
   .dot { animation: none; }
   * { transition-duration: .01ms !important; }
 }

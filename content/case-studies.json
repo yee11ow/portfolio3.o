@@ -1,0 +1,242 @@
+{
+  "labels": {
+    "en": {
+      "back": "← All work", "eyebrow": "UI/UX case study · Independent concept",
+      "summary": ["My role", "Deliverable", "Project status"], "status": "Self-initiated · Not commissioned",
+      "disclaimer": "This is an independent design study. The firm has not commissioned or approved it. The prototype demonstrates an interface; it is not the firm's live service.",
+      "live": "Explore the working prototype ↗", "contents": "Case study sections",
+      "toc": ["Problem", "People & requirements", "User flows", "Wireframes", "UI decisions", "Validation"],
+      "evidence_note": "Evidence: recorded observations from the original website review in the project notes. These describe that review, not a fresh audit of the firm's current site. The design implications below are my interpretation.",
+      "decision": "Design requirement:", "people_title": "Start with the task someone needs to finish.",
+      "people_note": "These are provisional user profiles inferred from the services and public content. They are working hypotheses, not personas validated by interviews. No user interviews or moderated usability tests are documented for this concept.",
+      "wire_title": "Structure before visual detail.",
+      "wire_note": "Retrospective wireframes, redrawn for this case study to explain the prototype's hierarchy. These are annotated structure diagrams, not original research artefacts or screens from a Figma file.",
+      "wire_label": "Structure", "interface_title": "The interface, and the reason behind it.",
+      "enlarge": "Open full-size screenshot", "screen_note": "Actual screenshots of the working concept. Open an image to inspect it at full size.",
+      "validation_title": "What exists. What still needs testing.",
+      "validation_note": "The output is a working front-end concept. There is no client launch, user-test result or measured conversion uplift to report. The following is a validation plan, not a list of completed tests.",
+      "learning_title": "Design takeaway", "next_title": "Before a real launch",
+      "cta_title": "A similar challenge on your website?", "cta_body": "I can review the route from a visitor's question to the next useful step. A 20-minute conversation is enough to identify the first priorities and discuss scope.",
+      "book": "Book 20 minutes →", "faq": "Scope & pricing"
+    },
+    "sv": {
+      "back": "← Alla arbeten", "eyebrow": "UI/UX-fallstudie · Egeninitierat koncept",
+      "summary": ["Min roll", "Leverans", "Projektstatus"], "status": "Eget initiativ · Ej beställt",
+      "disclaimer": "Det här är en självständig designstudie. Byrån har varken beställt eller godkänt den. Prototypen visar ett gränssnitt och är inte byråns riktiga tjänst.",
+      "live": "Utforska den fungerande prototypen ↗", "contents": "Fallstudiens avsnitt",
+      "toc": ["Problem", "Användare & krav", "Användarflöden", "Wireframes", "UI-beslut", "Utvärdering"],
+      "evidence_note": "Underlag: dokumenterade observationer från den ursprungliga webbgranskningen i projektanteckningarna. De beskriver granskningen då, inte en ny kontroll av byråns nuvarande webbplats. Slutsatserna för designen är mina tolkningar.",
+      "decision": "Designkrav:", "people_title": "Utgå från det besökaren behöver göra.",
+      "people_note": "Det här är preliminära användarprofiler utifrån tjänsterna och det offentliga innehållet. De är arbetshypoteser, inte personas validerade genom intervjuer. Inga användarintervjuer eller modererade användningstester finns dokumenterade för konceptet.",
+      "wire_title": "Struktur före visuella detaljer.",
+      "wire_note": "Retrospektiva wireframes, ritade för den här fallstudien för att förklara prototypens hierarki. De är kommenterade strukturskisser, inte ursprungligt forskningsmaterial eller skärmar från en Figma-fil.",
+      "wire_label": "Struktur", "interface_title": "Gränssnittet och tanken bakom.",
+      "enlarge": "Öppna skärmbilden i full storlek", "screen_note": "Riktiga skärmbilder från det fungerande konceptet. Öppna en bild för att granska den i full storlek.",
+      "validation_title": "Det som finns och det som behöver testas.",
+      "validation_note": "Resultatet är ett fungerande frontend-koncept. Det finns ingen kundlansering, inga användartestresultat och ingen uppmätt konverteringsökning att redovisa. Nedan är en plan för utvärdering, inte genomförda tester.",
+      "learning_title": "Lärdom för designen", "next_title": "Före en riktig lansering",
+      "cta_title": "En liknande utmaning på er webbplats?", "cta_body": "Jag kan granska vägen från besökarens fråga till nästa användbara steg. Ett samtal på 20 minuter räcker för att identifiera de första prioriteringarna och diskutera omfattningen.",
+      "book": "Boka 20 minuter →", "faq": "Omfattning & pris"
+    }
+  },
+  "cases": [
+    {
+      "live": "https://fbrevision.matviiakkuratov.com",
+      "shots": [["fbrevision-hero.png",1440,940],["fbrevision-mobile.png",390,780]],
+      "en": {
+        "path": "en/work/audit-firm/index.html",
+        "meta_title": "Audit firm UX case study: a clearer route to contact",
+        "meta_description": "An independent audit-firm redesign: website review, provisional user profiles, enquiry flows, wireframes, responsive UI and a transparent validation plan.",
+        "title": "From an audit firm's credentials to a clear next step.",
+        "intro": "A responsive homepage concept for an audit and accountancy firm in Uppsala. The design connects three decisions: understand the service, assess the people and start a conversation.",
+        "role": "Website review · UX structure · UI · HTML/CSS", "scope": "Responsive homepage prototype",
+        "problem_title": "The useful information was difficult to use.",
+        "problem": "The original review recorded practical obstacles on a Swedish accountancy firm's website: a fixed-width layout, conflicting history statements and contact details that were awkward on a phone. I used the firm's existing content to explore a clearer enquiry journey. I did not have access to analytics, customer interviews or enquiry records.",
+        "evidence": [
+          ["A mobile barrier", "The review noted a fixed-width layout and a phone number rendered as plain text.", "Let content reflow on a phone and make the telephone action a real link."],
+          ["Conflicting proof", "The homepage said '50 years'; the services page said 'just over 30 years'.", "Use one consistent history statement, with the date confirmed by the firm before publication."],
+          ["Weak document structure", "The notes record no homepage H1 and an English language attribute on Swedish pages.", "Use a meaningful heading hierarchy and declare the language correctly."]
+        ],
+        "question": "How might a business owner understand the firm's relevance and find a person to contact without fighting the mobile layout?",
+        "people": [
+          ["Owner comparing firms", "Decide whether this firm can help my business.", "Service descriptions, credible experience and a clear first conversation."],
+          ["Existing client", "Find the person or number I already need.", "A short route to team and contact details, without rereading the sales pitch."],
+          ["Firm administrator", "Keep the information consistent.", "One source for history, service wording and contact information."]
+        ],
+        "constraints": "Scope: a homepage concept, using existing Swedish content and a restrained visual direction. Team details, history and any proposed service or pricing wording need the firm's approval. This study does not establish how the firm actually prices its work.",
+        "flow_title": "Two visits, two useful routes.",
+        "flow_note": "The information architecture groups the homepage into introduction, services, experience, team and contact. The main enquiry route and the returning-client shortcut are mapped below. Open each route to inspect it.",
+        "flows": [
+          ["New visitor: assess fit and enquire", ["Understand the offer", "Explore a relevant service", "Check experience & team", "Choose phone or enquiry"], "If the visitor is unsure which service fits, the contact option stays available; choosing a service should not be mandatory."],
+          ["Returning client: reach a person", ["Open the homepage", "Go to team or contact", "Choose the right person", "Call or write"], "Keep contact details readable and usable even if JavaScript is unavailable. Sending an enquiry is not evidence of a booked meeting."]
+        ],
+        "wires": [
+          ["01 / Understand", ["Firm identity + navigation", "A clear service promise", "Experience and credentials", "Explore services"], "The first screen answers what the firm does before asking for contact."],
+          ["02 / Evaluate", ["Service categories", "Short explanations", "People behind the advice", "Find my next step"], "Services and people help the visitor assess relevance."],
+          ["03 / Contact", ["A named contact route", "Telephone / email", "A concise enquiry option", "Start a conversation"], "Offer both a direct call and an asynchronous route."]
+        ],
+        "decisions": [
+          ["Keep the firm's language", "Existing Swedish copy provided the starting point. Proposed edits clarify hierarchy and consistency; they do not invent a new service offer."],
+          ["Make credibility legible", "Navy, white, a restrained purple accent and a vector mark support a conservative identity. Evidence and contact details carry the trust argument."],
+          ["Make the mobile action usable", "Responsive sections and tap-to-call links address a concrete obstacle from the review. The effect on enquiries still needs measurement."],
+          ["Keep the concept boundary visible", "The work is presented as an independent prototype. Approval of company details, recipient routing and form behaviour belongs in a real launch process."]
+        ],
+        "captions": ["Working homepage concept: desktop introduction and service hierarchy.", "Working homepage concept: narrow-screen layout and navigation."],
+        "tests": [
+          ["Find and explain", "Recruit five representative business owners. Ask what the firm offers and how they would contact it. Record wrong turns, hesitation and unassisted completion; revise where confusion repeats."],
+          ["Use it on a phone", "Check reflow, zoom, keyboard focus, link names and form labels. Test both the new enquiry and returning-client routes, including missing or invalid form input."],
+          ["Measure after launch", "With an agreed baseline, compare qualified enquiries and completed contact actions across comparable periods. Separate traffic changes from design changes; do not infer success from time on page alone."]
+        ],
+        "learning": "A specific inconsistency is a stronger design starting point than 'the site looks dated'. Here, content reliability and access to contact information matter as much as the visual treatment.",
+        "next": "Confirm the content with the firm, test the enquiry route with users, agree who receives each message, and validate a real form integration. No enquiry or conversion improvement has been measured."
+      },
+      "sv": {
+        "path": "arbeten/revisionsbyra/index.html",
+        "meta_title": "UX-fallstudie för revisionsbyrå: en tydligare väg till kontakt",
+        "meta_description": "Egeninitierat koncept för en revisionsbyrå: webbgranskning, preliminära användarprofiler, kontaktflöden, wireframes, responsiv UI och en tydlig utvärderingsplan.",
+        "title": "Från revisionsbyråns meriter till ett tydligt nästa steg.",
+        "intro": "Ett responsivt startsideskoncept för en revisions- och redovisningsbyrå i Uppsala. Designen knyter ihop tre beslut: förstå tjänsten, bedöma människorna och ta kontakt.",
+        "role": "Webbgranskning · UX-struktur · UI · HTML/CSS", "scope": "Responsiv startsidesprototyp",
+        "problem_title": "Den användbara informationen var svår att använda.",
+        "problem": "Den ursprungliga granskningen dokumenterade konkreta hinder: en layout med fast bredd, motstridiga uppgifter om byråns historia och kontaktuppgifter som var besvärliga i mobilen. Jag använde byråns befintliga innehåll för att utforska en tydligare väg till kontakt. Jag hade inte tillgång till analysdata, kundintervjuer eller inkomna förfrågningar.",
+        "evidence": [
+          ["Ett hinder i mobilen", "Granskningen noterade fast sidbredd och ett telefonnummer som vanlig text.", "Låt innehållet anpassas till mobilen och gör telefonnumret till en riktig länk."],
+          ["Motstridiga meriter", "Startsidan sade '50 år', medan tjänstesidan sade 'drygt 30 år'.", "Använd en konsekvent historik, med årtalet bekräftat av byrån före publicering."],
+          ["Svag dokumentstruktur", "Anteckningarna beskriver en startsida utan H1 och engelsk språkkod på svenska sidor.", "Använd en tydlig rubrikhierarki och ange rätt språk."]
+        ],
+        "question": "Hur kan en företagare förstå om byrån passar och hitta en kontaktperson utan att kämpa med mobillayouten?",
+        "people": [
+          ["Företagare som jämför byråer", "Avgöra om byrån kan hjälpa mitt företag.", "Tydliga tjänster, relevant erfarenhet och en enkel första kontakt."],
+          ["Befintlig kund", "Hitta personen eller numret jag behöver.", "En kort väg till medarbetare och kontakt, utan att läsa hela presentationen igen."],
+          ["Byråns administratör", "Hålla uppgifterna konsekventa.", "En gemensam källa för historik, tjänstebeskrivningar och kontaktuppgifter."]
+        ],
+        "constraints": "Omfattning: ett startsideskoncept med befintligt svenskt innehåll och ett återhållsamt uttryck. Medarbetaruppgifter, historik och föreslagen tjänste- eller pristext behöver byråns godkännande. Studien fastställer inte hur byrån faktiskt prissätter sitt arbete.",
+        "flow_title": "Två besök, två användbara vägar.",
+        "flow_note": "Informationsarkitekturen grupperar startsidan i introduktion, tjänster, erfarenhet, medarbetare och kontakt. Huvudvägen för en förfrågan och genvägen för befintliga kunder visas nedan. Öppna varje flöde för att granska det.",
+        "flows": [
+          ["Ny besökare: bedöma relevans och ta kontakt", ["Förstå erbjudandet", "Utforska en relevant tjänst", "Se erfarenhet och team", "Välja samtal eller förfrågan"], "Om besökaren är osäker på rätt tjänst ska kontaktvägen finnas kvar; ett tjänsteval ska inte vara ett krav."],
+          ["Befintlig kund: nå en person", ["Öppna startsidan", "Gå till team eller kontakt", "Välja rätt person", "Ringa eller skriva"], "Kontaktuppgifterna ska vara läsbara och användbara även utan JavaScript. En skickad förfrågan är inte samma sak som ett bokat möte."]
+        ],
+        "wires": [
+          ["01 / Förstå", ["Byråns identitet + navigation", "Ett tydligt tjänstelöfte", "Erfarenhet och meriter", "Utforska tjänster"], "Första skärmen förklarar vad byrån gör innan den ber om kontakt."],
+          ["02 / Bedöma", ["Tjänstekategorier", "Korta förklaringar", "Människorna bakom råden", "Hitta mitt nästa steg"], "Tjänster och människor hjälper besökaren att bedöma relevansen."],
+          ["03 / Kontakta", ["En tydlig kontaktväg", "Telefon / e-post", "En kort förfrågan", "Starta ett samtal"], "Erbjud både ett direkt samtal och möjlighet att skriva."]
+        ],
+        "decisions": [
+          ["Behåll byråns språk", "Den befintliga svenska texten var utgångspunkten. Föreslagna ändringar förtydligar hierarki och konsekvens utan att hitta på nya tjänster."],
+          ["Gör trovärdigheten läsbar", "Marinblått, vitt, en återhållsam lila accent och ett vektormärke stödjer identiteten. Meriter och kontaktuppgifter bär argumentet för förtroende."],
+          ["Gör mobilens kontaktväg användbar", "Responsiva avsnitt och klickbara telefonnummer möter ett konkret hinder från granskningen. Effekten på förfrågningar återstår att mäta."],
+          ["Visa att det är ett koncept", "Arbetet presenteras som en självständig prototyp. Godkännande av företagsuppgifter, mottagare och formulär hör till en riktig lansering."]
+        ],
+        "captions": ["Fungerande startsideskoncept: introduktion och tjänstehierarki på dator.", "Fungerande startsideskoncept: layout och navigation på smal skärm."],
+        "tests": [
+          ["Hitta och förklara", "Rekrytera fem representativa företagare. Be dem förklara erbjudandet och hitta en kontaktväg. Notera felval, tvekan och om uppgiften klaras utan hjälp. Revidera återkommande oklarheter."],
+          ["Använda i mobilen", "Kontrollera omflöde, zoom, tangentbordsfokus, länknamn och formuläretiketter. Testa båda kontaktvägarna, inklusive saknade eller felaktiga formuläruppgifter."],
+          ["Mäta efter lansering", "Utgå från en överenskommen baslinje och jämför kvalificerade förfrågningar och slutförda kontaktförsök under jämförbara perioder. Skilj trafikförändringar från designförändringar."]
+        ],
+        "learning": "En specifik motsägelse är en starkare utgångspunkt än att sidan ser gammal ut. Här är tillförlitligt innehåll och tillgång till kontaktuppgifter lika viktiga som det visuella uttrycket.",
+        "next": "Bekräfta innehållet med byrån, testa kontaktvägen med användare, bestäm vem som tar emot varje meddelande och validera en riktig formulärintegration. Ingen förbättring av förfrågningar eller konvertering har uppmätts."
+      }
+    },
+    {
+      "live": "https://nordstromadvokater.matviiakkuratov.com",
+      "shots": [["law-concept-desktop.webp",1348,926],["law-concept-portal.webp",1348,926]],
+      "en": {
+        "path": "en/work/law-firm/index.html",
+        "meta_title": "Bankruptcy portal UX case study: design around the task",
+        "meta_description": "An independent law-firm concept with task-based user flows, requirements, retrospective wireframes, real interface screenshots and a usability-test plan.",
+        "title": "A clearer route through a difficult situation.",
+        "intro": "A law-firm website and bankruptcy intake concept. The design separates people seeking advice from creditors, former employees and landlords who need to act on an existing case.",
+        "role": "Website review · User flows · UI · Front-end", "scope": "Website + intake portal prototype",
+        "problem_title": "One website, very different reasons to visit.",
+        "problem": "The project notes identified bankruptcy administration as a central part of this Uppsala firm's work. That suggested a task-focused design brief: help affected people find the right information and route. I did not have internal call volumes, inbox data or evidence that the site was losing clients.",
+        "evidence": [
+          ["Zoom restricted", "The original review recorded user-scalable=0 in the viewport configuration.", "Allow zoom and preserve a readable, usable layout on a narrow screen."],
+          ["Broken interaction", "The notes record five share controls on news posts pointing to '#'.", "Use working actions with a clear purpose; remove controls that do nothing."],
+          ["Different service tasks", "The public material and prototype distinguish claims, employment-related questions and landlord or asset enquiries.", "Offer situation-based entry points, with case context retained through the journey."]
+        ],
+        "question": "How might someone affected by a bankruptcy find the relevant route, understand what to prepare and know what happens next?",
+        "people": [
+          ["Creditor", "Find the right case for an unpaid invoice.", "A recognisable case, a claim route and clear requirements for supporting information."],
+          ["Former employee", "Understand where an employment-related question belongs.", "Plain-language guidance and a dedicated route without unrelated claim fields."],
+          ["Landlord or asset buyer", "Contact the person responsible for a property or asset question.", "Case context and a route separate from a general request for legal advice."]
+        ],
+        "constraints": "The information architecture has two entrances: legal advice and bankruptcy matters. The portal is a front-end demonstration. Real receiving, secure file handling, case routing and legal review are implementation requirements, not completed backend features.",
+        "flow_title": "Route by the person's situation.",
+        "flow_note": "The prototype offers three routes from the portal. The claim flow below includes the demonstrated receipt as an intended endpoint. The wireframe adds a review step as a proposed improvement, so it is labelled separately from the existing UI.",
+        "flows": [
+          ["Creditor: submit a claim", ["Choose the claim route", "Select the bankruptcy case", "Enter claim & supporting details", "See a demo receipt"], "If the company is missing from the list, provide a way to identify it and ask for help. No real claim is received by this prototype."],
+          ["Former employee: find the relevant guidance", ["Choose the employee route", "Identify the case", "Read what to prepare", "Use the case contact route"], "Avoid asking the visitor to interpret legal eligibility. The firm must approve all guidance and the receiving process."],
+          ["Landlord or buyer: ask about a property or asset", ["Choose the landlord / assets route", "Identify the case", "Describe the matter", "Reach the relevant contact"], "If the visitor cannot identify a case, keep a clearly explained general contact route available."]
+        ],
+        "wires": [
+          ["01 / Choose a task", ["Firm identity + navigation", "Legal advice / Bankruptcy", "Creditor / Employee / Landlord", "Open the relevant route"], "Group information by why someone is here, not only by practice area."],
+          ["02 / Establish context", ["Case name and identifier", "Case information", "What you need to prepare", "Continue with this case"], "Make the selected case visible before requesting personal information."],
+          ["03 / Review and confirm", ["Your details + case", "Review before sending · proposed", "Receipt with a clear next step", "Return to case information"], "A review step is a next iteration; a demo receipt is not proof of delivery."]
+        ],
+        "decisions": [
+          ["Separate advice from administration", "Two homepage entrances give prospective clients and people with an existing matter different starting points."],
+          ["Use progressive structure", "The claim interface groups case selection, contact details, claim information and supporting documents. The aim is to reduce ambiguity; completion rates have not been measured."],
+          ["Carry case context", "Case cards, stage labels and a named contact give the journey context. Routing is demonstrated in the interface; a real integration still needs to be built and tested."],
+          ["Preserve a clear prototype boundary", "The concept displays a disclaimer and explains that forms do not deliver to the firm. Legal copy remains subject to the firm's review; reusing public text does not establish legal approval."]
+        ],
+        "captions": ["Working homepage: separate entrances for legal advice and bankruptcy matters.", "Working claim interface: case selection before personal and claim details."],
+        "tests": [
+          ["Task-based usability sessions", "Recruit five participants across the three provisional profiles. Use fictional cases and data. Ask them to choose a route, find a case and explain the next step. Record wrong paths, completion and hesitation."],
+          ["Failure and recovery", "Test a missing case, incomplete fields, invalid email, rejected attachment and network failure before launch. Preserve entered information and distinguish a failed submission from a receipt."],
+          ["Operational outcomes", "With the firm, establish a baseline for correctly routed enquiries and time spent clarifying missing details. Compare after launch. Fewer routine calls is a hypothesis, not a result of this concept."]
+        ],
+        "learning": "The commercial question changes the design brief. A law firm's site may support ongoing work as well as attract enquiries. Here, identifying the task led to a more useful structure than a purely visual refresh.",
+        "next": "Validate the provisional profiles with real users and staff, have the firm review the legal content, reduce unnecessary fields, add a review step, and implement secure receiving and case routing. The prototype is not a functioning legal intake service."
+      },
+      "sv": {
+        "path": "arbeten/advokatbyra/index.html",
+        "meta_title": "UX-fallstudie för konkursportal: design utifrån uppgiften",
+        "meta_description": "Egeninitierat advokatbyråkoncept med uppgiftsbaserade flöden, krav, retrospektiva wireframes, riktiga skärmbilder och en plan för användningstester.",
+        "title": "En tydligare väg genom en svår situation.",
+        "intro": "Ett webb- och konkursportalkoncept för en advokatbyrå. Designen skiljer personer som söker rådgivning från borgenärer, tidigare anställda och hyresvärdar som behöver agera i ett befintligt ärende.",
+        "role": "Webbgranskning · Användarflöden · UI · Frontend", "scope": "Webbplats + prototyp för konkursportal",
+        "problem_title": "En webbplats, helt olika skäl att besöka den.",
+        "problem": "Projektanteckningarna pekade ut konkursförvaltning som en central del av Uppsalabyråns arbete. Det gav ett uppgiftsorienterat designmål: hjälpa berörda personer att hitta rätt information och väg vidare. Jag hade inte interna samtalsvolymer, inkorgsdata eller belägg för att webbplatsen tappade kunder.",
+        "evidence": [
+          ["Begränsad zoom", "Den ursprungliga granskningen noterade user-scalable=0 i viewport-inställningen.", "Tillåt zoom och behåll en läsbar, användbar layout på smal skärm."],
+          ["Trasig interaktion", "Anteckningarna beskriver fem delningskontroller under nyheter som pekade på '#'.", "Använd fungerande handlingar med tydligt syfte och ta bort kontroller som inte gör något."],
+          ["Olika uppgifter", "Det offentliga materialet och prototypen skiljer mellan fordringar, anställningsfrågor och frågor om lokaler eller tillgångar.", "Erbjud ingångar efter situation och behåll ärendets sammanhang genom flödet."]
+        ],
+        "question": "Hur kan en person som berörs av en konkurs hitta rätt väg, förstå vad som behövs och veta vad nästa steg är?",
+        "people": [
+          ["Borgenär", "Hitta rätt ärende för en obetald faktura.", "Ett identifierbart ärende, en väg för fordran och tydliga krav på underlag."],
+          ["Tidigare anställd", "Förstå vart en anställningsfråga hör hemma.", "Begriplig vägledning och en egen ingång utan irrelevanta fält för andra typer av krav."],
+          ["Hyresvärd eller köpare", "Nå ansvarig för en lokal- eller tillgångsfråga.", "Ärendets sammanhang och en annan väg än en allmän förfrågan om juridisk rådgivning."]
+        ],
+        "constraints": "Informationsarkitekturen har två ingångar: juridisk rådgivning och konkursärenden. Portalen är en frontend-demonstration. Riktig mottagning, säker filhantering, ärendedirigering och juridisk granskning är genomförandekrav, inte färdiga backend-funktioner.",
+        "flow_title": "Välj väg efter personens situation.",
+        "flow_note": "Prototypen har tre ingångar från portalen. Flödet för fordringar visar demokvittensen som tänkt slutpunkt. Wireframen lägger till en granskning före inskick som föreslagen förbättring, separat från befintlig UI.",
+        "flows": [
+          ["Borgenär: anmäla en fordran", ["Välja fordringsvägen", "Välja konkursärende", "Ange krav och underlag", "Se en demokvittens"], "Om bolaget saknas ska det gå att identifiera det och be om hjälp. Prototypen tar inte emot någon verklig fordran."],
+          ["Tidigare anställd: hitta rätt vägledning", ["Välja vägen för anställda", "Identifiera ärendet", "Läsa vad som behövs", "Använda ärendets kontaktväg"], "Besökaren ska inte behöva tolka juridisk behörighet. Byrån måste godkänna vägledning och mottagningsprocess."],
+          ["Hyresvärd eller köpare: fråga om lokal eller tillgångar", ["Välja hyresvärd / tillgångar", "Identifiera ärendet", "Beskriva frågan", "Nå relevant kontakt"], "Om personen inte kan identifiera ett ärende ska en tydligt förklarad allmän kontaktväg finnas kvar."]
+        ],
+        "wires": [
+          ["01 / Välja uppgift", ["Byråns identitet + navigation", "Juridisk hjälp / Konkurs", "Borgenär / Anställd / Hyresvärd", "Öppna relevant väg"], "Gruppera information efter besökets syfte, inte bara rättsområde."],
+          ["02 / Hitta sammanhang", ["Ärendets namn och identifierare", "Ärendeinformation", "Det här behöver du förbereda", "Fortsätta med detta ärende"], "Gör ärendet synligt innan personuppgifter efterfrågas."],
+          ["03 / Granska och bekräfta", ["Dina uppgifter + ärendet", "Granska före inskick · förslag", "Kvittens med tydligt nästa steg", "Tillbaka till ärendet"], "Ett granskningssteg är nästa iteration; en demokvittens bevisar inte leverans."]
+        ],
+        "decisions": [
+          ["Skilj rådgivning från handläggning", "Två ingångar på startsidan ger potentiella klienter och personer med ett befintligt ärende olika startpunkter."],
+          ["Strukturera stegvis", "Gränssnittet för fordringar grupperar ärendeval, kontaktuppgifter, krav och underlag. Målet är mindre oklarhet; slutförandegraden har inte mätts."],
+          ["Behåll ärendets sammanhang", "Ärendekort, stegmarkeringar och en namngiven kontakt ger sammanhang. Dirigeringen demonstreras i gränssnittet; en riktig integration behöver byggas och testas."],
+          ["Visa prototypens gräns", "Konceptet har en tydlig märkning och förklarar att formulären inte skickar till byrån. Juridisk text behöver fortfarande granskas; återbruk av offentlig text innebär inget juridiskt godkännande."]
+        ],
+        "captions": ["Fungerande startsida: separata ingångar för juridisk rådgivning och konkursärenden.", "Fungerande gränssnitt för fordran: ärendeval före personuppgifter och krav."],
+        "tests": [
+          ["Uppgiftsbaserade användningstester", "Rekrytera fem deltagare över de tre preliminära profilerna. Använd fiktiva ärenden och uppgifter. Be deltagarna välja väg, hitta ärendet och förklara nästa steg. Notera felvägar, slutförande och tvekan."],
+          ["Fel och återhämtning", "Testa saknat ärende, ofullständiga fält, felaktig e-post, avvisad bilaga och nätverksfel före lansering. Bevara ifyllda uppgifter och skilj ett misslyckat inskick från en kvittens."],
+          ["Verksamhetens utfall", "Ta fram en baslinje med byrån för rätt dirigerade förfrågningar och tid för kompletteringar. Jämför efter lansering. Färre rutinsamtal är en hypotes, inte ett resultat av konceptet."]
+        ],
+        "learning": "Den kommersiella frågan förändrar designuppgiften. En advokatbyrås webbplats kan stödja pågående arbete och samtidigt skapa förfrågningar. Här gav uppgiften en mer användbar struktur än enbart en visuell uppdatering.",
+        "next": "Validera profilerna med riktiga användare och personal, låt byrån granska juridisk text, minska onödiga fält, lägg till ett granskningssteg och bygg säker mottagning och ärendedirigering. Prototypen är inte en fungerande juridisk mottagningstjänst."
+      }
+    }
+  ]
+}
