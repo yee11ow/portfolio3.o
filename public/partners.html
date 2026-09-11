@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Matvii · White-label web production for agencies</title>
 <meta name="description" content="White-label design and hand-coded builds for design & marketing agencies. Figma to launch on Cloudflare Pages. Stockholm evenings are US business hours.">
 <link rel="canonical" href="https://matviiakkuratov.com/partners">
@@ -21,7 +21,7 @@
     --track:#ecebe6;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
   @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
   body{
     background:var(--paper);
@@ -29,17 +29,18 @@
     font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size:17px;line-height:1.6;
     -webkit-font-smoothing:antialiased;
+    overflow-wrap:anywhere;
   }
   a{color:var(--ink);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--accent);text-decoration-thickness:1.5px}
   a:hover{color:var(--accent)}
   a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
-  .wrap{max-width:720px;margin:0 auto;padding:0 24px}
+  .wrap{max-width:720px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
 
-  header{padding:28px 0}
-  .nav{display:flex;align-items:baseline;justify-content:space-between;gap:16px}
+  header{padding-top:max(28px,env(safe-area-inset-top,0px));padding-bottom:28px}
+  .nav{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:16px}
   .brand{font-weight:700;font-size:19px;text-decoration:none}
   .brand:hover{color:var(--ink)}
-  .nav-right{display:flex;align-items:baseline;gap:20px;font-size:14.5px}
+  .nav-right{display:flex;flex-wrap:wrap;align-items:baseline;gap:20px;font-size:14.5px;min-width:0}
   .tag{color:var(--muted);letter-spacing:.14em;text-transform:uppercase;font-size:11.5px;font-weight:600}
 
   .hero{padding:56px 0 40px}
@@ -52,6 +53,7 @@
     display:inline-block;background:var(--ink);color:var(--paper);
     padding:12px 20px;border-radius:999px;text-decoration:none;
     font-weight:600;font-size:15.5px;
+    max-width:100%;min-height:44px;text-align:center;
   }
   .btn:hover{background:var(--accent);color:#fff}
   .cta-alt{font-size:15.5px}
@@ -81,6 +83,8 @@
   .tz-scale{display:grid;grid-template-columns:170px 1fr;gap:14px;margin-bottom:8px}
   .tz-scale div{position:relative;height:16px;font-size:11px;color:var(--muted)}
   .tz-scale span{position:absolute;transform:translateX(-50%)}
+  .tz-scale span:first-child{transform:none}
+  .tz-scale span:last-child{transform:translateX(-100%)}
 
   .work-item{margin-bottom:18px}
   .work-item .k{font-weight:700}
@@ -93,6 +97,10 @@
   footer .links{display:flex;flex-wrap:wrap;gap:18px;margin-bottom:16px}
   footer a{color:var(--ink)}
   .sv{margin-top:10px}
+  footer{padding-bottom:max(56px,calc(env(safe-area-inset-bottom,0px) + 24px))}
+  @media (any-pointer:coarse){
+    .nav a,footer .links a{display:inline-flex;align-items:center;min-height:44px}
+  }
 
   @media (max-width:560px){
     .tz-row,.tz-scale{grid-template-columns:1fr}
