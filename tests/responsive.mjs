@@ -115,7 +115,11 @@ try {
       await page.locator('.pill__close').click();
       await page.locator('.nav__toggle').click();
       await page.setViewportSize({ width: 1366, height: 1024 });
+      // matchMedia changes are delivered on a rendering frame. Do not fold
+      // back within the same frame before the desktop state was rendered.
+      await page.waitForFunction(() => document.querySelector('.nav__toggle').getAttribute('aria-expanded') === 'false');
       await page.setViewportSize({ width: 820, height: 1180 });
+      await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
       assert.equal(await page.locator('.nav__toggle').getAttribute('aria-expanded'), 'false', 'Menu reopens after returning from desktop');
 
       // 200% text, a narrow split-view pane and simulated display insets.
