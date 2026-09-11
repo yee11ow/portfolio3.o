@@ -30,7 +30,15 @@
   --wrap: 1160px;
   --pad:  clamp(1.25rem, 4vw, 2.5rem);
   --section: clamp(4rem, 9vw, 8rem);
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --viewport-height: 100vh;
+  --viewport-width: 100vw;
 }
+
+@supports (height: 100dvh) { :root { --viewport-height: 100dvh; } }
 
 /* ---------- Reset / base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
@@ -46,6 +54,7 @@ body {
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  overflow-wrap: anywhere;
 }
 
 /* A display rule outranks the UA stylesheet, so [hidden] needs to win back. */
@@ -111,7 +120,15 @@ section[id] { scroll-margin-top: 88px; }
 .skip-link:focus { left: 1rem; top: 1rem; }
 
 /* ---------- Layout helpers ---------- */
-.wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: var(--pad); }
+.wrap {
+  width: 100%; max-width: var(--wrap); margin-inline: auto;
+  padding-left: max(var(--pad), var(--safe-left));
+  padding-right: max(var(--pad), var(--safe-right));
+}
+/* Intrinsic image and text widths must not force a grid track off-screen. */
+:where(.hero__grid, .band__inner, .case, .about__grid, .psteps, .teasers,
+       .flow__item, .faq__grid, .cs__move, .cs__shots, .cs__facts,
+       .legal__dl > div, .foot__row) > * { min-width: 0; }
 
 .eyebrow {
   font-family: var(--sans);
@@ -145,7 +162,11 @@ section[id] { scroll-margin-top: 88px; }
   border-radius: var(--pill);
   text-decoration: none;
   transition: transform .18s ease, background-color .18s ease, color .18s ease, border-color .18s ease, box-shadow .18s ease;
-  white-space: nowrap;
+  white-space: normal;
+  text-align: center;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 44px;
 }
 .btn--primary { background: var(--ink); color: var(--bg); }
 .btn--primary:hover { background: var(--accent); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
@@ -172,6 +193,7 @@ section[id] { scroll-margin-top: 88px; }
   position: sticky;
   top: 0;
   z-index: 100;
+  padding-top: var(--safe-top);
   background: color-mix(in srgb, var(--bg) 80%, transparent);
   transition: box-shadow .25s ease, background-color .25s ease;
 }
@@ -188,6 +210,7 @@ section[id] { scroll-margin-top: 88px; }
   justify-content: space-between;
   min-height: 68px;
   position: relative;
+  gap: 1.25rem;
 }
 .nav__brand {
   font-family: var(--serif);
@@ -198,8 +221,9 @@ section[id] { scroll-margin-top: 88px; }
 }
 .nav__brand-dot { color: var(--accent); }
 
-.nav__menu { display: flex; align-items: center; gap: clamp(1rem, 3vw, 2.25rem); }
-.nav__links { display: flex; align-items: center; gap: clamp(1rem, 2.4vw, 1.9rem); }
+.nav__brand, .nav__toggle { flex-shrink: 0; }
+.nav__menu { display: flex; align-items: center; gap: 1.25rem; min-width: 0; }
+.nav__links { display: flex; align-items: center; gap: 1rem; min-width: 0; }
 .nav__link {
   font-size: .95rem;
   text-decoration: none;
@@ -265,7 +289,7 @@ section[id] { scroll-margin-top: 88px; }
 /* Six nav items plus the availability badge, the language switch and the CTA
    stop fitting on one row below this, so the burger takes over earlier than
    the usual tablet breakpoint. */
-@media (max-width: 1023px) {
+@media (max-width: 74.999rem) {
   .nav-ready .nav__toggle { display: flex; }
   .nav__menu {
     position: absolute;
@@ -282,13 +306,19 @@ section[id] { scroll-margin-top: 88px; }
     opacity: 0;
     visibility: hidden;
     transition: opacity .22s ease, transform .22s ease, visibility .22s;
+    max-height: calc(var(--viewport-height) - var(--header-height, 68px) - var(--safe-bottom) - 1px);
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    padding-left: max(var(--pad), var(--safe-left));
+    padding-right: max(var(--pad), var(--safe-right));
   }
   .nav__menu.is-open { opacity: 1; visibility: visible; transform: translateY(0); }
   .site:not(.nav-ready) .nav__menu { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; }
   .site:not(.nav-ready) .nav { flex-wrap: wrap; }
-  .site:not(.nav-ready) .nav__menu { width: 100%; }
-  .nav__links { flex-direction: column; align-items: flex-start; gap: 1rem; width: 100%; }
-  .nav__link { font-size: 1.1rem; }
+  .site:not(.nav-ready) .nav__menu { width: 100%; max-height: none; overflow: visible; }
+  .site:not(.nav-ready) { position: static; }
+  .nav__links { flex-direction: column; align-items: stretch; gap: .25rem; width: 100%; }
+  .nav__link { display: flex; align-items: center; min-height: 44px; font-size: 1.1rem; }
   .nav__right { flex-direction: column; align-items: flex-start; gap: 1.1rem; width: 100%; }
   .nav__cta { width: 100%; }
 }
@@ -452,7 +482,7 @@ section[id] { scroll-margin-top: 88px; }
   color: var(--ink);
   padding: .1em .4em;
   border-radius: 3px;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 /* ============================ ABOUT ============================ */
@@ -538,7 +568,7 @@ section[id] { scroll-margin-top: 88px; }
   background: var(--ink);
   color: var(--bg);
   border-radius: var(--r-lg);
-  padding: clamp(2.5rem, 6vw, 5rem);
+  padding: clamp(1.25rem, 6vw, 5rem);
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -582,7 +612,7 @@ section[id] { scroll-margin-top: 88px; }
 }
 
 /* ============================ FOOTER ============================ */
-.site-footer { border-top: 1px solid var(--line); padding-block: 2.5rem; }
+.site-footer { border-top: 1px solid var(--line); padding-block: 2.5rem max(6rem, calc(var(--safe-bottom) + 5rem)); }
 .foot__row { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; align-items: center; }
 .foot__brand { font-size: .85rem; color: var(--ink-soft); }
 .foot__fine {
@@ -927,7 +957,7 @@ section[id] { scroll-margin-top: 88px; }
 
 .cs__facts {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
   gap: 1.5rem;
   margin-top: clamp(2.5rem, 5vw, 3.5rem);
   padding-top: 1.75rem;
@@ -1031,9 +1061,11 @@ section[id] { scroll-margin-top: 88px; }
 
 /* ============================ READING PILL ============================ */
 .pill {
+  --pill-bottom: max(var(--pad), calc(var(--safe-bottom) + 8px));
   position: fixed;
-  left: var(--pad);
-  bottom: var(--pad);
+  left: max(var(--pad), calc(var(--safe-left) + 8px));
+  bottom: var(--pill-bottom);
+  max-width: calc(var(--viewport-width) - var(--safe-left) - var(--safe-right) - 16px);
   z-index: 90;
   display: flex;
   align-items: center;
@@ -1049,7 +1081,7 @@ section[id] { scroll-margin-top: 88px; }
   border-radius: var(--pill);
   box-shadow: var(--shadow-sm);
   cursor: grab;
-  touch-action: none;
+  touch-action: pan-y pinch-zoom;
   user-select: none;
   -webkit-user-select: none;
 }
@@ -1067,9 +1099,12 @@ section[id] { scroll-margin-top: 88px; }
   box-shadow: var(--shadow);
   background: color-mix(in srgb, var(--surface) 97%, transparent);
   cursor: default;
+  max-height: calc(var(--viewport-height) - var(--header-height, 68px) - var(--pill-bottom) - 8px);
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
 }
 
-.pill__grab { display: flex; align-items: center; gap: .55rem; cursor: grab; }
+.pill__grab { display: flex; align-items: center; gap: .55rem; cursor: grab; touch-action: none; flex-shrink: 0; }
 .pill.is-dragging .pill__grab { cursor: grabbing; }
 
 .pill__toggle {
@@ -1081,6 +1116,8 @@ section[id] { scroll-margin-top: 88px; }
   color: var(--ink-soft);
   border-radius: var(--pill);
   cursor: pointer;
+  min-width: 0;
+  flex: 1 1 0;
 }
 .pill__toggle:hover { color: var(--ink); }
 .pill__toggle:hover .pill__chev { background: var(--accent); color: var(--surface); }
@@ -1116,7 +1153,7 @@ section[id] { scroll-margin-top: 88px; }
   font-feature-settings: 'tnum' 1;
   color: var(--ink);
 }
-.pill__note { white-space: nowrap; }
+.pill__note { min-width: 0; overflow-wrap: anywhere; line-height: 1.4; }
 .pill__close {
   width: 24px;
   height: 24px;
@@ -1190,7 +1227,7 @@ section[id] { scroll-margin-top: 88px; }
 
 /* Below the fold of a phone it would sit on top of the footer links. */
 @media (max-width: 560px) {
-  .pill { left: .75rem; bottom: .75rem; font-size: .72rem; }
+  .pill { --pill-bottom: max(.75rem, calc(var(--safe-bottom) + 8px)); left: max(.75rem, calc(var(--safe-left) + 8px)); font-size: .875rem; }
   .pill:not(.is-open) .pill__note { display: none; }
   .pill.is-open { width: calc(100vw - 1.5rem); }
 }
@@ -1198,8 +1235,11 @@ section[id] { scroll-margin-top: 88px; }
   .pill__panel { animation: none; }
   .pill__chev { transition: none; }
 }
-/* On a short window, or at heavy zoom, a floating panel eats the page. */
-@media (max-height: 480px) { .pill { display: none; } }
+/* The compact control remains available in landscape; its panel scrolls. */
+@media (max-height: 480px) {
+  .pill:not(.is-open) .pill__note { display: none; }
+  .pill { --pill-bottom: max(.5rem, calc(var(--safe-bottom) + 8px)); }
+}
 @media (prefers-reduced-motion: reduce) {
   .pill__dial { transition: none; }
   .ask__reply { animation: none; }
@@ -1228,6 +1268,22 @@ section[id] { scroll-margin-top: 88px; }
   .mini-phone { display: none; }
   .hero__cta .btn { flex: 1 1 auto; }
   .browser__bar em { display: none; }
+  .flow__item { gap: .75rem; padding: 1.1rem; }
+  .cs__move { grid-template-columns: 1.6rem minmax(0, 1fr); }
+  .hero__title { font-size: clamp(2rem, 9vw, 3rem); }
+  .cta__box .btn, .cs__cta .btn, .faq-end__cta .btn { width: 100%; }
+}
+
+/* Touch capability also covers an unfolded phone or an iPad in landscape. */
+@media (any-pointer: coarse) {
+  .lang__btn, .pill__toggle, .pill__close, .pill__grab,
+  .pill__opt, .pill__cta, .pill__alt, .pill__back,
+  .ask__opt, .foot__links a, .cs__back { min-height: 44px; }
+  .lang__btn { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; }
+  .pill__close { width: 44px; height: 44px; }
+  .pill__toggle { min-width: 44px; }
+  .pill__opt, .pill__cta, .pill__alt, .pill__back { font-size: .875rem; line-height: 1.5; }
+  .pill__cta, .pill__alt { display: flex; align-items: center; justify-content: center; }
 }
 
 /* ============================ PRINT ============================ */

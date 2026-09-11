@@ -8,6 +8,20 @@
   var toggle = document.querySelector('.nav__toggle');
   var menu = document.querySelector('.nav__menu');
 
+  /* Browser chrome, rotation, split view and folding can all resize the
+     visible viewport without loading a new page. Keep overlays inside it. */
+  var root = document.documentElement;
+  var visualViewport = window.visualViewport;
+  function syncViewport() {
+    root.style.setProperty('--viewport-height', (visualViewport ? visualViewport.height : window.innerHeight) + 'px');
+    root.style.setProperty('--viewport-width', (visualViewport ? visualViewport.width : window.innerWidth) + 'px');
+    if (header) root.style.setProperty('--header-height', header.getBoundingClientRect().height + 'px');
+  }
+  syncViewport();
+  window.addEventListener('resize', syncViewport, { passive: true });
+  if (visualViewport) visualViewport.addEventListener('resize', syncViewport, { passive: true });
+  if (header && window.ResizeObserver) new ResizeObserver(syncViewport).observe(header);
+
   /* ---------- Sticky header background on scroll ---------- */
   function onScroll() {
     if (header) header.classList.toggle('scrolled', window.scrollY > 8);
@@ -27,15 +41,28 @@
       setMenu(!menu.classList.contains('is-open'));
     });
 
-    var desktop = window.matchMedia('(min-width: 1024px)');
+    // Keep this boundary paired with the navigation rule in styles.css.
+    var desktop = window.matchMedia('(min-width: 75rem)');
     function onBreakpoint() {
-      if (desktop.matches) setMenu(false);
+      var focusWasInMenu = menu.contains(document.activeElement);
+      setMenu(false);
+      if (!desktop.matches && focusWasInMenu) toggle.focus();
     }
     if (desktop.addEventListener) {
       desktop.addEventListener('change', onBreakpoint);
     } else if (desktop.addListener) {
       desktop.addListener(onBreakpoint); // Safari < 14
     }
+
+    menu.addEventListener('click', function (e) {
+      if (e.target.closest('a')) setMenu(false);
+    });
+    document.addEventListener('click', function (e) {
+      if (!header.contains(e.target)) setMenu(false);
+    });
+    document.addEventListener('focusin', function (e) {
+      if (!header.contains(e.target)) setMenu(false);
+    });
 
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && menu.classList.contains('is-open')) {
@@ -237,6 +264,7 @@
         });
         panel.appendChild(back);
       }
+      fitPill();
     }
 
     function drawEnd() {
@@ -262,6 +290,7 @@
         panel.querySelector('button').focus();
       });
       panel.appendChild(back);
+      fitPill();
     }
 
     function openPanel() {
@@ -275,10 +304,7 @@
       pillNote.textContent = F.invite;
       // Growing upward from the corner is free, but a dragged pill can grow
       // off-screen, so re-clamp whenever it has been moved.
-      if (pill.style.left) {
-        var box = pill.getBoundingClientRect();
-        placeAt(box.left, box.top);
-      }
+      fitPill();
       panel.querySelector('button, a').focus();
     }
 
@@ -288,6 +314,7 @@
       pillToggle.setAttribute('aria-expanded', 'false');
       pillToggle.setAttribute('aria-label', F.open);
       pillNote.textContent = F.invite;
+      fitPill();
     }
 
     pillToggle.addEventListener('click', function () {
@@ -307,12 +334,27 @@
 
     function placeAt(x, y) {
       var box = pill.getBoundingClientRect();
-      var maxX = window.innerWidth - box.width - 8;
-      var maxY = window.innerHeight - box.height - 8;
-      pill.style.left = Math.max(8, Math.min(x, maxX)) + 'px';
-      pill.style.top = Math.max(8, Math.min(y, maxY)) + 'px';
+      var styles = window.getComputedStyle(root);
+      function inset(edge) { return parseFloat(styles.getPropertyValue('--safe-' + edge)) || 0; }
+      var offsetX = visualViewport ? visualViewport.offsetLeft : 0;
+      var offsetY = visualViewport ? visualViewport.offsetTop : 0;
+      var width = visualViewport ? visualViewport.width : window.innerWidth;
+      var height = visualViewport ? visualViewport.height : window.innerHeight;
+      var minX = offsetX + inset('left') + 8;
+      var minY = offsetY + Math.max(inset('top'), header ? header.getBoundingClientRect().height : 0) + 8;
+      var maxX = offsetX + width - box.width - inset('right') - 8;
+      var maxY = offsetY + height - box.height - inset('bottom') - 8;
+      pill.style.left = Math.max(minX, Math.min(x, maxX)) + 'px';
+      pill.style.top = Math.max(minY, Math.min(y, maxY)) + 'px';
       pill.style.right = 'auto';
       pill.style.bottom = 'auto';
+    }
+
+    function fitPill() {
+      // Preserve the CSS bottom anchor until the visitor moves the control.
+      if (pill.hidden || !pill.style.left) return;
+      var box = pill.getBoundingClientRect();
+      placeAt(box.left, box.top);
     }
 
     pill.addEventListener('pointerdown', function (e) {
@@ -358,9 +400,11 @@
       if (panel.hidden) pill.hidden = true; else { closePanel(); pillToggle.focus(); }
     });
 
-    window.addEventListener('resize', function () {
-      if (pill.style.left) placeAt(pill.getBoundingClientRect().left, pill.getBoundingClientRect().top);
-    }, { passive: true });
+    window.addEventListener('resize', fitPill, { passive: true });
+    if (visualViewport) {
+      visualViewport.addEventListener('resize', fitPill, { passive: true });
+      visualViewport.addEventListener('scroll', fitPill, { passive: true });
+    }
   }
 
   /* ---------- One question at the end of the page ----------
