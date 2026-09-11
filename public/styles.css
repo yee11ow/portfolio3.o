@@ -289,7 +289,7 @@ section[id] { scroll-margin-top: 88px; }
 /* Six nav items plus the availability badge, the language switch and the CTA
    stop fitting on one row below this, so the burger takes over earlier than
    the usual tablet breakpoint. */
-@media (width < 75rem) {
+@media (max-width: 74.999rem) {
   .nav-ready .nav__toggle { display: flex; }
   .nav__menu {
     position: absolute;
@@ -1061,9 +1061,10 @@ section[id] { scroll-margin-top: 88px; }
 
 /* ============================ READING PILL ============================ */
 .pill {
+  --pill-bottom: max(var(--pad), calc(var(--safe-bottom) + 8px));
   position: fixed;
   left: max(var(--pad), calc(var(--safe-left) + 8px));
-  bottom: max(var(--pad), calc(var(--safe-bottom) + 8px));
+  bottom: var(--pill-bottom);
   max-width: calc(var(--viewport-width) - var(--safe-left) - var(--safe-right) - 16px);
   z-index: 90;
   display: flex;
@@ -1098,7 +1099,7 @@ section[id] { scroll-margin-top: 88px; }
   box-shadow: var(--shadow);
   background: color-mix(in srgb, var(--surface) 97%, transparent);
   cursor: default;
-  max-height: calc(var(--viewport-height) - var(--safe-top) - var(--safe-bottom) - 16px);
+  max-height: calc(var(--viewport-height) - var(--header-height, 68px) - var(--pill-bottom) - 8px);
   overflow-y: auto;
   overscroll-behavior-y: contain;
 }
@@ -1226,7 +1227,7 @@ section[id] { scroll-margin-top: 88px; }
 
 /* Below the fold of a phone it would sit on top of the footer links. */
 @media (max-width: 560px) {
-  .pill { left: max(.75rem, calc(var(--safe-left) + 8px)); bottom: max(.75rem, calc(var(--safe-bottom) + 8px)); font-size: .875rem; }
+  .pill { --pill-bottom: max(.75rem, calc(var(--safe-bottom) + 8px)); left: max(.75rem, calc(var(--safe-left) + 8px)); font-size: .875rem; }
   .pill:not(.is-open) .pill__note { display: none; }
   .pill.is-open { width: calc(100vw - 1.5rem); }
 }
@@ -1237,7 +1238,7 @@ section[id] { scroll-margin-top: 88px; }
 /* The compact control remains available in landscape; its panel scrolls. */
 @media (max-height: 480px) {
   .pill:not(.is-open) .pill__note { display: none; }
-  .pill { bottom: max(.5rem, calc(var(--safe-bottom) + 8px)); }
+  .pill { --pill-bottom: max(.5rem, calc(var(--safe-bottom) + 8px)); }
 }
 @media (prefers-reduced-motion: reduce) {
   .pill__dial { transition: none; }

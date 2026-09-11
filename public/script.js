@@ -341,7 +341,7 @@
       var width = visualViewport ? visualViewport.width : window.innerWidth;
       var height = visualViewport ? visualViewport.height : window.innerHeight;
       var minX = offsetX + inset('left') + 8;
-      var minY = offsetY + inset('top') + 8;
+      var minY = offsetY + Math.max(inset('top'), header ? header.getBoundingClientRect().height : 0) + 8;
       var maxX = offsetX + width - box.width - inset('right') - 8;
       var maxY = offsetY + height - box.height - inset('bottom') - 8;
       pill.style.left = Math.max(minX, Math.min(x, maxX)) + 'px';
