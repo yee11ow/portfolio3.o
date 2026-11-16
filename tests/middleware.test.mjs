@@ -6,10 +6,12 @@ const code = await readFile(new URL('../functions/_middleware.js', import.meta.u
 const { onRequest } = await import('data:text/javascript;base64,' + Buffer.from(code).toString('base64'));
 const routes = JSON.parse(await readFile(new URL('../public/_routes.json', import.meta.url), 'utf8'));
 const paths = [
+  ['/projects/', '/en/projects/'],
   ['/web-design/', '/en/web-design/'],
   ['/arbeten/revisionsbyra/', '/en/work/audit-firm/'],
   ['/arbeten/advokatbyra/', '/en/work/law-firm/'],
   ['/granska-er-webbplats/', '/en/check-your-website/'],
+  ['/legal', '/en/legal'],
 ];
 
 async function run(path, headers = {}, country) {
@@ -19,6 +21,39 @@ async function run(path, headers = {}, country) {
   if (country) Object.defineProperty(request, 'cf', { value: { country } });
   return onRequest({ request, next: () => new Response('original page') });
 }
+
+test('Consolidates www and the production Pages hostname without losing the query', async () => {
+  for (const host of ['www.matviiakkuratov.com', 'portfolio-rwb.pages.dev']) {
+    const request = new Request(`https://${host}/en/projects/?from=search`);
+    const response = await onRequest({ request, next: () => new Response('original') });
+    assert.equal(response.status, 301);
+    assert.equal(response.headers.get('Location'), 'https://matviiakkuratov.com/en/projects/?from=search');
+  }
+});
+
+test('Preview HTML is accessible and explicitly excluded from indexing', async () => {
+  const request = new Request('https://feature.portfolio-rwb.pages.dev/en/projects/');
+  const response = await onRequest({ request, next: () => new Response('preview') });
+  assert.equal(response.status, 200);
+  assert.equal(response.headers.get('X-Robots-Tag'), 'noindex');
+  assert.equal(await response.text(), 'preview');
+});
+
+test('Every catalogue document route is covered, canonical and readable by crawlers', async () => {
+  const catalogue = JSON.parse(await readFile(new URL('../content/seo.json', import.meta.url), 'utf8')).pages;
+  for (const page of catalogue) {
+    assert.ok(routes.include.includes(page.url), page.url);
+    const response = await run(page.url, { 'user-agent': 'Googlebot' });
+    assert.equal(response.status, 200, page.url);
+    assert.equal(await response.text(), 'original page');
+    const alias = '/' + page.file;
+    assert.ok(routes.include.includes(alias), alias);
+    if (alias === page.url) continue;
+    const redirect = await run(alias, { 'user-agent': 'Googlebot' });
+    assert.equal(redirect.status, 308, alias);
+    assert.equal(redirect.headers.get('Location'), 'https://matviiakkuratov.com' + page.url, alias);
+  }
+});
 
 for (const [source, target] of paths) {
   test(`Cloudflare routes and redirects ${source}`, async () => {

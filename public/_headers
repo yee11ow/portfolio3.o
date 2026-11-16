@@ -23,3 +23,10 @@
 # Stable icon assets can be cached for a week.
 /assets/*.svg
   Cache-Control: public, max-age=604800
+
+# Search should use the custom domain, including for static preview responses.
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex

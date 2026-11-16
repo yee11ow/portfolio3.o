@@ -79,3 +79,5 @@
   .cs__person, .cs__wire, .cs__evidence-row, .cs__screen, .cs__validation > div { break-inside: avoid; }
   .cs__question { background: #eee; color: #000; }
 }
+
+.cs--ux .cs__title{overflow-wrap:anywhere}

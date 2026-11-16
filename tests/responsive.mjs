@@ -204,7 +204,7 @@ try {
       assert.equal(await page.locator('.nav__toggle').getAttribute('aria-expanded'), 'false', 'Menu reopens after returning from desktop');
 
       // 200% text, a narrow split-view pane and simulated display insets.
-      for (const path of ['index.html', 'en/index.html', 'nova/index.html', 'en/web-design/index.html', 'en/faq/index.html', 'en/work/law-firm/index.html', 'partners.html']) {
+      for (const path of ['index.html', 'en/index.html', 'projects/index.html', 'en/projects/index.html', 'nova/index.html', 'en/web-design/index.html', 'en/faq/index.html', 'en/work/law-firm/index.html', 'arbeten/advokatbyra/index.html', 'partners.html']) {
         await page.setViewportSize({ width: 320, height: 568 });
         await load(page, path);
         await page.evaluate(() => { document.documentElement.style.fontSize = '200%'; });
@@ -227,7 +227,7 @@ try {
       const plain = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
       await plain.route('**/*', route => route.request().url().startsWith(base + '/') ? route.continue() : route.abort());
       const plainPage = await plain.newPage();
-      for (const path of ['index.html', 'en/index.html', 'nova/index.html', 'en/web-design/index.html']) {
+      for (const path of ['index.html', 'en/index.html', 'projects/index.html', 'en/projects/index.html', 'nova/index.html', 'en/web-design/index.html']) {
         await load(plainPage, path);
         assert.equal(await plainPage.locator('h1').isVisible(), true);
         assert.equal(await plainPage.locator('a[href^="mailto:"]').first().isVisible(), true);
