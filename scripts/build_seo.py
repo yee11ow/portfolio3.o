@@ -7,10 +7,12 @@ from html import escape, unescape
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urljoin, urlparse, urlunparse
+from build_nova import load_release, view_model
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / 'public'
 CONFIG = json.loads((ROOT / 'content/seo.json').read_text())
+NOVA_RELEASE = load_release()
 SITE = CONFIG['site_url']
 PERSON = SITE + '/#person'
 WEBSITE = SITE + '/#website'
@@ -21,6 +23,10 @@ def catalogue():
     cases = json.loads((ROOT / 'content/case-studies.json').read_text())['cases']
     pages = [dict(p) for p in CONFIG['pages']]
     for page in pages:
+        if page['kind'] == 'application' and NOVA_RELEASE['mode'] == 'released':
+            action = view_model(NOVA_RELEASE)['primary_label']
+            page['title'] = action + ' | Nova Developer Panel for Mac'
+            page['description'] = f'Get Nova, a developer panel for Mac by Matvii Akkuratov. Version {NOVA_RELEASE["version"]} for macOS {NOVA_RELEASE["minimum_macos"]} or later. See download and purchase details.'
         if page['kind'] == 'case':
             case = cases[page['case']]
             copy = case[page['lang']]
@@ -115,6 +121,10 @@ def graph(page, pages, document):
             web_page['mainEntity'] = {'@id': PERSON}
     elif kind == 'application':
         app = {'@type': 'SoftwareApplication', '@id': url + '#software', 'name': 'Nova', 'url': url, 'description': page['description'], 'operatingSystem': 'macOS', 'applicationCategory': 'DeveloperApplication', 'creativeWorkStatus': 'In development', 'inLanguage': 'en', 'author': {'@id': PERSON}, 'image': {'@id': image['@id']}, 'mainEntityOfPage': {'@id': web_page['@id']}}
+        if NOVA_RELEASE['mode'] == 'released':
+            app.update(creativeWorkStatus='Released', softwareVersion=NOVA_RELEASE['version'], downloadUrl=NOVA_RELEASE['download_url'], operatingSystem='macOS ' + NOVA_RELEASE['minimum_macos'] + '+', processorRequirements=NOVA_RELEASE['processors'])
+            if NOVA_RELEASE.get('price') is not None:
+                app['offers'] = {'@type': 'Offer', 'url': NOVA_RELEASE['checkout_url'], 'price': str(NOVA_RELEASE['price']), 'priceCurrency': NOVA_RELEASE['currency'], 'description': {'one-time': 'One-time payment', 'monthly': 'Monthly subscription', 'yearly': 'Yearly subscription'}[NOVA_RELEASE['billing']]}
         web_page['mainEntity'] = {'@id': app['@id']}
         nodes.append(app)
     elif kind == 'case':

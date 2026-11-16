@@ -5,5 +5,5 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
-for name in ['build_cases.py', 'build_developer.py', 'build_projects.py', 'build_seo.py']:
+for name in ['build_cases.py', 'build_developer.py', 'build_projects.py', 'build_nova.py', 'build_seo.py']:
     subprocess.run([sys.executable, str(ROOT / 'scripts' / name)], cwd=ROOT, check=True)

@@ -56,6 +56,16 @@ async function checkPill(page, label) {
   assert.ok(result.left >= 0 && result.top >= 0 && result.right <= result.width + 1 && result.bottom <= result.height + 1, `${label}: panel outside viewport: ${JSON.stringify(result)}`);
 }
 
+async function checkNovaAction(page, label) {
+  const action = page.locator('.header-access');
+  const bounds = await action.boundingBox();
+  const viewport = page.viewportSize();
+  assert.ok(bounds && bounds.x >= 0 && bounds.x + bounds.width <= viewport.width + 1 && bounds.y >= 0 && bounds.y + bounds.height <= viewport.height + 1, `${label}: the primary action is outside the first screen`);
+  assert.ok(bounds.height >= 44, `${label}: primary touch target is too small`);
+  const hrefs = await page.locator('[data-primary-action]').evaluateAll(links => links.map(link => link.getAttribute('href')));
+  assert.ok(hrefs.length >= 3 && hrefs.every(href => href === hrefs[0] && href.startsWith('mailto:')), `${label}: early-access actions do not lead to the same email enquiry`);
+}
+
 async function capture(page, path) {
   // Full-page captures do not automatically load offscreen lazy images.
   await page.evaluate(async () => {
@@ -87,6 +97,7 @@ try {
         for (const path of pages) {
           await load(page, path);
           await checkLayout(page, `${engineName} ${width}×${height} ${path}`);
+          if (path === 'nova/index.html') await checkNovaAction(page, `${engineName} ${width}×${height}`);
         }
         await load(page);
         const toggle = page.locator('.nav__toggle');
@@ -167,6 +178,12 @@ try {
       await page.locator('[data-reset]').click();
 
       await load(page, 'nova/index.html');
+      await page.locator('#questions').scrollIntoViewIfNeeded();
+      await checkNovaAction(page, `${engineName} Nova after scrolling`);
+      const priceQuestion = page.getByText('How much will it cost?', { exact: false });
+      await priceQuestion.click();
+      assert.equal(await page.locator('.faq-list details').nth(1).getAttribute('open'), '');
+      assert.equal(await page.locator('.faq-list details').nth(1).locator('p').isVisible(), true);
       const curtain = page.locator('[data-curtain-toggle]');
       await curtain.click();
       assert.equal(await curtain.getAttribute('aria-expanded'), 'true');
@@ -215,6 +232,7 @@ try {
         await load(page, path);
         await page.evaluate(() => { document.documentElement.style.fontSize = '200%'; });
         await checkLayout(page, `${engineName} enlarged text ${path}`);
+        if (path === 'nova/index.html') await checkNovaAction(page, `${engineName} Nova enlarged text`);
       }
       await page.setViewportSize({ width: 740, height: 360 });
       await load(page);
