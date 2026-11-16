@@ -39,6 +39,27 @@ test('Preview HTML is accessible and explicitly excluded from indexing', async (
   assert.equal(await response.text(), 'preview');
 });
 
+test('Retired Nova links redirect straight to SHTORKA, including assets and query strings', async () => {
+  assert.ok(routes.include.includes('/nova') && routes.include.includes('/nova/*'));
+  const moved = [
+    ['/nova', '/shtorka/'], ['/nova/', '/shtorka/'], ['/nova/index.html', '/shtorka/'],
+    ['/nova/privacy', '/shtorka/privacy'], ['/nova/privacy.html', '/shtorka/privacy'], ['/nova/privacy/', '/shtorka/privacy'],
+    ['/nova/nova.css', '/shtorka/shtorka.css'], ['/nova/nova.js', '/shtorka/shtorka.js'],
+    ['/nova/assets/nova.svg', '/shtorka/assets/shtorka.svg'], ['/nova/assets/nova-og.png', '/shtorka/assets/shtorka-og.png'],
+    ['/nova/assets/fonts/inter-var-latin.woff2', '/shtorka/assets/fonts/inter-var-latin.woff2'],
+    ['/assets/developer-og.png', '/assets/developer-og-shtorka.png'], ['/assets/developer-og.svg', '/assets/developer-og-shtorka.svg'],
+  ];
+  for (const host of ['matviiakkuratov.com', 'www.matviiakkuratov.com', 'portfolio-rwb.pages.dev', 'feature.portfolio-rwb.pages.dev']) {
+    for (const [old, current] of moved) {
+      const request = new Request(`https://${host}${old}?utm_campaign=launch&source=old-link`, {headers: {'User-Agent': 'Googlebot'}});
+      const response = await onRequest({request, next: () => {throw new Error('Legacy links must not render stale content');}});
+      const targetHost = ['www.matviiakkuratov.com', 'portfolio-rwb.pages.dev'].includes(host) ? 'matviiakkuratov.com' : host;
+      assert.equal(response.status, 301, host + old);
+      assert.equal(response.headers.get('Location'), `https://${targetHost}${current}?utm_campaign=launch&source=old-link`, host + old);
+    }
+  }
+});
+
 test('Every catalogue document route is covered, canonical and readable by crawlers', async () => {
   const catalogue = JSON.parse(await readFile(new URL('../content/seo.json', import.meta.url), 'utf8')).pages;
   for (const page of catalogue) {

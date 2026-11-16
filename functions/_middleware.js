@@ -1,9 +1,7 @@
 /**
- * Sends visitors who do not read Swedish to the English page instead.
- *
- * Only the Swedish URLs are wired up here; `public/_routes.json` keeps
- * every other request (English pages, fonts, images, CSS) away from this
- * function entirely, so the CDN serves them untouched.
+ * Consolidates document URLs, the previous product name and host aliases,
+ * then sends visitors who do not read Swedish to the English page.
+ * Current assets stay on the CDN; retired asset URLs redirect once.
  *
  * Four things are deliberately left alone:
  *
@@ -37,14 +35,35 @@ const SV_TO_EN = {
   '/legal': '/en/legal',
 };
 
-const CANONICAL_PATHS = new Set([...Object.keys(SV_TO_EN), ...Object.values(SV_TO_EN), '/nova/', '/nova/privacy', '/partners', '/404']);
+const CANONICAL_PATHS = new Set([...Object.keys(SV_TO_EN), ...Object.values(SV_TO_EN), '/shtorka/', '/shtorka/privacy', '/partners', '/404']);
 
 function canonicalPath(path) {
   let candidate = path;
   if (candidate.endsWith('/index.html')) candidate = candidate.slice(0, -10);
   else if (candidate.endsWith('.html')) candidate = candidate.slice(0, -5);
+  if (candidate.endsWith('/') && CANONICAL_PATHS.has(candidate.slice(0, -1))) candidate = candidate.slice(0, -1);
   if (!CANONICAL_PATHS.has(candidate) && CANONICAL_PATHS.has(candidate + '/')) candidate += '/';
   return CANONICAL_PATHS.has(candidate) ? candidate : path;
+}
+
+const RETIRED_ASSETS = {
+  '/assets/developer-og.png': '/assets/developer-og-shtorka.png',
+  '/assets/developer-og.svg': '/assets/developer-og-shtorka.svg',
+};
+
+function renamedPath(path) {
+  if (RETIRED_ASSETS[path]) return RETIRED_ASSETS[path];
+  if (path === '/nova') return '/shtorka/';
+  if (!path.startsWith('/nova/')) return path;
+  const suffix = path.slice('/nova/'.length);
+  const assets = {
+    'nova.css': 'shtorka.css',
+    'nova.js': 'shtorka.js',
+    'assets/nova.svg': 'assets/shtorka.svg',
+    'assets/nova-og.png': 'assets/shtorka-og.png',
+    'assets/nova-og.svg': 'assets/shtorka-og.svg',
+  };
+  return '/shtorka/' + (assets[suffix] || suffix);
 }
 
 const BOT = /bot|crawl|spider|slurp|google|bing|yandex|baidu|duckduck|facebookexternalhit|whatsapp|telegram|lighthouse|validator|curl|wget|headless|preview/i;
@@ -54,11 +73,13 @@ export async function onRequest(context) {
 
   try {
     const url = new URL(request.url);
-    const path = canonicalPath(url.pathname);
+    const renamed = renamedPath(url.pathname);
+    const path = canonicalPath(renamed);
     // Consolidate the public host aliases before applying language preferences.
     if (url.hostname === 'www.matviiakkuratov.com' || url.hostname === 'portfolio-rwb.pages.dev') {
       return Response.redirect('https://matviiakkuratov.com' + path + url.search, 301);
     }
+    if (renamed !== url.pathname) return Response.redirect(new URL(path + url.search, url.origin).href, 301);
     if (path !== url.pathname) return Response.redirect(new URL(path + url.search, url.origin).href, 308);
     const serve = async () => {
       const response = await next();

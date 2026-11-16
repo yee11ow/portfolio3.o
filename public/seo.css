@@ -27,7 +27,7 @@
 .directory-image img{width:100%;height:100%;object-fit:cover;object-position:top}
 .directory-app{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr}
 .directory-app-art{min-height:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:25px;background:radial-gradient(ellipse at center,#4b612c70,#1d2918);border-left:1px solid var(--line)}
-.directory-app-art .nova-icon{width:110px;height:110px;font-size:5rem;border-radius:28px;transform:rotate(-8deg);box-shadow:0 20px 45px #0004}
+.directory-app-art .shtorka-icon{width:110px;height:110px;font-size:5rem;border-radius:28px;transform:rotate(-8deg);box-shadow:0 20px 45px #0004}
 .directory-app-art>span:last-child{font: .65rem ui-monospace,SFMono-Regular,monospace;color:#b0c395;letter-spacing:.08em}
 .directory-service{border-top:1px solid var(--line);margin-top:45px;padding-top:35px;max-width:45rem}
 .directory-service h2{font-size:1.8rem;margin-bottom:18px}

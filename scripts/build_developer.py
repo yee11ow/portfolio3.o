@@ -8,7 +8,7 @@ COPY = {
     'en': {
         'home': '/en/', 'web': '/en/web-design/', 'legal': '/en/legal', 'projects': '/en/projects/', 'allProjects': 'All projects',
         'title': 'Matvii Akkuratov · Independent macOS developer',
-        'description': 'Independent macOS developer building Nova, a panel for developers on Mac. Explore my work, interface experiments and web design.',
+        'description': 'Independent macOS developer building SHTORKA, a panel for developers on Mac. Explore my work, interface experiments and web design.',
         'skip': 'Skip to content', 'work': 'Work', 'about': 'About', 'contact': 'Get in touch',
         'role': 'Independent macOS developer & designer', 'location': 'Based in Sweden',
         'headline': 'Made for Mac.<br>Built with <em>care.</em>',
@@ -18,11 +18,11 @@ COPY = {
         'drag': 'Move this panel with the arrow keys, or drag its handle',
         'motion': 'Pause animation', 'resume': 'Resume animation', 'reset': 'Reset panel',
         'panelTitle': 'Currently in my orbit', 'panelSub': 'Two ways I make things.',
-        'novaSub': 'A developer panel for Mac', 'webSub': 'Selected websites & case studies',
+        'shtorkaSub': 'A developer panel for Mac', 'webSub': 'Selected websites & case studies',
         'projectsLabel': '01 / Selected work', 'projectsTitle': 'Ideas, becoming real.',
         'projectsIntro': 'An app in the making. A practice in web design. Different surfaces, the same attention to detail.',
-        'development': 'In development', 'novaDescription': 'A panel for developers on Mac. My current macOS project, taking shape one detail at a time.',
-        'novaLink': 'Meet Nova', 'concept': 'Visual concept', 'webTitle': 'Web design',
+        'development': 'In development', 'shtorkaDescription': 'A panel for developers on Mac. My current macOS project, taking shape one detail at a time.',
+        'shtorkaLink': 'Meet SHTORKA', 'concept': 'Visual concept', 'webTitle': 'Web design',
         'webDescription': 'Websites for professional firms. Explore the design process and two independent concepts for an audit firm and a law firm.',
         'webLink': 'Explore web design', 'webTag': 'Design & development', 'webConcept': 'Independent concept',
         'aboutLabel': '02 / Behind the work', 'aboutTitle': 'Developer’s mind.<br>Designer’s eye.',
@@ -30,17 +30,17 @@ COPY = {
         'aboutBody2': 'I’m interested in the small things that make a tool feel right: a clear hierarchy, a useful shortcut, a transition that knows when to get out of the way.',
         'principles': ['Useful by intention', 'Considered in detail', 'Built to be used'],
         'contactLabel': '03 / Start a conversation', 'contactTitle': 'Have something<br>in <em>mind?</em>',
-        'contactBody': 'A Mac app, a website, or a question about Nova. I’d like to hear it.',
+        'contactBody': 'A Mac app, a website, or a question about SHTORKA. I’d like to hear it.',
         'copy': 'Copy email', 'copied': 'Email copied', 'copyError': 'Select and copy the email above.',
         'footer': 'Independent by design.', 'privacy': 'Privacy & legal',
         'command': 'Command menu', 'commandTitle': 'Where would you like to go?', 'close': 'Close',
         'commandHint': 'Use Tab to navigate · Escape to close', 'webCommand': 'Web design & case studies',
-        'novaCommand': 'Nova · In development', 'animationOff': 'Animation is paused.', 'animationOn': 'Animation is running.',
+        'shtorkaCommand': 'SHTORKA · In development', 'animationOff': 'Animation is paused.', 'animationOn': 'Animation is running.',
     },
     'sv': {
         'home': '/', 'web': '/web-design/', 'legal': '/legal', 'projects': '/projects/', 'allProjects': 'Alla projekt',
         'title': 'Matvii Akkuratov · Oberoende macOS-utvecklare',
-        'description': 'Oberoende macOS-utvecklare som bygger Nova, en panel för utvecklare på Mac. Utforska mina projekt, gränssnitt och webbdesign.',
+        'description': 'Oberoende macOS-utvecklare som bygger SHTORKA, en panel för utvecklare på Mac. Utforska mina projekt, gränssnitt och webbdesign.',
         'skip': 'Hoppa till innehållet', 'work': 'Projekt', 'about': 'Om mig', 'contact': 'Ta kontakt',
         'role': 'Oberoende macOS-utvecklare & designer', 'location': 'Baserad i Sverige',
         'headline': 'Skapat för Mac.<br>Byggt med <em>omsorg.</em>',
@@ -50,11 +50,11 @@ COPY = {
         'drag': 'Flytta panelen med piltangenterna eller dra i handtaget',
         'motion': 'Pausa animationen', 'resume': 'Starta animationen', 'reset': 'Återställ panelen',
         'panelTitle': 'I min omloppsbana just nu', 'panelSub': 'Två sätt att skapa.',
-        'novaSub': 'En panel för utvecklare på Mac', 'webSub': 'Utvalda webbplatser & designprocess',
+        'shtorkaSub': 'En panel för utvecklare på Mac', 'webSub': 'Utvalda webbplatser & designprocess',
         'projectsLabel': '01 / Utvalda projekt', 'projectsTitle': 'Idéer som tar form.',
         'projectsIntro': 'En app under utveckling. Ett arbete med webbdesign. Olika ytor, samma omsorg om detaljerna.',
-        'development': 'Under utveckling', 'novaDescription': 'En panel för utvecklare på Mac. Mitt aktuella macOS-projekt, som tar form en detalj i taget.',
-        'novaLink': 'Upptäck Nova', 'concept': 'Visuellt koncept', 'webTitle': 'Webbdesign',
+        'development': 'Under utveckling', 'shtorkaDescription': 'En panel för utvecklare på Mac. Mitt aktuella macOS-projekt, som tar form en detalj i taget.',
+        'shtorkaLink': 'Upptäck SHTORKA', 'concept': 'Visuellt koncept', 'webTitle': 'Webbdesign',
         'webDescription': 'Webbplatser för professionella tjänsteföretag. Utforska processen och två egna koncept för en revisionsbyrå och en advokatbyrå.',
         'webLink': 'Utforska webbdesign', 'webTag': 'Design & utveckling', 'webConcept': 'Eget koncept',
         'aboutLabel': '02 / Bakom arbetet', 'aboutTitle': 'Utvecklarens logik.<br>Designerns blick.',
@@ -62,12 +62,12 @@ COPY = {
         'aboutBody2': 'Jag intresserar mig för detaljerna som får ett verktyg att kännas rätt: en tydlig hierarki, ett användbart kortkommando och en övergång som vet när den ska hålla sig undan.',
         'principles': ['Användbart från grunden', 'Genomtänkt i detalj', 'Byggt för att användas'],
         'contactLabel': '03 / Börja ett samtal', 'contactTitle': 'Har du något<br>i <em>tankarna?</em>',
-        'contactBody': 'En Mac-app, en webbplats eller en fråga om Nova. Jag lyssnar gärna.',
+        'contactBody': 'En Mac-app, en webbplats eller en fråga om SHTORKA. Jag lyssnar gärna.',
         'copy': 'Kopiera e-post', 'copied': 'E-postadressen kopierad', 'copyError': 'Markera och kopiera e-postadressen ovan.',
         'footer': 'Oberoende, med avsikt.', 'privacy': 'Integritet & juridik',
         'command': 'Kommandomeny', 'commandTitle': 'Vart vill du gå?', 'close': 'Stäng',
         'commandHint': 'Navigera med Tab · Stäng med Escape', 'webCommand': 'Webbdesign & designprocess',
-        'novaCommand': 'Nova · Under utveckling', 'animationOff': 'Animationen är pausad.', 'animationOn': 'Animationen är igång.',
+        'shtorkaCommand': 'SHTORKA · Under utveckling', 'animationOff': 'Animationen är pausad.', 'animationOn': 'Animationen är igång.',
     },
 }
 
@@ -107,7 +107,7 @@ def render(lang):
   <meta property="og:title" content="{title}">
   <meta property="og:description" content="{desc}">
   <meta property="og:url" content="{canonical}">
-  <meta property="og:image" content="https://matviiakkuratov.com/assets/developer-og.png">
+  <meta property="og:image" content="https://matviiakkuratov.com/assets/developer-og-shtorka.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
@@ -142,10 +142,10 @@ def render(lang):
       <div class="orbit-panel" data-panel>
         <div class="panel-handle" data-panel-handle tabindex="0" role="group" aria-label="{d['drag']}"><span class="panel-lights" aria-hidden="true"><i></i><i></i><i></i></span><span>matvii / workspace</span><span aria-hidden="true">⠿</span></div>
         <div class="panel-content"><p class="panel-kicker">{d['panelTitle']}</p><p class="panel-sub">{d['panelSub']}</p>
-          <a class="panel-project" href="/nova/"><span class="app-icon nova-icon" aria-hidden="true">n</span><span><strong>Nova</strong><small>{d['novaSub']}</small></span><span aria-hidden="true">↗</span></a>
+          <a class="panel-project" href="/shtorka/"><span class="app-icon shtorka-icon" aria-hidden="true">S</span><span><strong>SHTORKA</strong><small>{d['shtorkaSub']}</small></span><span aria-hidden="true">↗</span></a>
           <a class="panel-project" href="{d['web']}"><span class="app-icon web-icon" aria-hidden="true">↔</span><span><strong>{d['webTitle']}</strong><small>{d['webSub']}</small></span><span aria-hidden="true">↗</span></a>
         </div>
-        <div class="panel-footer"><span class="status-dot" aria-hidden="true"></span><span>{d['development']} / Nova</span><span aria-hidden="true">↗</span></div>
+        <div class="panel-footer"><span class="status-dot" aria-hidden="true"></span><span>{d['development']} / SHTORKA</span><span aria-hidden="true">↗</span></div>
       </div>
       <div class="playground-tools"><span>{d['labHint']}</span><div><button data-reset hidden aria-label="{d['reset']}" title="{d['reset']}">↺</button><button data-motion hidden aria-pressed="false" data-pause="{d['motion']}" data-resume="{d['resume']}" data-off="{d['animationOff']}" data-on="{d['animationOn']}" aria-label="{d['motion']}" title="{d['motion']}">Ⅱ</button></div></div>
     </div>
@@ -153,9 +153,9 @@ def render(lang):
   <div class="location-strip shell"><span>{d['location']} <span aria-hidden="true">↗</span></span><span>Stockholm <time data-clock aria-label="{'Current time in Stockholm' if lang == 'en' else 'Aktuell tid i Stockholm'}">CET</time></span><a href="#work" aria-label="{d['cta']}">↓</a></div>
   <section class="work-section shell" id="work">
     <div class="section-heading"><div><p class="eyebrow">{d['projectsLabel']}</p><h2>{d['projectsTitle']}</h2></div><p>{d['projectsIntro']}</p></div>
-    <article class="project nova-project">
-      <div class="project-copy"><div class="project-meta"><span>01 / macOS</span><span class="development-tag"><span class="status-dot" aria-hidden="true"></span>{d['development']}</span></div><h3>Nova<span class="title-period">.</span></h3><p>{d['novaDescription']}</p><a class="project-link" href="/nova/">{d['novaLink']} <span aria-hidden="true">↗</span></a></div>
-      <div class="nova-visual" role="img" aria-label="{d['concept']}: Nova"><div class="nova-visual-grid"></div><div class="nova-sheet"><span aria-hidden="true">n</span><div class="sheet-line"></div><div class="sheet-line"></div><div class="sheet-line"></div></div><span class="visual-note">Nova / {d['concept']}</span></div>
+    <article class="project shtorka-project">
+      <div class="project-copy"><div class="project-meta"><span>01 / macOS</span><span class="development-tag"><span class="status-dot" aria-hidden="true"></span>{d['development']}</span></div><h3>SHTORKA<span class="title-period">.</span></h3><p>{d['shtorkaDescription']}</p><a class="project-link" href="/shtorka/">{d['shtorkaLink']} <span aria-hidden="true">↗</span></a></div>
+      <div class="shtorka-visual" role="img" aria-label="{d['concept']}: SHTORKA"><div class="shtorka-visual-grid"></div><div class="shtorka-sheet"><span aria-hidden="true">S</span><div class="sheet-line"></div><div class="sheet-line"></div><div class="sheet-line"></div></div><span class="visual-note">SHTORKA / {d['concept']}</span></div>
     </article>
     <article class="project web-project">
       <div class="project-copy"><div class="project-meta"><span>02 / Web</span><span>{d['webTag']}</span></div><h3>{d['webTitle']}<span class="title-period">.</span></h3><p>{d['webDescription']}</p><a class="project-link" href="{d['web']}">{d['webLink']} <span aria-hidden="true">↗</span></a></div>
@@ -167,7 +167,7 @@ def render(lang):
   <section class="contact-section shell" id="contact"><p class="eyebrow">{d['contactLabel']}</p><div class="contact-grid"><h2>{d['contactTitle']}</h2><div><p>{d['contactBody']}</p><a class="email-link" href="mailto:hello@matviiakkuratov.com"><span class="email-address">hello@matviiakkuratov.com</span><span aria-hidden="true">↗</span></a><button class="copy-email" data-copy data-copied="{d['copied']}" data-error="{d['copyError']}" hidden>{d['copy']} <span aria-hidden="true">⧉</span></button></div></div></section>
 </main>
 <footer class="dev-footer shell"><p>© {__import__('datetime').date.today().year} Matvii Akkuratov <span>{d['footer']}</span></p><div><a href="{d['projects']}">{d['allProjects']}</a><a href="https://github.com/yee11ow">GitHub ↗</a><a href="{d['web']}">{d['webTitle']} ↗</a><a href="{d['legal']}">{d['privacy']}</a><a href="#top" aria-label="{'Back to top' if lang == 'en' else 'Till toppen'}">↑</a></div></footer>
-<dialog class="command-dialog" aria-labelledby="command-title"><div class="command-top"><h2 id="command-title">{d['commandTitle']}</h2><button data-command-close aria-label="{d['close']}">Esc</button></div><nav aria-label="{d['command']}"><a href="#work">{d['work']}<span>01 ↗</span></a><a href="/nova/">{d['novaCommand']}<span>02 ↗</span></a><a href="{d['web']}">{d['webCommand']}<span>03 ↗</span></a><a href="#contact">{d['contact']}<span>04 ↗</span></a></nav><p>{d['commandHint']}</p></dialog>
+<dialog class="command-dialog" aria-labelledby="command-title"><div class="command-top"><h2 id="command-title">{d['commandTitle']}</h2><button data-command-close aria-label="{d['close']}">Esc</button></div><nav aria-label="{d['command']}"><a href="#work">{d['work']}<span>01 ↗</span></a><a href="/shtorka/">{d['shtorkaCommand']}<span>02 ↗</span></a><a href="{d['web']}">{d['webCommand']}<span>03 ↗</span></a><a href="#contact">{d['contact']}<span>04 ↗</span></a></nav><p>{d['commandHint']}</p></dialog>
 <p class="sr-only" role="status" data-announcement></p>
 </body>
 </html>

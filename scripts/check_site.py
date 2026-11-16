@@ -7,11 +7,11 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlparse
 from urllib.robotparser import RobotFileParser
-from build_nova import load_release
+from build_shtorka import load_release
 
 ROOT = Path(__file__).resolve().parents[1] / 'public'
 SITE = 'matviiakkuratov.com'
-NOVA_RELEASE = load_release()
+SHTORKA_RELEASE = load_release()
 
 
 class Page(HTMLParser):
@@ -82,6 +82,7 @@ for path, page in pages.items():
     require(len(page.canonical) == 1, 'expected one canonical')
     require(len(page.descriptions) == 1 and page.descriptions[0], 'expected one nonempty description')
     require(len(page.ids) == len(set(page.ids)), 'duplicate IDs')
+    require(not re.search(r'\bnova\b', path.read_text().replace('id="get-nova"', ''), re.I), 'retired product name or link remains in the published page')
     if page.languages:
         require(page.languages.get(page.lang) == page.canonical[0], 'hreflang must point to its own canonical language version')
         require(page.languages.get('x-default') == page.languages.get('en'), 'English must be the configured fallback language')
@@ -171,16 +172,16 @@ for record in records:
         if node.get('@type') == 'FAQPage':
             require(len(node.get('mainEntity', [])) == page.faq_questions and page.faq_questions > 0, 'FAQ markup differs from the visible question count')
         if node.get('@type') == 'SoftwareApplication':
-            require(node.get('name') == 'Nova' and node.get('operatingSystem', '').startswith('macOS'), 'application identity differs from Nova')
+            require(node.get('name') == 'SHTORKA' and node.get('operatingSystem', '').startswith('macOS'), 'application identity differs from SHTORKA')
             require(not any(key in node for key in ['aggregateRating', 'review']), 'unverified app review data')
-            if NOVA_RELEASE['mode'] == 'early-access':
+            if SHTORKA_RELEASE['mode'] == 'early-access':
                 require(node.get('creativeWorkStatus') == 'In development', 'application release status is inaccurate')
                 require(not any(key in node for key in ['offers', 'downloadUrl', 'softwareVersion']), 'unverified app release or price data')
             else:
                 require(node.get('creativeWorkStatus') == 'Released', 'application release status is inaccurate')
-                require(node.get('downloadUrl') == NOVA_RELEASE['download_url'] and node.get('softwareVersion') == NOVA_RELEASE['version'], 'app schema differs from release configuration')
-                if NOVA_RELEASE.get('price') is not None:
-                    require(node.get('offers', {}).get('url') == NOVA_RELEASE['checkout_url'] and node.get('offers', {}).get('price') == str(NOVA_RELEASE['price']) and node.get('offers', {}).get('priceCurrency') == NOVA_RELEASE['currency'], 'app offer differs from purchase details')
+                require(node.get('downloadUrl') == SHTORKA_RELEASE['download_url'] and node.get('softwareVersion') == SHTORKA_RELEASE['version'], 'app schema differs from release configuration')
+                if SHTORKA_RELEASE.get('price') is not None:
+                    require(node.get('offers', {}).get('url') == SHTORKA_RELEASE['checkout_url'] and node.get('offers', {}).get('price') == str(SHTORKA_RELEASE['price']) and node.get('offers', {}).get('priceCurrency') == SHTORKA_RELEASE['currency'], 'app offer differs from purchase details')
 
 # Project and service pages must be discoverable through actual links, not only XML.
 by_path = {urlparse(url).path: p for url, p in by_canonical.items()}

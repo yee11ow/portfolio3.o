@@ -11,7 +11,7 @@
       "kind": "home",
       "label": "Hem",
       "title": "Matvii Akkuratov | macOS-utvecklare & webbdesigner",
-      "description": "Oberoende macOS-utvecklare och webbdesigner i Sverige. Utforska Nova, en utvecklarpanel för Mac, och mina egna UX-fallstudier för svenska byråer."
+      "description": "Oberoende macOS-utvecklare och webbdesigner i Sverige. Utforska SHTORKA, en utvecklarpanel för Mac, och mina egna UX-fallstudier för svenska byråer."
     },
     {
       "file": "en/index.html",
@@ -21,7 +21,7 @@
       "kind": "home",
       "label": "Home",
       "title": "Matvii Akkuratov | macOS Developer & Web Designer",
-      "description": "Independent macOS developer and web designer in Sweden. Explore Nova, a developer panel for Mac, and my website UX case studies for professional firms."
+      "description": "Independent macOS developer and web designer in Sweden. Explore SHTORKA, a developer panel for Mac, and my website UX case studies for professional firms."
     },
     {
       "file": "projects/index.html",
@@ -31,7 +31,7 @@
       "kind": "projects",
       "label": "Projekt",
       "title": "macOS-appar & webbdesignprojekt | Matvii Akkuratov",
-      "description": "Utforska Matvii Akkuratovs projekt: Nova för Mac och egna webbdesignkoncept för FB Revision och Nordström Advokater. Se gränssnitt, process och prototyper."
+      "description": "Utforska Matvii Akkuratovs projekt: SHTORKA för Mac och egna webbdesignkoncept för FB Revision och Nordström Advokater. Se gränssnitt, process och prototyper."
     },
     {
       "file": "en/projects/index.html",
@@ -41,18 +41,18 @@
       "kind": "projects",
       "label": "Projects",
       "title": "macOS Apps & Web Design Projects | Matvii Akkuratov",
-      "description": "Explore Matvii Akkuratov’s projects: Nova for Mac, plus website UX case studies for FB Revision and Nordström Advokater. See designs and working concepts."
+      "description": "Explore Matvii Akkuratov’s projects: SHTORKA for Mac, plus website UX case studies for FB Revision and Nordström Advokater. See designs and working concepts."
     },
     {
-      "file": "nova/index.html",
-      "url": "/nova/",
+      "file": "shtorka/index.html",
+      "url": "/shtorka/",
       "lang": "en",
       "kind": "application",
-      "label": "Nova for Mac",
-      "title": "Nova Developer Panel for Mac | Matvii Akkuratov",
-      "description": "Meet Nova, a macOS developer panel by Matvii Akkuratov. Explore the project in development and register your interest in early access by email.",
-      "image": "/nova/assets/nova-og.png",
-      "image_alt": "Nova for Mac, a developer panel in development",
+      "label": "SHTORKA for Mac",
+      "title": "SHTORKA Developer Panel for Mac | Matvii Akkuratov",
+      "description": "Meet SHTORKA, a macOS developer panel by Matvii Akkuratov. Explore the project in development and register your interest in early access by email.",
+      "image": "/shtorka/assets/shtorka-og.png",
+      "image_alt": "SHTORKA for Mac, a developer panel in development",
       "parent": "/en/projects/"
     },
     {
@@ -296,13 +296,13 @@
       "index": false
     },
     {
-      "file": "nova/privacy.html",
-      "url": "/nova/privacy",
+      "file": "shtorka/privacy.html",
+      "url": "/shtorka/privacy",
       "lang": "en",
       "kind": "page",
-      "label": "Nova website privacy",
-      "title": "Nova Website Privacy | Matvii Akkuratov",
-      "description": "Privacy information for the Nova development website and early-access email enquiries. Learn what happens when you browse the site or contact the maker.",
+      "label": "SHTORKA website privacy",
+      "title": "SHTORKA Website Privacy | Matvii Akkuratov",
+      "description": "Privacy information for the SHTORKA development website and early-access email enquiries. Learn what happens when you browse the site or contact the maker.",
       "index": false
     },
     {
@@ -312,7 +312,7 @@
       "kind": "error",
       "label": "Page not found",
       "title": "Page Not Found | Matvii Akkuratov",
-      "description": "This page is not available. Explore Matvii Akkuratov’s macOS projects, Nova and web design, or return to the portfolio homepage.",
+      "description": "This page is not available. Explore Matvii Akkuratov’s macOS projects, SHTORKA and web design, or return to the portfolio homepage.",
       "index": false
     }
   ],
