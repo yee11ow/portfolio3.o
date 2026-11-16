@@ -56,6 +56,19 @@ async function checkPill(page, label) {
   assert.ok(result.left >= 0 && result.top >= 0 && result.right <= result.width + 1 && result.bottom <= result.height + 1, `${label}: panel outside viewport: ${JSON.stringify(result)}`);
 }
 
+async function capture(page, path) {
+  // Full-page captures do not automatically load offscreen lazy images.
+  await page.evaluate(async () => {
+    await Promise.all([...document.images].map(async img => {
+      img.loading = 'eager';
+      try { await img.decode(); } catch { /* Missing assets are checked separately. */ }
+    }));
+    if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  });
+  await page.screenshot({ path, fullPage: true });
+}
+
 try {
   for (const [engineName, engine] of Object.entries({ chromium, webkit })) {
     const browser = await engine.launch();
@@ -94,7 +107,7 @@ try {
         await checkPill(page, `${engineName} ${width}: final step`);
         if ([320, 768, 1024].includes(width)) {
           await page.locator('.pill__close').click();
-          await page.screenshot({ path: `${artifacts}/${engineName}-home-${width}.png`, fullPage: true });
+          await capture(page, `${artifacts}/${engineName}-home-${width}.png`);
         }
         console.log(`PASS ${engineName} ${width}×${height}: ${pages.length} pages, navigation and contact panel`);
       }
@@ -130,7 +143,7 @@ try {
           return p.left >= r.left && p.right <= r.right && p.top >= r.top && p.bottom <= r.bottom;
         });
         assert.ok(contained, `${engineName} ${width}: workspace panel escaped its playground`);
-        await page.screenshot({ path: `${artifacts}/${engineName}-developer-${width}.png`, fullPage: true });
+        await capture(page, `${artifacts}/${engineName}-developer-${width}.png`);
       }
       await page.locator('[data-reset]').click();
       assert.equal(await page.locator('[data-panel]').evaluate(el => el.style.getPropertyValue('--panel-x')), '0px');
@@ -145,7 +158,7 @@ try {
       assert.equal(await page.locator('#curtain-message').isVisible(), false);
       for (const width of [390, 1366]) {
         await page.setViewportSize({ width, height: 900 });
-        await page.screenshot({ path: `${artifacts}/${engineName}-nova-${width}.png`, fullPage: true });
+        await capture(page, `${artifacts}/${engineName}-nova-${width}.png`);
       }
 
       // Resize the same page with the menu and a moved panel already in use.
