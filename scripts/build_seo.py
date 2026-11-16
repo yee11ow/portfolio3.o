@@ -7,12 +7,12 @@ from html import escape, unescape
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urljoin, urlparse, urlunparse
-from build_nova import load_release, view_model
+from build_shtorka import load_release, view_model
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / 'public'
 CONFIG = json.loads((ROOT / 'content/seo.json').read_text())
-NOVA_RELEASE = load_release()
+SHTORKA_RELEASE = load_release()
 SITE = CONFIG['site_url']
 PERSON = SITE + '/#person'
 WEBSITE = SITE + '/#website'
@@ -23,16 +23,16 @@ def catalogue():
     cases = json.loads((ROOT / 'content/case-studies.json').read_text())['cases']
     pages = [dict(p) for p in CONFIG['pages']]
     for page in pages:
-        if page['kind'] == 'application' and NOVA_RELEASE['mode'] == 'released':
-            action = view_model(NOVA_RELEASE)['primary_label']
-            page['title'] = action + ' | Nova Developer Panel for Mac'
-            page['description'] = f'Get Nova, a developer panel for Mac by Matvii Akkuratov. Version {NOVA_RELEASE["version"]} for macOS {NOVA_RELEASE["minimum_macos"]} or later. See download and purchase details.'
+        if page['kind'] == 'application' and SHTORKA_RELEASE['mode'] == 'released':
+            action = view_model(SHTORKA_RELEASE)['primary_label']
+            page['title'] = action + ' | SHTORKA Developer Panel for Mac'
+            page['description'] = f'Get SHTORKA, a developer panel for Mac by Matvii Akkuratov. Version {SHTORKA_RELEASE["version"]} for macOS {SHTORKA_RELEASE["minimum_macos"]} or later. See download and purchase details.'
         if page['kind'] == 'case':
             case = cases[page['case']]
             copy = case[page['lang']]
             page.update(title=copy['meta_title'] + ' | Matvii Akkuratov', description=copy['meta_description'], live=case['live'])
         page.setdefault('index', True)
-        page.setdefault('image', '/assets/developer-og.png')
+        page.setdefault('image', '/assets/developer-og-shtorka.png')
         page.setdefault('image_alt', page['title'])
         page.setdefault('image_width', 1200)
         page.setdefault('image_height', 630)
@@ -120,11 +120,11 @@ def graph(page, pages, document):
         if kind == 'profile':
             web_page['mainEntity'] = {'@id': PERSON}
     elif kind == 'application':
-        app = {'@type': 'SoftwareApplication', '@id': url + '#software', 'name': 'Nova', 'url': url, 'description': page['description'], 'operatingSystem': 'macOS', 'applicationCategory': 'DeveloperApplication', 'creativeWorkStatus': 'In development', 'inLanguage': 'en', 'author': {'@id': PERSON}, 'image': {'@id': image['@id']}, 'mainEntityOfPage': {'@id': web_page['@id']}}
-        if NOVA_RELEASE['mode'] == 'released':
-            app.update(creativeWorkStatus='Released', softwareVersion=NOVA_RELEASE['version'], downloadUrl=NOVA_RELEASE['download_url'], operatingSystem='macOS ' + NOVA_RELEASE['minimum_macos'] + '+', processorRequirements=NOVA_RELEASE['processors'])
-            if NOVA_RELEASE.get('price') is not None:
-                app['offers'] = {'@type': 'Offer', 'url': NOVA_RELEASE['checkout_url'], 'price': str(NOVA_RELEASE['price']), 'priceCurrency': NOVA_RELEASE['currency'], 'description': {'one-time': 'One-time payment', 'monthly': 'Monthly subscription', 'yearly': 'Yearly subscription'}[NOVA_RELEASE['billing']]}
+        app = {'@type': 'SoftwareApplication', '@id': url + '#software', 'name': 'SHTORKA', 'url': url, 'description': page['description'], 'operatingSystem': 'macOS', 'applicationCategory': 'DeveloperApplication', 'creativeWorkStatus': 'In development', 'inLanguage': 'en', 'author': {'@id': PERSON}, 'image': {'@id': image['@id']}, 'mainEntityOfPage': {'@id': web_page['@id']}}
+        if SHTORKA_RELEASE['mode'] == 'released':
+            app.update(creativeWorkStatus='Released', softwareVersion=SHTORKA_RELEASE['version'], downloadUrl=SHTORKA_RELEASE['download_url'], operatingSystem='macOS ' + SHTORKA_RELEASE['minimum_macos'] + '+', processorRequirements=SHTORKA_RELEASE['processors'])
+            if SHTORKA_RELEASE.get('price') is not None:
+                app['offers'] = {'@type': 'Offer', 'url': SHTORKA_RELEASE['checkout_url'], 'price': str(SHTORKA_RELEASE['price']), 'priceCurrency': SHTORKA_RELEASE['currency'], 'description': {'one-time': 'One-time payment', 'monthly': 'Monthly subscription', 'yearly': 'Yearly subscription'}[SHTORKA_RELEASE['billing']]}
         web_page['mainEntity'] = {'@id': app['@id']}
         nodes.append(app)
     elif kind == 'case':
@@ -216,7 +216,7 @@ def render(page, pages):
     metadata = [f'<meta name="description" content="{escape(page["description"], quote=True)}">', f'<meta name="robots" content="{"index, follow, max-image-preview:large" if page["index"] else "noindex, follow"}">', f'<link rel="canonical" href="{url}">']
     for lang, target in alternatives(page, pages).items():
         metadata.append(f'<link rel="alternate" hreflang="{lang}" href="{target}">')
-    social = {'og:type': 'article' if page['kind'] == 'case' else 'website', 'og:site_name': 'Nova' if page['kind'] == 'application' else CONFIG['site_name'], 'og:title': page['title'], 'og:description': page['description'], 'og:url': url, 'og:locale': 'sv_SE' if page['lang'] == 'sv' else 'en_GB', 'og:image': SITE + page['image'], 'og:image:width': page['image_width'], 'og:image:height': page['image_height'], 'og:image:alt': page['image_alt']}
+    social = {'og:type': 'article' if page['kind'] == 'case' else 'website', 'og:site_name': 'SHTORKA' if page['kind'] == 'application' else CONFIG['site_name'], 'og:title': page['title'], 'og:description': page['description'], 'og:url': url, 'og:locale': 'sv_SE' if page['lang'] == 'sv' else 'en_GB', 'og:image': SITE + page['image'], 'og:image:width': page['image_width'], 'og:image:height': page['image_height'], 'og:image:alt': page['image_alt']}
     metadata += [f'<meta property="{name}" content="{escape(str(value), quote=True)}">' for name, value in social.items()]
     for lang in alternatives(page, pages):
         if lang not in [page['lang'], 'x-default']:
@@ -253,13 +253,15 @@ def sitemap(pages):
     ET.indent(root, space='  ')
     ET.ElementTree(root).write(PUBLIC / 'sitemap.xml', encoding='utf-8', xml_declaration=True)
     (PUBLIC / 'robots.txt').write_text('User-agent: *\nAllow: /\n\nSitemap: ' + SITE + '/sitemap.xml\n')
-    # Run the canonical-host middleware only for document routes, never assets.
-    routes = set()
+    # Current assets bypass Functions; retired brand/image URLs redirect once.
+    routes = {'/nova', '/nova/*', '/assets/developer-og.png', '/assets/developer-og.svg'}
     for page in pages:
         routes.add(page['url'])
         routes.add('/' + page['file'])
         if page['url'] != '/' and page['url'].endswith('/'):
             routes.add(page['url'].rstrip('/'))
+        elif page['url'] != '/':
+            routes.add(page['url'] + '/')
     (PUBLIC / '_routes.json').write_text(json.dumps({'version': 1, 'include': sorted(routes), 'exclude': []}, indent=2) + '\n')
 
 

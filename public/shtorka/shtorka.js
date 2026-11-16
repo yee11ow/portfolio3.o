@@ -1,6 +1,6 @@
 (() => {
   'use strict';
-  const header = document.querySelector('.nova-header');
+  const header = document.querySelector('.shtorka-header');
   if (header && 'ResizeObserver' in window) {
     new ResizeObserver(() => {
       const height = getComputedStyle(header).position === 'sticky' ? header.getBoundingClientRect().height : 0;

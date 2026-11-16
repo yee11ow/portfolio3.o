@@ -5,15 +5,15 @@ from pathlib import Path
 import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
-from build_nova import load_release, render, validate_release, view_model
+from build_shtorka import load_release, render, validate_release, view_model
 
 
-class NovaAcquisition(unittest.TestCase):
+class ShtorkaAcquisition(unittest.TestCase):
     def setUp(self):
         self.prelaunch = copy.deepcopy(load_release())
         self.prelaunch.update(mode='early-access', download_url=None, checkout_url=None, price=None, trial_days=None)
         # Fictional fixtures never enter the published release configuration.
-        self.paid = dict(self.prelaunch, mode='released', version='1.0', minimum_macos='15', processors='Apple silicon', download_url='https://example.com/Nova.dmg', checkout_url='https://example.com/checkout?a=1&b=2', price='29.00', currency='USD', billing='one-time', terms_url='https://example.com/terms')
+        self.paid = dict(self.prelaunch, mode='released', version='1.0', minimum_macos='15', processors='Apple silicon', download_url='https://example.com/SHTORKA.dmg', checkout_url='https://example.com/checkout?a=1&b=2', price='29.00', currency='USD', billing='one-time', terms_url='https://example.com/terms')
 
     def test_early_access_is_an_email_enquiry_not_a_download_or_checkout(self):
         model = view_model(self.prelaunch)
@@ -33,7 +33,7 @@ class NovaAcquisition(unittest.TestCase):
 
     def test_paid_without_trial_goes_to_checkout_and_keeps_a_download_for_customers(self):
         model = view_model(self.paid)
-        self.assertEqual(model['primary_label'], 'Buy Nova')
+        self.assertEqual(model['primary_label'], 'Buy SHTORKA')
         self.assertEqual(model['primary_url'], self.paid['checkout_url'])
         self.assertIn(self.paid['download_url'], model['secondary_action'])
         self.assertIn('one-time payment', model['offer'])
@@ -49,7 +49,7 @@ class NovaAcquisition(unittest.TestCase):
         self.assertIn('7-day trial · 29.00 USD · billed monthly', model['hero_note'])
 
     def test_invalid_purchase_configuration_is_rejected_before_build(self):
-        for patch in [{'checkout_url': 'javascript:alert(1)'}, {'terms_url': None}, {'price': '-1'}, {'price': 'NaN'}, {'billing': None}, {'trial_days': 0}, {'trial_days': True}, {'download_url': 'http://example.com/Nova.dmg'}]:
+        for patch in [{'checkout_url': 'javascript:alert(1)'}, {'terms_url': None}, {'price': '-1'}, {'price': 'NaN'}, {'billing': None}, {'trial_days': 0}, {'trial_days': True}, {'download_url': 'http://example.com/SHTORKA.dmg'}]:
             with self.subTest(patch=patch), self.assertRaises(ValueError):
                 validate_release(dict(self.paid, **patch))
 

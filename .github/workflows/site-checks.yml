@@ -17,7 +17,7 @@ jobs:
       - run: python -m unittest discover -s tests -p 'test_*.py'
       - run: node --check public/script.js
       - run: node --check public/developer.js
-      - run: node --check public/nova/nova.js
+      - run: node --check public/shtorka/shtorka.js
       - run: node --test tests/middleware.test.mjs
       - run: python scripts/submit_indexnow.py
       - name: Ensure generated cases are current

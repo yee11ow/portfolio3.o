@@ -7,7 +7,7 @@ import { resolve, extname, sep } from 'node:path';
 import { chromium, webkit } from 'playwright';
 
 const root = resolve('public');
-const novaRelease = JSON.parse(await readFile('content/nova-release.json', 'utf8'));
+const shtorkaRelease = JSON.parse(await readFile('content/shtorka-release.json', 'utf8'));
 const mime = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.svg': 'image/svg+xml', '.woff2': 'font/woff2', '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp' };
 const server = createServer(async (req, res) => {
   try {
@@ -57,7 +57,7 @@ async function checkPill(page, label) {
   assert.ok(result.left >= 0 && result.top >= 0 && result.right <= result.width + 1 && result.bottom <= result.height + 1, `${label}: panel outside viewport: ${JSON.stringify(result)}`);
 }
 
-async function checkNovaAction(page, label) {
+async function checkShtorkaAction(page, label) {
   const action = page.locator('.header-access');
   const bounds = await action.boundingBox();
   const viewport = page.viewportSize();
@@ -65,10 +65,10 @@ async function checkNovaAction(page, label) {
   assert.ok(bounds.height >= 44, `${label}: primary touch target is too small`);
   const hrefs = await page.locator('[data-primary-action]').evaluateAll(links => links.map(link => link.getAttribute('href')));
   assert.ok(hrefs.length >= 3 && hrefs.every(href => href === hrefs[0]), `${label}: primary actions do not lead to the same destination`);
-  if (novaRelease.mode === 'early-access') {
-    assert.ok(hrefs[0].startsWith(`mailto:${novaRelease.email}?`), `${label}: early access must be an email enquiry`);
+  if (shtorkaRelease.mode === 'early-access') {
+    assert.ok(hrefs[0].startsWith(`mailto:${shtorkaRelease.email}?`), `${label}: early access must be an email enquiry`);
   } else {
-    assert.equal(hrefs[0], novaRelease.price !== null && !novaRelease.trial_days ? novaRelease.checkout_url : novaRelease.download_url, `${label}: release action does not match the purchase model`);
+    assert.equal(hrefs[0], shtorkaRelease.price !== null && !shtorkaRelease.trial_days ? shtorkaRelease.checkout_url : shtorkaRelease.download_url, `${label}: release action does not match the purchase model`);
   }
 }
 
@@ -103,7 +103,7 @@ try {
         for (const path of pages) {
           await load(page, path);
           await checkLayout(page, `${engineName} ${width}×${height} ${path}`);
-          if (path === 'nova/index.html') await checkNovaAction(page, `${engineName} ${width}×${height}`);
+          if (path === 'shtorka/index.html') await checkShtorkaAction(page, `${engineName} ${width}×${height}`);
         }
         await load(page);
         const toggle = page.locator('.nav__toggle');
@@ -183,9 +183,9 @@ try {
       assert.notEqual(await page.locator('[data-panel]').evaluate(el => el.style.getPropertyValue('--panel-x')), '0px', 'Dragging did not move the workspace panel');
       await page.locator('[data-reset]').click();
 
-      await load(page, 'nova/index.html');
+      await load(page, 'shtorka/index.html');
       await page.locator('#questions').scrollIntoViewIfNeeded();
-      await checkNovaAction(page, `${engineName} Nova after scrolling`);
+      await checkShtorkaAction(page, `${engineName} SHTORKA after scrolling`);
       const priceQuestion = page.getByText('How much will it cost?', { exact: false });
       await priceQuestion.click();
       assert.equal(await page.locator('.faq-list details').nth(1).getAttribute('open'), '');
@@ -194,13 +194,13 @@ try {
       await curtain.click();
       assert.equal(await curtain.getAttribute('aria-expanded'), 'true');
       assert.equal(await page.locator('#curtain-message').isVisible(), true);
-      await capture(page, `${artifacts}/${engineName}-nova-open.png`);
+      await capture(page, `${artifacts}/${engineName}-shtorka-open.png`);
       await curtain.press('Enter');
       assert.equal(await curtain.getAttribute('aria-expanded'), 'false');
       assert.equal(await page.locator('#curtain-message').isVisible(), false);
       for (const width of [390, 1366]) {
         await page.setViewportSize({ width, height: 900 });
-        await capture(page, `${artifacts}/${engineName}-nova-${width}.png`);
+        await capture(page, `${artifacts}/${engineName}-shtorka-${width}.png`);
       }
 
       for (const width of [390, 1366]) {
@@ -233,12 +233,12 @@ try {
       assert.equal(await page.locator('.nav__toggle').getAttribute('aria-expanded'), 'false', 'Menu reopens after returning from desktop');
 
       // 200% text, a narrow split-view pane and simulated display insets.
-      for (const path of ['index.html', 'en/index.html', 'projects/index.html', 'en/projects/index.html', 'nova/index.html', 'en/web-design/index.html', 'en/faq/index.html', 'en/work/law-firm/index.html', 'arbeten/advokatbyra/index.html', 'partners.html']) {
+      for (const path of ['index.html', 'en/index.html', 'projects/index.html', 'en/projects/index.html', 'shtorka/index.html', 'en/web-design/index.html', 'en/faq/index.html', 'en/work/law-firm/index.html', 'arbeten/advokatbyra/index.html', 'partners.html']) {
         await page.setViewportSize({ width: 320, height: 568 });
         await load(page, path);
         await page.evaluate(() => { document.documentElement.style.fontSize = '200%'; });
         await checkLayout(page, `${engineName} enlarged text ${path}`);
-        if (path === 'nova/index.html') await checkNovaAction(page, `${engineName} Nova enlarged text`);
+        if (path === 'shtorka/index.html') await checkShtorkaAction(page, `${engineName} SHTORKA enlarged text`);
       }
       await page.setViewportSize({ width: 740, height: 360 });
       await load(page);
@@ -257,7 +257,7 @@ try {
       const plain = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
       await plain.route('**/*', route => route.request().url().startsWith(base + '/') ? route.continue() : route.abort());
       const plainPage = await plain.newPage();
-      for (const path of ['index.html', 'en/index.html', 'projects/index.html', 'en/projects/index.html', 'nova/index.html', 'en/web-design/index.html']) {
+      for (const path of ['index.html', 'en/index.html', 'projects/index.html', 'en/projects/index.html', 'shtorka/index.html', 'en/web-design/index.html']) {
         await load(plainPage, path);
         assert.equal(await plainPage.locator('h1').isVisible(), true);
         assert.equal(await plainPage.locator('a[href^="mailto:"]').first().isVisible(), true);
