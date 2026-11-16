@@ -22,6 +22,7 @@
     let paused = preference.matches;
     const renderMotion = () => {
       document.body.classList.toggle('motion-paused', paused);
+      document.body.classList.toggle('motion-enabled', !paused);
       motion.setAttribute('aria-pressed', String(paused));
       motion.setAttribute('aria-label', paused ? motion.dataset.resume : motion.dataset.pause);
       motion.title = motion.getAttribute('aria-label');

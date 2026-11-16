@@ -113,8 +113,10 @@ try {
       assert.equal(await page.locator('.command-dialog').evaluate(el => el.open), false);
       const motion = page.locator('[data-motion]');
       assert.equal(await motion.getAttribute('aria-pressed'), 'true', 'Reduced-motion setting was not respected');
+      assert.equal(await page.locator('.orbit-satellite').evaluate(el => getComputedStyle(el).animationName), 'none');
       await motion.click();
       assert.equal(await motion.getAttribute('aria-pressed'), 'false');
+      assert.equal(await page.locator('.orbit-satellite').evaluate(el => getComputedStyle(el).animationName), 'orbit-rotate', 'An explicit opt-in should enable animation');
       await motion.click();
       assert.equal(await motion.getAttribute('aria-pressed'), 'true');
       await page.locator('[data-panel-handle]').press('Shift+ArrowRight');
