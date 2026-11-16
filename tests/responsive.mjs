@@ -43,7 +43,7 @@ async function checkLayout(page, label) {
       .map(el => `${el.tagName}.${el.className}: ${el.textContent.trim().slice(0, 60)}`);
     return { width, scrollWidth: document.documentElement.scrollWidth, escaped };
   });
-  assert.ok(result.scrollWidth <= result.width + 1, `${label}: page scrolls horizontally (${result.scrollWidth} > ${result.width})`);
+  assert.ok(result.scrollWidth <= result.width + 1, `${label}: page scrolls horizontally (${result.scrollWidth} > ${result.width}); overflowing content: ${JSON.stringify(result.escaped)}`);
   assert.deepEqual(result.escaped, [], `${label}: clipped or overflowing content`);
   checked++;
 }
