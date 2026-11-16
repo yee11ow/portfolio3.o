@@ -8,7 +8,7 @@ COPY = {
     'en': {
         'home': '/en/', 'web': '/en/web-design/', 'legal': '/en/legal.html',
         'title': 'Matvii Akkuratov · Independent macOS developer',
-        'description': 'Independent macOS developer building Nova, a curtain for developers on Mac. Explore my work, interface experiments and web design.',
+        'description': 'Independent macOS developer building Nova, a panel for developers on Mac. Explore my work, interface experiments and web design.',
         'skip': 'Skip to content', 'work': 'Work', 'about': 'About', 'contact': 'Get in touch',
         'role': 'Independent developer & designer', 'location': 'Based in Sweden',
         'headline': 'Made for Mac.<br>Built with <em>care.</em>',
@@ -18,13 +18,13 @@ COPY = {
         'drag': 'Move this panel with the arrow keys, or drag its handle',
         'motion': 'Pause animation', 'resume': 'Resume animation', 'reset': 'Reset panel',
         'panelTitle': 'Currently in my orbit', 'panelSub': 'Two ways I make things.',
-        'novaSub': 'A developer curtain for Mac', 'webSub': 'Selected websites & case studies',
+        'novaSub': 'A developer panel for Mac', 'webSub': 'Selected websites & case studies',
         'projectsLabel': '01 / Selected work', 'projectsTitle': 'Ideas, becoming real.',
         'projectsIntro': 'An app in the making. A practice in web design. Different surfaces, the same attention to detail.',
-        'development': 'In development', 'novaDescription': 'A curtain for developers on Mac. My current macOS project, taking shape one detail at a time.',
+        'development': 'In development', 'novaDescription': 'A panel for developers on Mac. My current macOS project, taking shape one detail at a time.',
         'novaLink': 'Meet Nova', 'concept': 'Visual concept', 'webTitle': 'Web design',
         'webDescription': 'Websites for professional firms. Explore the design process and two independent concepts for an audit firm and a law firm.',
-        'webLink': 'Explore web design', 'webTag': 'Design & development',
+        'webLink': 'Explore web design', 'webTag': 'Design & development', 'webConcept': 'Independent concept',
         'aboutLabel': '02 / Behind the work', 'aboutTitle': 'Developer’s mind.<br>Designer’s eye.',
         'aboutBody': 'I’m Matvii Akkuratov, an independent developer and designer based in Sweden. My focus is macOS software, with web design as a complementary practice.',
         'aboutBody2': 'I’m interested in the small things that make a tool feel right: a clear hierarchy, a useful shortcut, a transition that knows when to get out of the way.',
@@ -40,7 +40,7 @@ COPY = {
     'sv': {
         'home': '/', 'web': '/web-design/', 'legal': '/legal.html',
         'title': 'Matvii Akkuratov · Oberoende macOS-utvecklare',
-        'description': 'Oberoende macOS-utvecklare som bygger Nova, en rullgardin för utvecklare på Mac. Utforska mina projekt, gränssnitt och webbdesign.',
+        'description': 'Oberoende macOS-utvecklare som bygger Nova, en panel för utvecklare på Mac. Utforska mina projekt, gränssnitt och webbdesign.',
         'skip': 'Hoppa till innehållet', 'work': 'Projekt', 'about': 'Om mig', 'contact': 'Ta kontakt',
         'role': 'Oberoende utvecklare & designer', 'location': 'Baserad i Sverige',
         'headline': 'Skapat för Mac.<br>Byggt med <em>omsorg.</em>',
@@ -50,13 +50,13 @@ COPY = {
         'drag': 'Flytta panelen med piltangenterna eller dra i handtaget',
         'motion': 'Pausa animationen', 'resume': 'Starta animationen', 'reset': 'Återställ panelen',
         'panelTitle': 'I min omloppsbana just nu', 'panelSub': 'Två sätt att skapa.',
-        'novaSub': 'En rullgardin för utvecklare på Mac', 'webSub': 'Utvalda webbplatser & designprocess',
+        'novaSub': 'En panel för utvecklare på Mac', 'webSub': 'Utvalda webbplatser & designprocess',
         'projectsLabel': '01 / Utvalda projekt', 'projectsTitle': 'Idéer som tar form.',
         'projectsIntro': 'En app under utveckling. Ett arbete med webbdesign. Olika ytor, samma omsorg om detaljerna.',
-        'development': 'Under utveckling', 'novaDescription': 'En rullgardin för utvecklare på Mac. Mitt aktuella macOS-projekt, som tar form en detalj i taget.',
+        'development': 'Under utveckling', 'novaDescription': 'En panel för utvecklare på Mac. Mitt aktuella macOS-projekt, som tar form en detalj i taget.',
         'novaLink': 'Upptäck Nova', 'concept': 'Visuellt koncept', 'webTitle': 'Webbdesign',
         'webDescription': 'Webbplatser för professionella tjänsteföretag. Utforska processen och två egna koncept för en revisionsbyrå och en advokatbyrå.',
-        'webLink': 'Utforska webbdesign', 'webTag': 'Design & utveckling',
+        'webLink': 'Utforska webbdesign', 'webTag': 'Design & utveckling', 'webConcept': 'Eget koncept',
         'aboutLabel': '02 / Bakom arbetet', 'aboutTitle': 'Utvecklarens logik.<br>Designerns blick.',
         'aboutBody': 'Jag är Matvii Akkuratov, oberoende utvecklare och designer i Sverige. Jag fokuserar på macOS-appar och arbetar även med webbdesign.',
         'aboutBody2': 'Jag intresserar mig för detaljerna som får ett verktyg att kännas rätt: en tydlig hierarki, ett användbart kortkommando och en övergång som vet när den ska hålla sig undan.',
@@ -126,7 +126,7 @@ def render(lang):
   </nav>
   <div class="header-tools"><div class="languages" aria-label="{'Language' if lang == 'en' else 'Språk'}">{language_links}</div><button class="command-launch" data-command hidden aria-label="{d['command']}"><span aria-hidden="true">⌘ K</span></button></div>
 </header>
-<main id="main">
+<main id="main" tabindex="-1">
   <section class="dev-hero shell">
     <div class="hero-copy">
       <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>{d['role']}</p>
@@ -159,10 +159,10 @@ def render(lang):
     </article>
     <article class="project web-project">
       <div class="project-copy"><div class="project-meta"><span>02 / Web</span><span>{d['webTag']}</span></div><h3>{d['webTitle']}<span class="title-period">.</span></h3><p>{d['webDescription']}</p><a class="project-link" href="{d['web']}">{d['webLink']} <span aria-hidden="true">↗</span></a></div>
-      <a class="web-visual" href="{d['web']}" aria-label="{d['webLink']}"><div class="browser-top" aria-hidden="true"><span>● ● ●</span><span>FB Revision / Independent concept</span></div><img src="/assets/fbrevision-hero.png" width="1440" height="940" alt="{'Independent website concept for FB Revision' if lang == 'en' else 'Eget webbplatskoncept för FB Revision'}" loading="lazy"></a>
+      <a class="web-visual" href="{d['web']}" aria-label="{d['webLink']}"><div class="browser-top" aria-hidden="true"><span>● ● ●</span><span>FB Revision / {d['webConcept']}</span></div><img src="/assets/fbrevision-hero.png" width="1440" height="940" alt="{'Independent website concept for FB Revision' if lang == 'en' else 'Eget webbplatskoncept för FB Revision'}" loading="lazy"></a>
     </article>
   </section>
-  <section class="about-section shell" id="about"><div class="about-portrait"><img src="/assets/portrait.jpg" width="640" height="800" alt="Matvii Akkuratov" loading="lazy"><span class="portrait-caption">Matvii Akkuratov / SE</span></div><div class="about-copy"><p class="eyebrow">{d['aboutLabel']}</p><h2>{d['aboutTitle']}</h2><p>{d['aboutBody']}</p><p>{d['aboutBody2']}</p><ul class="principles">{principles}</ul></div></section>
+  <section class="about-section shell" id="about"><div class="about-heading"><p class="eyebrow">{d['aboutLabel']}</p><h2>{d['aboutTitle']}</h2></div><div class="about-copy"><p>{d['aboutBody']}</p><p>{d['aboutBody2']}</p><ul class="principles">{principles}</ul></div></section>
   <section class="contact-section shell" id="contact"><p class="eyebrow">{d['contactLabel']}</p><div class="contact-grid"><h2>{d['contactTitle']}</h2><div><p>{d['contactBody']}</p><a class="email-link" href="mailto:hello@matviiakkuratov.com"><span class="email-address">hello@matviiakkuratov.com</span><span aria-hidden="true">↗</span></a><button class="copy-email" data-copy data-copied="{d['copied']}" data-error="{d['copyError']}" hidden>{d['copy']} <span aria-hidden="true">⧉</span></button></div></div></section>
 </main>
 <footer class="dev-footer shell"><p>© {__import__('datetime').date.today().year} Matvii Akkuratov <span>{d['footer']}</span></p><div><a href="https://github.com/yee11ow">GitHub ↗</a><a href="{d['web']}">{d['webTitle']} ↗</a><a href="{d['legal']}">{d['privacy']}</a><a href="#top" aria-label="{'Back to top' if lang == 'en' else 'Till toppen'}">↑</a></div></footer>
