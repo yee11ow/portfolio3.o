@@ -93,9 +93,14 @@ def view_model(config):
         offer += f'<p class="offer-line">{trial}-day trial. {terms}</p>'
     elif terms:
         offer += f'<p class="offer-line">{terms}</p>'
+    hero_note = f'macOS {config["minimum_macos"]}+ · {config["processors"]} · Version {config["version"]}'
+    if paid:
+        hero_note = f'{price} · {billing} · ' + hero_note
+    if trial:
+        hero_note = f'{trial}-day trial · ' + hero_note
     return {
         'status': 'Available for Mac', 'primary_label': label, 'primary_url': href,
-        'secondary_action': secondary, 'hero_note': f'macOS {config["minimum_macos"]}+ · {config["processors"]} · Version {config["version"]}',
+        'secondary_action': secondary, 'hero_note': hero_note,
         'access_eyebrow': 'Get Nova', 'access_title': 'Your Mac.<br><em>Meet Nova.</em>',
         'access_copy': 'Download Nova for your Mac.' if not buy_first else 'Purchase Nova, then download the app for your Mac.',
         'offer': offer, 'action_note': 'Final total and any applicable tax are shown at checkout.' if paid else 'Download the macOS installer.',

@@ -37,6 +37,7 @@ class NovaAcquisition(unittest.TestCase):
         self.assertEqual(model['primary_url'], self.paid['checkout_url'])
         self.assertIn(self.paid['download_url'], model['secondary_action'])
         self.assertIn('one-time payment', model['offer'])
+        self.assertIn('29.00 USD · one-time payment', model['hero_note'])
         self.assertIn('checkout?a=1&amp;b=2', render(self.paid))
 
     def test_real_trial_starts_with_download_and_discloses_the_paid_option(self):
@@ -45,6 +46,7 @@ class NovaAcquisition(unittest.TestCase):
         self.assertIn('29.00 USD', model['secondary_action'])
         self.assertIn('7-day trial', model['offer'])
         self.assertIn('billed monthly', model['offer'])
+        self.assertIn('7-day trial · 29.00 USD · billed monthly', model['hero_note'])
 
     def test_invalid_purchase_configuration_is_rejected_before_build(self):
         for patch in [{'checkout_url': 'javascript:alert(1)'}, {'terms_url': None}, {'price': '-1'}, {'price': 'NaN'}, {'billing': None}, {'trial_days': 0}, {'trial_days': True}, {'download_url': 'http://example.com/Nova.dmg'}]:

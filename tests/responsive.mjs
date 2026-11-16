@@ -7,6 +7,7 @@ import { resolve, extname, sep } from 'node:path';
 import { chromium, webkit } from 'playwright';
 
 const root = resolve('public');
+const novaRelease = JSON.parse(await readFile('content/nova-release.json', 'utf8'));
 const mime = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.svg': 'image/svg+xml', '.woff2': 'font/woff2', '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp' };
 const server = createServer(async (req, res) => {
   try {
@@ -63,7 +64,12 @@ async function checkNovaAction(page, label) {
   assert.ok(bounds && bounds.x >= 0 && bounds.x + bounds.width <= viewport.width + 1 && bounds.y >= 0 && bounds.y + bounds.height <= viewport.height + 1, `${label}: the primary action is outside the first screen`);
   assert.ok(bounds.height >= 44, `${label}: primary touch target is too small`);
   const hrefs = await page.locator('[data-primary-action]').evaluateAll(links => links.map(link => link.getAttribute('href')));
-  assert.ok(hrefs.length >= 3 && hrefs.every(href => href === hrefs[0] && href.startsWith('mailto:')), `${label}: early-access actions do not lead to the same email enquiry`);
+  assert.ok(hrefs.length >= 3 && hrefs.every(href => href === hrefs[0]), `${label}: primary actions do not lead to the same destination`);
+  if (novaRelease.mode === 'early-access') {
+    assert.ok(hrefs[0].startsWith(`mailto:${novaRelease.email}?`), `${label}: early access must be an email enquiry`);
+  } else {
+    assert.equal(hrefs[0], novaRelease.price !== null && !novaRelease.trial_days ? novaRelease.checkout_url : novaRelease.download_url, `${label}: release action does not match the purchase model`);
+  }
 }
 
 async function capture(page, path) {
