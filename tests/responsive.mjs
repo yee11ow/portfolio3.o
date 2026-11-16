@@ -180,6 +180,12 @@ try {
         await capture(page, `${artifacts}/${engineName}-nova-${width}.png`);
       }
 
+      for (const width of [390, 1366]) {
+        await page.setViewportSize({ width, height: 900 });
+        await load(page, 'en/projects/index.html');
+        await capture(page, `${artifacts}/${engineName}-projects-${width}.png`);
+      }
+
       // Resize the same page with the menu and a moved panel already in use.
       await page.setViewportSize({ width: 820, height: 1180 });
       await load(page, 'en/web-design/index.html');
