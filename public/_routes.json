@@ -2,6 +2,7 @@
   "version": 1,
   "include": [
     "/",
+    "/web-design/",
     "/arbeten/",
     "/arbeten/revisionsbyra/",
     "/arbeten/advokatbyra/",

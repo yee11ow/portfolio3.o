@@ -1,232 +1,90 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Matvii · Webbplatser som får fler att höra av sig</title>
-  <meta name="description" content="Lugna, trovärdiga webbplatser för revisions- och redovisningsbyråer, advokatbyråer och konsultbolag i Sverige." />
-  <meta name="theme-color" content="#f7f6f3" />
-
-  <link rel="canonical" href="https://matviiakkuratov.com/" />
-  <link rel="alternate" hreflang="sv" href="https://matviiakkuratov.com/" />
-  <link rel="alternate" hreflang="en" href="https://matviiakkuratov.com/en/" />
-  <link rel="alternate" hreflang="x-default" href="https://matviiakkuratov.com/" />
-
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Matvii" />
-  <meta property="og:url" content="https://matviiakkuratov.com/" />
-  <meta property="og:locale" content="sv_SE" />
-  <meta property="og:title" content="Matvii · Webbplatser som får fler att höra av sig" />
-  <meta property="og:description" content="Lugna, trovärdiga webbplatser för revisions- och redovisningsbyråer, advokatbyråer och konsultbolag i Sverige." />
-  <meta property="og:image" content="https://matviiakkuratov.com/assets/og-image.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="preload" href="assets/fonts/spectral-400-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="assets/fonts/fonts.css" />
-  <link rel="stylesheet" href="styles.css" />
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"ProfessionalService",
-   "name":"Matvii Akkuratov","url":"https://matviiakkuratov.com/",
-   "image":"https://matviiakkuratov.com/assets/portrait.jpg",
-   "description":"Webbdesign för revisions- och redovisningsbyråer, advokatbyråer och konsultbolag i Sverige.",
-   "email":"hello@matviiakkuratov.com",
-   "address":{"@type":"PostalAddress","addressLocality":"Sundbyberg","addressCountry":"SE"},
-   "areaServed":{"@type":"Country","name":"Sweden"},
-   "knowsLanguage":["sv","en"],
-   "sameAs":["https://www.linkedin.com/in/matvii-akkuratov-20a91b283"],
-   "founder":{"@type":"Person","name":"Matvii Akkuratov"}}
-  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Matvii Akkuratov · Oberoende macOS-utvecklare</title>
+  <meta name="description" content="Oberoende macOS-utvecklare som bygger Nova, en rullgardin för utvecklare på Mac. Utforska mina projekt, gränssnitt och webbdesign.">
+  <meta name="theme-color" content="#101210">
+  <link rel="canonical" href="https://matviiakkuratov.com/">
+  <link rel="alternate" hreflang="sv" href="https://matviiakkuratov.com/">
+  <link rel="alternate" hreflang="en" href="https://matviiakkuratov.com/en/">
+  <link rel="alternate" hreflang="x-default" href="https://matviiakkuratov.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Matvii Akkuratov · Oberoende macOS-utvecklare">
+  <meta property="og:description" content="Oberoende macOS-utvecklare som bygger Nova, en rullgardin för utvecklare på Mac. Utforska mina projekt, gränssnitt och webbdesign.">
+  <meta property="og:url" content="https://matviiakkuratov.com/">
+  <meta property="og:image" content="https://matviiakkuratov.com/assets/developer-og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/developer-icon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/fonts/fonts.css">
+  <link rel="stylesheet" href="/developer.css">
+  <script src="/developer.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Hoppa till innehåll</a>
-
-  <header class="site" id="top">
-    <nav class="nav wrap" aria-label="Huvudmeny">
-      <a class="nav__brand" href="/">Matvii<span class="nav__brand-dot">.</span></a>
-
-      <button class="nav__toggle" aria-label="Meny" aria-expanded="false" aria-controls="nav-menu">
-        <span></span><span></span><span></span>
-      </button>
-
-      <div class="nav__menu" id="nav-menu">
-        <ul class="nav__links">
-          <li><a class="nav__link" href="/arbeten/">Arbeten</a></li>
-          <li><a class="nav__link" href="/granska-er-webbplats/">Testa er sajt</a></li>
-          <li><a class="nav__link" href="/om-mig/">Om mig</a></li>
-          <li><a class="nav__link" href="/arbetssatt/">Arbetssätt</a></li>
-          <li><a class="nav__link" href="/vanliga-fragor/">Vanliga frågor</a></li>
-          <li><a class="nav__link" href="/kontakt/">Kontakt</a></li>
-        </ul>
-
-        <div class="nav__right">
-          <span class="avail"><span class="dot" aria-hidden="true"></span>Tillgänglig</span>
-
-          <div class="lang" aria-label="Språk">
-            <a class="lang__btn is-active" href="/" hreflang="sv" lang="sv">SV</a>
-            <span class="lang__sep" aria-hidden="true">/</span>
-            <a class="lang__btn" href="/en/" hreflang="en" lang="en">EN</a>
-          </div>
-
-          <a class="btn btn--primary nav__cta" href="https://cal.com/matviiakkuratov/quick-intro" target="_blank" rel="noopener">Boka samtal</a>
-        </div>
-      </div>
-    </nav>
-  </header>
-
-  <main id="main">
-    <section class="hero">
-      <div class="wrap hero__grid">
-        <div class="hero__col reveal">
-          <p class="eyebrow">Webbdesign för professionella tjänster · Sverige</p>
-          <h1 class="hero__title">Er webbplats är det första klientmötet.</h1>
-          <p class="hero__sub">Jag gör lugna, trovärdiga webbplatser för revisions- och redovisningsbyråer, advokatbyråer och konsultbolag i Sverige. Målet är enkelt: första intrycket ska hålla samma nivå som er rådgivning.</p>
-          <div class="hero__cta">
-            <a class="btn btn--primary" href="https://cal.com/matviiakkuratov/quick-intro" target="_blank" rel="noopener">Boka 20 minuter →</a>
-            <a class="btn btn--ghost" href="/arbeten/">Se arbeten ↓</a>
-          </div>
-          <p class="trust">Tillgänglig för nya uppdrag · Svarar inom 24 timmar · SV / EN</p>
-        </div>
-        <div class="hero__visual reveal">
-          <div class="stack" aria-hidden="true">
-            <div class="browser browser--hero">
-              <span class="browser__bar"><i></i><i></i><i></i><em>fbrevision.matviiakkuratov.com</em></span>
-              <img src="assets/fbrevision-hero.png" alt="" width="1440" height="940" />
-            </div>
-            <div class="mini-phone">
-              <img src="assets/fbrevision-mobile.png" alt="" width="390" height="780" />
-            </div>
-          </div>
-          <p class="visual__caption">FB Revision, ett av koncepten</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="band">
-      <div class="wrap band__inner reveal">
-        <div class="band__text">
-          <p class="eyebrow">Därför tappar byråer förfrågningar</p>
-          <h2 class="band__title">Från besökare till kvalificerad förfrågan.</h2>
-          <p class="muted band__sub">Potentiella klienter tittar på er webbplats innan de ringer. På under en minut behöver de förstå vad ni gör, känna att ni är rätt byrå och hitta ett enkelt sätt att höra av sig. De flesta byråwebbplatser missar minst ett av de tre.</p>
-        </div>
-        <ol class="flow">
-          <li class="flow__item">
-            <span class="flow__num">01</span>
-            <div class="flow__copy">
-              <h3 class="flow__title">Förstå</h3>
-              <p class="flow__body">Vad byrån gör, för vem och inom vilka områden. Synligt utan att behöva skrolla.</p>
-            </div>
-          </li>
-          <li class="flow__item">
-            <span class="flow__num">02</span>
-            <div class="flow__copy">
-              <h3 class="flow__title">Förtroende</h3>
-              <p class="flow__body">Människorna, meriterna och vilka klienter ni tar er an. Bevis, inte adjektiv.</p>
-            </div>
-          </li>
-          <li class="flow__item">
-            <span class="flow__num">03</span>
-            <div class="flow__copy">
-              <h3 class="flow__title">Kontakt</h3>
-              <p class="flow__body">Ett självklart sätt att höra av sig, upprepat där beslutet faktiskt fattas.</p>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="further">
-      <div class="wrap">
-        <p class="eyebrow reveal">Vidare</p>
-        <ul class="teasers">
-          <li class="teaser reveal">
-            <a class="teaser__link" href="/arbeten/">
-              <span class="teaser__num" aria-hidden="true">01</span>
-              <h3 class="teaser__title">Arbeten</h3>
-              <p class="teaser__body">Två egeninitierade UX-fallstudier: problem, användarflöden, wireframes och fungerande gränssnitt.</p>
-              <span class="teaser__arrow" aria-hidden="true">→</span>
-            </a>
-          </li>
-          <li class="teaser reveal">
-            <a class="teaser__link" href="/om-mig/">
-              <span class="teaser__num" aria-hidden="true">02</span>
-              <h3 class="teaser__title">Om mig</h3>
-              <p class="teaser__body">Vem jag är, vad jag kommer ifrån och varför just den här sortens byråer.</p>
-              <span class="teaser__arrow" aria-hidden="true">→</span>
-            </a>
-          </li>
-          <li class="teaser reveal">
-            <a class="teaser__link" href="/arbetssatt/">
-              <span class="teaser__num" aria-hidden="true">03</span>
-              <h3 class="teaser__title">Arbetssätt</h3>
-              <p class="teaser__body">Tre steg, vad som ingår och villkoren. Inga överraskningar på fakturan.</p>
-              <span class="teaser__arrow" aria-hidden="true">→</span>
-            </a>
-          </li>
-          <li class="teaser reveal">
-            <a class="teaser__link" href="/vanliga-fragor/">
-              <span class="teaser__num" aria-hidden="true">04</span>
-              <h3 class="teaser__title">Vanliga frågor</h3>
-              <p class="teaser__body">Vad det kostar, hur lång tid det tar och vem som äger sajten. Svaren står utskrivna.</p>
-              <span class="teaser__arrow" aria-hidden="true">→</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="ask-wrap">
-      <div class="wrap">
-        <div class="ask reveal" data-ask>
-          <p class="ask__q">Hur går det så här långt?</p>
-          <ul class="ask__opts">
-            <li><button class="ask__opt" type="button" data-reply="0">Nyfiken</button></li>
-            <li><button class="ask__opt" type="button" data-reply="1">Skeptisk</button></li>
-            <li><button class="ask__opt" type="button" data-reply="2">Jag letar bara pris</button></li>
-          </ul>
-          <div aria-live="polite">
-          <p class="ask__reply" data-reply="0" hidden>Bra. Då är arbeten nästa hållplats, det är där det syns om jag kan det här.<br><a href="/arbeten/">Se arbeten →</a></p>
-          <p class="ask__reply" data-reply="1" hidden>Rimligt, ni har hört det förut. Koncepten ligger live och går att klicka runt i, döm efter dem i stället.<br><a href="/arbeten/">Se koncepten →</a></p>
-          <p class="ask__reply" data-reply="2" hidden>Då slipper ni leta. Siffrorna står utskrivna, inget offertformulär först.<br><a href="/vanliga-fragor/">Se priserna →</a></p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="wrap foot__row">
-      <p class="foot__brand">Matvii · Webbdesign för professionella tjänster · Sverige 2026</p>
-      <ul class="foot__links">
-        <li><a href="https://www.linkedin.com/in/matvii-akkuratov-20a91b283" target="_blank" rel="noopener">LinkedIn</a></li>
-        <li><a href="mailto:hello@matviiakkuratov.com">E-post</a></li>
-        <li><a href="/legal.html">Juridik &amp; integritet</a></li>
-        <li><a href="/partners">För byråer (EN)</a></li>
-      </ul>
+<a class="skip" href="#main">Hoppa till innehållet</a>
+<header class="dev-header shell" id="top">
+  <a class="wordmark" href="/" aria-label="Matvii Akkuratov"><span class="monogram" aria-hidden="true">ma<span>↗</span></span><span>Matvii<br>Akkuratov</span></a>
+  <nav class="dev-nav" aria-label="Huvudmeny">
+    <a href="#work">Projekt</a><a href="#about">Om mig</a><a href="#contact">Ta kontakt <span aria-hidden="true">↗</span></a>
+  </nav>
+  <div class="header-tools"><div class="languages" aria-label="Språk"><a href="/" lang="sv" hreflang="sv" aria-current="page">SV</a><a href="/en/" lang="en" hreflang="en">EN</a></div><button class="command-launch" data-command hidden aria-label="Kommandomeny"><span aria-hidden="true">⌘ K</span></button></div>
+</header>
+<main id="main">
+  <section class="dev-hero shell">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>Oberoende utvecklare & designer</p>
+      <h1>Skapat för Mac.<br>Byggt med <em>omsorg.</em></h1>
+      <p class="hero-intro">Jag heter Matvii. Jag bygger macOS-appar, utforskar hur gränssnitt känns och gör idéer till något du kan använda.</p>
+      <div class="actions"><a class="action action-primary" href="#work">Utforska mina projekt <span aria-hidden="true">↗</span></a><a class="action action-quiet" href="mailto:hello@matviiakkuratov.com">Säg hej <span aria-hidden="true">↗</span></a></div>
+      <p class="small-note">Lite hantverk. Mycket nyfikenhet.</p>
     </div>
-    <div class="wrap">
-      <p class="foot__fine">Koncepten här är egeninitierade. Företagarnas Revisionsbyrå i Uppsala AB och Nordström Advokater AB har varken beställt eller godkänt dem, och deras namn och texter tillhör dem. <a href="/legal.html#koncept">Mer om detta</a>.</p>
+    <div class="playground" data-playground>
+      <div class="playground-label"><span>⌘ / En lekplats för gränssnitt</span><span aria-hidden="true">001</span></div>
+      <svg class="orbit-art" viewBox="0 0 600 600" fill="none" aria-hidden="true">
+  <defs><radialGradient id="orbit-glow"><stop stop-color="#c8fa72" stop-opacity=".13"/><stop offset="1" stop-color="#c8fa72" stop-opacity="0"/></radialGradient></defs>
+  <circle cx="300" cy="300" r="285" fill="url(#orbit-glow)"/>
+  <g class="orbit-lines" stroke="currentColor" stroke-width=".75">
+    <circle cx="300" cy="300" r="218"/><circle cx="300" cy="300" r="185" stroke-dasharray="2 8"/>
+    <ellipse cx="300" cy="300" rx="218" ry="84" transform="rotate(-38 300 300)"/>
+    <ellipse cx="300" cy="300" rx="218" ry="84" transform="rotate(38 300 300)"/>
+    <ellipse cx="300" cy="300" rx="84" ry="218"/>
+    <path d="M300 54v36M300 510v36M54 300h36M510 300h36"/>
+  </g>
+  <g class="orbit-satellite"><circle cx="300" cy="82" r="5" fill="#c8fa72"/><circle cx="300" cy="82" r="12" stroke="#c8fa72" stroke-opacity=".3"/></g>
+</svg>
+      <div class="orbit-cross orbit-cross-a" aria-hidden="true">+</div><div class="orbit-cross orbit-cross-b" aria-hidden="true">+</div>
+      <div class="orbit-panel" data-panel>
+        <div class="panel-handle" data-panel-handle tabindex="0" role="group" aria-label="Flytta panelen med piltangenterna eller dra i handtaget"><span class="panel-lights" aria-hidden="true"><i></i><i></i><i></i></span><span>matvii / workspace</span><span aria-hidden="true">⠿</span></div>
+        <div class="panel-content"><p class="panel-kicker">I min omloppsbana just nu</p><p class="panel-sub">Två sätt att skapa.</p>
+          <a class="panel-project" href="/nova/"><span class="app-icon nova-icon" aria-hidden="true">n</span><span><strong>Nova</strong><small>En rullgardin för utvecklare på Mac</small></span><span aria-hidden="true">↗</span></a>
+          <a class="panel-project" href="/web-design/"><span class="app-icon web-icon" aria-hidden="true">↔</span><span><strong>Webbdesign</strong><small>Utvalda webbplatser & designprocess</small></span><span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="panel-footer"><span class="status-dot" aria-hidden="true"></span><span>Under utveckling / Nova</span><span aria-hidden="true">↗</span></div>
+      </div>
+      <div class="playground-tools"><span>Ta tag i panelen. Känn dig som hemma.</span><div><button data-reset hidden aria-label="Återställ panelen" title="Återställ panelen">↺</button><button data-motion hidden aria-pressed="false" data-pause="Pausa animationen" data-resume="Starta animationen" data-off="Animationen är pausad." data-on="Animationen är igång." aria-label="Pausa animationen" title="Pausa animationen">Ⅱ</button></div></div>
     </div>
-  </footer>
-
-  <aside class="pill" id="pill" hidden tabindex="0" role="group"
-         aria-label="Lästid på den här sidan" data-label="Lästid på den här sidan">
-    <span class="pill__grab" aria-hidden="true">
-      <span class="pill__dial"></span>
-      <span class="pill__time">0:00</span>
-    </span>
-    <button class="pill__toggle" type="button" aria-expanded="false"
-            aria-controls="pill-panel" aria-label="Öppna frågepanelen">
-      <span class="pill__note" aria-hidden="true">på den här sidan</span>
-      <span class="pill__chev" aria-hidden="true">&rsaquo;</span>
-    </button>
-    <button class="pill__close" type="button" aria-label="Dölj">&times;</button>
-    <div class="pill__panel" id="pill-panel" hidden></div>
-  </aside>
-
-  <script src="script.js"></script>
+  </section>
+  <div class="location-strip shell"><span>Baserad i Sverige <span aria-hidden="true">↗</span></span><span>Stockholm <time data-clock aria-label="Aktuell tid i Stockholm">CET</time></span><a href="#work" aria-label="Utforska mina projekt">↓</a></div>
+  <section class="work-section shell" id="work">
+    <div class="section-heading"><div><p class="eyebrow">01 / Utvalda projekt</p><h2>Idéer som tar form.</h2></div><p>En app under utveckling. Ett arbete med webbdesign. Olika ytor, samma omsorg om detaljerna.</p></div>
+    <article class="project nova-project">
+      <div class="project-copy"><div class="project-meta"><span>01 / macOS</span><span class="development-tag"><span class="status-dot" aria-hidden="true"></span>Under utveckling</span></div><h3>Nova<span class="title-period">.</span></h3><p>En rullgardin för utvecklare på Mac. Mitt aktuella macOS-projekt, som tar form en detalj i taget.</p><a class="project-link" href="/nova/">Upptäck Nova <span aria-hidden="true">↗</span></a></div>
+      <div class="nova-visual" role="img" aria-label="Visuellt koncept: Nova"><div class="nova-visual-grid"></div><div class="nova-sheet"><span aria-hidden="true">n</span><div class="sheet-line"></div><div class="sheet-line"></div><div class="sheet-line"></div></div><span class="visual-note">Nova / Visuellt koncept</span></div>
+    </article>
+    <article class="project web-project">
+      <div class="project-copy"><div class="project-meta"><span>02 / Web</span><span>Design & utveckling</span></div><h3>Webbdesign<span class="title-period">.</span></h3><p>Webbplatser för professionella tjänsteföretag. Utforska processen och två egna koncept för en revisionsbyrå och en advokatbyrå.</p><a class="project-link" href="/web-design/">Utforska webbdesign <span aria-hidden="true">↗</span></a></div>
+      <a class="web-visual" href="/web-design/" aria-label="Utforska webbdesign"><div class="browser-top" aria-hidden="true"><span>● ● ●</span><span>FB Revision / Independent concept</span></div><img src="/assets/fbrevision-hero.png" width="1440" height="940" alt="Eget webbplatskoncept för FB Revision" loading="lazy"></a>
+    </article>
+  </section>
+  <section class="about-section shell" id="about"><div class="about-portrait"><img src="/assets/portrait.jpg" width="640" height="800" alt="Matvii Akkuratov" loading="lazy"><span class="portrait-caption">Matvii Akkuratov / SE</span></div><div class="about-copy"><p class="eyebrow">02 / Bakom arbetet</p><h2>Utvecklarens logik.<br>Designerns blick.</h2><p>Jag är Matvii Akkuratov, oberoende utvecklare och designer i Sverige. Jag fokuserar på macOS-appar och arbetar även med webbdesign.</p><p>Jag intresserar mig för detaljerna som får ett verktyg att kännas rätt: en tydlig hierarki, ett användbart kortkommando och en övergång som vet när den ska hålla sig undan.</p><ul class="principles"><li><span aria-hidden="true">01</span>Användbart från grunden</li><li><span aria-hidden="true">02</span>Genomtänkt i detalj</li><li><span aria-hidden="true">03</span>Byggt för att användas</li></ul></div></section>
+  <section class="contact-section shell" id="contact"><p class="eyebrow">03 / Börja ett samtal</p><div class="contact-grid"><h2>Har du något<br>i <em>tankarna?</em></h2><div><p>En Mac-app, en webbplats eller en fråga om Nova. Jag lyssnar gärna.</p><a class="email-link" href="mailto:hello@matviiakkuratov.com">hello@matviiakkuratov.com <span aria-hidden="true">↗</span></a><button class="copy-email" data-copy data-copied="E-postadressen kopierad" data-error="Markera och kopiera e-postadressen ovan." hidden>Kopiera e-post <span aria-hidden="true">⧉</span></button></div></div></section>
+</main>
+<footer class="dev-footer shell"><p>© 2026 Matvii Akkuratov <span>Oberoende, med avsikt.</span></p><div><a href="https://github.com/yee11ow">GitHub ↗</a><a href="/web-design/">Webbdesign ↗</a><a href="/legal.html">Integritet & juridik</a><a href="#top" aria-label="Till toppen">↑</a></div></footer>
+<dialog class="command-dialog" aria-labelledby="command-title"><div class="command-top"><h2 id="command-title">Vart vill du gå?</h2><button data-command-close aria-label="Stäng">Esc</button></div><nav aria-label="Kommandomeny"><a href="#work">Projekt<span>01 ↗</span></a><a href="/nova/">Nova · Under utveckling<span>02 ↗</span></a><a href="/web-design/">Webbdesign & designprocess<span>03 ↗</span></a><a href="#contact">Ta kontakt<span>04 ↗</span></a></nav><p>Navigera med Tab · Stäng med Escape</p></dialog>
+<p class="sr-only" role="status" data-announcement></p>
 </body>
 </html>

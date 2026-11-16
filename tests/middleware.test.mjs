@@ -6,6 +6,7 @@ const code = await readFile(new URL('../functions/_middleware.js', import.meta.u
 const { onRequest } = await import('data:text/javascript;base64,' + Buffer.from(code).toString('base64'));
 const routes = JSON.parse(await readFile(new URL('../public/_routes.json', import.meta.url), 'utf8'));
 const paths = [
+  ['/web-design/', '/en/web-design/'],
   ['/arbeten/revisionsbyra/', '/en/work/audit-firm/'],
   ['/arbeten/advokatbyra/', '/en/work/law-firm/'],
   ['/granska-er-webbplats/', '/en/check-your-website/'],
