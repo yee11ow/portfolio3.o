@@ -69,18 +69,41 @@
       place(x + dx * (event.shiftKey ? 32 : 12), y + dy * (event.shiftKey ? 32 : 12));
     });
     if (reset) { reset.hidden = false; reset.addEventListener('click', () => place(0, 0)); }
-    new ResizeObserver(() => place(x, y)).observe(playground);
+    const sizeObserver = new ResizeObserver(() => place(x, y));
+    sizeObserver.observe(playground);
+    sizeObserver.observe(panel);
   }
 
   const dialog = document.querySelector('.command-dialog');
   const launch = document.querySelector('[data-command]');
   if (dialog && launch && typeof dialog.showModal === 'function') {
     launch.hidden = false;
-    const open = () => { if (!dialog.open) dialog.showModal(); };
+    let returnFocus = launch;
+    let destination = null;
+    const open = () => {
+      if (dialog.open) return;
+      const active = document.activeElement;
+      returnFocus = active instanceof HTMLElement && active !== document.body && active !== document.documentElement ? active : launch;
+      destination = null;
+      dialog.showModal();
+    };
     launch.addEventListener('click', open);
     document.querySelector('[data-command-close]').addEventListener('click', () => dialog.close());
     dialog.addEventListener('click', event => { if (event.target === dialog) { const r = dialog.getBoundingClientRect(); if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) dialog.close(); } });
-    dialog.querySelectorAll('a').forEach(link => link.addEventListener('click', () => dialog.close()));
+    dialog.addEventListener('close', () => {
+      const target = destination || returnFocus;
+      destination = null;
+      if (target && target.isConnected) target.focus({ preventScroll: true });
+    });
+    dialog.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        const section = document.getElementById(href.slice(1));
+        destination = section && (section.querySelector('h1, h2') || section);
+        if (destination && !destination.hasAttribute('tabindex')) destination.tabIndex = -1;
+      }
+      dialog.close();
+    }));
     document.addEventListener('keydown', event => {
       if (event.key.toLowerCase() !== 'k' || !(event.metaKey || event.ctrlKey)) return;
       if (event.target instanceof HTMLElement && (event.target.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(event.target.tagName))) return;

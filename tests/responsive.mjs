@@ -66,6 +66,7 @@ async function capture(page, path) {
     if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
     window.scrollTo({ top: 0, behavior: 'instant' });
   });
+  await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
   await page.screenshot({ path, fullPage: true });
 }
 
@@ -120,10 +121,18 @@ try {
       await page.keyboard.press('Escape');
       assert.equal(await page.locator('.command-dialog').evaluate(el => el.open), false);
       assert.equal(await page.locator('[data-command]').evaluate(el => el === document.activeElement), true, 'Dialog did not restore keyboard focus');
+      // The keyboard shortcut must also restore focus when nothing was focused.
+      await page.evaluate(() => document.activeElement.blur());
+      await page.keyboard.press('Control+k');
+      await page.keyboard.press('Escape');
+      await page.waitForFunction(() => document.activeElement === document.querySelector('[data-command]'));
       await page.keyboard.press('Control+k');
       assert.equal(await page.locator('.command-dialog').evaluate(el => el.open), true);
       await page.locator('.command-dialog a[href="#contact"]').click();
       assert.equal(await page.locator('.command-dialog').evaluate(el => el.open), false);
+      await page.waitForFunction(() => document.activeElement === document.querySelector('#contact h2'));
+      await page.keyboard.press('Tab');
+      assert.equal(await page.locator('.email-link').evaluate(el => el === document.activeElement), true, 'Command navigation did not continue at the destination');
       const motion = page.locator('[data-motion]');
       assert.equal(await motion.getAttribute('aria-pressed'), 'true', 'Reduced-motion setting was not respected');
       assert.equal(await page.locator('.orbit-satellite').evaluate(el => getComputedStyle(el).animationName), 'none');
@@ -147,12 +156,22 @@ try {
       }
       await page.locator('[data-reset]').click();
       assert.equal(await page.locator('[data-panel]').evaluate(el => el.style.getPropertyValue('--panel-x')), '0px');
+      const handle = page.locator('[data-panel-handle]');
+      await handle.scrollIntoViewIfNeeded();
+      const grab = await handle.boundingBox();
+      await page.mouse.move(grab.x + grab.width / 2, grab.y + grab.height / 2);
+      await page.mouse.down();
+      await page.mouse.move(grab.x + grab.width / 2 + 25, grab.y + grab.height / 2 + 15, { steps: 4 });
+      await page.mouse.up();
+      assert.notEqual(await page.locator('[data-panel]').evaluate(el => el.style.getPropertyValue('--panel-x')), '0px', 'Dragging did not move the workspace panel');
+      await page.locator('[data-reset]').click();
 
       await load(page, 'nova/index.html');
       const curtain = page.locator('[data-curtain-toggle]');
       await curtain.click();
       assert.equal(await curtain.getAttribute('aria-expanded'), 'true');
       assert.equal(await page.locator('#curtain-message').isVisible(), true);
+      await capture(page, `${artifacts}/${engineName}-nova-open.png`);
       await curtain.press('Enter');
       assert.equal(await curtain.getAttribute('aria-expanded'), 'false');
       assert.equal(await page.locator('#curtain-message').isVisible(), false);
@@ -203,6 +222,18 @@ try {
       await page.locator('#pill').press('Shift+ArrowDown');
       await checkPill(page, `${engineName} safe areas`);
       assert.deepEqual(errors, [], `${engineName}: uncaught JavaScript errors`);
+
+      // Core navigation and email enquiries must remain usable without scripts.
+      const plain = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
+      await plain.route('**/*', route => route.request().url().startsWith(base + '/') ? route.continue() : route.abort());
+      const plainPage = await plain.newPage();
+      for (const path of ['index.html', 'en/index.html', 'nova/index.html', 'en/web-design/index.html']) {
+        await load(plainPage, path);
+        assert.equal(await plainPage.locator('h1').isVisible(), true);
+        assert.equal(await plainPage.locator('a[href^="mailto:"]').first().isVisible(), true);
+        await checkLayout(plainPage, `${engineName} without JavaScript ${path}`);
+      }
+      await plain.close();
     } catch (error) {
       await page.screenshot({ path: `${artifacts}/${engineName}-failure.png`, fullPage: true });
       throw error;
