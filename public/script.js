@@ -13,8 +13,8 @@
   var root = document.documentElement;
   var visualViewport = window.visualViewport;
   function syncViewport() {
-    root.style.setProperty('--viewport-height', (visualViewport ? visualViewport.height : window.innerHeight) + 'px');
-    root.style.setProperty('--viewport-width', (visualViewport ? visualViewport.width : window.innerWidth) + 'px');
+    root.style.setProperty('--viewport-height', (visualViewport ? Math.min(visualViewport.height, window.innerHeight) : window.innerHeight) + 'px');
+    root.style.setProperty('--viewport-width', (visualViewport ? Math.min(visualViewport.width, window.innerWidth) : window.innerWidth) + 'px');
     if (header) root.style.setProperty('--header-height', header.getBoundingClientRect().height + 'px');
   }
   syncViewport();
@@ -338,8 +338,10 @@
       function inset(edge) { return parseFloat(styles.getPropertyValue('--safe-' + edge)) || 0; }
       var offsetX = visualViewport ? visualViewport.offsetLeft : 0;
       var offsetY = visualViewport ? visualViewport.offsetTop : 0;
-      var width = visualViewport ? visualViewport.width : window.innerWidth;
-      var height = visualViewport ? visualViewport.height : window.innerHeight;
+      // During a resize the two viewport APIs can settle on different frames.
+      // Clamp to the smaller visible area so a moved panel cannot escape it.
+      var width = visualViewport ? Math.min(visualViewport.width, window.innerWidth) : window.innerWidth;
+      var height = visualViewport ? Math.min(visualViewport.height, window.innerHeight) : window.innerHeight;
       var minX = offsetX + inset('left') + 8;
       var minY = offsetY + Math.max(inset('top'), header ? header.getBoundingClientRect().height : 0) + 8;
       var maxX = offsetX + width - box.width - inset('right') - 8;
@@ -401,6 +403,11 @@
     });
 
     window.addEventListener('resize', fitPill, { passive: true });
+    if (window.ResizeObserver) {
+      var pillSize = new ResizeObserver(fitPill);
+      pillSize.observe(pill);
+      if (header) pillSize.observe(header);
+    }
     if (visualViewport) {
       visualViewport.addEventListener('resize', fitPill, { passive: true });
       visualViewport.addEventListener('scroll', fitPill, { passive: true });
