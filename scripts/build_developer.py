@@ -6,11 +6,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 COPY = {
     'en': {
-        'home': '/en/', 'web': '/en/web-design/', 'legal': '/en/legal.html',
+        'home': '/en/', 'web': '/en/web-design/', 'legal': '/en/legal', 'projects': '/en/projects/', 'allProjects': 'All projects',
         'title': 'Matvii Akkuratov · Independent macOS developer',
         'description': 'Independent macOS developer building Nova, a panel for developers on Mac. Explore my work, interface experiments and web design.',
         'skip': 'Skip to content', 'work': 'Work', 'about': 'About', 'contact': 'Get in touch',
-        'role': 'Independent developer & designer', 'location': 'Based in Sweden',
+        'role': 'Independent macOS developer & designer', 'location': 'Based in Sweden',
         'headline': 'Made for Mac.<br>Built with <em>care.</em>',
         'intro': 'I’m Matvii. I build macOS apps, explore how interfaces feel, and turn ideas into things you can use.',
         'cta': 'Explore my work', 'mail': 'Say hello', 'hint': 'A little craft. A lot of curiosity.',
@@ -38,11 +38,11 @@ COPY = {
         'novaCommand': 'Nova · In development', 'animationOff': 'Animation is paused.', 'animationOn': 'Animation is running.',
     },
     'sv': {
-        'home': '/', 'web': '/web-design/', 'legal': '/legal.html',
+        'home': '/', 'web': '/web-design/', 'legal': '/legal', 'projects': '/projects/', 'allProjects': 'Alla projekt',
         'title': 'Matvii Akkuratov · Oberoende macOS-utvecklare',
         'description': 'Oberoende macOS-utvecklare som bygger Nova, en panel för utvecklare på Mac. Utforska mina projekt, gränssnitt och webbdesign.',
         'skip': 'Hoppa till innehållet', 'work': 'Projekt', 'about': 'Om mig', 'contact': 'Ta kontakt',
-        'role': 'Oberoende utvecklare & designer', 'location': 'Baserad i Sverige',
+        'role': 'Oberoende macOS-utvecklare & designer', 'location': 'Baserad i Sverige',
         'headline': 'Skapat för Mac.<br>Byggt med <em>omsorg.</em>',
         'intro': 'Jag heter Matvii. Jag bygger macOS-appar, utforskar hur gränssnitt känns och gör idéer till något du kan använda.',
         'cta': 'Utforska mina projekt', 'mail': 'Säg hej', 'hint': 'Lite hantverk. Mycket nyfikenhet.',
@@ -122,7 +122,7 @@ def render(lang):
 <header class="dev-header shell" id="top">
   <a class="wordmark" href="{d['home']}" aria-label="Matvii Akkuratov"><span class="monogram" aria-hidden="true">ma<span>↗</span></span><span>Matvii<br>Akkuratov</span></a>
   <nav class="dev-nav" aria-label="{'Primary' if lang == 'en' else 'Huvudmeny'}">
-    <a href="#work">{d['work']}</a><a href="#about">{d['about']}</a><a href="#contact">{d['contact']} <span aria-hidden="true">↗</span></a>
+    <a href="{d['projects']}">{d['work']}</a><a href="#about">{d['about']}</a><a href="#contact">{d['contact']} <span aria-hidden="true">↗</span></a>
   </nav>
   <div class="header-tools"><div class="languages" aria-label="{'Language' if lang == 'en' else 'Språk'}">{language_links}</div><button class="command-launch" data-command hidden aria-label="{d['command']}"><span aria-hidden="true">⌘ K</span></button></div>
 </header>
@@ -161,11 +161,12 @@ def render(lang):
       <div class="project-copy"><div class="project-meta"><span>02 / Web</span><span>{d['webTag']}</span></div><h3>{d['webTitle']}<span class="title-period">.</span></h3><p>{d['webDescription']}</p><a class="project-link" href="{d['web']}">{d['webLink']} <span aria-hidden="true">↗</span></a></div>
       <a class="web-visual" href="{d['web']}" aria-label="{d['webLink']}"><div class="browser-top" aria-hidden="true"><span>● ● ●</span><span>FB Revision / {d['webConcept']}</span></div><img src="/assets/fbrevision-hero.png" width="1440" height="940" alt="{'Independent website concept for FB Revision' if lang == 'en' else 'Eget webbplatskoncept för FB Revision'}" loading="lazy"></a>
     </article>
+    <a class="work-directory" href="{d['projects']}">{d['allProjects']} <span aria-hidden="true">↗</span></a>
   </section>
   <section class="about-section shell" id="about"><div class="about-heading"><p class="eyebrow">{d['aboutLabel']}</p><h2>{d['aboutTitle']}</h2></div><div class="about-copy"><p>{d['aboutBody']}</p><p>{d['aboutBody2']}</p><ul class="principles">{principles}</ul></div></section>
   <section class="contact-section shell" id="contact"><p class="eyebrow">{d['contactLabel']}</p><div class="contact-grid"><h2>{d['contactTitle']}</h2><div><p>{d['contactBody']}</p><a class="email-link" href="mailto:hello@matviiakkuratov.com"><span class="email-address">hello@matviiakkuratov.com</span><span aria-hidden="true">↗</span></a><button class="copy-email" data-copy data-copied="{d['copied']}" data-error="{d['copyError']}" hidden>{d['copy']} <span aria-hidden="true">⧉</span></button></div></div></section>
 </main>
-<footer class="dev-footer shell"><p>© {__import__('datetime').date.today().year} Matvii Akkuratov <span>{d['footer']}</span></p><div><a href="https://github.com/yee11ow">GitHub ↗</a><a href="{d['web']}">{d['webTitle']} ↗</a><a href="{d['legal']}">{d['privacy']}</a><a href="#top" aria-label="{'Back to top' if lang == 'en' else 'Till toppen'}">↑</a></div></footer>
+<footer class="dev-footer shell"><p>© {__import__('datetime').date.today().year} Matvii Akkuratov <span>{d['footer']}</span></p><div><a href="{d['projects']}">{d['allProjects']}</a><a href="https://github.com/yee11ow">GitHub ↗</a><a href="{d['web']}">{d['webTitle']} ↗</a><a href="{d['legal']}">{d['privacy']}</a><a href="#top" aria-label="{'Back to top' if lang == 'en' else 'Till toppen'}">↑</a></div></footer>
 <dialog class="command-dialog" aria-labelledby="command-title"><div class="command-top"><h2 id="command-title">{d['commandTitle']}</h2><button data-command-close aria-label="{d['close']}">Esc</button></div><nav aria-label="{d['command']}"><a href="#work">{d['work']}<span>01 ↗</span></a><a href="/nova/">{d['novaCommand']}<span>02 ↗</span></a><a href="{d['web']}">{d['webCommand']}<span>03 ↗</span></a><a href="#contact">{d['contact']}<span>04 ↗</span></a></nav><p>{d['commandHint']}</p></dialog>
 <p class="sr-only" role="status" data-announcement></p>
 </body>

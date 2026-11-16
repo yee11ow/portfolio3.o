@@ -24,6 +24,7 @@
 
 const SV_TO_EN = {
   '/': '/en/',
+  '/projects/': '/en/projects/',
   '/web-design/': '/en/web-design/',
   '/arbeten/': '/en/work/',
   '/arbeten/revisionsbyra/': '/en/work/audit-firm/',
@@ -33,8 +34,18 @@ const SV_TO_EN = {
   '/arbetssatt/': '/en/process/',
   '/vanliga-fragor/': '/en/faq/',
   '/kontakt/': '/en/contact/',
-  '/legal.html': '/en/legal.html',
+  '/legal': '/en/legal',
 };
+
+const CANONICAL_PATHS = new Set([...Object.keys(SV_TO_EN), ...Object.values(SV_TO_EN), '/nova/', '/nova/privacy', '/partners', '/404']);
+
+function canonicalPath(path) {
+  let candidate = path;
+  if (candidate.endsWith('/index.html')) candidate = candidate.slice(0, -10);
+  else if (candidate.endsWith('.html')) candidate = candidate.slice(0, -5);
+  if (!CANONICAL_PATHS.has(candidate) && CANONICAL_PATHS.has(candidate + '/')) candidate += '/';
+  return CANONICAL_PATHS.has(candidate) ? candidate : path;
+}
 
 const BOT = /bot|crawl|spider|slurp|google|bing|yandex|baidu|duckduck|facebookexternalhit|whatsapp|telegram|lighthouse|validator|curl|wget|headless|preview/i;
 
@@ -43,27 +54,40 @@ export async function onRequest(context) {
 
   try {
     const url = new URL(request.url);
+    const path = canonicalPath(url.pathname);
+    // Consolidate the public host aliases before applying language preferences.
+    if (url.hostname === 'www.matviiakkuratov.com' || url.hostname === 'portfolio-rwb.pages.dev') {
+      return Response.redirect('https://matviiakkuratov.com' + path + url.search, 301);
+    }
+    if (path !== url.pathname) return Response.redirect(new URL(path + url.search, url.origin).href, 308);
+    const serve = async () => {
+      const response = await next();
+      if (!url.hostname.endsWith('.pages.dev')) return response;
+      const headers = new Headers(response.headers);
+      headers.set('X-Robots-Tag', 'noindex');
+      return new Response(response.body, { status: response.status, statusText: response.statusText, headers });
+    };
     const target = SV_TO_EN[url.pathname];
 
     // Not a Swedish page, or an explicit "give me Swedish" override.
-    if (!target || url.searchParams.get('lang') === 'sv') return next();
+    if (!target || url.searchParams.get('lang') === 'sv') return serve();
 
     // Crawlers and link unfurlers see exactly what they asked for.
-    if (BOT.test(request.headers.get('user-agent') || '')) return next();
+    if (BOT.test(request.headers.get('user-agent') || '')) return serve();
 
     // Arrived by clicking a link on this same site: they chose this page.
     const from = request.headers.get('sec-fetch-site');
-    if (from === 'same-origin') return next();
+    if (from === 'same-origin') return serve();
     if (!from) {
       // Older browsers send no Sec-Fetch-Site, so fall back to the referrer.
       const ref = request.headers.get('referer') || '';
-      if (ref && new URL(ref).origin === url.origin) return next();
+      if (ref && new URL(ref).origin === url.origin) return serve();
     }
 
     // Reads Swedish, or is sitting in Sweden.
     const accepts = (request.headers.get('accept-language') || '').toLowerCase();
-    if (/\bsv\b/.test(accepts)) return next();
-    if ((request.cf && request.cf.country) === 'SE') return next();
+    if (/\bsv\b/.test(accepts)) return serve();
+    if ((request.cf && request.cf.country) === 'SE') return serve();
 
     const to = new URL(target + url.search, url.origin);
     return new Response(null, {
