@@ -28,7 +28,7 @@ const artifacts = resolve('responsive-results');
 await mkdir(artifacts, { recursive: true });
 let checked = 0;
 
-async function load(page, path = 'index.html') {
+async function load(page, path = 'web-design/index.html') {
   const response = await page.goto(`${base}/${path}`, { waitUntil: 'load' });
   assert.equal(response.status(), 200, path);
   await page.evaluate(() => document.fonts.ready);
@@ -43,7 +43,7 @@ async function checkLayout(page, label) {
       .map(el => `${el.tagName}.${el.className}: ${el.textContent.trim().slice(0, 60)}`);
     return { width, scrollWidth: document.documentElement.scrollWidth, escaped };
   });
-  assert.ok(result.scrollWidth <= result.width + 1, `${label}: page scrolls horizontally (${result.scrollWidth} > ${result.width})`);
+  assert.ok(result.scrollWidth <= result.width + 1, `${label}: page scrolls horizontally (${result.scrollWidth} > ${result.width}); overflowing content: ${JSON.stringify(result.escaped)}`);
   assert.deepEqual(result.escaped, [], `${label}: clipped or overflowing content`);
   checked++;
 }
@@ -54,6 +54,19 @@ async function checkPill(page, label) {
     return { left: r.left, top: r.top, right: r.right, bottom: r.bottom, width: innerWidth, height: innerHeight };
   });
   assert.ok(result.left >= 0 && result.top >= 0 && result.right <= result.width + 1 && result.bottom <= result.height + 1, `${label}: panel outside viewport: ${JSON.stringify(result)}`);
+}
+
+async function capture(page, path) {
+  // Full-page captures do not automatically load offscreen lazy images.
+  await page.evaluate(async () => {
+    await Promise.all([...document.images].map(async img => {
+      img.loading = 'eager';
+      try { await img.decode(); } catch { /* Missing assets are checked separately. */ }
+    }));
+    if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  });
+  await page.screenshot({ path, fullPage: true });
 }
 
 try {
@@ -94,14 +107,63 @@ try {
         await checkPill(page, `${engineName} ${width}: final step`);
         if ([320, 768, 1024].includes(width)) {
           await page.locator('.pill__close').click();
-          await page.screenshot({ path: `${artifacts}/${engineName}-home-${width}.png`, fullPage: true });
+          await capture(page, `${artifacts}/${engineName}-home-${width}.png`);
         }
         console.log(`PASS ${engineName} ${width}×${height}: ${pages.length} pages, navigation and contact panel`);
       }
 
+      // The developer homepage has its own navigation and draggable workspace.
+      await page.setViewportSize({ width: 1366, height: 1024 });
+      await load(page, 'en/index.html');
+      await page.locator('[data-command]').click();
+      assert.equal(await page.locator('.command-dialog').evaluate(el => el.open), true);
+      await page.keyboard.press('Escape');
+      assert.equal(await page.locator('.command-dialog').evaluate(el => el.open), false);
+      assert.equal(await page.locator('[data-command]').evaluate(el => el === document.activeElement), true, 'Dialog did not restore keyboard focus');
+      await page.keyboard.press('Control+k');
+      assert.equal(await page.locator('.command-dialog').evaluate(el => el.open), true);
+      await page.locator('.command-dialog a[href="#contact"]').click();
+      assert.equal(await page.locator('.command-dialog').evaluate(el => el.open), false);
+      const motion = page.locator('[data-motion]');
+      assert.equal(await motion.getAttribute('aria-pressed'), 'true', 'Reduced-motion setting was not respected');
+      assert.equal(await page.locator('.orbit-satellite').evaluate(el => getComputedStyle(el).animationName), 'none');
+      await motion.click();
+      assert.equal(await motion.getAttribute('aria-pressed'), 'false');
+      assert.equal(await page.locator('.orbit-satellite').evaluate(el => getComputedStyle(el).animationName), 'orbit-rotate', 'An explicit opt-in should enable animation');
+      await motion.click();
+      assert.equal(await motion.getAttribute('aria-pressed'), 'true');
+      await page.locator('[data-panel-handle]').press('Shift+ArrowRight');
+      await page.locator('[data-panel-handle]').press('Shift+ArrowDown');
+      assert.notEqual(await page.locator('[data-panel]').evaluate(el => el.style.getPropertyValue('--panel-x')), '0px');
+      for (const [width, height] of [[320, 568], [820, 1180], [1366, 1024]]) {
+        await page.setViewportSize({ width, height });
+        await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+        const contained = await page.locator('[data-panel]').evaluate(panel => {
+          const p = panel.getBoundingClientRect(), r = panel.closest('[data-playground]').getBoundingClientRect();
+          return p.left >= r.left && p.right <= r.right && p.top >= r.top && p.bottom <= r.bottom;
+        });
+        assert.ok(contained, `${engineName} ${width}: workspace panel escaped its playground`);
+        await capture(page, `${artifacts}/${engineName}-developer-${width}.png`);
+      }
+      await page.locator('[data-reset]').click();
+      assert.equal(await page.locator('[data-panel]').evaluate(el => el.style.getPropertyValue('--panel-x')), '0px');
+
+      await load(page, 'nova/index.html');
+      const curtain = page.locator('[data-curtain-toggle]');
+      await curtain.click();
+      assert.equal(await curtain.getAttribute('aria-expanded'), 'true');
+      assert.equal(await page.locator('#curtain-message').isVisible(), true);
+      await curtain.press('Enter');
+      assert.equal(await curtain.getAttribute('aria-expanded'), 'false');
+      assert.equal(await page.locator('#curtain-message').isVisible(), false);
+      for (const width of [390, 1366]) {
+        await page.setViewportSize({ width, height: 900 });
+        await capture(page, `${artifacts}/${engineName}-nova-${width}.png`);
+      }
+
       // Resize the same page with the menu and a moved panel already in use.
       await page.setViewportSize({ width: 820, height: 1180 });
-      await load(page, 'en/index.html');
+      await load(page, 'en/web-design/index.html');
       await page.locator('.pill__toggle').click();
       await page.locator('.pill__opt').first().click();
       const question = await page.locator('.pill__q').textContent();
@@ -123,7 +185,7 @@ try {
       assert.equal(await page.locator('.nav__toggle').getAttribute('aria-expanded'), 'false', 'Menu reopens after returning from desktop');
 
       // 200% text, a narrow split-view pane and simulated display insets.
-      for (const path of ['index.html', 'en/faq/index.html', 'en/work/law-firm/index.html', 'partners.html']) {
+      for (const path of ['index.html', 'en/index.html', 'nova/index.html', 'en/web-design/index.html', 'en/faq/index.html', 'en/work/law-firm/index.html', 'partners.html']) {
         await page.setViewportSize({ width: 320, height: 568 });
         await load(page, path);
         await page.evaluate(() => { document.documentElement.style.fontSize = '200%'; });

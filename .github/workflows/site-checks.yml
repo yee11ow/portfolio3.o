@@ -15,10 +15,13 @@ jobs:
           node-version: '22'
       - run: python scripts/check_site.py
       - run: node --check public/script.js
+      - run: node --check public/developer.js
+      - run: node --check public/nova/nova.js
       - run: node --test tests/middleware.test.mjs
       - name: Ensure generated cases are current
         run: |
           python scripts/build_cases.py
+          python scripts/build_developer.py
           git diff --exit-code -- public
   responsive:
     if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
