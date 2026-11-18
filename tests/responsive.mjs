@@ -234,6 +234,31 @@ try {
       await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
       assert.equal(await page.locator('.nav__toggle').getAttribute('aria-expanded'), 'false', 'Menu reopens after returning from desktop');
 
+      // Resize notifications may arrive after the layout has changed. The
+      // moved panel must remain contained even before JS gets those events.
+      const delayedResize = await context.newPage();
+      await delayedResize.addInitScript(() => {
+        const addWindow = window.addEventListener.bind(window);
+        window.addEventListener = (type, ...args) => { if (type !== 'resize') addWindow(type, ...args); };
+        if (window.visualViewport) {
+          const addVisual = window.visualViewport.addEventListener.bind(window.visualViewport);
+          window.visualViewport.addEventListener = (type, ...args) => { if (type !== 'resize') addVisual(type, ...args); };
+        }
+        window.ResizeObserver = undefined;
+      });
+      await delayedResize.setViewportSize({width:820, height:1180});
+      await load(delayedResize, 'en/web-design/index.html');
+      await delayedResize.locator('.pill__toggle').click();
+      await delayedResize.locator('.pill__opt').first().click();
+      const delayedQuestion = await delayedResize.locator('.pill__q').textContent();
+      await delayedResize.locator('#pill').press('Shift+ArrowRight');
+      for (const [width, height] of [[1366,1024], [320,568], [740,360], [820,1180]]) {
+        await delayedResize.setViewportSize({width,height});
+        await checkPill(delayedResize, `${engineName} without resize notifications ${width}×${height}`);
+        assert.equal(await delayedResize.locator('.pill__q').textContent(), delayedQuestion);
+      }
+      await delayedResize.close();
+
       // 200% text, a narrow split-view pane and simulated display insets.
       for (const path of ['index.html', 'en/index.html', 'projects/index.html', 'en/projects/index.html', 'shtorka/index.html', 'en/web-design/index.html', 'en/faq/index.html', 'en/work/law-firm/index.html', 'arbeten/advokatbyra/index.html', 'partners.html']) {
         await page.setViewportSize({ width: 320, height: 568 });
