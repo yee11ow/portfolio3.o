@@ -352,6 +352,8 @@
       // during the frame before resize/ResizeObserver notifications arrive.
       var ratioX = maxX > minX ? (x - minX) / (maxX - minX) : 0;
       var ratioY = maxY > minY ? (y - minY) / (maxY - minY) : 0;
+      pill.style.setProperty('--pill-offset-x', offsetX + 'px');
+      pill.style.setProperty('--pill-offset-y', offsetY + 'px');
       pill.style.setProperty('--pill-x', Math.max(0, Math.min(1, ratioX)));
       pill.style.setProperty('--pill-y', Math.max(0, Math.min(1, ratioY)));
       pill.classList.add('is-placed');
