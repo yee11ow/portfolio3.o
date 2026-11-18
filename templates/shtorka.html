@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>SHTORKA Developer Panel for Mac | Matvii Akkuratov</title>
+  <title>SHTORKA | File Shelf &amp; Sharing for Mac</title>
   <meta name="theme-color" content="#0c1115">
   <link rel="icon" href="./assets/shtorka.svg" type="image/svg+xml">
   <link rel="preload" href="./assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -12,61 +12,67 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="shtorka-header">
-  <div class="header-inner frame">
-    <a class="shtorka-brand" href="#top" aria-label="SHTORKA home"><img src="./assets/shtorka.svg" alt="" width="32" height="32"><span>SHTORKA</span><span class="brand-platform">for Mac</span></a>
-    <nav aria-label="Primary"><a href="#idea">The idea</a><a href="#preview">Preview</a><a href="#questions">Questions</a></nav>
-    <a class="primary-button header-access" data-primary-action href="$primary_url">$primary_label <span aria-hidden="true">↗</span></a>
-  </div>
-</header>
+<header class="shtorka-header"><div class="header-inner frame">
+  <a class="shtorka-brand" href="#top" aria-label="SHTORKA home"><img src="./assets/shtorka.svg" alt="" width="32" height="32"><span>SHTORKA</span><span class="brand-platform">for Mac</span></a>
+  <nav aria-label="Primary"><a href="#workflow">How it works</a><a href="#your-day">Your layout</a><a href="#questions">Questions</a></nav>
+  <a class="primary-button header-access" data-primary-action href="$primary_url">$primary_label <span aria-hidden="true">↗</span></a>
+</div></header>
 <main id="main" tabindex="-1">
   <section class="shtorka-hero frame" id="top">
     <div class="hero-copy">
       <p class="eyebrow"><span class="live-dot" aria-hidden="true"></span>SHTORKA for Mac / $status</p>
-      <h1>SHTORKA.<br><em>A new layer.</em></h1>
-      <p class="intro">A developer panel for macOS. A small app taking shape around a simple idea: keep your workspace close, and your focus closer.</p>
+      <h1>Your work,<br><em>within reach.</em></h1>
+      <p class="intro">A compact shelf for your Mac. Keep files close, prepare them for sharing, and stay connected to your day.</p>
       <div class="hero-actions"><a class="primary-button" data-primary-action data-hero-action href="$primary_url">$primary_label <span aria-hidden="true">↗</span></a>$secondary_action</div>
       <p class="cta-detail">$hero_note</p>
-      <a class="text-link concept-link" href="#preview">Explore the visual concept <span aria-hidden="true">↓</span></a>
+      <a class="text-link concept-link" href="#workflow">See how it works <span aria-hidden="true">↓</span></a>
       <div class="maker-line"><span class="maker-monogram" aria-hidden="true">ma↗</span><p>Made by <a href="/en/">Matvii Akkuratov</a><br><span>Independent macOS developer &amp; designer</span></p></div>
     </div>
     <div class="hero-preview" id="preview">
-      <div class="curtain-stage" data-stage>
-        <div class="stage-chrome"><span>SHTORKA / visual concept</span><span aria-hidden="true">S—001</span></div>
-        <div class="stage-grid" aria-hidden="true"></div>
-        <div class="stage-orbit" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-        <div class="curtain" aria-hidden="true"><span class="curtain-brand">SHTORKA<span>↗</span></span><span class="curtain-edge"></span></div>
-        <div class="curtain-reveal" id="curtain-message" hidden><span class="reveal-icon" aria-hidden="true">S</span><p>A new layer.<br>A project in motion.</p><span>By Matvii Akkuratov</span></div>
-        <button class="curtain-toggle" data-curtain-toggle aria-expanded="false" aria-controls="curtain-message" hidden><span data-toggle-label>Lift the curtain</span><span data-toggle-icon aria-hidden="true">↑</span></button>
-        <span class="stage-corner" aria-hidden="true">Designed to feel a little different.</span>
+      <div class="workflow-visual" aria-labelledby="visual-title">
+        <div class="visual-heading"><span>SHTORKA / THE WORKFLOW</span><span aria-hidden="true">01—03</span></div>
+        <h2 id="visual-title">A place for the files<br>between steps.</h2>
+        <ol class="visual-steps">
+          <li><span class="visual-number" aria-hidden="true">01</span><div><h3>Collect.</h3><p>Files and folders, close by.</p></div><span class="file-symbol" aria-hidden="true">↳</span></li>
+          <li><span class="visual-number" aria-hidden="true">02</span><div><h3>Prepare.</h3><p>ZIP or a supported copy.</p></div><span class="file-symbol" aria-hidden="true">＋</span></li>
+          <li><span class="visual-number" aria-hidden="true">03</span><div><h3>Share.</h3><p>Finder, apps or AirDrop.</p></div><span class="file-symbol" aria-hidden="true">↗</span></li>
+        </ol>
+        <div class="visual-foot"><span class="live-dot" aria-hidden="true"></span><span>Keep the work moving.</span><img src="./assets/shtorka.svg" alt="" width="28" height="28"></div>
       </div>
-      <p class="visual-caption"><span class="caption-dot" aria-hidden="true"></span>Interactive visual concept. The app interface is still taking shape.</p>
+      <p class="visual-caption">Workflow illustration. This is not a screenshot of the app.</p>
     </div>
   </section>
-  <section class="story-section frame" id="idea">
-    <div><p class="eyebrow">01 / The idea</p><h2>Less in the way.<br><em>More room to work.</em></h2></div>
-    <div class="story-copy"><p>SHTORKA starts with the idea of a panel for developers on Mac: a useful layer that belongs in your workspace, without becoming the whole workspace.</p><p>This is the direction behind the project. The precise tools, interface and interactions are being developed and will be shown as they become ready.</p><a class="text-link" href="#get-shtorka">Get involved early <span aria-hidden="true">↗</span></a></div>
+  <section class="workflow-section frame" id="workflow" aria-labelledby="workflow-title">
+    <span id="idea" class="anchor-alias" aria-hidden="true"></span><span id="story" class="anchor-alias" aria-hidden="true"></span>
+    <p class="eyebrow">01 / Collect. Prepare. Share.</p>
+    <div class="section-heading"><h2 id="workflow-title">From working files<br>to ready to share.</h2><p>For independent developers, designers and people who make digital products. Keep the handoff close to the work.</p></div>
+    <ol class="workflow-cards">
+      <li><span class="step-number">01 / Collect</span><h3>A shelf at the top.</h3><p>Drag files or folders to the top edge of your Mac. Select what you need, use Quick Look, or reveal the original in Finder. Your shelf stays with you after restarting the app.</p></li>
+      <li><span class="step-number">02 / Prepare</span><h3>Make it ready.</h3><p>Create a ZIP or a separate copy in a supported format. Keep a set of working files together while preparing the result you want to pass on.</p></li>
+      <li><span class="step-number">03 / Share</span><h3>Pass the work on.</h3><p>Send the selected set to Finder, another app or through AirDrop. Keep the collection close while you finish the handoff.</p></li>
+    </ol>
+    <p class="scope-note">These workflows are present in the development build. Conversion support is limited to the validated format matrix; the supported list will be published with the beta.</p>
   </section>
-  <section class="principle-section frame" aria-label="Design direction">
-    <article><span class="principle-number">01 / Platform</span><h3>Mac, from the start.</h3><p>A macOS project shaped around a developer’s workspace on Mac, with the platform in mind from the beginning.</p></article>
-    <article><span class="principle-number">02 / Audience</span><h3>For the way you work.</h3><p>Built for developers. Early conversations will help shape which details deserve a place in the panel.</p></article>
-    <article><span class="principle-number">03 / Approach</span><h3>Small. Considered.</h3><p>A focused idea, developed independently. Follow the project while its first version takes shape.</p></article>
+  <section class="layout-section frame" id="your-day" aria-labelledby="layout-title">
+    <div class="layout-copy"><p class="eyebrow">02 / Your day</p><h2 id="layout-title">Your day.<br><em>Your layout.</em></h2><p>Choose three blocks and adjust their sizes. A day or week calendar, music, Shortcuts, notes, tasks or a timer — around the way you work.</p><p>The panel opens on hover and stays tucked away when idle. The date stays visible in the calendar even on a day without events.</p><p class="scope-note">Music information and controls depend on the supported source.</p></div>
+    <div class="layout-example"><p class="status-label">One possible arrangement</p><ol class="layout-blocks"><li><span>01</span><strong>Calendar</strong><p>Day or week</p></li><li><span>02</span><strong>Notes</strong><p>Keep a thought</p></li><li><span>03</span><strong>Timer</strong><p>Make some space</p></li></ol><ul class="widget-list" aria-label="Available block types"><li>Calendar</li><li>Music</li><li>Shortcuts</li><li>Notes</li><li>Tasks</li><li>Timer</li></ul><p class="visual-caption">Layout diagram. The app interface is still being refined.</p></div>
   </section>
   <section class="access-section frame" id="get-shtorka" aria-labelledby="get-shtorka-title">
-    <span id="early-access" class="anchor-alias" aria-hidden="true"></span>
-    <span id="get-nova" class="anchor-alias" aria-hidden="true"></span>
+    <span id="early-access" class="anchor-alias" aria-hidden="true"></span><span id="get-nova" class="anchor-alias" aria-hidden="true"></span>
     <div class="access-panel">
       <div class="access-copy"><p class="eyebrow"><span class="live-dot" aria-hidden="true"></span>$access_eyebrow</p><h2 id="get-shtorka-title">$access_title</h2><p>$access_copy</p><div class="access-maker"><img src="./assets/shtorka.svg" width="42" height="42" alt=""><p>SHTORKA for Mac<span>A project by Matvii Akkuratov</span></p></div></div>
       <div class="access-action"><p class="status-label">SHTORKA / macOS</p>$offer<a class="primary-button" data-primary-action data-acquisition-action href="$primary_url">$primary_label <span aria-hidden="true">↗</span></a>$secondary_action<p class="access-note">$action_note</p><div class="email-fallback"><span>Prefer to reach out directly?</span><a class="plain-email" href="mailto:$email">$email</a><button class="copy-email" data-copy-email data-email="$email" hidden>Copy email <span aria-hidden="true">⧉</span></button><p class="copy-status" data-copy-status role="status"></p></div></div>
     </div>
   </section>
   <section class="faq-section frame" id="questions" aria-labelledby="questions-title">
-    <div><p class="eyebrow">02 / Good to know</p><h2 id="questions-title">A few things,<br>before you jump in.</h2></div>
+    <div><p class="eyebrow">03 / Before you join</p><h2 id="questions-title">A few useful details.</h2><p class="faq-intro">Compatibility, formats and permissions will be documented before distribution. The app is being prepared for its first external beta.</p></div>
     <div class="faq-list">
       <details open><summary>Can I download SHTORKA now?<span aria-hidden="true">+</span></summary><p>$availability_answer</p></details>
       <details><summary>How much will it cost?<span aria-hidden="true">+</span></summary><p>$price_answer</p></details>
       <details><summary>Will it work on my Mac?<span aria-hidden="true">+</span></summary><p>$compatibility_answer</p></details>
-      <details><summary>What happens next?<span aria-hidden="true">+</span></summary><p>$next_answer</p></details>
+      <details><summary>Which formats and music sources work?<span aria-hidden="true">+</span></summary><p>ZIP creation and supported-format copies are part of the development build. Conversion support follows a validated matrix. Music controls depend on the supported source. Exact format and source lists will be published with the beta.</p></details>
+      <details><summary>What happens after I join?<span aria-hidden="true">+</span></summary><p>$next_answer</p></details>
+      <details><summary>Where can I read about privacy?<span aria-hidden="true">+</span></summary><p><a href="/shtorka/privacy">Website privacy</a> explains browsing and beta email enquiries. The app’s permissions and data policy will be documented before it is distributed.</p></details>
     </div>
   </section>
 </main>

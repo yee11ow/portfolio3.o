@@ -11,7 +11,7 @@
       "kind": "home",
       "label": "Hem",
       "title": "Matvii Akkuratov | macOS-utvecklare & webbdesigner",
-      "description": "Oberoende macOS-utvecklare och webbdesigner i Sverige. Utforska SHTORKA, en utvecklarpanel för Mac, och mina egna UX-fallstudier för svenska byråer."
+      "description": "Oberoende macOS-utvecklare och webbdesigner i Sverige. Utforska SHTORKA, en kompakt filhylla för Mac, och mina egna UX-fallstudier för svenska byråer."
     },
     {
       "file": "en/index.html",
@@ -21,7 +21,7 @@
       "kind": "home",
       "label": "Home",
       "title": "Matvii Akkuratov | macOS Developer & Web Designer",
-      "description": "Independent macOS developer and web designer in Sweden. Explore SHTORKA, a developer panel for Mac, and my website UX case studies for professional firms."
+      "description": "Independent macOS developer and web designer in Sweden. Explore SHTORKA, a compact file shelf for Mac, and my website UX case studies for professional firms."
     },
     {
       "file": "projects/index.html",
@@ -49,10 +49,10 @@
       "lang": "en",
       "kind": "application",
       "label": "SHTORKA for Mac",
-      "title": "SHTORKA Developer Panel for Mac | Matvii Akkuratov",
-      "description": "Meet SHTORKA, a macOS developer panel by Matvii Akkuratov. Explore the project in development and register your interest in early access by email.",
-      "image": "/shtorka/assets/shtorka-og.png",
-      "image_alt": "SHTORKA for Mac, a developer panel in development",
+      "title": "SHTORKA | File Shelf & Sharing for Mac",
+      "description": "Keep files close, prepare supported copies and share from a compact shelf at the top of your Mac. Explore SHTORKA and request a beta invitation.",
+      "image": "/shtorka/assets/shtorka-og.png?v=20261117",
+      "image_alt": "SHTORKA for Mac: collect, prepare and share working files; workflow illustration",
       "parent": "/en/projects/"
     },
     {
@@ -302,7 +302,7 @@
       "kind": "page",
       "label": "SHTORKA website privacy",
       "title": "SHTORKA Website Privacy | Matvii Akkuratov",
-      "description": "Privacy information for the SHTORKA development website and early-access email enquiries. Learn what happens when you browse the site or contact the maker.",
+      "description": "Privacy information for the SHTORKA website and beta invitation requests by email. Learn what happens when you browse the site or contact the maker.",
       "index": false
     },
     {

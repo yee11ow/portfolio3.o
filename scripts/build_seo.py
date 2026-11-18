@@ -25,8 +25,8 @@ def catalogue():
     for page in pages:
         if page['kind'] == 'application' and SHTORKA_RELEASE['mode'] == 'released':
             action = view_model(SHTORKA_RELEASE)['primary_label']
-            page['title'] = action + ' | SHTORKA Developer Panel for Mac'
-            page['description'] = f'Get SHTORKA, a developer panel for Mac by Matvii Akkuratov. Version {SHTORKA_RELEASE["version"]} for macOS {SHTORKA_RELEASE["minimum_macos"]} or later. See download and purchase details.'
+            page['title'] = action + ' | SHTORKA File Shelf for Mac'
+            page['description'] = f'Get SHTORKA, a compact file shelf for Mac by Matvii Akkuratov. Version {SHTORKA_RELEASE["version"]} for macOS {SHTORKA_RELEASE["minimum_macos"]} or later. See download and purchase details.'
         if page['kind'] == 'case':
             case = cases[page['case']]
             copy = case[page['lang']]
@@ -120,7 +120,7 @@ def graph(page, pages, document):
         if kind == 'profile':
             web_page['mainEntity'] = {'@id': PERSON}
     elif kind == 'application':
-        app = {'@type': 'SoftwareApplication', '@id': url + '#software', 'name': 'SHTORKA', 'url': url, 'description': page['description'], 'operatingSystem': 'macOS', 'applicationCategory': 'DeveloperApplication', 'creativeWorkStatus': 'In development', 'inLanguage': 'en', 'author': {'@id': PERSON}, 'image': {'@id': image['@id']}, 'mainEntityOfPage': {'@id': web_page['@id']}}
+        app = {'@type': 'SoftwareApplication', '@id': url + '#software', 'name': 'SHTORKA', 'url': url, 'description': page['description'], 'operatingSystem': 'macOS', 'applicationCategory': 'ProductivityApplication', 'creativeWorkStatus': 'In development', 'inLanguage': 'en', 'author': {'@id': PERSON}, 'image': {'@id': image['@id']}, 'mainEntityOfPage': {'@id': web_page['@id']}}
         if SHTORKA_RELEASE['mode'] == 'released':
             app.update(creativeWorkStatus='Released', softwareVersion=SHTORKA_RELEASE['version'], downloadUrl=SHTORKA_RELEASE['download_url'], operatingSystem='macOS ' + SHTORKA_RELEASE['minimum_macos'] + '+', processorRequirements=SHTORKA_RELEASE['processors'])
             if SHTORKA_RELEASE.get('price') is not None:
