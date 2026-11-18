@@ -197,8 +197,11 @@ try {
       const workflowTop = await page.locator('#workflow-title').boundingBox();
       const stickyHeader = await page.locator('.shtorka-header').boundingBox();
       assert.ok(workflowTop.y >= stickyHeader.y + stickyHeader.height - 1, `${engineName}: the sticky header hides the workflow destination`);
+      await checkShtorkaAction(page, `${engineName} SHTORKA after workflow navigation`);
       for (const width of [390, 1366]) {
         await page.setViewportSize({ width, height: 900 });
+        // Capture a fresh landing view without retained fragment scroll state.
+        await load(page, 'shtorka/index.html');
         await capture(page, `${artifacts}/${engineName}-shtorka-${width}.png`);
       }
 
