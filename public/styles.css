@@ -1089,6 +1089,7 @@ section[id] { scroll-margin-top: 88px; }
    and text reflow therefore clamp a moved panel without waiting for JS. */
 .pill.is-placed {
   --pill-top-edge: calc(max(var(--safe-top), var(--header-height, 68px)) + 8px);
+  width: max-content;
   left: calc(var(--safe-left) + 8px + var(--pill-x) * (var(--pill-view-width) - var(--safe-left) - var(--safe-right) - 16px));
   top: calc(var(--pill-top-edge) + var(--pill-y) * (var(--pill-view-height) - var(--pill-top-edge) - var(--safe-bottom) - 8px));
   right: auto;

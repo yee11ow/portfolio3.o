@@ -72,6 +72,8 @@
     });
     // Collapse the mobile navigation only once its controls are ready.
     header.classList.add('nav-ready');
+    // The no-JS menu was taller; refresh its size without relying on an observer.
+    syncViewport();
   }
 
   /* ---------- AI assistant, loaded on request ----------
