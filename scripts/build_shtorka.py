@@ -58,29 +58,29 @@ def view_model(config):
     validate_release(config)
     email = config['email']
     mail = 'mailto:' + email + '?' + urlencode({
-        'subject': 'SHTORKA early access',
-        'body': "Hi Matvii,\n\nI'd like to request early access to SHTORKA.\n\nHere's how I work on my Mac:\n",
+        'subject': 'SHTORKA beta invitation',
+        'body': "Hi Matvii,\n\nI'd like to request an invitation to SHTORKA's beta.\n\nHere's a little about how I collect and share working files:\n",
     })
     if config['mode'] == 'early-access':
         return {
-            'status': 'In development', 'primary_label': 'Request early access',
+            'status': 'Beta in preparation', 'primary_label': 'Join the beta',
             'primary_url': mail, 'secondary_action': '',
-            'hero_note': 'Opens email · In development · No payment required',
-            'access_eyebrow': 'Early access', 'access_title': 'Be there<br><em>from the beginning.</em>',
-            'access_copy': 'Interested in a developer panel for your Mac? Send Matvii a short email to register your interest in SHTORKA.',
-            'offer': '<p class="offer-line">Not available to download yet.</p>',
+            'hero_note': 'Beta invitation request · Opens email',
+            'access_eyebrow': 'The first beta', 'access_title': 'Your workflow.<br><em>Our next step.</em>',
+            'access_copy': 'Build apps, websites or digital products? Tell me how you collect and share working files, and request an invitation to the SHTORKA beta.',
+            'offer': '<p class="offer-line">Closed beta in preparation.</p>',
             'action_note': 'Opens your email app. Your request is sent only when you send the email.',
-            'availability_answer': 'SHTORKA is in development and is not available to download yet. You can request early access by email. A release date has not been announced.',
-            'price_answer': 'Pricing and the purchase model are still being decided. Requesting early access does not involve a payment or a purchase commitment.',
-            'compatibility_answer': 'SHTORKA is being developed for macOS. The minimum macOS version and supported processors will be confirmed before a download is offered.',
-            'next_answer': 'Your email goes directly to Matvii, the maker of SHTORKA. He can reply about the project and your interest in testing it. This is a personal enquiry, not an automatic account or a confirmed beta invitation.',
+            'availability_answer': 'The closed beta is being prepared. SHTORKA is not available as a public download yet. Use Join the beta to request an invitation by email; release dates have not been announced.',
+            'price_answer': 'Price, purchase model and trial terms will be confirmed before sales begin. Requesting a beta invitation does not involve a payment.',
+            'compatibility_answer': 'SHTORKA is being developed for macOS. Supported macOS versions, processors and required permissions will be documented before beta distribution.',
+            'next_answer': 'Your email goes directly to Matvii, the maker of SHTORKA. Sending it registers your interest in the beta. An invitation and access to the app will be arranged separately once the beta is ready.',
         }
     paid = config.get('price') is not None
     trial = config.get('trial_days')
     price = (str(config['price']) + ' ' + config['currency']) if paid else 'Free'
     billing = {'one-time': 'one-time payment', 'monthly': 'billed monthly', 'yearly': 'billed yearly'}.get(config.get('billing'), '')
     buy_first = paid and not trial
-    label = 'Buy SHTORKA' if buy_first else 'Download for Mac'
+    label = 'Buy SHTORKA' if buy_first else ('Try SHTORKA for Mac' if trial else 'Download for Mac')
     href = config['checkout_url'] if buy_first else config['download_url']
     secondary = ''
     if paid:
