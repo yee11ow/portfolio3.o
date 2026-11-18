@@ -254,6 +254,9 @@ try {
       await delayedResize.locator('#pill').press('Shift+ArrowRight');
       for (const [width, height] of [[1366,1024], [320,568], [740,360], [820,1180]]) {
         await delayedResize.setViewportSize({width,height});
+        // Commit viewport units/media queries to a painted frame. Resize
+        // listeners and observers remain disabled throughout this scenario.
+        await delayedResize.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
         await checkPill(delayedResize, `${engineName} without resize notifications ${width}×${height}`);
         assert.equal(await delayedResize.locator('.pill__q').textContent(), delayedQuestion);
       }
