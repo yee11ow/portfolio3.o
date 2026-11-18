@@ -28,6 +28,8 @@ jobs:
     if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
     # Keep browser dependencies stable when ubuntu-latest changes LTS releases.
     runs-on: ubuntu-24.04
+    # Match the npm version below; browsers and OS libraries are preinstalled.
+    container: mcr.microsoft.com/playwright:v1.63.0-noble
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
@@ -36,8 +38,6 @@ jobs:
           node-version: '22'
       - name: Install browser test dependency
         run: npm install --no-save --package-lock=false playwright@1.63.0
-      - name: Install browser engines
-        run: npx playwright install --with-deps chromium webkit
       - name: Check phones, foldable layouts and tablets
         run: node tests/responsive.mjs
       - uses: actions/upload-artifact@v4
