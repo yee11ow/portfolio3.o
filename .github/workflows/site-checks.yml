@@ -26,7 +26,8 @@ jobs:
           git diff --exit-code -- public
   responsive:
     if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
+    # Keep browser dependencies stable when ubuntu-latest changes LTS releases.
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
