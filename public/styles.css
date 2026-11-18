@@ -1054,10 +1054,12 @@ section[id] { scroll-margin-top: 88px; }
 /* ============================ READING PILL ============================ */
 .pill {
   --pill-bottom: max(var(--pad), calc(var(--safe-bottom) + 8px));
+  --pill-view-width: min(100vw, var(--viewport-width));
+  --pill-view-height: min(100vh, var(--viewport-height));
   position: fixed;
   left: max(var(--pad), calc(var(--safe-left) + 8px));
   bottom: var(--pill-bottom);
-  max-width: calc(var(--viewport-width) - var(--safe-left) - var(--safe-right) - 16px);
+  max-width: calc(var(--pill-view-width) - var(--safe-left) - var(--safe-right) - 16px);
   z-index: 90;
   display: flex;
   align-items: center;
@@ -1080,6 +1082,21 @@ section[id] { scroll-margin-top: 88px; }
 .pill.is-dragging { cursor: grabbing; box-shadow: var(--shadow); }
 .pill:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
+@supports (height: 100dvh) {
+  .pill { --pill-view-height: min(100dvh, var(--viewport-height)); }
+}
+/* Translate by the same fraction of the panel's own size. Viewport changes
+   and text reflow therefore clamp a moved panel without waiting for JS. */
+.pill.is-placed {
+  --pill-top-edge: calc(max(var(--safe-top), var(--header-height, 68px)) + 8px);
+  width: max-content;
+  left: calc(var(--pill-offset-x, 0px) + var(--safe-left) + 8px + var(--pill-x) * (var(--pill-view-width) - var(--safe-left) - var(--safe-right) - 16px));
+  top: calc(var(--pill-offset-y, 0px) + var(--pill-top-edge) + var(--pill-y) * (var(--pill-view-height) - var(--pill-top-edge) - var(--safe-bottom) - 8px));
+  right: auto;
+  bottom: auto;
+  transform: translate(calc(var(--pill-x) * -100%), calc(var(--pill-y) * -100%));
+}
+
 /* Opened, it stops being a pill and becomes a small card. It is anchored at
    the bottom, so it grows upward and never pushes the page around. */
 .pill.is-open {
@@ -1091,9 +1108,12 @@ section[id] { scroll-margin-top: 88px; }
   box-shadow: var(--shadow);
   background: color-mix(in srgb, var(--surface) 97%, transparent);
   cursor: default;
-  max-height: calc(var(--viewport-height) - var(--header-height, 68px) - var(--pill-bottom) - 8px);
+  max-height: calc(var(--pill-view-height) - var(--header-height, 68px) - var(--pill-bottom) - 8px);
   overflow-y: auto;
   overscroll-behavior-y: contain;
+}
+.pill.is-placed.is-open {
+  max-height: calc(var(--pill-view-height) - var(--pill-top-edge) - var(--safe-bottom) - 8px);
 }
 
 .pill__grab { display: flex; align-items: center; gap: .55rem; cursor: grab; touch-action: none; flex-shrink: 0; }

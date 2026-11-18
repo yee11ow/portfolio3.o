@@ -72,6 +72,8 @@
     });
     // Collapse the mobile navigation only once its controls are ready.
     header.classList.add('nav-ready');
+    // The no-JS menu was taller; refresh its size without relying on an observer.
+    syncViewport();
   }
 
   /* ---------- AI assistant, loaded on request ----------
@@ -346,15 +348,20 @@
       var minY = offsetY + Math.max(inset('top'), header ? header.getBoundingClientRect().height : 0) + 8;
       var maxX = offsetX + width - box.width - inset('right') - 8;
       var maxY = offsetY + height - box.height - inset('bottom') - 8;
-      pill.style.left = Math.max(minX, Math.min(x, maxX)) + 'px';
-      pill.style.top = Math.max(minY, Math.min(y, maxY)) + 'px';
-      pill.style.right = 'auto';
-      pill.style.bottom = 'auto';
+      // CSS uses these fractions and the panel's own size to stay contained
+      // during the frame before resize/ResizeObserver notifications arrive.
+      var ratioX = maxX > minX ? (x - minX) / (maxX - minX) : 0;
+      var ratioY = maxY > minY ? (y - minY) / (maxY - minY) : 0;
+      pill.style.setProperty('--pill-offset-x', offsetX + 'px');
+      pill.style.setProperty('--pill-offset-y', offsetY + 'px');
+      pill.style.setProperty('--pill-x', Math.max(0, Math.min(1, ratioX)));
+      pill.style.setProperty('--pill-y', Math.max(0, Math.min(1, ratioY)));
+      pill.classList.add('is-placed');
     }
 
     function fitPill() {
       // Preserve the CSS bottom anchor until the visitor moves the control.
-      if (pill.hidden || !pill.style.left) return;
+      if (pill.hidden || !pill.classList.contains('is-placed')) return;
       var box = pill.getBoundingClientRect();
       placeAt(box.left, box.top);
     }
